@@ -62,6 +62,7 @@ public class PlayerAttackScript : MonoBehaviour
         if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity)) 
         {
             Vector3 direction = hitInfo.point - transform.position;
+            direction.z = 0;
             direction.Normalize();
 
             //After getting the position of the mouse it calls the throw sword function to the trow the sword
@@ -84,7 +85,6 @@ public class PlayerAttackScript : MonoBehaviour
         
             
             rb.AddForce(direction * throwForce, ForceMode.Impulse);
-            Debug.Log("Sword throw script runs");
         }
         else
         {
@@ -94,7 +94,7 @@ public class PlayerAttackScript : MonoBehaviour
     void SwordRecall()
     {
         swordCollider.enabled = false;
-    
+        
         Destroy(GameObject.FindWithTag("Sword")); // Destroy the thrown sword 
         sword.SetActive(true);
         isSwordThrown = false;
