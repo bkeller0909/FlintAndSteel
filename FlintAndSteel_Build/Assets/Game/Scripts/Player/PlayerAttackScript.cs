@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerAttackScript : MonoBehaviour
 {
@@ -63,6 +64,7 @@ public class PlayerAttackScript : MonoBehaviour
         {
             Vector3 direction = hitInfo.point - transform.position;
             direction.Normalize();
+            direction.z = 0;
 
             //After getting the position of the mouse it calls the throw sword function to the trow the sword
             ThrowSword(direction);

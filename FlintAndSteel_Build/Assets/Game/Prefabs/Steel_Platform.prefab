@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2750934000346649419
+--- !u!1001 &2210238939094541388
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 683200a44202fe844aa8125431db5f2a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 683200a44202fe844aa8125431db5f2a,
         type: 3}
@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 683200a44202fe844aa8125431db5f2a,
         type: 3}
       propertyPath: m_Name
-      value: Steel
+      value: Steel_Platform
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 683200a44202fe844aa8125431db5f2a,
         type: 3}
@@ -110,29 +110,25 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 683200a44202fe844aa8125431db5f2a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8929846589228709028}
+      addedObject: {fileID: 14371691813492646}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 683200a44202fe844aa8125431db5f2a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4319357960853533445}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 683200a44202fe844aa8125431db5f2a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2346411797490626939}
+      addedObject: {fileID: 8401170575402281948}
   m_SourcePrefab: {fileID: 100100000, guid: 683200a44202fe844aa8125431db5f2a, type: 3}
---- !u!1 &3092897845359537690 stripped
+--- !u!1 &1327771664233683229 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 683200a44202fe844aa8125431db5f2a,
     type: 3}
-  m_PrefabInstance: {fileID: 2750934000346649419}
+  m_PrefabInstance: {fileID: 2210238939094541388}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &8929846589228709028
+--- !u!65 &14371691813492646
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3092897845359537690}
+  m_GameObject: {fileID: 1327771664233683229}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -141,50 +137,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 4.4950986, z: 1.110199}
-  m_Center: {x: -0.0000038146973, y: 0.5243652, z: -0.41397095}
---- !u!54 &4319357960853533445
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3092897845359537690}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 120
-  m_CollisionDetection: 0
---- !u!114 &2346411797490626939
+  m_Size: {x: 3, y: 5.34, z: 2.0550575}
+  m_Center: {x: -0.037639618, y: 0.01, z: -0.8864002}
+--- !u!114 &8401170575402281948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3092897845359537690}
+  m_GameObject: {fileID: 1327771664233683229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3206c0c384214448bd518b03367cfcd, type: 3}
+  m_Script: {fileID: 11500000, guid: ffd3e9578994f9a41b0e338122dae808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPlatform: {fileID: 1327771664233683229, guid: bf2a772850a7c53479749829c151dfa9,
-    type: 3}
