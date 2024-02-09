@@ -84,7 +84,6 @@ public class PlayerAttackScript : MonoBehaviour
             rb.isKinematic = false;
             isSwordThrown = true;
         
-            
             rb.AddForce(direction * throwForce, ForceMode.Impulse);
             Debug.Log("Sword throw script runs");
         }
