@@ -91,7 +91,7 @@ public class PlayerAttackScript : MonoBehaviour
         if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity)) 
         {
             //Setting a min distance
-            float minThrowDistance = 1.5f;
+            float minThrowDistance = 1f;
             
             //Check to make sure the mouse is clicked a distance away from the player
             if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
@@ -113,14 +113,11 @@ public class PlayerAttackScript : MonoBehaviour
     void ThrowSword(Vector3 direction)
     {
         Quaternion rotation = Quaternion.LookRotation(direction);
-        rotation = Quaternion.Euler(0, 0, -90);
+        //Sets the rotation in real time right before the sword is thrown
+        rotation *= Quaternion.Euler(90,0, 0);
         GameObject thrownSword = Instantiate(sword, throwPosition.position, rotation);// Quaternion.LookRotation(direction));
         rb = thrownSword.GetComponent<Rigidbody>();
         thrownSword.GetComponent<Collider>().enabled = true;
-        
-        bool isThrownRight = Vector3.Dot(direction, transform.right) > 0;
-
-
 
         if (rb != null)
         {
@@ -131,10 +128,6 @@ public class PlayerAttackScript : MonoBehaviour
             rb.AddForce(direction * throwForce, ForceMode.Impulse);
             Debug.Log("Sword throw script runs");
 
-            if (isThrownRight)
-                Debug.Log("Sword thrown to right");
-            else
-                Debug.Log("Sword thrown to the left");
         }
         else
         {
