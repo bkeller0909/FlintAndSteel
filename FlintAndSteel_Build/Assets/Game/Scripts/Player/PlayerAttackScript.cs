@@ -11,7 +11,6 @@ using UnityEngine.UIElements;
 public class PlayerAttackScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    Transform throwDirection;
     [SerializeField] float throwForce = 10.0f;
     [SerializeField] GameObject sword;
     private bool isSwordThrown;
@@ -19,6 +18,7 @@ public class PlayerAttackScript : MonoBehaviour
     private Collider swordCollider;
     Camera mainCamera;
     [SerializeField] private Transform throwPosition;
+    public bool steelFound;
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class PlayerAttackScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && steelFound)
         {
             if (isSwordThrown)
             {
@@ -48,6 +48,33 @@ public class PlayerAttackScript : MonoBehaviour
             else
             {
                 AimAndThrow();
+            }
+        }
+
+        UpdateSteelRenderer();
+    }
+
+    private void UpdateSteelRenderer()
+    {
+        //hide the sword if the player hasnt picked it up yet
+        if (!steelFound && sword != null)
+        {
+            //Hide all renderers
+            Renderer[] swordPieces = sword.GetComponentsInChildren<Renderer>();
+
+            for (int i = 0; i < swordPieces.Length; i++)
+            {
+                swordPieces[i].enabled = false;
+            }
+        }
+        else
+        {
+            //Show all renderers
+            Renderer[] swordPieces = sword.GetComponentsInChildren<Renderer>();
+
+            for (int i = 0; i < swordPieces.Length; i++)
+            {
+                swordPieces[i].enabled = true;
             }
         }
     }
