@@ -5,6 +5,7 @@
 //ADjust the throw force as you need in the inspector
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -89,21 +90,37 @@ public class PlayerAttackScript : MonoBehaviour
 
         if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity)) 
         {
-            Vector3 direction = hitInfo.point - transform.position;
-            direction.Normalize();
-            direction.z = 0;
+            //Setting a min distance
+            float minThrowDistance = 1.5f;
+            
+            //Check to make sure the mouse is clicked a distance away from the player
+            if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
+            {
+                Vector3 direction = hitInfo.point - transform.position;
+                direction.Normalize();
+                direction.z = 0;
 
-            //After getting the position of the mouse it calls the throw sword function to the trow the sword
-            ThrowSword(direction);
+                //After getting the position of the mouse it calls the throw sword function to the trow the sword
+                ThrowSword(direction);
+            }
+
+            else
+            {
+                Debug.Log("Mouse click too close to the character. Sword mnot thrown");
+            }
         }
     }
     void ThrowSword(Vector3 direction)
     {
-
-        GameObject thrownSword = Instantiate(sword, throwPosition.position, Quaternion.LookRotation(direction));
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        rotation = Quaternion.Euler(0, 0, -90);
+        GameObject thrownSword = Instantiate(sword, throwPosition.position, rotation);// Quaternion.LookRotation(direction));
         rb = thrownSword.GetComponent<Rigidbody>();
         thrownSword.GetComponent<Collider>().enabled = true;
         
+        bool isThrownRight = Vector3.Dot(direction, transform.right) > 0;
+
+
 
         if (rb != null)
         {
@@ -113,6 +130,11 @@ public class PlayerAttackScript : MonoBehaviour
         
             rb.AddForce(direction * throwForce, ForceMode.Impulse);
             Debug.Log("Sword throw script runs");
+
+            if (isThrownRight)
+                Debug.Log("Sword thrown to right");
+            else
+                Debug.Log("Sword thrown to the left");
         }
         else
         {
