@@ -23,6 +23,16 @@ public class ThrownSword : MonoBehaviour
             return;
         }
 
+        if(other.CompareTag("Coin"))
+        {
+            return;
+        }
+
+        if(other.CompareTag("Enemy"))
+        {
+            return;
+        }
+
         // If sword doesnt hit a wood wall, enemy, or player: destroy itself (replace with animation in the future)
         Destroy(gameObject);
     }
