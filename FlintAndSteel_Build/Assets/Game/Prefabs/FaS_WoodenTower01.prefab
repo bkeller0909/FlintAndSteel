@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 986566925162718447}
+  - component: {fileID: 6409762419476517249}
   m_Layer: 0
   m_Name: FaS_WoodenTower01
   m_TagString: Untagged
@@ -54,6 +55,27 @@ Transform:
   - {fileID: 2993886606758906961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6409762419476517249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128199199925249808}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.712593, y: 3.3629804, z: 2.8776665}
+  m_Center: {x: -1.0108604, y: 2.418495, z: 0.93883324}
 --- !u!1001 &317592807519823243
 PrefabInstance:
   m_ObjectHideFlags: 0
