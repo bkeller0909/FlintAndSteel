@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,18 +15,20 @@ public class ShootEnemy : MonoBehaviour
 
     [Header("Targeting Options")]
     [SerializeField] private float detectionRange = 5f;
+    [SerializeField] private float returnRange = 5f;
     [SerializeField] private bool detectionEnabled = true;
     [SerializeField] private Transform player;
 
     private Vector3 startPosition;
-    private float traveledDistance = 0f;
+    private float travelledDistance = 0f;
+    private float extraTravelledDistance = 0f;
     private bool movingForward = true;
+    private bool isReturningToStart = false;
 
-    private int enemyMaxHealth = 3; //Maximum possible health
+    private int enemyMaxHealth = 1;
     private int enemyCurrentHealth;
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         startPosition = transform.position;     //Enemy starting coords
@@ -43,54 +46,107 @@ public class ShootEnemy : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Movement();
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        // Check for returning to start position
+        if (isReturningToStart)
+        {
+            ReturnToStartPosition();
+        }
+        else if (distanceToPlayer <= detectionRange && detectionEnabled)
+        {
+            MoveAwayNShoot();
+        }
+        else
+        {
+            Patrol();
+        }
     }
 
-    private void Movement()
+    private void MoveAwayNShoot()
     {
+        // More logic needed to be added
+
         if (player != null)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-            if (distanceToPlayer <= detectionRange)
+            if (detectionEnabled == true)
             {
-                if (detectionEnabled == true)
+                // Move towards the player
+                Vector3 directionToPlayer = (transform.position - player.position).normalized;
+                directionToPlayer.y = 0; // Keep Y-axis unchanged
+                directionToPlayer.z = 0; // Keep Z-axis unchanged
+
+                transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
+
+                extraTravelledDistance += moveSpeed * Time.deltaTime;
+
+                if (extraTravelledDistance >= returnRange)
                 {
-                    // Move towards the player
-                    Vector3 directionToPlayer = (player.position - transform.position).normalized;
-                    directionToPlayer.y = 0; // Keep Y-axis unchanged
-                    directionToPlayer.z = 0; // Keep Z-axis unchanged
-                    transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
-                }
-                else
-                {
-                    detectionRange = 0;
+                    isReturningToStart = true;
                 }
             }
             else
             {
-                if (movingForward)
-                    transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-                else
-                    transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-
-
-                // Updates the traveled distance
-                traveledDistance += moveSpeed * Time.deltaTime;
-
-                // Check if the Enemy moved required distance
-                if (traveledDistance >= moveDistance)
-                {
-                    // Reset traveled distance
-                    traveledDistance = 0f;
-
-                    // Reverse the movement direction
-                    movingForward = !movingForward;
-                }
+                detectionRange = 0;
             }
+
+        }
+    }
+
+    private void Patrol()
+    {
+        if (movingForward)
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        else
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+
+        // Updates the travelled distance
+        travelledDistance += moveSpeed * Time.deltaTime;
+
+        // Check if the Enemy moved required distance
+        if (travelledDistance >= moveDistance)
+        {
+            // Reset travelled distance
+            travelledDistance = 0f;
+
+            // Reverse the movement direction
+            movingForward = !movingForward;
+        }
+    }
+
+    private void ReturnToStartPosition()
+    {
+        // instead of returning needs to try to maintain distance and go back towards player if player goes backwards (left)
+
+        // Debug log to check if this function is called
+        if (showDebug == true) Debug.Log("Attempting to return to start position.");
+
+        float distanceToStart = Vector3.Distance(transform.position, startPosition);
+
+        // Log the distance to start
+        if (showDebug == true) Debug.Log($"Distance to Start: {distanceToStart}");
+
+        if (distanceToStart > 0.1f)
+        {
+            Vector3 directionToStart = (startPosition - transform.position).normalized;
+            directionToStart.y = 0;
+            directionToStart.z = 0;
+
+            transform.Translate(directionToStart * moveSpeed * Time.deltaTime, Space.World);
+
+            // Debug log to confirm direction and movement
+            if (showDebug == true) Debug.Log($"Moving towards start. Direction: {directionToStart}, Speed: {moveSpeed}");
+        }
+        else
+        {
+            // Reached or very close to start position
+            if (showDebug == true) Debug.Log("Reached start position.");
+
+            isReturningToStart = false;
+            movingForward = true;
+            extraTravelledDistance = 0f;
         }
     }
 
@@ -99,7 +155,6 @@ public class ShootEnemy : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             Damaged(1); // take 1 damage
-            if (showDebug == true) Debug.Log("Enemy Health: " + enemyCurrentHealth);
         }
     }
 
@@ -107,9 +162,11 @@ public class ShootEnemy : MonoBehaviour
     {
         enemyCurrentHealth -= damage; // lower Health with whatever damage was recieved
 
+        if (showDebug == true) Debug.Log("Enemy Health: " + enemyCurrentHealth);
+
         if (enemyCurrentHealth <= 0)  // if health is or less than 0 enemy is dead
         {
-            if (showDebug == true) Debug.Log("ShootingEnemy Killed");
+            if (showDebug == true) Debug.Log("MainEnemy Killed");
             gameObject.SetActive(false);
         }
     }
