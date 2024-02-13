@@ -38,6 +38,7 @@ public class Throwing : MonoBehaviour
 	private bool climbing;
 	private Vector3 ropeHeight;
 	private Vector3 originalJumpForce;
+	public bool pulling;
 
 	//setup
 	void Awake()
@@ -63,6 +64,7 @@ public class Throwing : MonoBehaviour
 			animator.SetLayerWeight(armsAnimationLayer, 1);
 
 		climbing = false;
+		pulling = false;
 		originalJumpForce = playerMove.jumpForce;
 	}
 	
@@ -96,16 +98,20 @@ public class Throwing : MonoBehaviour
 			 * characterMotor.RotateToDirection(heldObj.transform.position, rotateToBlockSpeed, true);
 			 */
 
+			pulling = true;
+
 			//if we let go of grab key, drop the pushable
 			if(Input.GetButtonUp ("Grab"))
 			{
 				DropPushable();
+				pulling = false;
 			}
 			
 			if(!joint)
 			{
 				DropPushable();
 				print ("'Pushable' object dropped because the 'holdingBreakForce' or 'holdingBreakTorque' was exceeded");
+				pulling = false;
 			}
 		}
 
@@ -148,6 +154,7 @@ public class Throwing : MonoBehaviour
 		//stop player rotating in direction of movement, so they can face the block theyre pulling
 		playerMove.rotateSpeed = 0;
 		playerMove.jumpForce = new Vector3 (0, 0, 0);
+		heldObj.GetComponent<Rigidbody>().mass = 0.6f;
 	}
 	
 	private void LiftPickup(Collider other)
