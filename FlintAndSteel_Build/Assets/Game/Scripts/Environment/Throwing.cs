@@ -191,11 +191,13 @@ public class Throwing : MonoBehaviour
 	private void DropPushable()
 	{
 		heldObj.GetComponent<Rigidbody>().interpolation = objectDefInterpolation;
-		Destroy (joint);
+        heldObj.GetComponent<Rigidbody>().mass = 30;
+        Destroy (joint);
 		playerMove.rotateSpeed = defRotateSpeed;
 		heldObj = null;
 		timeOfThrow = Time.time;
 		playerMove.jumpForce = originalJumpForce;
+		
 	}
 	
 	public void ThrowPickup()
