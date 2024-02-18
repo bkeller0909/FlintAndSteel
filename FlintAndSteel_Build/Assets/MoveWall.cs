@@ -7,6 +7,6 @@ public class MoveWall : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 2, 0);
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 4, 0);
     }
 }
