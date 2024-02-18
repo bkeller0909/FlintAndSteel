@@ -2,19 +2,21 @@
 
 //class to add to collectible coins
 [RequireComponent(typeof(SphereCollider))]
-public class Coin : MonoBehaviour 
+public class Coin : MonoBehaviour
 {
-	public AudioClip collectSound;							//sound to play when coin is collected
-	public Vector3 rotation = new Vector3(0, 80, 0);		//idle rotation of coin
-	public Vector3 rotationGain = new Vector3(10, 20, 10);	//added rotation when player gets near coin 
-	public float startSpeed = 3f;							//how fast coin moves toward player when they get near
-	public float speedGain = 0.2f;							//how fast coin accelerates toward player when they're near
-	
+	public AudioClip collectSound;                          //sound to play when coin is collected
+	public Vector3 rotation = new Vector3(0, 80, 0);        //idle rotation of coin
+	public Vector3 rotationGain = new Vector3(10, 20, 10);  //added rotation when player gets near coin 
+	public float startSpeed = 3f;                           //how fast coin moves toward player when they get near
+	public float speedGain = 0.2f;                          //how fast coin accelerates toward player when they're near
+
 	private bool collected;
 	private Transform player;
-	private TriggerParent triggerParent;	//this is a utility class, that lets us check if the player is close to the coins "bounds sphere trigger"
+	private TriggerParent triggerParent;    //this is a utility class, that lets us check if the player is close to the coins "bounds sphere trigger"
 	private GUIManager gui;
-	
+
+	[SerializeField] bool isFruit; 
+
 	//setup
 	void Awake()
 	{
@@ -76,8 +78,16 @@ public class Coin : MonoBehaviour
 	{
 		if(collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
-		if (gui)
+		if (gui && !isFruit)
 			gui.coinsCollected ++;
+
+		if (isFruit)
+		{
+			if (player.GetComponent<Health>().currentHealth < 3)
+			{
+                player.GetComponent<Health>().currentHealth++;
+            }
+		}
 		Destroy(gameObject);
 	}
 }
