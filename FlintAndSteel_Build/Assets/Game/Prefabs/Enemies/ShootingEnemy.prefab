@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2957119855047763968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.562, y: 0, z: 0}
+  m_LocalPosition: {x: -0.649, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137,6 +137,10 @@ MonoBehaviour:
   returnRange: 5
   detectionEnabled: 1
   player: {fileID: 0}
+  fireLocation: {fileID: 2444739140403636444}
+  bulletPrefab: {fileID: 72920156468337771, guid: 73ca937cc0312c24992ee0b092b0d4d8,
+    type: 3}
+  shootInterval: 2
 --- !u!136 &2935472160860559196
 CapsuleCollider:
   m_ObjectHideFlags: 0

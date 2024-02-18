@@ -19,6 +19,11 @@ public class ShootEnemy : MonoBehaviour
     [SerializeField] private bool detectionEnabled = true;
     [SerializeField] private Transform player;
 
+    [Header("Bullet Stuff")]
+    [SerializeField] private Transform fireLocation;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float shootInterval = 2f;
+
     private Vector3 startPosition;
     private float travelledDistance = 0f;
     private float extraTravelledDistance = 0f;
@@ -27,6 +32,8 @@ public class ShootEnemy : MonoBehaviour
 
     private int enemyMaxHealth = 1;
     private int enemyCurrentHealth;
+
+    private float shootTimer;
     #endregion
 
     void Start()
@@ -57,6 +64,7 @@ public class ShootEnemy : MonoBehaviour
         }
         else if (distanceToPlayer <= detectionRange && detectionEnabled)
         {
+            DelayShoot();
             MoveAwayNShoot();
         }
         else
@@ -71,6 +79,9 @@ public class ShootEnemy : MonoBehaviour
 
         if (player != null)
         {
+
+            
+
             if (detectionEnabled == true)
             {
                 // Move towards the player
@@ -93,6 +104,32 @@ public class ShootEnemy : MonoBehaviour
             }
 
         }
+    }
+
+    /// <summary>
+    /// shooting timer that shoots after so many seconds
+    /// </summary>
+    private void DelayShoot()
+    {
+        shootTimer -= Time.deltaTime;
+        if (shootTimer <= 0f && bulletPrefab != null)
+        {
+            Shoot();
+            shootTimer = shootInterval;
+        }
+    }
+    /// <summary>
+    /// shoots enemy bullet prefab out of FireLocation
+    /// </summary>
+    private void Shoot()
+    {
+        Vector3 dir = player.position - fireLocation.position;
+        dir.y = 0;
+        dir.z = 0;
+
+        GameObject bulletGO = Instantiate(bulletPrefab, fireLocation.position, Quaternion.identity);
+        EnemyBullet bulletScript = bulletGO.GetComponent<EnemyBullet>();
+        bulletScript.Fire(dir);
     }
 
     private void Patrol()
