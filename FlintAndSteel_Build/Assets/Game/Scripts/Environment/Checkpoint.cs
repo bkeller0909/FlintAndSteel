@@ -3,21 +3,21 @@
 //simple class to add to checkpoint triggers
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(AudioSource))]
-public class Checkpoint : MonoBehaviour 
+public class Checkpoint : MonoBehaviour
 {
-	public Color activeColor = Color.green;	//color when checkpoint is activated
-	public float activeColorOpacity = 0.4f;	//opacity when checkpoint is activated
-	
 	private Health health;
-	private Color defColor;
+
 	private GameObject[] checkpoints;
-	private Renderer render;
 	private AudioSource aSource;
+
+	[SerializeField] private GameObject pirateFlag;
+	[SerializeField] private GameObject scallyFlag;
+
+	public bool checkpointActive;
 
 	//setup
 	void Awake()
 	{
-		render = GetComponent<Renderer>();
 		aSource = GetComponent<AudioSource>();
 		if(tag != "Respawn")
 		{
@@ -26,9 +26,7 @@ public class Checkpoint : MonoBehaviour
 		}
 		GetComponent<Collider>().isTrigger = true;
 		
-		if(render)
-			defColor = render.material.color;
-		activeColor.a = activeColorOpacity;
+		checkpointActive = false;
 	}
 	
 	//more setup
@@ -39,23 +37,39 @@ public class Checkpoint : MonoBehaviour
 		if(!health)
 			Debug.LogError("For Checkpoint to work, the Player needs 'Health' script attached", transform);
 	}
-	
-	//set checkpoint
-	void OnTriggerEnter(Collider other)
+
+    private void Update()
+    {
+        if (checkpointActive) 
+		{
+			scallyFlag.SetActive(true);
+			pirateFlag.SetActive(false);
+		}
+		else
+		{
+			scallyFlag.SetActive(false);
+			pirateFlag.SetActive(true);
+		}
+    }
+
+    //set checkpoint
+    void OnTriggerEnter(Collider other)
 	{
 		if(other.transform.tag == "Player" && health)
 		{
 			//set respawn position in players health script
 			health.respawnPos = transform.position;
-			
+
 			//toggle checkpoints
-			if(render.material.color != activeColor)
+			if(!checkpointActive)
 			{
 				foreach (GameObject checkpoint in checkpoints)
-					checkpoint.GetComponent<Renderer>().material.color = defColor;
+					checkpoint.GetComponent<Checkpoint>().checkpointActive = false;
+
 				aSource.Play();
-				render.material.color = activeColor;
-			}
+
+                checkpointActive = true;
+            }
 		}
 	}
 }
