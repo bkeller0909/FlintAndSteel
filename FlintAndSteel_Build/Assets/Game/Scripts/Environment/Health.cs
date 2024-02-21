@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 //attach to any object in the game which takes damage (player, enemies, breakable crates, smashable windows..)
@@ -17,7 +18,13 @@ public class Health : MonoBehaviour
 	public float flashDuration = 0.9f;				//how long flash lasts (object is invulnerable to damage during this time)
 	public Color hitFlashColor = Color.red;			//color object should flash when it takes damage
 	public Transform flashObject;					//object to flash upon receiving damage (ie: a child mesh). If left blank it defaults to this object.
-	public GameObject[] spawnOnDeath;				//objects to spawn upon death of this object (ie: a particle effect or a coin)
+	public GameObject[] spawnOnDeath;               //objects to spawn upon death of this object (ie: a particle effect or a coin)
+
+	
+	public int numOfHearts;							// number of hearts
+	public Image[] hearts;							// make an array for the images related to the amount of health the player has
+	public Sprite fullHeart;						// sprite for the full heart icon
+	public Sprite emptyHeart;						// sprite for the empty heart icon
 	
 	[HideInInspector]
 	public bool dead, flashing;
@@ -50,6 +57,26 @@ public class Health : MonoBehaviour
 	//detecting damage and dying
 	void Update()
 	{		
+		// heart UI setup
+		if(currentHealth > numOfHearts)
+		{
+			currentHealth = numOfHearts;
+		}
+
+		for(int i = 0; i < hearts.Length; i++)
+		{
+			// displays full hearts or empty hearts based on the current health
+			if(i < currentHealth)
+			{
+				hearts[i].sprite = fullHeart;
+			}
+			else
+			{
+				hearts[i].sprite = emptyHeart;
+			}
+		}
+
+
 		//flash if we took damage
 		if (currentHealth < h)
 		{
