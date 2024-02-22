@@ -160,51 +160,54 @@ public class PlayerMove : MonoBehaviour
 			{
 				if(!hit.transform.GetComponent<Collider>().isTrigger)
 				{
-					//slope control
-					slope = Vector3.Angle (hit.normal, Vector3.up);
-					//slide down slopes
-					if(slope > slopeLimit && hit.transform.tag != "Pushable")
+					if (hit.transform.tag != "Player")
 					{
-						Vector3 slide = new Vector3(0f, -slideAmount, 0f);
-						rigid.AddForce (slide, ForceMode.Force);
-					}
-					//enemy bouncing
-					if (hit.transform.tag == "Enemy" && rigid.velocity.y < 0)
-					{
-						enemyAI = hit.transform.GetComponent<EnemyAI>();
-						enemyAI.BouncedOn();
-						onEnemyBounce++;
-						dealDamage.Attack(hit.transform.gameObject, 1, 0f, 0f);
-					}
-					else
-					{
-						onEnemyBounce = 0;
-					}
-					//moving platforms
-					if (hit.transform.tag == "MovingPlatform" || hit.transform.tag == "Pushable")
-					{
-						movingObjSpeed = hit.transform.GetComponent<Rigidbody>().velocity;
-						movingObjSpeed.y = 0f;
-						//9.5f is a magic number, if youre not moving properly on platforms, experiment with this number
-						rigid.AddForce(movingObjSpeed * movingPlatformFriction * Time.fixedDeltaTime, ForceMode.VelocityChange);
-					}
-					else
-					{
-						movingObjSpeed = Vector3.zero;
-					}
-					if (hit.transform.tag == "RotatingPlatform")
-					{
-						movingObjSpeed = hit.transform.GetComponent<Rigidbody>().GetPointVelocity(rigid.position);
+						//slope control
+						slope = Vector3.Angle(hit.normal, Vector3.up);
+						//slide down slopes
+						if (slope > slopeLimit && hit.transform.tag != "Pushable")
+						{
+							Vector3 slide = new Vector3(0f, -slideAmount, 0f);
+							rigid.AddForce(slide, ForceMode.Force);
+						}
+						//enemy bouncing
+						if (hit.transform.tag == "Enemy" && rigid.velocity.y < 0)
+						{
+							enemyAI = hit.transform.GetComponent<EnemyAI>();
+							enemyAI.BouncedOn();
+							onEnemyBounce++;
+							dealDamage.Attack(hit.transform.gameObject, 1, 0f, 0f);
+						}
+						else
+						{
+							onEnemyBounce = 0;
+						}
+						//moving platforms
+						if (hit.transform.tag == "MovingPlatform" || hit.transform.tag == "Pushable")
+						{
+							movingObjSpeed = hit.transform.GetComponent<Rigidbody>().velocity;
+							movingObjSpeed.y = 0f;
+							//9.5f is a magic number, if youre not moving properly on platforms, experiment with this number
+							rigid.AddForce(movingObjSpeed * movingPlatformFriction * Time.fixedDeltaTime, ForceMode.VelocityChange);
+						}
+						else
+						{
+							movingObjSpeed = Vector3.zero;
+						}
+						if (hit.transform.tag == "RotatingPlatform")
+						{
+							movingObjSpeed = hit.transform.GetComponent<Rigidbody>().GetPointVelocity(rigid.position);
 
-						rigid.AddForce(movingObjSpeed * movingPlatformFriction * Time.fixedDeltaTime, ForceMode.VelocityChange);
-					}
-					else
-					{
-						movingObjSpeed = Vector3.zero;
-					}
-					//yes our feet are on something
+							rigid.AddForce(movingObjSpeed * movingPlatformFriction * Time.fixedDeltaTime, ForceMode.VelocityChange);
+						}
+						else
+						{
+							movingObjSpeed = Vector3.zero;
+						}
+						//yes our feet are on something
 
-					return true;
+						return true;
+					}
 				}
 			}
 		}

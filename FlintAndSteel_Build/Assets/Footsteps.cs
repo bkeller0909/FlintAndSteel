@@ -15,8 +15,9 @@ public class Footsteps : MonoBehaviour
     bool onGrass;
     bool onStone;
     bool onWood;
+    
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Sand"))
         {
@@ -25,21 +26,24 @@ public class Footsteps : MonoBehaviour
             onStone = false;
             onWood = false;
         }
-        else if (other.CompareTag("Grass"))
+        
+        if (other.CompareTag("Grass"))
         {
             onSand = false;
             onGrass = true;
             onStone = false;
             onWood = false;
         }
-        else if (other.CompareTag("Stone"))
+
+        if (other.CompareTag("Stone"))
         {
             onSand = false;
             onGrass = false;
             onStone = true;
             onWood = false;
         }
-        else if (other.CompareTag("Wood"))
+        
+        if (other.CompareTag("Wood"))
         {
             onSand = false;
             onGrass = false;
@@ -53,23 +57,31 @@ public class Footsteps : MonoBehaviour
         // depending on the material the player is on, pick a random clip from the array and play it
         if (onSand)
         {
-            int soundChoice = Random.Range(0, sandSteps.Length + 1);
+            int soundChoice = Random.Range(0, sandSteps.Length);
             audioSource.PlayOneShot(sandSteps[soundChoice]);
+            Debug.Log("Sand");
         }
         else if (onGrass)
         {
-            int soundChoice = Random.Range(0, grassSteps.Length + 1);
+            int soundChoice = Random.Range(0, grassSteps.Length);
             audioSource.PlayOneShot(grassSteps[soundChoice]);
+            Debug.Log("Grass");
         }
         else if (onStone)
         {
-            int soundChoice = Random.Range(0, stoneSteps.Length + 1);
+            int soundChoice = Random.Range(0, stoneSteps.Length);
             audioSource.PlayOneShot(stoneSteps[soundChoice]);
+            Debug.Log("Stone");
         }
         else if (onWood)
         {
-            int soundChoice = Random.Range(0, woodSteps.Length + 1);
+            int soundChoice = Random.Range(0, woodSteps.Length);
             audioSource.PlayOneShot(woodSteps[soundChoice]);
+            Debug.Log("Wood");
+        }
+        else
+        {
+            // play a default sound
         }
     }
 }

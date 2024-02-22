@@ -960,8 +960,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.4
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!114 &8051775420176644839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,11 +974,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5886848320163c4b9d3086413315293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  sandSteps: []
-  grassSteps: []
-  stoneSteps: []
-  woodSteps: []
+  audioSource: {fileID: 5139449901774760699}
+  sandSteps:
+  - {fileID: 0}
+  grassSteps:
+  - {fileID: 0}
+  stoneSteps:
+  - {fileID: 0}
+  woodSteps:
+  - {fileID: 0}
 --- !u!82 &5139449901774760699
 AudioSource:
   m_ObjectHideFlags: 0
