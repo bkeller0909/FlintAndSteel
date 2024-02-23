@@ -54,30 +54,27 @@ public class Footsteps : MonoBehaviour
 
     public void PlayFootstep()
     {
+        audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
         // depending on the material the player is on, pick a random clip from the array and play it
         if (onSand)
         {
             int soundChoice = Random.Range(0, sandSteps.Length);
             audioSource.PlayOneShot(sandSteps[soundChoice]);
-            Debug.Log("Sand");
         }
         else if (onGrass)
         {
             int soundChoice = Random.Range(0, grassSteps.Length);
             audioSource.PlayOneShot(grassSteps[soundChoice]);
-            Debug.Log("Grass");
         }
         else if (onStone)
         {
             int soundChoice = Random.Range(0, stoneSteps.Length);
             audioSource.PlayOneShot(stoneSteps[soundChoice]);
-            Debug.Log("Stone");
         }
         else if (onWood)
         {
             int soundChoice = Random.Range(0, woodSteps.Length);
             audioSource.PlayOneShot(woodSteps[soundChoice]);
-            Debug.Log("Wood");
         }
         else
         {

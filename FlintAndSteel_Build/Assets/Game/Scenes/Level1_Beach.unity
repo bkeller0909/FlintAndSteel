@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7896.2764, g: 8332.985, b: 9273.876, a: 1}
+  m_IndirectSpecularColor: {r: 7887.165, g: 8321.095, b: 9263.048, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1639,6 +1639,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FaS_Rock03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6403956855845512957, guid: b09f39897c70826468a6b785f7fede75,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2463,6 +2468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Climbing Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918126146728830859, guid: 88ca70f6a20db8740894ab807d17ae87,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5803888084733058171, guid: 88ca70f6a20db8740894ab807d17ae87,
         type: 3}
@@ -6673,6 +6683,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FaS_Rock03
       objectReference: {fileID: 0}
+    - target: {fileID: 6403956855845512957, guid: b09f39897c70826468a6b785f7fede75,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7530,7 +7545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1832578c6ab76cf47bf356e3589f7c2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.63000107
+      value: -0.11999893
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1832578c6ab76cf47bf356e3589f7c2f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9441,7 +9456,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: -23.9, y: 1.27, z: -35.59}
+  m_Size: {x: 23.9, y: 1.27, z: 35.59}
   m_Center: {x: 0, y: 2.84, z: 0}
 --- !u!114 &1627427810 stripped
 MonoBehaviour:
@@ -10531,7 +10546,7 @@ PrefabInstance:
     - target: {fileID: 2632163183205966446, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4268266829362327883, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
@@ -11164,6 +11179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FaS_Rock03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403956855845512957, guid: b09f39897c70826468a6b785f7fede75,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

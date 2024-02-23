@@ -433,7 +433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkOffset: 1
   checkRadius: 2
-  hookRangeZip: 4
+  hookRangeZip: 3.5
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Liam
       objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: 2aa49f5484494544aab36119827b19bc, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 100050, guid: 2aa49f5484494544aab36119827b19bc, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -979,13 +983,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 5139449901774760699}
   sandSteps:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d0b2c5da5d427924badccf8e4bce3552, type: 3}
+  - {fileID: 8300000, guid: 2aff7d0ba0ce35046a52ee652e2715dc, type: 3}
+  - {fileID: 8300000, guid: 74afc6885407b3243942ab2b293ff3b1, type: 3}
+  - {fileID: 8300000, guid: db47209ab21777f4c9287c151f49dc43, type: 3}
   grassSteps:
   - {fileID: 0}
   stoneSteps:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 57d1b91f9e21a1849ae82c192626209d, type: 3}
+  - {fileID: 8300000, guid: 5ceef09039747d84182a000ceb457dfb, type: 3}
+  - {fileID: 8300000, guid: 51bffc7fa49c4ec4fa5d328af77ebb24, type: 3}
+  - {fileID: 8300000, guid: 6e96909d8f8ec184a82f5b9952ac8510, type: 3}
   woodSteps:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 86ba4fa76b473fc448014946cd925426, type: 3}
+  - {fileID: 8300000, guid: 853985f94651b0d4d9b31383b28f6b18, type: 3}
+  - {fileID: 8300000, guid: 22530b817643b7f489aa8a7a187cb616, type: 3}
+  - {fileID: 8300000, guid: 1e6880221f76a394a9c1189f14e0c30c, type: 3}
 --- !u!82 &5139449901774760699
 AudioSource:
   m_ObjectHideFlags: 0
@@ -997,8 +1010,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
