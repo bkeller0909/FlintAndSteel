@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7894.835, g: 8330.548, b: 9271.548, a: 1}
+  m_IndirectSpecularColor: {r: 7888.9834, g: 8322.099, b: 9263.595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1466,6 +1466,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6983380798341657615, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 7874156381627675993, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 1336868212343225919, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 9068457132385602860, guid: af89cf77635dfb540978513568a53a26, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af89cf77635dfb540978513568a53a26, type: 3}
@@ -3045,12 +3048,12 @@ PrefabInstance:
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 156.5181
+      value: 156.52335
       objectReference: {fileID: 0}
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2311049
+      value: -3.2299204
       objectReference: {fileID: 0}
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
@@ -3060,22 +3063,22 @@ PrefabInstance:
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
+      value: 0.00000058114296
       objectReference: {fileID: 0}
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.0028049601
       objectReference: {fileID: 0}
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.99999607
       objectReference: {fileID: 0}
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.0000000016300891
       objectReference: {fileID: 0}
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
@@ -3090,11 +3093,17 @@ PrefabInstance:
     - target: {fileID: 5659385265589199272, guid: af89cf77635dfb540978513568a53a26,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.321
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6983380798341657615, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 7312577875041754991, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 242937890826374446, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 6928677623363752421, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 1336868212343225919, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 9068457132385602860, guid: af89cf77635dfb540978513568a53a26, type: 3}
+    - {fileID: 7874156381627675993, guid: af89cf77635dfb540978513568a53a26, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af89cf77635dfb540978513568a53a26, type: 3}
@@ -8647,6 +8656,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6983380798341657615, guid: 6d99e469bd247bf428f57548607b77a9, type: 3}
     - {fileID: 6762827042940141889, guid: 6d99e469bd247bf428f57548607b77a9, type: 3}
+    - {fileID: 5797556630587473943, guid: 6d99e469bd247bf428f57548607b77a9, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5659385265589199272, guid: 6d99e469bd247bf428f57548607b77a9,
         type: 3}
