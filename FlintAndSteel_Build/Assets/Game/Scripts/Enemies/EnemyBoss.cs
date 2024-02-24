@@ -35,6 +35,9 @@ public class EnemyBoss : MonoBehaviour
     //Intializes the boss variable to idle in the beggining of the game
     private BossActionType eCurState = BossActionType.Idle;
 
+    bool isMoving = false;
+
+    bool isDashing = false;
     private void Update()
     {
         //Updates the boss's state    
@@ -62,8 +65,9 @@ public class EnemyBoss : MonoBehaviour
 
     private void HandleMovingState()
     {
-        // StartCoroutine( MoveTowardsPlayerTimer(chaseDuration));
-        MoveTowardsPlayer();
+        if (!isMoving)
+            StartCoroutine(MoveTowardsPlayerTimer(chaseDuration));
+        //MoveTowardsPlayer();
     }
 
     private void HandleAttackingState()
@@ -73,7 +77,8 @@ public class EnemyBoss : MonoBehaviour
         if (distanceToPlayer < dashDistance)
         {
             Vector3 direction = (player.position - transform.position).normalized;
-            StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
+            if (!isDashing)
+                StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
 
         }
 
@@ -96,26 +101,34 @@ public class EnemyBoss : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     /// 
-    //private IEnumerator MoveTowardsPlayerTimer(float duration)
-    //{
-    //    float timer = 0f;
+    private IEnumerator MoveTowardsPlayerTimer(float duration)
+    {
+        isMoving = true;
+        float timer = 0f;
 
-    //    while (timer < duration)
-    //    {
-    //        MoveTowardsPlayer();    //Calls the function to make the boss follow the player around
-    //        timer += Time.deltaTime;
-    //        yield return null;
-    //    }
+        while (timer < duration)
+        {
+            MoveTowardsPlayer();    //Calls the function to make the boss follow the player around
+            timer += Time.deltaTime;
+            yield return null;
+        }
 
-    //    // After the specified duration, transition to the idle state
-    //   // eCurState = BossActionType.Idle;
-    //}
+        // After the specified duration, transition to the idle state
+        eCurState = BossActionType.Idle;
+        isMoving = false;
+    }
 
     private float MoveTowardsPlayer()
     {
 
         Vector3 direction = (player.position - transform.position).normalized;
-        transform.Translate(direction * movementSpeed * Time.deltaTime);
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer > 1.0f)
+        {
+            transform.Translate(direction * Mathf.Min(movementSpeed * Time.deltaTime, distanceToPlayer - 1.0f));
+        }
+
 
         if (Vector3.Distance(transform.position, player.position) < 3.0f)
         {
@@ -133,6 +146,7 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator DashAttack(Vector3 direction, float distance, float speed)
     {
         //The distance travelled while dashing
+        isDashing = true;
         float distanceTravelled = 0.0f;
 
         while (distanceTravelled < dashDistance)
@@ -151,14 +165,13 @@ public class EnemyBoss : MonoBehaviour
         Vector3 awayDirection = (transform.position - player.position).normalized;
         yield return StartCoroutine(MoveAwayFromPlayer(awayDirection, 3.0f, movementSpeed));
 
-        eCurState = BossActionType.Idle;
+        isDashing = false;
 
 
     }
 
     private IEnumerator MoveAwayFromPlayer(Vector3 direction, float distance, float speed)
     {
-        Debug.LogError("MoveAwayWorks");
         float distanceTravelled = 0.0f;
 
         while (distanceTravelled < distance)
