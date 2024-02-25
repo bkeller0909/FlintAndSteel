@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 2270852940725324818}
   - component: {fileID: 1204996340662705327}
   - component: {fileID: 9153319621337311271}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player_Scally
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -766,8 +766,12 @@ PrefabInstance:
       value: Liam
       objectReference: {fileID: 0}
     - target: {fileID: 100046, guid: 2aa49f5484494544aab36119827b19bc, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: 2aa49f5484494544aab36119827b19bc, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100050, guid: 2aa49f5484494544aab36119827b19bc, type: 3}
       propertyPath: m_IsActive
@@ -968,7 +972,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0, y: -0.1, z: 0}
+  m_Center: {x: 0, y: -0.1, z: 0.3}
 --- !u!114 &8051775420176644839
 MonoBehaviour:
   m_ObjectHideFlags: 0
