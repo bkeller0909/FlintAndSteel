@@ -14,7 +14,7 @@ public class EnemyBoss : MonoBehaviour
     public enum BossActionType
     {
         Idle,
-        moving,
+        Moving,
         Attacking
     }
 
@@ -25,11 +25,19 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private float dashDistance = 5.0f;
     [SerializeField]
-    private float dashSpeed = 15.0f;
+    private float dashSpeed = 30.0f;
 
     [SerializeField]
     private float chaseDuration = 5.0f;
 
+    private float shootTimer;
+
+    [SerializeField]
+    private Transform Barrel;
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField]
+    private float shootInterval = 2.0f;
     #endregion
 
     //Intializes the boss variable to idle in the beggining of the game
@@ -37,7 +45,11 @@ public class EnemyBoss : MonoBehaviour
 
     bool isMoving = false;
 
-    bool isDashing = false;
+    bool isAway = false;
+
+    bool isAttacking = false;
+
+    private Vector3 intitalPosition;
     private void Update()
     {
         //Updates the boss's state    
@@ -47,7 +59,7 @@ public class EnemyBoss : MonoBehaviour
                 HandleIdleState();
                 break;
 
-            case BossActionType.moving:
+            case BossActionType.Moving:
                 HandleMovingState();
                 break;
 
@@ -67,23 +79,28 @@ public class EnemyBoss : MonoBehaviour
     {
         if (!isMoving)
             StartCoroutine(MoveTowardsPlayerTimer(chaseDuration));
-        //MoveTowardsPlayer();
+
     }
 
     private void HandleAttackingState()
     {
         float distanceToPlayer = MoveTowardsPlayer();
 
-        if (distanceToPlayer < dashDistance)
+        if (!isAttacking)
+        {//Calls the shoot function
+            ShootTimer();
+        }
+        if (distanceToPlayer <= dashDistance && !isAttacking)
         {
+            //Calls the dash function
             Vector3 direction = (player.position - transform.position).normalized;
-            if (!isDashing)
-                StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
+
+            StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
 
         }
 
 
-        eCurState = BossActionType.Idle;
+
     }
 
     private IEnumerator IdleState()
@@ -93,14 +110,13 @@ public class EnemyBoss : MonoBehaviour
 
         yield return new WaitForSeconds(idleDuration); // Adjust the duration as needed
 
-        eCurState = BossActionType.moving;
+        eCurState = BossActionType.Attacking;
     }
     /// <summary>
-    /// Handles the logic for moving the boss towards the player. It also returns the position of the player
-    /// as a float so that it can be used later in other functions as well
+    /// Adds a timer so that the boss only chasers the player as longa as the duration is set
     /// </summary>
+    /// <param name="duration"></param>
     /// <returns></returns>
-    /// 
     private IEnumerator MoveTowardsPlayerTimer(float duration)
     {
         isMoving = true;
@@ -114,10 +130,16 @@ public class EnemyBoss : MonoBehaviour
         }
 
         // After the specified duration, transition to the idle state
-        eCurState = BossActionType.Idle;
         isMoving = false;
     }
 
+
+    /// <summary>
+    /// Handles the logic for moving the boss towards the player. It also returns the position of the player
+    /// as a float so that it can be used later in other functions as well
+    /// </summary>
+    /// <returns></returns>
+    /// 
     private float MoveTowardsPlayer()
     {
 
@@ -126,16 +148,16 @@ public class EnemyBoss : MonoBehaviour
 
         if (distanceToPlayer > 1.0f)
         {
-            transform.Translate(direction * Mathf.Min(movementSpeed * Time.deltaTime, distanceToPlayer - 1.0f));
+            //  transform.Translate(direction * Mathf.Min(movementSpeed * Time.deltaTime, distanceToPlayer - 1.0f));
         }
 
 
-        if (Vector3.Distance(transform.position, player.position) < 3.0f)
+        if (distanceToPlayer < 3.0f)
         {
             eCurState = BossActionType.Attacking;
 
         }
-        return Vector3.Distance(transform.position, player.position);
+        return distanceToPlayer;
     }
 
     /// <summary>
@@ -146,41 +168,103 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator DashAttack(Vector3 direction, float distance, float speed)
     {
         //The distance travelled while dashing
-        isDashing = true;
-        float distanceTravelled = 0.0f;
+        isAttacking = true;
+        int distanceCovered = 30;
+        float distancePerPoint = distance / distanceCovered;
+        direction = new Vector3(direction.x, 0, 0).normalized;
 
-        while (distanceTravelled < dashDistance)
+        for (int i = 0; i < distanceCovered; i++)
         {
-            //The amount the dash will move each frame
-            float distancePerFrame = dashSpeed * Time.deltaTime;
+            Vector3 nextPoint = transform.position + direction * distancePerPoint * (i + 1);
 
-            //Move the boss itself
-            transform.Translate(direction * distancePerFrame);
 
-            //Increments the distance travelled
-            distanceTravelled += distancePerFrame;
+            while (Vector3.Distance(transform.position, nextPoint) > 0.1f)
+            {
+                //The amount the dash will move each frame
+                // Calculate movement towards the next point
+                Vector3 movement = direction * speed * Time.deltaTime;
 
-            yield return null;
+                // Ensure that the movement doesn't overshoot the next point
+                if (Vector3.Distance(transform.position, nextPoint) < movement.magnitude)
+                    transform.position = nextPoint; // Snap to the next point
+                else
+                    transform.Translate(movement); // Move towards the next point
+
+                yield return null;
+            }
         }
-        Vector3 awayDirection = (transform.position - player.position).normalized;
-        yield return StartCoroutine(MoveAwayFromPlayer(awayDirection, 3.0f, movementSpeed));
+        isAttacking = false;
 
-        isDashing = false;
-
+        eCurState = BossActionType.Idle;
 
     }
 
-    private IEnumerator MoveAwayFromPlayer(Vector3 direction, float distance, float speed)
+
+    private void Shoot()
     {
-        float distanceTravelled = 0.0f;
+        isAttacking = true;
+        Vector3 dir = (player.position - Barrel.position).normalized;
+        dir.y = 0;
+        dir.z = 0;
 
-        while (distanceTravelled < distance)
+        GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
+        EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
+        bulletScript.SetSpeed(10.0f);
+        bulletScript.Fire(dir);
+
+        isAttacking = false;
+
+    }
+
+    private void ShootTimer()
+    {
+        shootTimer -= Time.deltaTime;
+        if (shootTimer < 0.0f && bulletPrefab != null)
         {
-            float distancePerFrame = speed * Time.deltaTime;
-            transform.Translate(direction * distancePerFrame);
-            distanceTravelled += distancePerFrame;
-            yield return null;
-
+            float randomNumber = Random.value;  //Assigns a random value to the random Number
+            if (randomNumber < 0.5f)    //50% chacne for a normal shot or random shot
+            {
+                Shoot();
+            }
+            else
+            {
+                ScatterShot();
+            }
+            shootTimer = shootInterval;
         }
+    }
+
+    private void ScatterShot()
+    {
+        // Array to store directions
+        Vector3[] directions = new Vector3[3];
+        Vector3 playerDirection = (player.position - Barrel.position).normalized;
+        // Calculate directions
+
+        // Set predetermined directions
+        // Calculate directions
+        //  Vector3 barrelForward = Barrel.forward;
+
+        // Direction 1: Forward
+        directions[0] = playerDirection;
+
+        // Direction 2: 
+        directions[1] = Quaternion.Euler(0, 0, 30) * playerDirection;
+
+        // Direction 3: 
+        directions[2] = Quaternion.Euler(0, 0, -30) * playerDirection;
+
+        // Fire bullets in each direction 
+        foreach (Vector3 dir in directions)
+        {
+            // Instantiate bullet
+            GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
+            EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
+            bulletScript.SetSpeed(10);
+            bulletScript.Fire(dir);
+        }
+
     }
 }
+
+

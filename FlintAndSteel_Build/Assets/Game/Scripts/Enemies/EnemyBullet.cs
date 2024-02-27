@@ -23,9 +23,15 @@ public class EnemyBullet : MonoBehaviour
         direction = dir;
     }
 
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // when hitting a player it will be destroyed similiarly to hitting walls
+        if (other.CompareTag("Wall"))
+            Destroy(gameObject);
+        else if (other.CompareTag("Player")) // when hitting a player it will be destroyed similiarly to hitting walls
             Destroy(gameObject);
     }
 }
