@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2720238843178822495}
   - component: {fileID: 1077178319159381894}
   - component: {fileID: 5011925617095547510}
-  - component: {fileID: 5115512299723282291}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2865077328805845930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5803577, w: 0.81436175}
-  m_LocalPosition: {x: 10.64, y: -3.73, z: 0.39}
+  m_LocalPosition: {x: 10.64, y: -3.73, z: -0.37}
   m_LocalScale: {x: 0.16915, y: 11.227923, z: 0.16915}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5115512299723282291
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2865077328805845930}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4684646455090056651
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +318,9 @@ PrefabInstance:
       value: Zipline Anchor 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1098284194572143582, guid: 2c53fb79bbf412848b5eecebc710ca69, type: 3}
+    - {fileID: 4163766583814669749, guid: 2c53fb79bbf412848b5eecebc710ca69, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c53fb79bbf412848b5eecebc710ca69, type: 3}
@@ -453,7 +431,9 @@ PrefabInstance:
       value: Zipline
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1098284194572143582, guid: 2c53fb79bbf412848b5eecebc710ca69, type: 3}
+    - {fileID: 4163766583814669749, guid: 2c53fb79bbf412848b5eecebc710ca69, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c53fb79bbf412848b5eecebc710ca69, type: 3}
