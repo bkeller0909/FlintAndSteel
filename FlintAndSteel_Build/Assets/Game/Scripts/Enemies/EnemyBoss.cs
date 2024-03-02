@@ -43,12 +43,15 @@ public class EnemyBoss : MonoBehaviour
     //Intializes the boss variable to idle in the beggining of the game
     private BossActionType eCurState = BossActionType.Idle;
 
+    private bool isVulnerable = true;
+
     bool isMoving = false;
 
     bool isAway = false;
 
     bool isAttacking = false;
 
+    private float health = 100;
     private Vector3 intitalPosition;
     private void Update()
     {
@@ -72,6 +75,7 @@ public class EnemyBoss : MonoBehaviour
     private void HandleIdleState()
     {
         StartCoroutine(IdleState());
+        isVulnerable = true;
 
     }
 
@@ -79,6 +83,8 @@ public class EnemyBoss : MonoBehaviour
     {
         if (!isMoving)
             StartCoroutine(MoveTowardsPlayerTimer(chaseDuration));
+
+        isVulnerable = false;
 
     }
 
@@ -98,11 +104,35 @@ public class EnemyBoss : MonoBehaviour
             StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
 
         }
-
+        isVulnerable = false;
 
 
     }
 
+    private void TakeDamage(float damage)
+    {
+        if (isVulnerable)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                //Boss is defeated
+
+                Destroy(gameObject);
+            }
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            TakeDamage(10.0f);
+            Debug.LogWarning("The boss has taken 10 damage");
+            Debug.LogWarning("Health left: " + health);
+        }
+    }
     private IEnumerator IdleState()
     {
         //Makes the boss stay in the idle state for the duation needed.
@@ -213,7 +243,7 @@ public class EnemyBoss : MonoBehaviour
         bulletScript.Fire(dir);
 
         isAttacking = false;
-
+        
     }
 
     private void ShootTimer()
