@@ -53,6 +53,10 @@ public class EnemyBoss : MonoBehaviour
 
     private float health = 100;
     private Vector3 intitalPosition;
+
+    [SerializeField]
+    private Material bossMaterial;
+
     private void Update()
     {
         //Updates the boss's state    
@@ -76,6 +80,9 @@ public class EnemyBoss : MonoBehaviour
     {
         StartCoroutine(IdleState());
         isVulnerable = true;
+
+        //Sets the boss color to white to show weakness
+        bossMaterial.color = Color.white;
 
     }
 
@@ -105,7 +112,7 @@ public class EnemyBoss : MonoBehaviour
 
         }
         isVulnerable = false;
-
+        bossMaterial.color = Color.red;
 
     }
 
@@ -199,7 +206,7 @@ public class EnemyBoss : MonoBehaviour
     {
         //The distance travelled while dashing
         isAttacking = true;
-        int distanceCovered = 30;
+        int distanceCovered = 15;
         float distancePerPoint = distance / distanceCovered;
         direction = new Vector3(direction.x, 0, 0).normalized;
 
@@ -243,7 +250,7 @@ public class EnemyBoss : MonoBehaviour
         bulletScript.Fire(dir);
 
         isAttacking = false;
-        
+
     }
 
     private void ShootTimer()
