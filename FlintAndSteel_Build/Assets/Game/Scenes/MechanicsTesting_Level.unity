@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7093.718, g: 7012.341, b: 7680.5557, a: 1}
+  m_IndirectSpecularColor: {r: 7096.0264, g: 7014.782, b: 7683.5166, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1205,6 +1205,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &899159193 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 230456774174192876, guid: dec7cd42960366243b5ad41d2112c616,
+    type: 3}
+  m_PrefabInstance: {fileID: 1777278409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1259657548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1893,6 +1899,11 @@ PrefabInstance:
       propertyPath: steelFound
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: swordRenderer
+      value: 
+      objectReference: {fileID: 899159193}
     - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
       propertyPath: throwPosition

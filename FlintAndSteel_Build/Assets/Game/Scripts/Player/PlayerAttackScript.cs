@@ -21,6 +21,9 @@ public class PlayerAttackScript : MonoBehaviour
     [SerializeField] private Transform throwPosition;
     public bool steelFound;
 
+    [SerializeField]
+    Renderer  swordRenderer;
+    Material swordMaterial;
     void Start()
     {
         mainCamera = Camera.main;
@@ -35,6 +38,11 @@ public class PlayerAttackScript : MonoBehaviour
             Debug.LogError("Rigidbody not found on the sword GameObject.");
         }
         swordCollider.enabled = false;
+
+        swordMaterial = swordRenderer.material;
+        float fadeOuValue = swordMaterial.GetFloat("_FadeOut");
+        Debug.Log(fadeOuValue);
+        swordMaterial.SetFloat("_FadeOut", 0);
     }
 
     // Update is called once per frame
