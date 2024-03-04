@@ -38,6 +38,10 @@ public class EnemyBoss : MonoBehaviour
     private GameObject bulletPrefab;
     [SerializeField]
     private float shootInterval = 2.0f;
+
+    [SerializeField]
+    private float shootDuration = 5.0f;
+    
     #endregion
 
     //Intializes the boss variable to idle in the beggining of the game
@@ -55,7 +59,7 @@ public class EnemyBoss : MonoBehaviour
     private Vector3 intitalPosition;
 
     [SerializeField]
-    private Material bossMaterial;
+  //  private Material bossMaterial;
 
     private void Update()
     {
@@ -82,7 +86,7 @@ public class EnemyBoss : MonoBehaviour
         isVulnerable = true;
 
         //Sets the boss color to white to show weakness
-        bossMaterial.color = Color.white;
+    //    bossMaterial.color = Color.white;
 
     }
 
@@ -112,7 +116,7 @@ public class EnemyBoss : MonoBehaviour
 
         }
         isVulnerable = false;
-        bossMaterial.color = Color.red;
+      //  bossMaterial.color = Color.red;
 
     }
 
