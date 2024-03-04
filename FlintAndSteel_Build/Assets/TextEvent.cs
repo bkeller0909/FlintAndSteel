@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
+public class TextEvent : MonoBehaviour
+{
+    [Header("Message Customization")]
+    [SerializeField] string nameText;
+    [SerializeField, TextArea] string messageText;
+    [SerializeField] Sprite speakerImage;
+
+
+    [Header("GameObject References")]
+    [SerializeField] GameObject messageGO;
+    [SerializeField] GameObject nameTextGO;
+    [SerializeField] GameObject messageTextGO;
+    [SerializeField] GameObject speakerImageGO;
+
+    bool messageActive;
+    GameObject playerGO;
+
+    void Awake()
+    {
+        nameTextGO.GetComponent<TextMeshProUGUI>().text = nameText;
+        messageTextGO.GetComponent<TextMeshProUGUI>().text = messageText;
+        speakerImageGO.GetComponent<Image>().sprite = speakerImage;
+
+        messageActive = false;
+        playerGO = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
+        messageGO.SetActive(messageActive);
+
+        // If the player presses any key, exit the message
+        if (messageActive && Input.anyKeyDown) 
+        {
+            messageActive = false;
+            Time.timeScale = 1.0f;
+            gameObject.SetActive(false);
+        }
+
+        // Disable player abilities and freeze time while the message is active
+        playerGO.GetComponent<Throwing>().enabled = !messageActive;
+        playerGO.GetComponent<PlayerAttackScript>().enabled = !messageActive;
+        if (messageActive)
+        {
+            Time.timeScale = 0.0f;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            messageActive = true;
+        }
+    }
+}
