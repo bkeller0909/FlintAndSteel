@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7896.331, g: 8333.087, b: 9273.993, a: 1}
+  m_IndirectSpecularColor: {r: 7890.1104, g: 8322.1455, b: 9263.829, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15287,12 +15287,12 @@ PrefabInstance:
     - target: {fileID: 14371691813492646, guid: 3c4d55bceeaf67f428de9d43fe62a0f2,
         type: 3}
       propertyPath: m_Size.x
-      value: 17
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 14371691813492646, guid: 3c4d55bceeaf67f428de9d43fe62a0f2,
         type: 3}
       propertyPath: m_Size.y
-      value: 39
+      value: 46.21
       objectReference: {fileID: 0}
     - target: {fileID: 14371691813492646, guid: 3c4d55bceeaf67f428de9d43fe62a0f2,
         type: 3}
@@ -19964,6 +19964,46 @@ PrefabInstance:
       propertyPath: messageText
       value: insert message here !!!!!
       objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: numOfMessages
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[0]
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[1]
+      value: Scally
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[0]
+      value: wassup bruh
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[1]
+      value: fuck you Flint stfu
+      objectReference: {fileID: 0}
     - target: {fileID: 905634188919814519, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_Size.x
@@ -19972,12 +20012,23 @@ PrefabInstance:
     - target: {fileID: 1772789975689002354, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_Name
       value: TextEventPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}

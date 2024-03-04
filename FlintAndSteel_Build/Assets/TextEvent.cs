@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class TextEvent : MonoBehaviour
 {
     [Header("Message Customization")]
-    [SerializeField] string nameText;
-    [SerializeField, TextArea] string messageText;
-    [SerializeField] Sprite speakerImage;
-
+    [SerializeField] string[] nameText;
+    [SerializeField, TextArea] string[] messageText;
+    [SerializeField] Sprite[] speakerImage;
+    [SerializeField] int numOfMessages = 1;
+    int currentMessage;
 
     [Header("GameObject References")]
     [SerializeField] GameObject messageGO;
@@ -23,9 +24,10 @@ public class TextEvent : MonoBehaviour
 
     void Awake()
     {
-        nameTextGO.GetComponent<TextMeshProUGUI>().text = nameText;
-        messageTextGO.GetComponent<TextMeshProUGUI>().text = messageText;
-        speakerImageGO.GetComponent<Image>().sprite = speakerImage;
+        currentMessage = 0;
+        nameTextGO.GetComponent<TextMeshProUGUI>().text = nameText[currentMessage];
+        messageTextGO.GetComponent<TextMeshProUGUI>().text = messageText[currentMessage];
+        speakerImageGO.GetComponent<Image>().sprite = speakerImage[currentMessage];
 
         messageActive = false;
         playerGO = GameObject.FindGameObjectWithTag("Player");
@@ -38,9 +40,7 @@ public class TextEvent : MonoBehaviour
         // If the player presses any key, exit the message
         if (messageActive && Input.anyKeyDown) 
         {
-            messageActive = false;
-            Time.timeScale = 1.0f;
-            gameObject.SetActive(false);
+            NextMessage();
         }
 
         // Disable player abilities and freeze time while the message is active
@@ -57,6 +57,24 @@ public class TextEvent : MonoBehaviour
         if (other.tag == "Player")
         {
             messageActive = true;
+        }
+    }
+
+    private void NextMessage()
+    {
+        currentMessage++;
+
+        if (currentMessage <= numOfMessages - 1) 
+        {
+            nameTextGO.GetComponent<TextMeshProUGUI>().text = nameText[currentMessage];
+            messageTextGO.GetComponent<TextMeshProUGUI>().text = messageText[currentMessage];
+            speakerImageGO.GetComponent<Image>().sprite = speakerImage[currentMessage];
+        }
+        else
+        {
+            messageActive = false;
+            Time.timeScale = 1.0f;
+            gameObject.SetActive(false);
         }
     }
 }
