@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7891.12, g: 8323.481, b: 9263.259, a: 1}
+  m_IndirectSpecularColor: {r: 7888.7217, g: 8321.3955, b: 9262.72, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21778,6 +21778,12 @@ PrefabInstance:
       propertyPath: messageText.Array.data[1]
       value: nothin much
       objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: fbcd34e1aa1f9d94289b2348366f144b,
+        type: 3}
     - target: {fileID: 905634188919814519, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_Size.x
