@@ -40,15 +40,18 @@ public class PlayerAttackScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && steelFound && GetComponent<Throwing>().pulling == false)
+        if (steelFound)
         {
-            if (isSwordThrown)
+            if (Input.GetMouseButtonDown(0) && GetComponent<Throwing>().pulling == false)
             {
-                SwordRecall();
-            }
-            else
-            {
-                AimAndThrow();
+                if (isSwordThrown)
+                {
+                    SwordRecall();
+                }
+                else
+                {
+                    AimAndThrow();
+                }
             }
         }
 
