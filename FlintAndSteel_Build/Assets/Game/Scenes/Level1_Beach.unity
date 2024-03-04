@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7888.366, g: 8322.251, b: 9263.782, a: 1}
+  m_IndirectSpecularColor: {r: 7890.1416, g: 8322.501, b: 9261.798, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11525,52 +11525,52 @@ PrefabInstance:
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.63
+      value: -65.71
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.16
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.18
+      value: 4.92
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.24737047
+      value: -0.20660259
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.48324114
+      value: 0.47152227
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7145011
+      value: 0.7712707
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.44133213
+      value: 0.37433085
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -60.429
+      value: -50.557
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 171.488
+      value: 176.904
       objectReference: {fileID: 0}
     - target: {fileID: 5234860740703519350, guid: 6756b4d27ab04d345be0cc5e3e633953,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 73.107
+      value: 64.342
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19964,6 +19964,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ocean
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: largeWindSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: ripplesWindSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: simulationFoamAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: largeCurrentSpeedValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: simulationFoamSmoothness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: largeWindOrientationValue
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6053332529381830573, guid: e9daf12f1e067ae4596e5a88a826ff99,
         type: 3}
