@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3472775168118309162, guid: 669060abe11d82842a07d2af89470ec5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e500500c03158f64a96a812bb3cb19ce, type: 2}
     - target: {fileID: 834366115736426938, guid: 669060abe11d82842a07d2af89470ec5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -83,6 +88,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FaS_PullableRock
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 669060abe11d82842a07d2af89470ec5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pushable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827767842799768230, guid: 669060abe11d82842a07d2af89470ec5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e500500c03158f64a96a812bb3cb19ce, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
