@@ -3,6 +3,7 @@
 //Attach this script to the player and tag the object that needs to be thrown as Sword
 //Check isKinematic and disable gravity
 //ADjust the throw force as you need in the inspector
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -22,8 +23,11 @@ public class PlayerAttackScript : MonoBehaviour
     public bool steelFound;
 
     [SerializeField]
-    Renderer  swordRenderer;
+    Renderer[]  swordRenderer;
     Material swordMaterial;
+
+    private float fadeOutValueStart = 1.0f;  //Initial fadeout value
+    private float fadeOutSpeed = 0.5f;  //Speed of fadeout
     void Start()
     {
         mainCamera = Camera.main;
@@ -39,10 +43,11 @@ public class PlayerAttackScript : MonoBehaviour
         }
         swordCollider.enabled = false;
 
-        swordMaterial = swordRenderer.material;
-        float fadeOuValue = swordMaterial.GetFloat("_FadeOut");
-        Debug.Log(fadeOuValue);
-        swordMaterial.SetFloat("_FadeOut", 0);
+        swordMaterial = swordRenderer[0].material;
+       // float fadeOuValue = swordMaterial.GetFloat("_FadeOut");
+
+
+        SetFadeOutValue(fadeOutValueStart);
     }
 
     // Update is called once per frame
@@ -62,7 +67,7 @@ public class PlayerAttackScript : MonoBehaviour
                 }
             }
         }
-
+        Debug.Log("Fade out occurs");
         UpdateSteelRenderer();
     }
 
@@ -148,9 +153,32 @@ public class PlayerAttackScript : MonoBehaviour
     void SwordRecall()
     {
         swordCollider.enabled = false;
-    
+        StartCoroutine(FadeOutSword());
+        //yield return new WaitForSeconds(0.5f);
         Destroy(GameObject.FindWithTag("Sword")); // Destroy the thrown sword 
         sword.SetActive(true);
         isSwordThrown = false;
+
+        //does the coRoutine thjat does the fadeout sword effect
+       
     }
+
+    public IEnumerator FadeOutSword()
+    {
+        while (fadeOutValueStart < 0.0f)
+        {
+            fadeOutValueStart += fadeOutSpeed * Time.deltaTime;
+            SetFadeOutValue(fadeOutValueStart);
+            yield return null;
+
+        }
+    }
+    void SetFadeOutValue(float value)
+    {
+        foreach (Renderer renderer in swordRenderer)
+        {
+            renderer.material.SetFloat("_FadeOut", value);
+        }
+    }
+
 }
