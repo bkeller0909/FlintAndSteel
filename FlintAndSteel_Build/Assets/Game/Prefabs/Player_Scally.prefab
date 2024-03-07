@@ -419,6 +419,11 @@ MonoBehaviour:
   sword: {fileID: 9205632678556802780}
   throwPosition: {fileID: 622101281678552462}
   steelFound: 0
+  swordRenderer:
+  - {fileID: 230456774174192876}
+  - {fileID: 7117869960263763197}
+  - {fileID: 3715860345570323234}
+  - {fileID: 2052405806574049378}
 --- !u!114 &9153319621337311271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,6 +1295,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d864e05331feb546b71d58412e74d73, type: 3}
+--- !u!23 &230456774174192876 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6205515150965785642, guid: 4d864e05331feb546b71d58412e74d73,
+    type: 3}
+  m_PrefabInstance: {fileID: 6137513565388730566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2052405806574049378 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5284772012146387108, guid: 4d864e05331feb546b71d58412e74d73,
+    type: 3}
+  m_PrefabInstance: {fileID: 6137513565388730566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3715860345570323234 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7403274960204930020, guid: 4d864e05331feb546b71d58412e74d73,
+    type: 3}
+  m_PrefabInstance: {fileID: 6137513565388730566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7117869960263763197 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4029337474098590779, guid: 4d864e05331feb546b71d58412e74d73,
+    type: 3}
+  m_PrefabInstance: {fileID: 6137513565388730566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8397852699414709350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2425186855525397664, guid: 4d864e05331feb546b71d58412e74d73,

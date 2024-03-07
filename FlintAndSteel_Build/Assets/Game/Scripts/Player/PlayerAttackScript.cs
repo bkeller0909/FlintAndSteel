@@ -36,7 +36,6 @@ public class PlayerAttackScript : MonoBehaviour
         
         swordCollider.enabled = false;
 
-        swordMaterial = swordRenderer[0].material;
         SetFadeOutValue(0f); // Set initial fade out value
     }
 
@@ -62,13 +61,26 @@ public class PlayerAttackScript : MonoBehaviour
 
     private void UpdateSteelRenderer()
     {
+        //hide the sword if the player hasnt picked it up yet
         if (!steelFound && sword != null)
         {
-            SetFadeOutValue(0f); // Hide the sword if the player hasn't picked it up yet
+            //Hide all renderers
+            Renderer[] swordPieces = sword.GetComponentsInChildren<Renderer>();
+
+            for (int i = 0; i < swordPieces.Length; i++)
+            {
+                swordPieces[i].enabled = false;
+            }
         }
         else
         {
-            SetFadeOutValue(1f); // Show the sword if the player has picked it up
+            //Show all renderers
+            Renderer[] swordPieces = sword.GetComponentsInChildren<Renderer>();
+
+            for (int i = 0; i < swordPieces.Length; i++)
+            {
+                swordPieces[i].enabled = true;
+            }
         }
     }
 
