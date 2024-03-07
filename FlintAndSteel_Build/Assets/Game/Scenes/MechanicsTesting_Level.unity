@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7100.757, g: 7020.079, b: 7690.0557, a: 1}
+  m_IndirectSpecularColor: {r: 9930.196, g: 9231.0205, b: 9066.079, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1279,6 +1279,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417e0f395add80147b51fbdfbeb7916f, type: 3}
+--- !u!23 &1318088188 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7117869960263763197, guid: dec7cd42960366243b5ad41d2112c616,
+    type: 3}
+  m_PrefabInstance: {fileID: 1777278409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1358902479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1672,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b245f557c1dd01842a5704bd3ce72d26, type: 3}
+--- !u!23 &1578824988 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3715860345570323234, guid: dec7cd42960366243b5ad41d2112c616,
+    type: 3}
+  m_PrefabInstance: {fileID: 1777278409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1624690436 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2052405806574049378, guid: dec7cd42960366243b5ad41d2112c616,
+    type: 3}
+  m_PrefabInstance: {fileID: 1777278409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1688010770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1909,6 +1927,31 @@ PrefabInstance:
       propertyPath: throwPosition
       value: 
       objectReference: {fileID: 707209791}
+    - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: swordRenderer.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: swordRenderer.Array.data[0]
+      value: 
+      objectReference: {fileID: 899159193}
+    - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: swordRenderer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1318088188}
+    - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: swordRenderer.Array.data[2]
+      value: 
+      objectReference: {fileID: 1578824988}
+    - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: swordRenderer.Array.data[3]
+      value: 
+      objectReference: {fileID: 1624690436}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

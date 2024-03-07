@@ -24,10 +24,10 @@ public class PlayerAttackScript : MonoBehaviour
 
     [SerializeField]
     Renderer[]  swordRenderer;
-    Material swordMaterial;
 
-    private float fadeOutValueStart = 1.0f;  //Initial fadeout value
-    private float fadeOutSpeed = 0.5f;  //Speed of fadeout
+    private float fadeOutValueStart = 0.704f;  //Initial fadeout value
+    private float fadeInValueStart = 0.0f;  //Intial fadein value
+    private float fadeOutSpeed = 5.0f;  //Speed of fadeout
     void Start()
     {
         mainCamera = Camera.main;
@@ -43,11 +43,9 @@ public class PlayerAttackScript : MonoBehaviour
         }
         swordCollider.enabled = false;
 
-        swordMaterial = swordRenderer[0].material;
-       // float fadeOuValue = swordMaterial.GetFloat("_FadeOut");
-
 
         SetFadeOutValue(fadeOutValueStart);
+        
     }
 
     // Update is called once per frame
@@ -154,9 +152,10 @@ public class PlayerAttackScript : MonoBehaviour
     {
         swordCollider.enabled = false;
         StartCoroutine(FadeOutSword());
-        //yield return new WaitForSeconds(0.5f);
-        Destroy(GameObject.FindWithTag("Sword")); // Destroy the thrown sword 
+
         sword.SetActive(true);
+        //StartCoroutine(FadeInSword());
+
         isSwordThrown = false;
 
         //does the coRoutine thjat does the fadeout sword effect
@@ -165,6 +164,20 @@ public class PlayerAttackScript : MonoBehaviour
 
     public IEnumerator FadeOutSword()
     {
+        while (fadeOutValueStart > 0.0f)
+        {
+            
+            fadeOutValueStart -= fadeOutSpeed * Time.deltaTime;
+            SetFadeOutValue(fadeOutValueStart);
+            yield return null;
+
+
+        }
+        Destroy(GameObject.FindWithTag("Sword")); // Destroy the thrown sword 
+    }
+
+    public IEnumerator FadeInSword()
+    {
         while (fadeOutValueStart < 0.0f)
         {
             fadeOutValueStart += fadeOutSpeed * Time.deltaTime;
@@ -172,6 +185,7 @@ public class PlayerAttackScript : MonoBehaviour
             yield return null;
 
         }
+        
     }
     void SetFadeOutValue(float value)
     {
