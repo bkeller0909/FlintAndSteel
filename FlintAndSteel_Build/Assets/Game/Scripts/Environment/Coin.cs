@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 //class to add to collectible coins
 [RequireComponent(typeof(SphereCollider))]
@@ -9,11 +10,14 @@ public class Coin : MonoBehaviour
 	public Vector3 rotationGain = new Vector3(10, 20, 10);  //added rotation when player gets near coin 
 	public float startSpeed = 3f;                           //how fast coin moves toward player when they get near
 	public float speedGain = 0.2f;                          //how fast coin accelerates toward player when they're near
+	// public TextMeshProUGUI coinScoreText;
 
 	private bool collected;
 	private Transform player;
 	private TriggerParent triggerParent;    //this is a utility class, that lets us check if the player is close to the coins "bounds sphere trigger"
 	private GUIManager gui;
+	private CoinCounter coinCounter;
+	// private int coinAmount;
 
 	[SerializeField] bool isFruit; 
 
@@ -79,7 +83,10 @@ public class Coin : MonoBehaviour
 		if(collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
 		if (gui && !isFruit)
-			gui.coinsCollected ++;
+		{
+			gui.coinsCollected++;
+			coinCounter.Instance.coinAmount++;
+		}
 
 		if (isFruit)
 		{

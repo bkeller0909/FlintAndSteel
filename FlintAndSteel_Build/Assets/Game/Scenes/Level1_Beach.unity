@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10963.175, g: 10938.372, b: 11054.11, a: 1}
+  m_IndirectSpecularColor: {r: 11085.681, g: 11070.649, b: 11154.001, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4291,6 +4291,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ca70f6a20db8740894ab807d17ae87, type: 3}
+--- !u!1 &339672975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7315919857119945047, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1318196920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &339672977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339672975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1d1cdb4650ba54692798e6b827a26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinAmount: 0
+  scoreText: {fileID: 1173043491}
 --- !u!1001 &344750836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10449,6 +10469,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1832578c6ab76cf47bf356e3589f7c2f, type: 3}
+      propertyPath: coinScoreText
+      value: 
+      objectReference: {fileID: 1173043491}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12074,6 +12098,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 104549316263377733}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173043491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6872899976891724244, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1318196920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1174548022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13318,7 +13354,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7315919857119945047, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 339672977}
   m_SourcePrefab: {fileID: 100100000, guid: 37a1aa305649e9147931665a2fcd7ab5, type: 3}
 --- !u!1001 &1319932589
 PrefabInstance:
