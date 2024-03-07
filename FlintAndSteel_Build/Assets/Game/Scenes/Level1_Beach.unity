@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10880.075, g: 10836.325, b: 10961.868, a: 1}
+  m_IndirectSpecularColor: {r: 11084.206, g: 11070.54, b: 11153.845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4338,27 +4338,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ca70f6a20db8740894ab807d17ae87, type: 3}
---- !u!1 &339672975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7315919857119945047, guid: 37a1aa305649e9147931665a2fcd7ab5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1318196920}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &339672977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339672975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1d1cdb4650ba54692798e6b827a26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
-  coinCounterText: {fileID: 0}
-  coinAmount: 0
 --- !u!1001 &344750836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13406,11 +13385,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 52268717}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7315919857119945047, guid: 37a1aa305649e9147931665a2fcd7ab5,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 339672977}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a1aa305649e9147931665a2fcd7ab5, type: 3}
 --- !u!1001 &1319932589
 PrefabInstance:

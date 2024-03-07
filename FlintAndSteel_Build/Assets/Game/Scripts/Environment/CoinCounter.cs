@@ -32,4 +32,8 @@ public class CoinCounter : MonoBehaviour
         }
     }
 
+    public void IncrementCoinCount()
+    {
+        coinAmount++;
+    }
 }

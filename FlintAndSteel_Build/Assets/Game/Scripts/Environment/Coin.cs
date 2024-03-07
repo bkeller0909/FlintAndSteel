@@ -48,6 +48,8 @@ public class Coin : MonoBehaviour
 			triggerParent.tagsToCheck[0] = "Player";
 			Debug.LogWarning ("No pickup radius 'bounds' trigger attached to coin: " + transform.name + ", one has been added automatically", bounds);
 		}
+
+		coinCount = FindObjectOfType<CoinCounter>();
 	}
 	
 	void Start()
@@ -83,23 +85,10 @@ public class Coin : MonoBehaviour
 		if (collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-
-        if (coinCount == null)
-        {
-			coinCount = FindObjectOfType<CoinCounter>();
-            if (coinCount == null)
-            {
-				Debug.LogWarning("CoinCOunter not found in the scene.");
-				return;
-            }
-        }
-
-        //Increment the coin count;
-        coinCount.coinAmount++;
-
-
-		//Destroy(gameObject);
-
+		if(coinCount !=null)
+		{
+			coinCount.IncrementCoinCount();
+		}
 
 
 		if (isFruit)
