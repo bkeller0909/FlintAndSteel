@@ -5,26 +5,31 @@ using UnityEngine;
 
 public class CoinCounter : MonoBehaviour
 {
-    private CoinCounter instance;
-    public CoinCounter Instance { get { return instance; } }
+    public CoinCounter Instance;
 
-    public int coinAmount;
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI coinCounterText;
+    public int coinAmount = 0;
 
     private void Awake()
     {
-        instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Anopther copy of the coin counter exists. Destroying this copy");
+            Destroy(gameObject);
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        coinAmount = 0;
+        //Updating the text in real time to display the current coin count
+        if (coinCounterText != null)
+        {
+            coinCounterText.text = coinAmount.ToString();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        scoreText.text = coinAmount.ToString();
-    }
 }

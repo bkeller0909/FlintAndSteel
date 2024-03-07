@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
 	private Transform player;
 	private TriggerParent triggerParent;    //this is a utility class, that lets us check if the player is close to the coins "bounds sphere trigger"
 	private GUIManager gui;
-	private CoinCounter coinCounter;
+	private CoinCounter coinCount;
 	// private int coinAmount;
 
 	[SerializeField] bool isFruit; 
@@ -80,13 +80,27 @@ public class Coin : MonoBehaviour
 	
 	void CoinGet()
 	{
-		if(collectSound)
+		if (collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
-		if (gui && !isFruit)
-		{
-			gui.coinsCollected++;
-			coinCounter.Instance.coinAmount++;
-		}
+
+
+        if (coinCount == null)
+        {
+			coinCount = FindObjectOfType<CoinCounter>();
+            if (coinCount == null)
+            {
+				Debug.LogWarning("CoinCOunter not found in the scene.");
+				return;
+            }
+        }
+
+        //Increment the coin count;
+        coinCount.coinAmount++;
+
+
+		//Destroy(gameObject);
+
+
 
 		if (isFruit)
 		{
