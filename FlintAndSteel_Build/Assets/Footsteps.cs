@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour
 {
+    [SerializeField] ParticleSystem sandParticles;
     [SerializeField] AudioSource audioSource;
 
     [SerializeField] AudioClip[] sandSteps;
@@ -60,6 +61,7 @@ public class Footsteps : MonoBehaviour
         {
             int soundChoice = Random.Range(0, sandSteps.Length);
             audioSource.PlayOneShot(sandSteps[soundChoice]);
+            sandParticles.Play();
         }
         else if (onGrass)
         {

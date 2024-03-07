@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11089.21, g: 11079.79, b: 11162.399, a: 1}
+  m_IndirectSpecularColor: {r: 11089.956, g: 11080.485, b: 11163.884, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 86972509}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4206,7 +4206,7 @@ GameObject:
   - component: {fileID: 322915078}
   m_Layer: 0
   m_Name: Collision (2)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15450,7 +15450,7 @@ GameObject:
   - component: {fileID: 1486946899}
   m_Layer: 0
   m_Name: Collision (4)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18097,7 +18097,7 @@ GameObject:
   - component: {fileID: 1724383255}
   m_Layer: 0
   m_Name: Collision (3)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19749,6 +19749,111 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 4.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.55319446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 0.9324341
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0.59459454
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -3.0231109
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0.9433985
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270074290498142801, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: SizeBySpeedModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -3.0231109
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909671869428211733, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.338
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909671869428211733, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.315
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909671869428211733, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5594006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909671869428211733, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.8288974
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909671869428211733, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -111.971
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124130276457987179, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 9124130276457987179, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124130276457987179, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_MeshDistribution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124130276457987179, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dca721a7bb3b71428fe14b00fbea2fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21076,7 +21181,7 @@ GameObject:
   - component: {fileID: 2098785815}
   m_Layer: 0
   m_Name: Collision (5)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21218,7 +21323,7 @@ GameObject:
   - component: {fileID: 2117077538}
   m_Layer: 0
   m_Name: Collision (1)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
