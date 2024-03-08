@@ -36,7 +36,7 @@ public class PlayerAttackScript : MonoBehaviour
         
         swordCollider.enabled = false;
 
-        SetFadeOutValue(0f); // Set initial fade out value
+        //SetFadeOutValue(0f); // Set initial fade out value
     }
 
     void Update()

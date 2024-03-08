@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11084.634, g: 11069.181, b: 11153.509, a: 1}
+  m_IndirectSpecularColor: {r: 11086.499, g: 11071.04, b: 11155.571, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -297,53 +297,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1017208040}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &52268716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 52268717}
-  - component: {fileID: 52268718}
-  m_Layer: 0
-  m_Name: CoinCounter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &52268717
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52268716}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1167.9408, y: -940.7608, z: -15.661545}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1361728824}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &52268718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52268716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1d1cdb4650ba54692798e6b827a26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
-  coinCounterText: {fileID: 1173043491}
-  coinAmount: 0
 --- !u!1001 &53168356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13497,11 +13450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3390125894927541915, guid: 37a1aa305649e9147931665a2fcd7ab5,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 52268717}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a1aa305649e9147931665a2fcd7ab5, type: 3}
 --- !u!1001 &1319932589
@@ -14055,12 +14004,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff714b4aa7c1154fbcc336825f5a734, type: 3}
---- !u!224 &1361728824 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3390125894927541915, guid: 37a1aa305649e9147931665a2fcd7ab5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1318196920}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1363265137
 GameObject:
   m_ObjectHideFlags: 0
