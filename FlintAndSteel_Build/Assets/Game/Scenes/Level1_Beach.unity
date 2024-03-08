@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11087.089, g: 11072.638, b: 11157.188, a: 1}
+  m_IndirectSpecularColor: {r: 11089.956, g: 11080.485, b: 11163.884, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19696,11 +19696,6 @@ PrefabInstance:
       propertyPath: hearts.Array.data[2]
       value: 
       objectReference: {fileID: 1694480576}
-    - target: {fileID: 230456774174192876, guid: dec7cd42960366243b5ad41d2112c616,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cf546aba7e3b4db438bd36c40d920754, type: 2}
     - target: {fileID: 2632163183205966404, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
       propertyPath: m_IsActive
@@ -19891,6 +19886,18 @@ PrefabInstance:
       propertyPath: messageText.Array.data[1]
       value: Try using me, I bet I could pull that out!
       objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
     - target: {fileID: 905634188919814519, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_Size.x
@@ -22277,6 +22284,12 @@ PrefabInstance:
       propertyPath: messageText.Array.data[1]
       value: nothin much
       objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: speakerImage.Array.data[1]
