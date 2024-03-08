@@ -42,7 +42,7 @@ public class Zipline : MonoBehaviour
     private bool attachToZip = true;
     protected GameObject localZip;
     private float playerVelocity = 0;
-
+    private float savedZPosition = 0;
 
 
 
@@ -143,6 +143,7 @@ public class Zipline : MonoBehaviour
         localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
         localZip.AddComponent<Rigidbody>().useGravity = false;
         localZip.GetComponent<Collider>().isTrigger = true;
+        savedZPosition = player.GetComponent<Rigidbody>().position.z;
         playerVelocity = player.GetComponent<Rigidbody>().velocity.x;
         player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
@@ -168,6 +169,8 @@ public class Zipline : MonoBehaviour
         player.GetComponent<CharacterMotor>().enabled = true;
 
         player.transform.parent = null;
+        player.GetComponent<Rigidbody>().position = new Vector3(player.GetComponent<Rigidbody>().position.x, player.GetComponent<Rigidbody>().position.y, savedZPosition);
+        savedZPosition = 0;
         Destroy(localZip);
         StartingPos = Vector3.zero;
         localZip = null;
