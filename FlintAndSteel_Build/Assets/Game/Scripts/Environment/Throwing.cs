@@ -255,12 +255,12 @@ public class Throwing : MonoBehaviour
 		}
 
 		// check if the player is at least 1 unit above the rope
-		if (gameObject.transform.position.y > ropeHeight.y + 1) 
+		if (gameObject.transform.position.y > ropeHeight.y + 0.8f) 
 		{
 			climbing = false;
 		}
 		// if the player doesnt make it above the rope, check how far below the player is
-		else if (gameObject.transform.position.y < ropeHeight.y - 3)
+		else if (gameObject.transform.position.y < ropeHeight.y - 2.8f)
 		{
 			climbing = false;
 		}
