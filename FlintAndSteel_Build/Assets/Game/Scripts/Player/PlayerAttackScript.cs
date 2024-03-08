@@ -17,7 +17,7 @@ public class PlayerAttackScript : MonoBehaviour
     Material swordMaterial;
 
     private float fadeOutValue = 0f; // Initial fade out value
-    private float fadeOutSpeed = 0.5f; // Speed of fade out
+    private float fadeOutSpeed = 1.0f; // Speed of fade out
 
     void Start()
     {
