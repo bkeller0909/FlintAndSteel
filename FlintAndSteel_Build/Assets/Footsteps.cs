@@ -36,7 +36,7 @@ public class Footsteps : MonoBehaviour
             onWood = false;
         }
 
-        if (other.CompareTag("Stone"))
+        if (other.CompareTag("Stone") || other.CompareTag("Pushable"))
         {
             onSand = false;
             onGrass = false;
