@@ -8,7 +8,7 @@ public class PlayerZipline : MonoBehaviour
 {
     [SerializeField] private float checkOffset = 1.0f;
     [SerializeField] private float checkRadius = 2.0f;
-    [SerializeField] private float hookRangeZip = 4.0f;
+    [SerializeField] private float hookRangeZip = 2.0f;
    
 
     // Update is called once per frame

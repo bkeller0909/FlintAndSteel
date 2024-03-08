@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 9925.306, g: 9224.364, b: 9056.415, a: 1}
+  m_IndirectSpecularColor: {r: 9921.423, g: 9219.763, b: 9051.103, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1957,6 +1957,11 @@ PrefabInstance:
       propertyPath: swordRenderer.Array.data[3]
       value: 
       objectReference: {fileID: 1624690436}
+    - target: {fileID: 9153319621337311271, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: hookRangeZip
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
