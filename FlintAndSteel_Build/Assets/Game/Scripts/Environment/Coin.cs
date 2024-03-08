@@ -62,8 +62,8 @@ public class Coin : MonoBehaviour
 	{
 		transform.Rotate (rotation * Time.deltaTime, Space.World);
 		
-		if(triggerParent.collided)
-			collected = true;
+		//if(triggerParent.collided)
+		//	collected = true;
 		
 		if (collected)
 		{
@@ -85,8 +85,9 @@ public class Coin : MonoBehaviour
 		if (collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-		if(coinCount !=null)
+		if(coinCount !=null && !collected)
 		{
+			collected = true;
 			coinCount.IncrementCoinCount();
 		}
 
