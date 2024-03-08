@@ -10,6 +10,9 @@ public class Zipline : MonoBehaviour
     [SerializeField] protected Zipline targetZip;
     [Tooltip("The speed in which the player moves down the Zipline")]
     [SerializeField] protected float zipSpeed = 50.0f;
+    [Tooltip("The max ramp up speed of the player going down the Zipline")]
+    [SerializeField] protected float MaxZipSpeed = 15.0f; // Not implemented yet
+    private float ModifiedZipSpeed = 0;
 
     [Tooltip("The Size of the cast sphere that checks if you are below the ZipTransform")]
     [SerializeField] protected float zipScale = 0.2f;
@@ -17,8 +20,9 @@ public class Zipline : MonoBehaviour
     [Tooltip("The distance you need to be from the target Zipline to stop using the Zipline automatically")]
     [SerializeField] protected float arrivalThreshold = 0.8f;
 
-    [Tooltip("Slot for ZipTransform child of ZipLine Anchor")]  
+    [Tooltip("Slot for ZipTransform child of ZipLine Anchor")]
     public Transform zipTransform; // The transform point of the child of "Zipline Anchor" called "zipTransform"
+    private Vector3 StartingPos = Vector3.zero;
 
     [Tooltip("Offset from the zipline the player rides")]
     public float offsetZip = -2.0f; // This could be moved. Not going to change it. - JRL
@@ -28,9 +32,10 @@ public class Zipline : MonoBehaviour
     [SerializeField] private float playerZOffset;
 
     protected bool zipping = false;
+    private bool beginingOfZip = false;
     protected GameObject localZip;
-    
-    
+    private float playerVelocity = 0;
+
 
 
 
@@ -40,28 +45,46 @@ public class Zipline : MonoBehaviour
         if (!zipping || localZip == null)
             return;
 
+        if(beginingOfZip)
+        {
+            if(targetZip.GetComponent<Rigidbody>().position.x > localZip.GetComponent<Rigidbody>().position.x && playerVelocity > 0)
+                ModifiedZipSpeed = zipSpeed + playerVelocity;
+            else if(targetZip.GetComponent<Rigidbody>().position.x < localZip.GetComponent<Rigidbody>().position.x && playerVelocity < 0)
+                ModifiedZipSpeed = zipSpeed - playerVelocity;
+            else
+            {
+                ModifiedZipSpeed = zipSpeed;
+            }
+            beginingOfZip = false;
+        }
 
-        localZip.GetComponent<Rigidbody>().AddForce((targetZip.zipTransform.position - zipTransform.position).normalized * zipSpeed * Time.deltaTime, ForceMode.Acceleration);
+
+        
+        float step = ModifiedZipSpeed * Time.deltaTime;
+        localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step);
+        Debug.Log("The current playerVelocity is " + playerVelocity);
+        //localZip.GetComponent<Rigidbody>().AddForce((targetZip.zipTransform.position - zipTransform.position).normalized * zipSpeed * Time.deltaTime, ForceMode.Acceleration);
         player.GetComponent<Rigidbody>().position = new Vector3(localZip.transform.position.x, localZip.transform.position.y + offsetZip, playerZOffset);
 
 
-        if(Vector3.Distance(localZip.transform.position, targetZip.zipTransform.position) <= arrivalThreshold)
+        if (Vector3.Distance(localZip.transform.position, targetZip.zipTransform.position) <= arrivalThreshold)
         {
             Debug.Log("Zipline Point Reached");
         }
 
         if (Vector3.Distance(localZip.transform.position, targetZip.zipTransform.position) <= arrivalThreshold || Input.GetButtonUp("Grab"))
         {
-                ResetZipline();
+            ResetZipline();
         }
-
-        //if (Input.GetButtonDown("Grab"))
-        //{
-        //    if(Mathf.Abs(player.transform.position.y - localZip.transform.position.y) <= 4000)
-        //        StartZipping(player);
-        //}
+        /* Depreciated
+        if (Input.GetButtonDown("Grab"))
+        {
+            if(Mathf.Abs(player.transform.position.y - localZip.transform.position.y) <= 4000)
+                StartZipping(player);
+        }
+        */
     }
-
+    /* // Depreciated
     public void StartZipping(GameObject player)
     {
         if (zipping)
@@ -71,7 +94,7 @@ public class Zipline : MonoBehaviour
         localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
         localZip.AddComponent<Rigidbody>().useGravity = false;
         localZip.GetComponent<Collider>().isTrigger = true;
-
+    
         player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -80,8 +103,11 @@ public class Zipline : MonoBehaviour
         player.transform.parent = localZip.transform;
         zipping = true;
     }
+    */
 
-    public void StartZippingRope(GameObject player)
+
+
+public void StartZippingRope(GameObject player)
     {
         if (zipping)
             return;
@@ -95,19 +121,21 @@ public class Zipline : MonoBehaviour
         float ratio = playerPosition / distanceBetweenPoints;
 
         Vector3 newPosition = Vector3.Lerp(zipTransform.position, targetZip.transform.position, ratio);
-        
-        localZip.transform.position = new Vector3(player.transform.position.x, newPosition.y, player.transform.position.z);
+
+        StartingPos = new Vector3(player.transform.position.x, newPosition.y, player.transform.position.z);
+        localZip.transform.position = StartingPos;
 
         localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
         localZip.AddComponent<Rigidbody>().useGravity = false;
         localZip.GetComponent<Collider>().isTrigger = true;
-
+        playerVelocity = player.GetComponent<Rigidbody>().velocity.x;
         player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         player.GetComponent<PlayerMove>().enabled = false;
         player.GetComponent<CharacterMotor>().enabled = false;
         player.transform.parent = localZip.transform;
+        beginingOfZip = true;
         zipping = true;
     }
 
@@ -125,7 +153,9 @@ public class Zipline : MonoBehaviour
 
         player.transform.parent = null;
         Destroy(localZip);
+        StartingPos = Vector3.zero;
         localZip = null;
+        beginingOfZip = true;
         zipping = false;
         Debug.Log("ZipLine has been reset");
     }

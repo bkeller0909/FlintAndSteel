@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11089.956, g: 11080.485, b: 11163.884, a: 1}
+  m_IndirectSpecularColor: {r: 11084.634, g: 11069.181, b: 11153.509, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19172,6 +19172,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 95895527}
     m_Modifications:
+    - target: {fileID: 584105018433507513, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2188242053267507065, guid: 362ba99d2588fbe40a8d8e3285bef0db,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -19202,6 +19207,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1722473199}
+    - target: {fileID: 4251580841391469455, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: zipSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4251580841391469455, guid: 362ba99d2588fbe40a8d8e3285bef0db,
         type: 3}
       propertyPath: playerZOffset

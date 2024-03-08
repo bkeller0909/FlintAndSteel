@@ -202,11 +202,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetZip: {fileID: 3824453903853579610}
-  zipSpeed: 250
+  zipSpeed: 5
+  MaxZipSpeed: 15
   zipScale: 0.2
   arrivalThreshold: 1.2
   zipTransform: {fileID: 7210776051747908361}
-  offsetZip: -1
+  offsetZip: -2
   player: {fileID: 100002, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
   playerZOffset: 0
 --- !u!1 &5338309223721650087
@@ -408,7 +409,7 @@ PrefabInstance:
     - target: {fileID: 7081148721587607992, guid: 2c53fb79bbf412848b5eecebc710ca69,
         type: 3}
       propertyPath: zipSpeed
-      value: 250
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7081148721587607992, guid: 2c53fb79bbf412848b5eecebc710ca69,
         type: 3}
