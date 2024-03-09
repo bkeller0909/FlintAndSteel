@@ -41,7 +41,7 @@ public class Zipline : MonoBehaviour
     private bool beginingOfZip = false;
     private bool attachToZip = true;
     protected GameObject localZip;
-    private float playerVelocity = 0;
+    private float playerVelocityX = 0;
     private float savedZPosition = 0;
 
 
@@ -57,9 +57,9 @@ public class Zipline : MonoBehaviour
         }
         else if (!attachToZip)
         {
+            CheckIfNotZip();
             InitializeInitialMomentum();
             MoveThroughZip();
-            CheckIfNotZip();
         }
     }
 
@@ -96,11 +96,11 @@ public class Zipline : MonoBehaviour
     {
         if (beginingOfZip)
         {
-            if (targetZip.GetComponent<Rigidbody>().position.x > localZip.GetComponent<Rigidbody>().position.x && playerVelocity > 0) // If end position is right do this
-                ModifiedZipSpeed = zipSpeed + playerVelocity;
-            else if (targetZip.GetComponent<Rigidbody>().position.x < localZip.GetComponent<Rigidbody>().position.x && playerVelocity < 0) // If end position is left do this
+            if (targetZip.GetComponent<Rigidbody>().position.x > localZip.GetComponent<Rigidbody>().position.x && playerVelocityX > 0) // If end position is right do this
+                ModifiedZipSpeed = zipSpeed + playerVelocityX;
+            else if (targetZip.GetComponent<Rigidbody>().position.x < localZip.GetComponent<Rigidbody>().position.x && playerVelocityX < 0) // If end position is left do this
             {
-                ModifiedZipSpeed = zipSpeed - playerVelocity;
+                ModifiedZipSpeed = zipSpeed - playerVelocityX;
             }
             else
             {
@@ -144,7 +144,7 @@ public class Zipline : MonoBehaviour
         localZip.AddComponent<Rigidbody>().useGravity = false;
         localZip.GetComponent<Collider>().isTrigger = true;
         savedZPosition = player.GetComponent<Rigidbody>().position.z;
-        playerVelocity = player.GetComponent<Rigidbody>().velocity.x;
+        playerVelocityX = player.GetComponent<Rigidbody>().velocity.x;
         player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
