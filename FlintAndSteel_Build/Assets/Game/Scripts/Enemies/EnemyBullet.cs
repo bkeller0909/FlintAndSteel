@@ -29,9 +29,9 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (!other.CompareTag("Enemy"))
+        {
             Destroy(gameObject);
-        else if (other.CompareTag("Player")) // when hitting a player it will be destroyed similiarly to hitting walls
-            Destroy(gameObject);
+        }
     }
 }
