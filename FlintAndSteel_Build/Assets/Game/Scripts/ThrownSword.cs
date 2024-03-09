@@ -5,15 +5,25 @@ using UnityEngine;
 public class ThrownSword : MonoBehaviour
 {
     [SerializeField] private GameObject swordPlatform;
+    [SerializeField] private GameObject sparks;
     private float platformSpawnOffset;
     private float platformSpawnDirection;
+
+    bool hitWoodWall = false;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("WoodWall"))
         {
+            hitWoodWall = true;
             Instantiate(swordPlatform, other.transform.position + new Vector3(platformSpawnOffset, 0, 0), Quaternion.Euler(-90, platformSpawnDirection, 0));
+            Destroy(gameObject);
+            return;
+        }
+        else if (other.CompareTag("Stone") || other.CompareTag("Pushable") && !hitWoodWall)
+        {
+            Instantiate(sparks, transform.position, Quaternion.Euler(0, Vector3.Angle(other.transform.position, transform.position), 0));
             Destroy(gameObject);
             return;
         }
@@ -48,6 +58,11 @@ public class ThrownSword : MonoBehaviour
             return;
         }
 
+        if (other.CompareTag("Hook Climb"))
+        {
+            return;
+        }
+        
         // If sword doesnt hit a wood wall, enemy, or player: destroy itself (replace with animation in the future)
         Destroy(gameObject);
     }
