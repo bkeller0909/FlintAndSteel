@@ -93,7 +93,6 @@ public class Coin : MonoBehaviour
 			Instantiate(coinCollectEffect, transform.position, Quaternion.Euler(-105, 0, 0));
 		}
 
-
 		if (isFruit)
 		{
 			if (player.GetComponent<Health>().currentHealth < 3)
