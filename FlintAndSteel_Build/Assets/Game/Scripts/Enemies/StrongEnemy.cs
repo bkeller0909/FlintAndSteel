@@ -24,7 +24,7 @@ public class StrongEnemy : MonoBehaviour
     private bool movingForward = true;
     private bool isReturningToStart = false;
 
-    private int enemyMaxHealth = 1; //Maximum possible health
+    private int enemyMaxHealth = 2; //Maximum possible health
     private int enemyCurrentHealth;
     #endregion
 

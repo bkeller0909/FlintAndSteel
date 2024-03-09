@@ -86,11 +86,11 @@ public class Coin : MonoBehaviour
 		if (collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-		if(coinCount !=null && !collected)
+		if(coinCount !=null && !collected && !isFruit)
 		{
 			collected = true;
 			coinCount.IncrementCoinCount();
-			Instantiate(coinCollectEffect, transform.position, Quaternion.Euler(-105, 0, 0));
+			Instantiate(coinCollectEffect, transform.position - new Vector3(0, 0.25f, 0), Quaternion.Euler(-105, 0, 0));
 		}
 
 		if (isFruit)
