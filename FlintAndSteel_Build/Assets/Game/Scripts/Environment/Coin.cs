@@ -19,7 +19,8 @@ public class Coin : MonoBehaviour
 	private CoinCounter coinCount;
 	// private int coinAmount;
 
-	[SerializeField] bool isFruit; 
+	[SerializeField] bool isFruit;
+	[SerializeField] GameObject coinCollectEffect;
 
 	//setup
 	void Awake()
@@ -89,6 +90,7 @@ public class Coin : MonoBehaviour
 		{
 			collected = true;
 			coinCount.IncrementCoinCount();
+			Instantiate(coinCollectEffect, transform.position, Quaternion.Euler(-105, 0, 0));
 		}
 
 
