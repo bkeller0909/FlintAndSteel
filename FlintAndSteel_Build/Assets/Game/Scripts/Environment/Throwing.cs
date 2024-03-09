@@ -254,8 +254,8 @@ public class Throwing : MonoBehaviour
 			gameObject.GetComponent<Collider>().enabled = true;
 		}
 
-		// check if the player is at least 1 unit above the rope
-		if (gameObject.transform.position.y > ropeHeight.y + 0.8f) 
+		// check if the player is at least 0.2 units above the rope
+		if (gameObject.transform.position.y > ropeHeight.y + 0.2f) 
 		{
 			climbing = false;
 		}

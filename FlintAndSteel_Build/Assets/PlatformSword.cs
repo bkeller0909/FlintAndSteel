@@ -5,6 +5,19 @@ using UnityEngine;
 public class PlatformSword : MonoBehaviour
 {
     private PlayerMove playerMove;
+    private AudioSource audioSource;
+
+    [SerializeField] private AudioClip woodWall;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = woodWall;
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.Play();
+    }
+
 
     // increase jump height while standing on the sword
     private void OnCollisionEnter(Collision collision)
