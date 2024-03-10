@@ -228,6 +228,7 @@ public class PlayerMove : MonoBehaviour
 		if (groundedCount < 0.25 && groundedCount != 0 && !GetComponent<AudioSource>().isPlaying && landSound && GetComponent<Rigidbody>().velocity.y < 1)
 		{
 			aSource.volume = Mathf.Abs(GetComponent<Rigidbody>().velocity.y)/40;
+			aSource.pitch = Random.Range(0.9f, 1.1f);
 			aSource.clip = landSound;
 			aSource.Play ();
 		}
@@ -267,7 +268,8 @@ public class PlayerMove : MonoBehaviour
 	{
 		if(jumpSound)
 		{
-			aSource.volume = 1;
+			aSource.volume = 0.65f;
+			aSource.pitch = Random.Range(0.92f, 1.08f);
 			aSource.clip = jumpSound;
 			aSource.Play ();
 		}
