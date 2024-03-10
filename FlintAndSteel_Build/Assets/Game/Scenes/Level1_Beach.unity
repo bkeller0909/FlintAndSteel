@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11084.886, g: 11069.63, b: 11151.048, a: 1}
+  m_IndirectSpecularColor: {r: 11084.624, g: 11071.169, b: 11154.759, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8618,6 +8618,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973953075}
     m_Modifications:
+    - target: {fileID: 3742854419169457565, guid: d8f5530d3b4495f4284f83dbadfb4706,
+        type: 3}
+      propertyPath: detectionRange
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5233061334347742360, guid: d8f5530d3b4495f4284f83dbadfb4706,
         type: 3}
       propertyPath: m_Name
@@ -12676,6 +12681,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973953075}
     m_Modifications:
+    - target: {fileID: 3742854419169457565, guid: d8f5530d3b4495f4284f83dbadfb4706,
+        type: 3}
+      propertyPath: detectionRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5233061334347742360, guid: d8f5530d3b4495f4284f83dbadfb4706,
         type: 3}
       propertyPath: m_Name
@@ -14312,6 +14322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveDistance
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742854419169457565, guid: d8f5530d3b4495f4284f83dbadfb4706,
+        type: 3}
+      propertyPath: detectionRange
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5233061334347742360, guid: d8f5530d3b4495f4284f83dbadfb4706,
         type: 3}
@@ -18497,6 +18512,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973953075}
     m_Modifications:
+    - target: {fileID: 3742854419169457565, guid: d8f5530d3b4495f4284f83dbadfb4706,
+        type: 3}
+      propertyPath: detectionRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5233061334347742360, guid: d8f5530d3b4495f4284f83dbadfb4706,
         type: 3}
       propertyPath: m_Name
@@ -23169,6 +23189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742854419169457565, guid: d8f5530d3b4495f4284f83dbadfb4706,
+        type: 3}
+      propertyPath: detectionRange
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5233061334347742360, guid: d8f5530d3b4495f4284f83dbadfb4706,
         type: 3}
