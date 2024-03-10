@@ -128,8 +128,7 @@ public class EnemyBoss : MonoBehaviour
             if (health <= 0)
             {
                 //Boss is defeated
-
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 
