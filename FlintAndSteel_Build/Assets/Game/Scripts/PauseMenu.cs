@@ -34,14 +34,20 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adjusts the volume within the pause menu.
+    /// </summary>
+    /// <param name="volume">Value of the slider in the menu</param>
     public void AdjustVolume(float volume)
     {
         Debug.Log(volume);
         audioMixer.SetFloat("volume", volume);
     }
 
+    // Quits to the main menu
     public void QuitToMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("IntroCutscene");
     }
 }
