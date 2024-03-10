@@ -47,9 +47,16 @@ public class Hazard : MonoBehaviour
 	{
 		if(!triggerEnter)
 			return;
-		foreach(string tag in effectedTags)
-			if(other.transform.tag == tag)
-				dealDamage.Attack (other.gameObject, damage, pushHeight, pushForce);
+		foreach (string tag in effectedTags)
+			if (other.transform.tag == tag)
+			{
+				dealDamage.Attack(other.gameObject, damage, pushHeight, pushForce);
+                if (hitSound)
+                {
+                    aSource.clip = hitSound;
+                    aSource.Play();
+                }
+            }
 	}
 }
 
