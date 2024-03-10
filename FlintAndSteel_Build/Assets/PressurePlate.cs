@@ -5,17 +5,20 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     public bool activated;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         activated = false;    
     }
 
     private void OnTriggerStay(Collider other)
     {
         // if the player or boulder goes onto the pressure plate, activate
-        if (other.CompareTag("Player") || other.CompareTag("Pushable"))
+        if (other.CompareTag("Feet") || other.CompareTag("Pushable"))
         {
             activated = true;
         }
@@ -24,9 +27,19 @@ public class PressurePlate : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // if the player or boulder leaves, deactivate
-        if (other.CompareTag("Player") || other.CompareTag("Pushable"))
+        if (other.CompareTag("Feet") || other.CompareTag("Pushable"))
         {
-            activated = false;
+            activated = false;   
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // if the player or boulder leaves, deactivate
+        if (other.CompareTag("Feet") || other.CompareTag("Pushable"))
+        {
+            audioSource.pitch = Random.Range(1.3f, 1.5f);
+            audioSource.Play();
         }
     }
 }
