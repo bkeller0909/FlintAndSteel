@@ -5,26 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
+    public static GameManager Instance { get { return instance; } }
 
-            if (!instance)
-            {
-                Debug.LogError("No Game Manager Present !!!");
-            }
-
-            return instance;
-
-        }
-    }
-
-    private List<ResetBehaviour> registeredForReset;
+    public int coinAmount = 0;
 
     private void Awake()
     {
@@ -32,8 +15,23 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            Debug.LogWarning("Anopther copy of the coin counter exists. Destroying this copy");
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         registeredForReset = new List<ResetBehaviour>();
     }
+
+    public void IncrementCoinCount()
+    {
+        coinAmount++;
+    }
+
+    private List<ResetBehaviour> registeredForReset;
 
     public static void RegisterForReset(ResetBehaviour resetBehaviour)
     {

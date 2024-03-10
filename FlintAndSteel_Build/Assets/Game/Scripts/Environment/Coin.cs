@@ -89,7 +89,7 @@ public class Coin : MonoBehaviour
 		if(coinCount !=null && !collected && !isFruit)
 		{
 			collected = true;
-			coinCount.IncrementCoinCount();
+			GameManager.Instance.IncrementCoinCount();
 			Instantiate(coinCollectEffect, transform.position - new Vector3(0, 0.25f, 0), Quaternion.Euler(-105, 0, 0));
 		}
 

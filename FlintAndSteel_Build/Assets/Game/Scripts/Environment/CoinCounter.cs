@@ -8,7 +8,7 @@ public class CoinCounter : MonoBehaviour
     public CoinCounter Instance;
 
     public TextMeshProUGUI coinCounterText;
-    public int coinAmount = 0;
+
 
     private void Awake()
     {
@@ -28,12 +28,9 @@ public class CoinCounter : MonoBehaviour
         //Updating the text in real time to display the current coin count
         if (coinCounterText != null)
         {
-            coinCounterText.text = coinAmount.ToString();
+            coinCounterText.text = GameManager.Instance.coinAmount.ToString();
         }
     }
 
-    public void IncrementCoinCount()
-    {
-        coinAmount++;
-    }
+
 }
