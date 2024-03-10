@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11089.272, g: 11079.735, b: 11162.478, a: 1}
+  m_IndirectSpecularColor: {r: 11087.843, g: 11075.196, b: 11158.759, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8482,6 +8482,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1437491765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &790690759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790690761}
+  - component: {fileID: 790690760}
+  m_Layer: 0
+  m_Name: PauseMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &790690760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790690759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0700ab25ff271804e8990621245a4e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &790690761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790690759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1717348303}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &791271905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18542,6 +18587,107 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8f5530d3b4495f4284f83dbadfb4706, type: 3}
+--- !u!1 &1717348302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717348303}
+  - component: {fileID: 1717348306}
+  - component: {fileID: 1717348305}
+  - component: {fileID: 1717348304}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1717348303
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717348302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 790690761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1717348304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717348302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1717348305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717348302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1717348306
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717348302}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!4 &1722210517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6521321074478360370, guid: a50449b36efaed94887ff4ad145ae14c,
@@ -23044,7 +23190,7 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: numOfMessages
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23068,18 +23214,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
+      propertyPath: nameText.Array.data[2]
+      value: Scally
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
       propertyPath: speakerImage.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: messageText.Array.data[0]
-      value: wassup Scally
+      value: Those ropes attached to that wooden platform should help us make our
+        way up those rocks.
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: messageText.Array.data[1]
-      value: nothin much
+      value: I should use the grab button to pull myself up.
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[2]
+      value: Ez pz
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23090,6 +23247,12 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: speakerImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: fbcd34e1aa1f9d94289b2348366f144b,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[2]
       value: 
       objectReference: {fileID: 21300000, guid: fbcd34e1aa1f9d94289b2348366f144b,
         type: 3}
@@ -23127,12 +23290,12 @@ PrefabInstance:
     - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -55.95
+      value: -49.5
       objectReference: {fileID: 0}
     - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.18
+      value: 10.07
       objectReference: {fileID: 0}
     - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23459,3 +23622,4 @@ SceneRoots:
   - {fileID: 1237058490}
   - {fileID: 2139382341}
   - {fileID: 780334800}
+  - {fileID: 790690761}
