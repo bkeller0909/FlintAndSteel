@@ -61,7 +61,6 @@ public class PressurePlateSystem : MonoBehaviour
         {
             if (boss.activeInHierarchy)
             {
-                Debug.Log("ACTIVE");
                 if (moveUp)
                 {
                     movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
@@ -73,7 +72,6 @@ public class PressurePlateSystem : MonoBehaviour
             }
             else
             {
-                Debug.Log("INACTIVE");
                 // move object
                 if (moveUp)
                 {
