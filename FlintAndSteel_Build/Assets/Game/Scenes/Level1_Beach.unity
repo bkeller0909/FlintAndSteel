@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10930.644, g: 10899.392, b: 11019.399, a: 1}
+  m_IndirectSpecularColor: {r: 11084.595, g: 11069.001, b: 11153.103, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17731,6 +17731,229 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff714b4aa7c1154fbcc336825f5a734, type: 3}
+--- !u!1001 &1667568430
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText
+      value: insert message here !!!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: numOfMessages
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[0]
+      value: Steel
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[1]
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[2]
+      value: Steel
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[3]
+      value: Scally
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[4]
+      value: Steel
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[5]
+      value: Steel
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[0]
+      value: AHOY THERE!
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[1]
+      value: You can talk?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[2]
+      value: Of course I can, didn't you see the glowing green light? That means
+        I'm possessed! AHAHAHA!
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[3]
+      value: ...What does that mean?
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[4]
+      value: I'm a cursed object, only a fool would pick me up. Just like your hook
+        there, you're stuck with me forever now.
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[5]
+      value: Use the LEFT MOUSE BUTTON to throw me, and use LEFT MOUSE BUTTON again
+        to call me back. Try throwing me at that landlubber over there.
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: fbcd34e1aa1f9d94289b2348366f144b,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
+        type: 3}
+    - target: {fileID: 905634188919814519, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772789975689002354, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Name
+      value: TextEventPrefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12773
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a1c123b23fa093646a93015aa00ecc2d, type: 3}
 --- !u!1001 &1668727232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19444,6 +19667,229 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1820173448}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1828954418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText
+      value: insert message here !!!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: numOfMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[0]
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[1]
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[2]
+      value: Steel
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[3]
+      value: Scally
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[4]
+      value: Steel
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[5]
+      value: Steel
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[0]
+      value: Maybe I can hook onto the sword guy too?
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[1]
+      value: You can talk?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[2]
+      value: Of course I can, didn't you see the glowing green light? That means
+        I'm possessed! AHAHAHA!
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[3]
+      value: ...What does that mean?
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[4]
+      value: I'm a cursed object, only a fool would pick me up. Just like your hook
+        there, you're stuck with me forever now.
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[5]
+      value: Use the LEFT MOUSE BUTTON to throw me, and use LEFT MOUSE BUTTON again
+        to call me back. Try throwing me at that landlubber over there.
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: fbcd34e1aa1f9d94289b2348366f144b,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
+        type: 3}
+    - target: {fileID: 905634188919814519, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772789975689002354, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Name
+      value: TextEventPrefab (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12773
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 83.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a1c123b23fa093646a93015aa00ecc2d, type: 3}
 --- !u!1001 &1829346362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23359,17 +23805,17 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: numOfMessages
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: nameText.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: messageText.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23379,7 +23825,7 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: nameText.Array.data[1]
-      value: Scally
+      value: Flint
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23389,7 +23835,7 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: speakerImage.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23400,12 +23846,12 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: messageText.Array.data[1]
-      value: I should use the grab button to pull myself up.
+      value: Try using me to hook onto the ropes!
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: messageText.Array.data[2]
-      value: Ez pz
+      value: I should use the RIGHT MOUSE BUTTON to pull myself up.
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23417,7 +23863,7 @@ PrefabInstance:
         type: 3}
       propertyPath: speakerImage.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: fbcd34e1aa1f9d94289b2348366f144b,
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
         type: 3}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23459,7 +23905,7 @@ PrefabInstance:
     - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.5
+      value: -48.32
       objectReference: {fileID: 0}
     - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -23791,6 +24237,8 @@ SceneRoots:
   - {fileID: 5639487132687355847}
   - {fileID: 2123918068}
   - {fileID: 1963244083}
+  - {fileID: 1667568430}
+  - {fileID: 1828954418}
   - {fileID: 1237058490}
   - {fileID: 2139382341}
   - {fileID: 780334800}
