@@ -44,6 +44,7 @@ public class TextEvent : MonoBehaviour
         // Disable player abilities and freeze time while the message is active
         playerGO.GetComponent<Throwing>().enabled = !messageActive;
         playerGO.GetComponent<PlayerAttackScript>().enabled = !messageActive;
+        playerGO.GetComponent<PlayerMove>().enabled = !messageActive; 
         if (messageActive)
         {
             Time.timeScale = 0.0f;

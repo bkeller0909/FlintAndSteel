@@ -10,13 +10,19 @@ public class PauseMenu : MonoBehaviour
     bool isPaused = false;
     public AudioMixer audioMixer;
 
+    [SerializeField] GameObject playerGO;
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))
         {
             Pause(!isPaused);
-        }    
+        }
+
+        playerGO.GetComponent<Throwing>().enabled = !isPaused;
+        playerGO.GetComponent<PlayerAttackScript>().enabled = !isPaused;
+        playerGO.GetComponent<PlayerMove>().enabled = !isPaused;
     }
 
     public void Pause(bool paused)
