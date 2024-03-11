@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class PressurePlateSystem : MonoBehaviour
 {
+    // Variables for the final boss door
+    [SerializeField] GameObject boss;
+    [SerializeField] bool isBossDoor = false;
+
     [SerializeField] GameObject pressurePlateGO;
     private PressurePlate pressurePlate;
 
@@ -25,29 +30,59 @@ public class PressurePlateSystem : MonoBehaviour
 
     void Activated()
     {
-        if (pressurePlate.activated) 
+        if (!isBossDoor)
         {
-        // move object
-            if (moveUp) 
+            if (pressurePlate.activated)
             {
-                movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3 (0, moveSpeed, 0);
+                // move object
+                if (moveUp)
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, moveSpeed, 0);
+                }
+                else
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
+                }
             }
+            // if the pressure plate is deactivated, move object back to original position
             else
             {
-                movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
+                if (moveUp)
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
+                }
+                else
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, moveSpeed, 0);
+                }
             }
         }
-        // if the pressure plate is deactivated, move object back to original position
         else
         {
-            if (moveUp)
+            if (boss.activeInHierarchy)
             {
-                movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
+                if (moveUp)
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
+                }
+                else
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, moveSpeed, 0);
+                }
             }
             else
             {
-                movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, moveSpeed, 0);
+                // move object
+                if (moveUp)
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, moveSpeed, 0);
+                }
+                else
+                {
+                    movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
+                }
             }
         }
+        
     }
 }
