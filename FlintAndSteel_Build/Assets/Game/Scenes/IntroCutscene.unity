@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10930.644, g: 10899.392, b: 11019.399, a: 1}
+  m_IndirectSpecularColor: {r: 10925.747, g: 10893.353, b: 11013.993, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7023,9 +7023,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1977702590}
-        m_TargetAssemblyTypeName: ControlsMenu, Assembly-CSharp
-        m_MethodName: Controls
+      - m_Target: {fileID: 1249435138}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7034,6 +7034,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 950302014}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &745750691
 MonoBehaviour:
@@ -8681,28 +8693,69 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1977702590}
+      objectReference: {fileID: 950302014}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1249435138}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Controls
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ControlsMenu, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4575270549421869258, guid: 2b591b00844a8a3449f55a9cb1d1024a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7923858636127562201, guid: 2b591b00844a8a3449f55a9cb1d1024a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1977702590}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b591b00844a8a3449f55a9cb1d1024a, type: 3}
 --- !u!1001 &897261402
 PrefabInstance:
@@ -11689,7 +11742,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1200943440}
   - component: {fileID: 1200943441}
-  - component: {fileID: 1200943442}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -11731,20 +11783,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOut: {fileID: 944150318}
---- !u!114 &1200943442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200943439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfbfa6492d2855478312a06c2b775ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuCanvas: {fileID: 1249435138}
-  controlsCanvas: {fileID: 950302014}
 --- !u!1001 &1202432627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19399,26 +19437,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976398752}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1977702587 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7923858636127562201, guid: 2b591b00844a8a3449f55a9cb1d1024a,
-    type: 3}
-  m_PrefabInstance: {fileID: 875663822}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1977702590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977702587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfbfa6492d2855478312a06c2b775ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuCanvas: {fileID: 1249435138}
-  controlsCanvas: {fileID: 950302014}
 --- !u!1001 &1982998334
 PrefabInstance:
   m_ObjectHideFlags: 0
