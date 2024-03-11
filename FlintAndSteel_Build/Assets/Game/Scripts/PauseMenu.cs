@@ -26,10 +26,12 @@ public class PauseMenu : MonoBehaviour
 
         if (isPaused)
         {
+            Debug.Log("The game is paused");
             Time.timeScale = 0;
         }
         else
         {
+            Debug.Log("The game is no longer paused");
             Time.timeScale = 1;
         }
     }
