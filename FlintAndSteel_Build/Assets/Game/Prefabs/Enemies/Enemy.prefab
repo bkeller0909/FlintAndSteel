@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7323744902038460704}
   - component: {fileID: 5969413319064905680}
   - component: {fileID: 5850158970329926678}
+  - component: {fileID: 4402088520137548719}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -287,6 +288,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4402088520137548719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5233061334347742360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b30fea94f9bbcc47a3debf39fb2672e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  deadSound: {fileID: 0}
+  currentHealth: 1
+  takeImpactDmg: 0
+  onlyRigidbodyImpact: 0
+  respawn: 0
+  impactFilterTag: []
+  hitFlashDelay: 0.1
+  flashDuration: 0.9
+  hitFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashObject: {fileID: 0}
+  spawnOnDeath: []
+  numOfHearts: 1
+  hearts: []
+  fullHeart: {fileID: 0}
+  emptyHeart: {fileID: 0}
+  dead: 0
+  flashing: 0
+  respawnPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &3105486157919254348
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class Hazard : MonoBehaviour
 	public int damage = 1;									//damage to deal to victim when they hit this hazard
 	public bool triggerEnter;								//are we checking for a trigger collision? (ie: hits a child trigger symbolising area of effect)
 	public bool collisionEnter = true;						//are we checking for collider collision? (ie: hits the actual collider of the object)
-	public string[] effectedTags = {"Player"};				//which objects are vulnerable to this hazard (tags)
+	public string[] effectedTags = {"Player", "Footsteps", "Enemy"};				//which objects are vulnerable to this hazard (tags)
 	public AudioClip hitSound;								//sound to play when an object is hurt by this hazard
 	
 	private DealDamage dealDamage;
