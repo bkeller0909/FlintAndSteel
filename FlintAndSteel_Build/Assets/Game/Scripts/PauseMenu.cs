@@ -59,6 +59,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("IntroCutscene");
     }
 
+    // Restarts level and sets coins to the amount the player had at the start of the level
     public void RestartLevel()
     {
         Time.timeScale = 1;

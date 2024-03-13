@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6322.257, g: 6163.0205, b: 5910.9067, a: 1}
+  m_IndirectSpecularColor: {r: 6321.2666, g: 6161.409, b: 5908.602, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8722,12 +8722,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 212173495497831108, guid: 10025677b42dfbe4eba0484affec6637,
     type: 3}
   m_PrefabInstance: {fileID: 1674966736}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &601528301 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 792763596862652727, guid: af9dd9a9ace2df347be1072abfcb6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1817223787}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &606417868 stripped
 Transform:
@@ -23820,7 +23814,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Barrel
       value: 
-      objectReference: {fileID: 601528301}
+      objectReference: {fileID: 0}
     - target: {fileID: 1805417552566190499, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
       propertyPath: player
