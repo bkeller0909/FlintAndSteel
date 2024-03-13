@@ -77,12 +77,12 @@ public class ThrownSword : MonoBehaviour
             if (transform.position.x < playerTransform.position.x)
             {
                 platformSpawnDirection = 90;
-                platformSpawnOffset = 0.5f;
+                platformSpawnOffset = 0.68f;
             }
             else
             {
                 platformSpawnDirection = -90;
-                platformSpawnOffset = -0.5f;
+                platformSpawnOffset = -0.68f;
             }
         }
     }
