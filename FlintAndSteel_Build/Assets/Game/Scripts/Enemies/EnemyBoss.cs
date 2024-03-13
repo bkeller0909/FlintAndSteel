@@ -192,11 +192,11 @@ public class EnemyBoss : MonoBehaviour
         }
 
 
-        if (distanceToPlayer < 3.0f)
-        {
-            eCurState = BossActionType.Attacking;
+        //if (distanceToPlayer < 3.0f)
+        //{
+        //    eCurState = BossActionType.Attacking;
 
-        }
+        //}
         return distanceToPlayer;
     }
 
