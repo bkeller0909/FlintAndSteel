@@ -32,6 +32,7 @@ public class EnemyBullet : MonoBehaviour
         if (!other.CompareTag("Enemy") && !other.CompareTag("Coin") && !other.CompareTag("Boss"))
         {
             Destroy(gameObject);
+            Debug.Log(other.gameObject.name);
         }
     }
 }
