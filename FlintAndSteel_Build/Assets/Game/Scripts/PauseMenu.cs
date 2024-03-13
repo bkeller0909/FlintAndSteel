@@ -58,4 +58,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("IntroCutscene");
     }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.coinAmount = GameManager.Instance.coinsAtLevelStart;
+    }
 }

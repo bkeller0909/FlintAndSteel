@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameManager.Instance.coinsAtLevelStart = GameManager.Instance.coinAmount;
             SceneManager.LoadScene(nextLevelIndex);
         }
     }
