@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
 
     public int coinAmount = 0;
+    public int coinsAtLevelStart = 0;
 
     private void Awake()
     {
