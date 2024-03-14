@@ -150,6 +150,7 @@ public class Zipline : MonoBehaviour
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         player.GetComponent<PlayerMove>().enabled = false;
         player.GetComponent<CharacterMotor>().enabled = false;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         player.transform.parent = localZip.transform;
         beginingOfZip = true;
         attachToZip = true;
@@ -167,6 +168,7 @@ public class Zipline : MonoBehaviour
         player.GetComponent<Rigidbody>().velocity = new Vector3(ModifiedZipSpeed, 0, 0);
         player.GetComponent<PlayerMove>().enabled = true; 
         player.GetComponent<CharacterMotor>().enabled = true;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 
         player.transform.parent = null;
         player.GetComponent<Rigidbody>().position = new Vector3(player.GetComponent<Rigidbody>().position.x, player.GetComponent<Rigidbody>().position.y, savedZPosition);

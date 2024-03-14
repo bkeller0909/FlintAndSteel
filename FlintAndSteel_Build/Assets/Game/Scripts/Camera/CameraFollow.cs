@@ -89,7 +89,7 @@ public class CameraFollow : MonoBehaviour
 		}
 		
 		//where should the camera be next frame?
-		Vector3 nextFramePosition = Vector3.Lerp(transform.position, followTarget.position, followSpeed * Time.deltaTime);
+		Vector3 nextFramePosition = Vector3.Slerp(transform.position, followTarget.position, followSpeed * Time.deltaTime);
 		Vector3 direction = nextFramePosition - target.position;
 		//raycast to this position
 		RaycastHit hit;
