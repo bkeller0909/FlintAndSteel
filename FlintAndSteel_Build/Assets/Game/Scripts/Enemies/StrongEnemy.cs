@@ -11,6 +11,13 @@ public class StrongEnemy : MonoBehaviour
     [Header("Movement Options")]
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float moveDistance = 5f;
+    [SerializeField] private float dashStrength;
+    [SerializeField] private float timeBetweenDashes;
+    [SerializeField] private float dashLength;
+    private float dashTimer;
+    private float dashLengthTimer;
+    private bool dashing;
+
 
     [Header("Targeting Options")]
     [SerializeField] private float detectionRange = 5f;
@@ -32,6 +39,10 @@ public class StrongEnemy : MonoBehaviour
     {
         startPosition = transform.position;     //Enemy starting coords
         enemyCurrentHealth = enemyMaxHealth;
+        dashTimer = timeBetweenDashes;
+        dashLengthTimer = dashLength;
+        dashing = false;
+ 
 
         GameObject playerObject = GameObject.FindWithTag("Player");
         if (playerObject != null)
@@ -96,7 +107,28 @@ public class StrongEnemy : MonoBehaviour
                 directionToPlayer.y = 0; // Keep Y-axis unchanged
                 directionToPlayer.z = 0; // Keep Z-axis unchanged
 
-                transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
+                if (!dashing)
+                {
+                    transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    transform.Translate(directionToPlayer * dashStrength * Time.deltaTime);
+                    dashLengthTimer -= Time.deltaTime;
+                    if (dashLengthTimer <= 0)
+                    {
+                        dashing = false;
+                        dashLengthTimer = dashLength;
+                        dashTimer = timeBetweenDashes;
+                    }
+                }
+
+                dashTimer -= Time.deltaTime;
+
+                if (dashTimer <= 0)
+                {
+                    dashing = true;
+                }
 
                 extraTravelledDistance += moveSpeed * Time.deltaTime;
 
@@ -165,4 +197,6 @@ public class StrongEnemy : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+
 }

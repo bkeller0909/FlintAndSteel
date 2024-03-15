@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6451373729985699846}
   - component: {fileID: 4366803182795436015}
   - component: {fileID: 1246671877490012290}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: StrongEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 77.939926, y: 0.031494617, z: -11.6906185}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.9028639, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5200636169495064008}
@@ -107,6 +107,9 @@ MonoBehaviour:
   showDebug: 0
   moveSpeed: 3
   moveDistance: 5
+  dashStrength: 12
+  timeBetweenDashes: 1.9
+  dashLength: 0.25
   detectionRange: 5
   returnRange: 5
   detectionEnabled: 1
@@ -461,8 +464,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.05, z: 0.04}
-  m_Center: {x: -3.549327e-13, y: -0.001500173, z: -0.0025570418}
+  m_Size: {x: 0.06, y: 0.073065646, z: 0.04}
+  m_Center: {x: 0.0000000015639201, y: -0.0025534148, z: -0.0025482548}
 --- !u!4 &2254730451457702754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4110563100680900996, guid: 43d3d300b2874df49a87b3526dd73b5f,
