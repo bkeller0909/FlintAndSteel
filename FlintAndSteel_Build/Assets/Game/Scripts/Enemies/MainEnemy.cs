@@ -67,10 +67,17 @@ public class BasicEnemy : MonoBehaviour
 
     private void Patrol()
     {
+        // flip direction
         if (movingForward)
+        {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            transform.localScale = new Vector3(1, 1, 1);
+        }
         else
+        {
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
         // Updates the travelled distance
         travelledDistance += moveSpeed * Time.deltaTime;
@@ -98,6 +105,16 @@ public class BasicEnemy : MonoBehaviour
                 directionToPlayer.z = 0; // Keep Z-axis unchanged
 
                 transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
+
+                // flip direction
+                if (directionToPlayer.x < 0)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
 
                 extraTravelledDistance += moveSpeed * Time.deltaTime;
 

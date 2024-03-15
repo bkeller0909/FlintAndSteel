@@ -77,10 +77,17 @@ public class StrongEnemy : MonoBehaviour
 
     private void Patrol()
     {
+        // flip direction
         if (movingForward)
+        {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            transform.localScale = new Vector3(1, 1, 1);
+        }
         else
+        {
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
         // Updates the travelled distance
         travelledDistance += moveSpeed * Time.deltaTime;
@@ -107,6 +114,17 @@ public class StrongEnemy : MonoBehaviour
                 directionToPlayer.y = 0; // Keep Y-axis unchanged
                 directionToPlayer.z = 0; // Keep Z-axis unchanged
 
+                // flip direction
+                if (directionToPlayer.x < 0)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+
+                // dashing
                 if (!dashing)
                 {
                     transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
