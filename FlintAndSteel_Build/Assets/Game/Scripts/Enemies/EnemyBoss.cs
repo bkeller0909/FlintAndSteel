@@ -264,12 +264,12 @@ public class EnemyBoss : MonoBehaviour
             float randomNumber = Random.value;  //Assigns a random value to the random Number
             if (randomNumber < 0.5f)    //50% chacne for a normal shot or random shot
             {
-                Debug.LogWarning("SingleShot");
+                //Debug.LogWarning("SingleShot");
                 Shoot();
             }
             else
             {
-                Debug.LogWarning("ScatterShot");
+                //Debug.LogWarning("ScatterShot");
                 ScatterShot();
             }
             shootTimer = shootInterval;
