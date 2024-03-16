@@ -11,13 +11,13 @@ public class Cannon : MonoBehaviour
     [SerializeField] GameObject explosionParticles;
     [SerializeField] GameObject explosionSound;
 
+    [SerializeField] GameObject cannonBall;
+
     [Header("Cannon Stats")]
     [SerializeField] float shootSpeed;
-    [SerializeField] float timeToExplode;
 
     private AudioSource aSource;
     private float shotTimer;
-    private float explosionTimer;
 
     bool shot;
 
@@ -26,7 +26,6 @@ public class Cannon : MonoBehaviour
         aSource = GetComponent<AudioSource>();
 
         shotTimer = shootSpeed;
-        explosionTimer = timeToExplode;
     }
 
     private void Update()
@@ -37,6 +36,8 @@ public class Cannon : MonoBehaviour
         {
             Shoot();
         }
+
+        Explosion();
     }
 
     private void Shoot()
@@ -47,20 +48,23 @@ public class Cannon : MonoBehaviour
             shotParticles.Play();
             shot = true;
 
+            Instantiate(cannonBall, cannonBarrel.position, Quaternion.identity);
+
             aSource.pitch = Random.Range(0.75f, 0.95f);
             aSource.Play();
-        }
+        }  
+    }
 
-        explosionTimer -= Time.deltaTime;
-
-        if (explosionTimer <= 0 )
+    private void Explosion()
+    {
+        if (fireLocation.GetComponent<ExplosionSpot>().explosion)
         {
             Instantiate(explosionParticles, fireLocation.position, Quaternion.identity);
             Instantiate(explosionSound, fireLocation.position, Quaternion.identity);
 
             shotTimer = shootSpeed;
-            explosionTimer = timeToExplode;
             shot = false;
-        }    
+            fireLocation.GetComponent<ExplosionSpot>().explosion = false;
+        }
     }
 }
