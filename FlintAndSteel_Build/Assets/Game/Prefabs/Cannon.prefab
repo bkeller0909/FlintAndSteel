@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 7223326732563723367}
   - component: {fileID: 6465847506227697990}
   - component: {fileID: 2785004793204311214}
+  - component: {fileID: 2838324800724238680}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -297,6 +298,7 @@ MonoBehaviour:
   cannonBall: {fileID: 3588524303438617556, guid: 00d28024a5c0e6746b5181b883ecb074,
     type: 3}
   shootSpeed: 2.5
+  startDelay: 0
 --- !u!82 &2785004793204311214
 AudioSource:
   m_ObjectHideFlags: 0
@@ -318,7 +320,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 22
-  MaxDistance: 33
+  MaxDistance: 34
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -393,6 +395,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2838324800724238680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298482184451120763}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 7, z: 5}
+  m_Center: {x: -22.6, y: 2, z: -9.63}
 --- !u!1001 &1532415629868836500
 PrefabInstance:
   m_ObjectHideFlags: 0

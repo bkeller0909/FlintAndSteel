@@ -13,13 +13,27 @@ public class Cannon : MonoBehaviour
 
     [SerializeField] GameObject cannonBall;
 
+    bool activated;
+
     [Header("Cannon Stats")]
     [SerializeField] float shootSpeed;
+    [SerializeField] float startDelay;
 
     private AudioSource aSource;
     private float shotTimer;
+    private float delayTimer;
 
     bool shot;
+
+    private void Awake()
+    {
+        aSource = GetComponent<AudioSource>();
+
+        delayTimer = startDelay;
+        shotTimer = shootSpeed;
+
+        activated = false;
+    }
 
     private void Start()
     {
@@ -30,14 +44,22 @@ public class Cannon : MonoBehaviour
 
     private void Update()
     {
-        shotTimer -= Time.deltaTime;
-
-        if (shotTimer <= 0 ) 
+        if (activated)
         {
-            Shoot();
-        }
+            delayTimer -= Time.deltaTime;
 
-        Explosion();
+            if (delayTimer <= 0)
+            {
+                shotTimer -= Time.deltaTime;
+            }
+
+            if (shotTimer <= 0)
+            {
+                Shoot();
+            }
+
+            Explosion();
+        }
     }
 
     private void Shoot()
@@ -65,6 +87,14 @@ public class Cannon : MonoBehaviour
             shotTimer = shootSpeed;
             shot = false;
             fireLocation.GetComponent<ExplosionSpot>().explosion = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            activated = true;
         }
     }
 }
