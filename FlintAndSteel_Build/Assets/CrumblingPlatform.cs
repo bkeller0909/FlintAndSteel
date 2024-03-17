@@ -11,12 +11,14 @@ public class CrumblingPlatform : MonoBehaviour
     private bool playerCollided;
 
     private AudioSource audioSource;
+    private Animator animator;
 
     private bool crumbled;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
 
         crumbleTimer = timeToCrumble;
         revertTimer = timeToRevert;
@@ -51,15 +53,15 @@ public class CrumblingPlatform : MonoBehaviour
 
         if (crumbleTimer <= 0)
         {
+            animator.SetBool("Respawn", false);
+            animator.SetBool("Falling", true);
+
             // Disable collider
             gameObject.GetComponent<BoxCollider>().enabled = false;
 
             // Change pitch and play sound
             audioSource.pitch = Random.Range(0.88f, 1.12f);
             audioSource.Play();
-
-            // Play animation in the future (disable renderer for now)
-            gameObject.GetComponentInChildren<Renderer>().enabled = false;
 
             crumbled = true;
             playerCollided = false;
@@ -76,11 +78,11 @@ public class CrumblingPlatform : MonoBehaviour
 
         if (revertTimer <= 0) 
         {
+            animator.SetBool("Respawn", true);
+            animator.SetBool("Falling", false);
+
             // Enable collider
             gameObject.GetComponent<BoxCollider>().enabled = true;
-
-            // Play animation in the future (enable renderer for now)
-            gameObject.GetComponentInChildren<Renderer>().enabled = true;
 
             crumbled = false;
 
