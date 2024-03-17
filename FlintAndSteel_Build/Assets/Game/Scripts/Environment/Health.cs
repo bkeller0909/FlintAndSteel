@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 //attach to any object in the game which takes damage (player, enemies, breakable crates, smashable windows..)
 [RequireComponent(typeof(AudioSource))]
@@ -100,8 +101,14 @@ public class Health : MonoBehaviour
 		
 		//are we dead?
 		dead = (currentHealth <= 0) ? true : false;
-		if (dead)
-			Death();
+		if (dead && SceneManager.GetActiveScene().name != "Level3_cBoss")
+		{
+            Death();
+        }
+		else if (dead && SceneManager.GetActiveScene().name == "Level3_cBoss")
+		{
+            SceneManager.LoadScene("Level3_cBoss");
+        }
 	}
 	
 	//toggle the flashObject material tint color
