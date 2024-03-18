@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class EnemyBoss : MonoBehaviour
 {
     #region serialized or public variables
@@ -41,7 +40,7 @@ public class EnemyBoss : MonoBehaviour
 
     [SerializeField]
     private float shootDuration = 5.0f;
-    
+
     #endregion
 
     //Intializes the boss variable to idle in the beggining of the game
@@ -57,9 +56,6 @@ public class EnemyBoss : MonoBehaviour
 
     private float health = 100;
     private Vector3 intitalPosition;
-
-    [SerializeField]
-  //  private Material bossMaterial;
 
     private void Update()
     {
@@ -85,9 +81,6 @@ public class EnemyBoss : MonoBehaviour
         StartCoroutine(IdleState());
         isVulnerable = true;
 
-        //Sets the boss color to white to show weakness
-    //    bossMaterial.color = Color.white;
-
     }
 
     private void HandleMovingState()
@@ -104,20 +97,11 @@ public class EnemyBoss : MonoBehaviour
         float distanceToPlayer = MoveTowardsPlayer();
 
         if (!isAttacking)
-        {//Calls the shoot function
+        {
             ShootTimer();
         }
-        if (distanceToPlayer <= dashDistance && !isAttacking)
-        {
-            //Calls the dash function
-            Vector3 direction = (player.position - transform.position).normalized;
 
-            StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
-
-        }
         isVulnerable = false;
-      //  bossMaterial.color = Color.red;
-
     }
 
     private void TakeDamage(float damage)
@@ -143,20 +127,13 @@ public class EnemyBoss : MonoBehaviour
             Debug.LogWarning("Health left: " + health);
         }
     }
+
     private IEnumerator IdleState()
     {
-        //Makes the boss stay in the idle state for the duation needed.
-        //Potentially make it so that the boss only gets damaged when he is in the idle state
-
-        yield return new WaitForSeconds(idleDuration); // Adjust the duration as needed
-
+        yield return new WaitForSeconds(idleDuration);
         eCurState = BossActionType.Attacking;
     }
-    /// <summary>
-    /// Adds a timer so that the boss only chasers the player as longa as the duration is set
-    /// </summary>
-    /// <param name="duration"></param>
-    /// <returns></returns>
+
     private IEnumerator MoveTowardsPlayerTimer(float duration)
     {
         isMoving = true;
@@ -164,50 +141,31 @@ public class EnemyBoss : MonoBehaviour
 
         while (timer < duration)
         {
-            MoveTowardsPlayer();    //Calls the function to make the boss follow the player around
+            MoveTowardsPlayer();
             timer += Time.deltaTime;
             yield return null;
         }
 
-        // After the specified duration, transition to the idle state
         isMoving = false;
     }
 
 
-    /// <summary>
-    /// Handles the logic for moving the boss towards the player. It also returns the position of the player
-    /// as a float so that it can be used later in other functions as well
-    /// </summary>
-    /// <returns></returns>
-    /// 
     private float MoveTowardsPlayer()
     {
-
         Vector3 direction = (player.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer > 1.0f)
         {
-            //  transform.Translate(direction * Mathf.Min(movementSpeed * Time.deltaTime, distanceToPlayer - 1.0f));
+            // Uncomment this line to make boss move towards player
+            // transform.Translate(direction * Mathf.Min(movementSpeed * Time.deltaTime, distanceToPlayer - 1.0f));
         }
 
-
-        //if (distanceToPlayer < 3.0f)
-        //{
-        //    eCurState = BossActionType.Attacking;
-
-        //}
         return distanceToPlayer;
     }
 
-    /// <summary>
-    /// Performs the dash attack of the boss
-    /// It takes in 3 variables, the position of the player, the dash distance and the speed of the dash
-    /// </summary>>
-    /// <returns></returns>
     private IEnumerator DashAttack(Vector3 direction, float distance, float speed)
     {
-        //The distance travelled while dashing
         isAttacking = true;
         int distanceCovered = 15;
         float distancePerPoint = distance / distanceCovered;
@@ -217,26 +175,21 @@ public class EnemyBoss : MonoBehaviour
         {
             Vector3 nextPoint = transform.position + direction * distancePerPoint * (i + 1);
 
-
             while (Vector3.Distance(transform.position, nextPoint) > 0.1f)
             {
-                //The amount the dash will move each frame
-                // Calculate movement towards the next point
                 Vector3 movement = direction * speed * Time.deltaTime;
 
-                // Ensure that the movement doesn't overshoot the next point
                 if (Vector3.Distance(transform.position, nextPoint) < movement.magnitude)
-                    transform.position = nextPoint; // Snap to the next point
+                    transform.position = nextPoint;
                 else
-                    transform.Translate(movement); // Move towards the next point
+                    transform.Translate(movement);
 
                 yield return null;
             }
         }
+
         isAttacking = false;
-
         eCurState = BossActionType.Idle;
-
     }
 
 
@@ -252,8 +205,7 @@ public class EnemyBoss : MonoBehaviour
         bulletScript.SetSpeed(10.0f);
         bulletScript.Fire(dir);
 
-        isAttacking = false;
-
+        StartCoroutine(DashAfterShootingTimer(10f)); // Dash after shooting for 10 seconds
     }
 
     private void ShootTimer()
@@ -261,15 +213,13 @@ public class EnemyBoss : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if (shootTimer < 0.0f && bulletPrefab != null)
         {
-            float randomNumber = Random.value;  //Assigns a random value to the random Number
-            if (randomNumber < 0.5f)    //50% chacne for a normal shot or random shot
+            float randomNumber = Random.value;
+            if (randomNumber < 0.5f)
             {
-                //Debug.LogWarning("SingleShot");
                 Shoot();
             }
             else
             {
-                //Debug.LogWarning("ScatterShot");
                 ScatterShot();
             }
             shootTimer = shootInterval;
@@ -278,35 +228,27 @@ public class EnemyBoss : MonoBehaviour
 
     private void ScatterShot()
     {
-        // Array to store directions
         Vector3[] directions = new Vector3[3];
         Vector3 playerDirection = (player.position - Barrel.position).normalized;
-        // Calculate directions
 
-        // Set predetermined directions
-        // Calculate directions
-        //  Vector3 barrelForward = Barrel.forward;
-
-        // Direction 1: Forward
         directions[0] = playerDirection;
-
-        // Direction 2: 
         directions[1] = Quaternion.Euler(0, 0, 30) * playerDirection;
-
-        // Direction 3: 
         directions[2] = Quaternion.Euler(0, 0, -30) * playerDirection;
 
-        // Fire bullets in each direction 
         foreach (Vector3 dir in directions)
         {
-            // Instantiate bullet
             GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
             EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
             bulletScript.SetSpeed(10);
             bulletScript.Fire(dir);
         }
+    }
 
+    private IEnumerator DashAfterShootingTimer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        // Call DashAttack after shooting for 10 seconds
+        Vector3 direction = (player.position - transform.position).normalized;
+        StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
     }
 }
-
-
