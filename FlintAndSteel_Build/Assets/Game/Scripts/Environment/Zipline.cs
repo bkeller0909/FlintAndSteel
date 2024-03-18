@@ -86,7 +86,7 @@ public class Zipline : MonoBehaviour
         ModifiedZipSpeed = Mathf.Lerp(ModifiedZipSpeed, MaxZipSpeed, zipStepSpeed * Time.deltaTime);
         float step = ModifiedZipSpeed * Time.deltaTime;
         localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step);
-        Debug.Log("The current ModifiedZipSpeed is " + ModifiedZipSpeed);
+        //Debug.Log("The current ModifiedZipSpeed is " + ModifiedZipSpeed);
         //localZip.GetComponent<Rigidbody>().AddForce((targetZip.zipTransform.position - zipTransform.position).normalized * zipSpeed * Time.deltaTime, ForceMode.Acceleration);
         player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step);
         //player.GetComponent<Rigidbody>().position = new Vector3(localZip.transform.position.x, localZip.transform.position.y + offsetZip, playerZOffset);
