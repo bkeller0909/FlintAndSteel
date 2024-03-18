@@ -205,7 +205,7 @@ public class EnemyBoss : MonoBehaviour
         bulletScript.SetSpeed(10.0f);
         bulletScript.Fire(dir);
 
-        StartCoroutine(DashAfterShootingTimer(10f)); // Dash after shooting for 10 seconds
+        StartCoroutine(DashAfterShootingTimer(3.0f)); // Dash after shooting for 10 seconds
     }
 
     private void ShootTimer()
@@ -217,10 +217,12 @@ public class EnemyBoss : MonoBehaviour
             if (randomNumber < 0.5f)
             {
                 Shoot();
+                Debug.Log("NormalShot");
             }
             else
             {
                 ScatterShot();
+                Debug.Log("ScatterShot");
             }
             shootTimer = shootInterval;
         }
