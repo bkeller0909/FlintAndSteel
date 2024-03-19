@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11085.851, g: 11070.665, b: 11154.103, a: 1}
+  m_IndirectSpecularColor: {r: 11088.698, g: 11077.099, b: 11160.884, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -34008,8 +34008,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
         type: 3}
+      propertyPath: timeMultiplier
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
       propertyPath: ripplesWindSpeed
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: largeBand0Multiplier
+      value: 0.861
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
+        type: 3}
+      propertyPath: largeBand1Multiplier
+      value: 0.918
       objectReference: {fileID: 0}
     - target: {fileID: 5390688901937546682, guid: e9daf12f1e067ae4596e5a88a826ff99,
         type: 3}
