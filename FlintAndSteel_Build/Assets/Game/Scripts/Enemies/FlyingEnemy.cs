@@ -17,6 +17,12 @@ public class ShootingEnemy : MonoBehaviour
     [SerializeField] private bool detectionEnabled = true;
     [SerializeField] private Transform player;
 
+    [SerializeField]
+    private Transform start;
+
+    [SerializeField] 
+    private Transform end;
+
     private Vector3 startPosition;
     private float traveledDistance = 0f;
     private bool movingForward = true;
@@ -51,6 +57,17 @@ public class ShootingEnemy : MonoBehaviour
 
     private void Movement1()
     {
+        //calculate the distance between the currentposition and the target position
+        float distanceToTarget = Vector3.Distance(transform.position, movingForward ?  end.position : start.position);
+
+        //Move towards target position
+        transform.position = Vector3.MoveTowards(transform.position,movingForward ? end.position : start.position, moveSpeed * Time.deltaTime);
+
+        if (distanceToTarget <= 0.01f)
+        {
+            //Reverse the movement direction
+            movingForward = !movingForward;
+        }
         if (player != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -63,7 +80,7 @@ public class ShootingEnemy : MonoBehaviour
                     Vector3 directionToPlayer = (player.position - transform.position).normalized;
                     directionToPlayer.y = 0; // Keep Y-axis unchanged
                     directionToPlayer.z = 0; // Keep Z-axis unchanged
-                    transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
+                    //transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
                 }
                 else
                 {
