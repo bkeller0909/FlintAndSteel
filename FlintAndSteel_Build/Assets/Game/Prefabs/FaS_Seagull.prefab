@@ -93,6 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5525218273369487876}
   - component: {fileID: 628860250734628950}
+  - component: {fileID: 258425343887945093}
+  - component: {fileID: 8509796617116318911}
   m_Layer: 0
   m_Name: FaS_Seagull
   m_TagString: Untagged
@@ -139,6 +141,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &258425343887945093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393797310104528591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77804fd1a51d19a43b9b0281509884c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &8509796617116318911
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393797310104528591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 12.951846
+  m_Center: {x: 0.000012787493, y: 0.98860604, z: -1.1059729}
 --- !u!1 &3008665397020336578
 GameObject:
   m_ObjectHideFlags: 0
