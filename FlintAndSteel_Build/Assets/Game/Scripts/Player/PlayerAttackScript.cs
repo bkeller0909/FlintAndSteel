@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttackScript : MonoBehaviour
 {
@@ -16,11 +17,25 @@ public class PlayerAttackScript : MonoBehaviour
     [SerializeField] Renderer[] swordRenderer;
     Material swordMaterial;
 
+    [SerializeField] Sprite[] steelIcons;
+    [SerializeField] Image steelIconUI;
+
     private float fadeOutValue = 0f; // Initial fade out value
     private float fadeOutSpeed = 1.0f; // Speed of fade out
 
     void Start()
     {
+        if (steelFound)
+        {
+            if (steelIconUI)
+                steelIconUI.sprite = steelIcons[1];
+        }
+        else
+        {
+            if (steelIconUI)
+                steelIconUI.sprite = steelIcons[0];
+        }
+
         mainCamera = Camera.main;
         rb = sword.GetComponent<Rigidbody>();
         swordCollider = sword.GetComponent<Collider>();
@@ -48,11 +63,24 @@ public class PlayerAttackScript : MonoBehaviour
                 if (isSwordThrown)
                 {
                     SwordRecall();
+
                 }
                 else
                 {
                     AimAndThrow();
+
                 }
+            }
+
+            if (isSwordThrown)
+            {
+                if (steelIconUI)
+                    steelIconUI.sprite = steelIcons[0];
+            }
+            else
+            {
+                if (steelIconUI)
+                    steelIconUI.sprite = steelIcons[1];
             }
         }
 
@@ -129,7 +157,7 @@ public class PlayerAttackScript : MonoBehaviour
         }
     }
 
-    void SwordRecall()
+    public void SwordRecall()
     {
         swordCollider.enabled = false;
         Destroy(GameObject.FindWithTag("Sword"));
