@@ -1341,8 +1341,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 584934098383288275, guid: 4d864e05331feb546b71d58412e74d73,
         type: 3}
+      propertyPath: m_Time
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 584934098383288275, guid: 4d864e05331feb546b71d58412e74d73,
+        type: 3}
       propertyPath: m_MinVertexDistance
-      value: 0.01
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2346411797490626939, guid: 4d864e05331feb546b71d58412e74d73,
         type: 3}
