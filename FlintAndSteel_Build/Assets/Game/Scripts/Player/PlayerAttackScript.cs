@@ -7,7 +7,7 @@ public class PlayerAttackScript : MonoBehaviour
 {
     [SerializeField] float throwForce = 10.0f;
     [SerializeField] GameObject sword;
-    private bool isSwordThrown;
+    public bool isSwordThrown;
     private Rigidbody rb;
     private Collider swordCollider;
     private Camera mainCamera;

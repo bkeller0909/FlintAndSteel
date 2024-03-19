@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11084.565, g: 10800.993, b: 9668.22, a: 1}
+  m_IndirectSpecularColor: {r: 11084.708, g: 10801.325, b: 9666.267, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11274,6 +11274,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
@@ -11795,6 +11803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.053676806
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715656937247393557, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6879977428459504402, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}

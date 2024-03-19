@@ -9,6 +9,9 @@ public class ThrownSword : MonoBehaviour
     private float platformSpawnOffset;
     private float platformSpawnDirection;
 
+    [SerializeField] private GameObject trailGO;
+    private TrailRenderer trail;
+
     GameObject player;
     PlayerAttackScript playerAttackScript;
 
@@ -19,6 +22,8 @@ public class ThrownSword : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackScript = player.GetComponent<PlayerAttackScript>();
+
+        trail = trailGO.GetComponent<TrailRenderer>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -107,6 +112,17 @@ public class ThrownSword : MonoBehaviour
                 platformSpawnDirection = -90;
                 platformSpawnOffset = -0.68f;
             }
+        }
+
+        if (playerAttackScript.isSwordThrown)
+        {
+            trail.gameObject.SetActive(true);
+            trail.emitting = true;
+        }
+        else
+        {
+            trail.emitting = false;
+            trail.gameObject.SetActive(false);
         }
     }
 }
