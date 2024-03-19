@@ -120,7 +120,9 @@ public class PlayerAttackScript : MonoBehaviour
         if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity))
         {
             float minThrowDistance = 1f;
-            
+
+            hitInfo.point = new Vector3(hitInfo.point.x, hitInfo.point.y, 0);
+
             if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
             {
                 Vector3 direction = hitInfo.point - transform.position;
@@ -149,8 +151,7 @@ public class PlayerAttackScript : MonoBehaviour
             sword.SetActive(false);
             rb.isKinematic = false;
             isSwordThrown = true;
-            rb.AddForce(direction * throwForce, ForceMode.Impulse);
-            SetFadeOutValue(1);
+            rb.AddForce(direction * throwForce, ForceMode.Impulse);          
         }
         else
         {
@@ -181,13 +182,19 @@ public class PlayerAttackScript : MonoBehaviour
             fadeOutValue += fadeOutSpeed * Time.deltaTime;
             SetFadeOutValue(fadeOutValue);
            
+            if (isSwordThrown) 
+            {
+                fadeOutValue = 1;
+                SetFadeOutValue(1);
+            }
+
             yield return null;
         }
         
     }
 
     // Function to set the fade out value of the sword material
-    void SetFadeOutValue(float value)
+    public void SetFadeOutValue(float value)
     {
         foreach (Renderer renderer in swordRenderer)
         {
