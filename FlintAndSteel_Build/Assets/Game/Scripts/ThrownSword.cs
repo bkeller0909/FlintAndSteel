@@ -13,6 +13,7 @@ public class ThrownSword : MonoBehaviour
     PlayerAttackScript playerAttackScript;
 
     bool hitWoodWall = false;
+    bool triggerEntered = false;
 
     private void Awake()
     {
@@ -22,8 +23,12 @@ public class ThrownSword : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (triggerEntered)
+            return;
+
         if (other.CompareTag("WoodWall"))
         {
+            triggerEntered = true;
             hitWoodWall = true;
             Instantiate(swordPlatform, other.transform.position + new Vector3(platformSpawnOffset, 0, 0), Quaternion.Euler(-90, platformSpawnDirection, 0));
             Destroy(gameObject);
@@ -32,7 +37,9 @@ public class ThrownSword : MonoBehaviour
         
         if (other.CompareTag("Stone") || other.CompareTag("Pushable") && !hitWoodWall)
         {
+            triggerEntered = true;
             Instantiate(sparks, transform.position, Quaternion.Euler(0, Vector3.Angle(other.transform.position, transform.position), 0));
+            playerAttackScript.SwordRecall();
             Destroy(gameObject);
             return;
         }
@@ -78,6 +85,8 @@ public class ThrownSword : MonoBehaviour
         }
 
         // If sword doesnt hit a wood wall, enemy, or player: destroy itself (replace with animation in the future)
+        triggerEntered = true;
+        playerAttackScript.SwordRecall();
         Destroy(gameObject);
     }
 
