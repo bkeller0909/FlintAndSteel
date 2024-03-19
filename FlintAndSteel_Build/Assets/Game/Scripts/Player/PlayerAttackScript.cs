@@ -150,6 +150,7 @@ public class PlayerAttackScript : MonoBehaviour
             rb.isKinematic = false;
             isSwordThrown = true;
             rb.AddForce(direction * throwForce, ForceMode.Impulse);
+            SetFadeOutValue(1);
         }
         else
         {
@@ -173,6 +174,8 @@ public class PlayerAttackScript : MonoBehaviour
     // Coroutine to gradually fade out the sword
    public IEnumerator FadeOutSword()
     {
+        fadeOutValue = 0;
+
         while (fadeOutValue < 1f)
         {
             fadeOutValue += fadeOutSpeed * Time.deltaTime;
@@ -180,7 +183,7 @@ public class PlayerAttackScript : MonoBehaviour
            
             yield return null;
         }
-        fadeOutValue = 0;
+        
     }
 
     // Function to set the fade out value of the sword material
