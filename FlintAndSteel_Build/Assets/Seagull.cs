@@ -6,9 +6,12 @@ using UnityEngine;
 public class Seagull : MonoBehaviour
 {
     bool flewAway;                  // destroys the seagull after a certain amount of time
+    bool isFlying;
     private float startDelay;       // idle animation start delay to prevent the birds from having synced up animations
     private float delayTimer;
     private Animator animator;
+
+    [SerializeField] private AudioSource audioSource;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class Seagull : MonoBehaviour
         // destroys the seagull after a certain amount of time
         if (flewAway) 
         {
+            audioSource.volume -= Time.deltaTime * 0.1f;
             Destroy(gameObject, 4f);
         }
     }
@@ -36,7 +40,7 @@ public class Seagull : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // fly away when the player gets close
-        if (other.tag == "Player")
+        if (other.tag == "Player" && flewAway == false)
         {
             FlyAway();
         }
@@ -46,6 +50,7 @@ public class Seagull : MonoBehaviour
     private void FlyAway()
     {
         animator.SetBool("Startled", true);
+        audioSource.Play();
         flewAway = true;
     }
 }
