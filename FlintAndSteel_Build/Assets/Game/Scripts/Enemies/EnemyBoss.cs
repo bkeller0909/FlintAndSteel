@@ -167,7 +167,7 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator DashAttack(Vector3 direction, float distance, float speed)
     {
         isAttacking = true;
-        int distanceCovered = 15;
+        float distanceCovered = 19.0f;
         float distancePerPoint = distance / distanceCovered;
         direction = new Vector3(direction.x, 0, 0).normalized;
 
