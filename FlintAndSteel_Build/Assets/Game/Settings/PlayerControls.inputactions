@@ -40,11 +40,20 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "Value",
+                    "id": "a47fc2dd-d43a-4443-9ed8-ea388c54ba3d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "Left Stick",
                     "id": "3c1cc366-c517-4d26-a2c0-aa19f7750c5d",
                     "path": "2DVector",
                     "interactions": "",
@@ -130,6 +139,61 @@
                     "action": "Throw/Recall",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Right Stick",
+                    "id": "9db4deb0-6165-4036-b80c-0502fe48a54a",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "e2fc4d7c-f465-4a73-b828-a9ccd4cee07b",
+                    "path": "<Gamepad>/rightStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b6978929-dfc0-42fa-b2af-22d0af8dd20b",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "4544f8fb-2d58-4ea2-918c-c65957061618",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "28c47947-96eb-4b70-83e1-e5091f1914cb",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
