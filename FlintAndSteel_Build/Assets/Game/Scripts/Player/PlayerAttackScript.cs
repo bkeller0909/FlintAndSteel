@@ -58,7 +58,7 @@ public class PlayerAttackScript : MonoBehaviour
     {
         if (steelFound)
         {
-            if (Input.GetMouseButtonDown(0) && !GetComponent<Throwing>().pulling)
+            if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Throw/Recall") && !GetComponent<Throwing>().pulling)
             {
                 if (isSwordThrown)
                 {
