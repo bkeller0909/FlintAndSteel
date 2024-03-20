@@ -21,6 +21,8 @@ public class PlayerAttackScript : MonoBehaviour
     [SerializeField] Sprite[] steelIcons;
     [SerializeField] Image steelIconUI;
 
+    public LayerMask raycastLayerMask;
+
     private float fadeOutValue = 0f; // Initial fade out value
     private float fadeOutSpeed = 1.0f; // Speed of fade out
 
@@ -118,7 +120,7 @@ public class PlayerAttackScript : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
 
-        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity))
+        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity/*, raycastLayerMask*/))
         {
             float minThrowDistance = 1f;
 

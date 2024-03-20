@@ -1,133 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingEnemy : MonoBehaviour
+public class FlyingEnemy : MonoBehaviour
 {
-    #region PrivateFields
-    [Header("Debug")]
-    [SerializeField] bool showDebug = false;
-
-    [Header("Movement Options")]
     [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float moveDistance = 5f;
+    [SerializeField] private Transform[] waypoints; // Define waypoints for movement
+    [SerializeField] private float detectionRange = 5f; // Detection range for the player
+    private int currentWaypointIndex = 0;
+    private Transform player; // Reference to the player's transform
+    private bool isPlayerDetected = false; // Flag to track if the player is detected
 
-    [Header("Targeting Options")]
-    [SerializeField] private float detectionRange = 5f;
-    [SerializeField] private bool detectionEnabled = true;
-    [SerializeField] private Transform player;
-
-    [SerializeField]
-    private Transform start;
-
-    [SerializeField] 
-    private Transform end;
-
-    private Vector3 startPosition;
-    private float traveledDistance = 0f;
-    private bool movingForward = true;
-
-    private int enemyMaxHealth = 3; //Maximum possible health
-    private int enemyCurrentHealth;
-    #endregion
-
-    // Start is called before the first frame update
-    void Start()
+    private float attackSpeed = 10.0f;
+    private void Start()
     {
-        startPosition = transform.position;     //Enemy starting coords
-        enemyCurrentHealth = enemyMaxHealth;
-
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if (playerObject != null)
+        player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player object
+        if (waypoints.Length == 0)
         {
-            player = playerObject.transform;
+            Debug.LogError("No waypoints defined for the Flying Enemy!");
+            enabled = false; // Disable the script if no waypoints are defined
+        }
+    }
+
+    private void Update()
+    {
+        if (!isPlayerDetected)
+        {
+            CheckForPlayerDetection();
+            MoveBetweenWaypoints();
         }
         else
         {
-            if (showDebug == true) Debug.LogError("Player not found!");
+            MoveTowardsPlayer();
         }
-
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CheckForPlayerDetection()
     {
-        Movement1();
+        // Check if the player is within detection range
+        if (Vector3.Distance(transform.position, player.position) <= detectionRange)
+        {
+            isPlayerDetected = true;
+        }
     }
 
-    private void Movement1()
+    private void MoveBetweenWaypoints()
     {
-        //calculate the distance between the currentposition and the target position
-        float distanceToTarget = Vector3.Distance(transform.position, movingForward ?  end.position : start.position);
+        Transform currentWaypoint = waypoints[currentWaypointIndex];
 
-        //Move towards target position
-        transform.position = Vector3.MoveTowards(transform.position,movingForward ? end.position : start.position, moveSpeed * Time.deltaTime);
+        // Move towards the current waypoint
+        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
 
-        if (distanceToTarget <= 0.01f)
+        // Check if reached the current waypoint
+        if (Vector3.Distance(transform.position, currentWaypoint.position) < 0.1f)
         {
-            //Reverse the movement direction
-            movingForward = !movingForward;
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length; // Move to the next waypoint
         }
-        if (player != null)
-        {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+    }
 
-            if (distanceToPlayer <= detectionRange)
-            {
-                if (detectionEnabled == true)
-                {
-                    // Move towards the player
-                    Vector3 directionToPlayer = (player.position - transform.position).normalized;
-                    directionToPlayer.y = 0; // Keep Y-axis unchanged
-                    directionToPlayer.z = 0; // Keep Z-axis unchanged
-                    //transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
-                }
-                else
-                {
-                    detectionRange = 0;
-                }
-            }
-            else
-            {
-                if (movingForward)
-                    transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-                else
-                    transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-
-
-                // Updates the traveled distance
-                traveledDistance += moveSpeed * Time.deltaTime;
-
-                // Check if the Enemy moved required distance
-                if (traveledDistance >= moveDistance)
-                {
-                    // Reset traveled distance
-                    traveledDistance = 0f;
-
-                    // Reverse the movement direction
-                    movingForward = !movingForward;
-                }
-            }
-        }
+    private void MoveTowardsPlayer()
+    {
+        // Move towards the player
+        transform.position = Vector3.MoveTowards(transform.position, player.position, attackSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Sword"))
+        if (other.CompareTag("Player"))
         {
-            Damaged1(1); // take 1 damage
-            if (showDebug == true) Debug.Log("Enemy Health: " + enemyCurrentHealth);
-        }
-    }
-
-    private void Damaged1(int damage)
-    {
-        enemyCurrentHealth -= damage; // lower Health with whatever damage was recieved
-
-        if (enemyCurrentHealth <= 0)  // if health is or less than 0 enemy is dead
-        {
-            if (showDebug == true) Debug.Log("ShootingEnemy Killed");
-            gameObject.SetActive(false);
+            // Handle collision with the player
         }
     }
 }
