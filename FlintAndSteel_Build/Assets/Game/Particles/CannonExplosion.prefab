@@ -47,7 +47,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 0.3
   simulationSpeed: 1.5
-  stopAction: 1
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -120,7 +120,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5019,13 +5019,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6499d02d4c3a54b9e3b48047be73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 6
-  pushHeight: 4
+  pushForce: 7
+  pushHeight: 5
   damage: 1
   triggerEnter: 0
   collisionEnter: 1
   effectedTags:
-  - Feet
   - Player
   - Enemy
   hitSound: {fileID: 0}
