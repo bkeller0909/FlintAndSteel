@@ -1,72 +1,66 @@
+using System.Collections;
 using UnityEngine;
 
 public class FlyingEnemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private Transform[] waypoints; // Define waypoints for movement
-    [SerializeField] private float detectionRange = 5f; // Detection range for the player
+    [SerializeField] private Transform[] waypoints;
     private int currentWaypointIndex = 0;
-    private Transform player; // Reference to the player's transform
-    private bool isPlayerDetected = false; // Flag to track if the player is detected
 
-    private float attackSpeed = 10.0f;
+    [SerializeField] private float attackSpeed = 10.0f;
+    [SerializeField] private float detectionRange = 5.0f;
+    [SerializeField] private GameObject player;
+    private bool isAttacking = false;
+
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player object
         if (waypoints.Length == 0)
         {
             Debug.LogError("No waypoints defined for the Flying Enemy!");
-            enabled = false; // Disable the script if no waypoints are defined
+            enabled = false;
         }
     }
 
     private void Update()
     {
-        if (!isPlayerDetected)
-        {
-            CheckForPlayerDetection();
-            MoveBetweenWaypoints();
-        }
-        else
-        {
-            MoveTowardsPlayer();
-        }
-    }
+        MoveBetweenWaypoints();
 
-    private void CheckForPlayerDetection()
-    {
-        // Check if the player is within detection range
-        if (Vector3.Distance(transform.position, player.position) <= detectionRange)
+        if (!isAttacking && Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
         {
-            isPlayerDetected = true;
+            isAttacking = true;
+            StartCoroutine(AttackPlayer());
         }
     }
 
     private void MoveBetweenWaypoints()
     {
         Transform currentWaypoint = waypoints[currentWaypointIndex];
-
-        // Move towards the current waypoint
         transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
 
-        // Check if reached the current waypoint
         if (Vector3.Distance(transform.position, currentWaypoint.position) < 0.1f)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length; // Move to the next waypoint
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 
-    private void MoveTowardsPlayer()
+    private IEnumerator AttackPlayer()
     {
-        // Move towards the player
-        transform.position = Vector3.MoveTowards(transform.position, player.position, attackSpeed * Time.deltaTime);
+        while (Vector3.Distance(transform.position, player.transform.position) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, attackSpeed * Time.deltaTime);
+            yield return null;
+        }
+        // Add attack logic here, such as dealing damage to the player
+
+        yield return new WaitForSeconds(5f); //maybe a varaible, this is the cooldown it takes teh boss to be able to attack again after hitting the player
+        isAttacking = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Handle collision with the player
+            
         }
     }
 }
