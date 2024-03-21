@@ -7,6 +7,8 @@ using UnityEngine.Rendering;
 public class Zipline : MonoBehaviour
 {
 
+    [SerializeField] private GameObject zipEffect; // zipline effect
+
     [Tooltip("Place the Zipline you want to go to if you use this Zipline")]
     [SerializeField] protected Zipline targetZip;
 
@@ -131,6 +133,8 @@ public class Zipline : MonoBehaviour
         // zipTransform
         // targetZip
 
+        Instantiate(zipEffect, transform.position, Quaternion.identity);
+
         float distanceBetweenPoints = Vector3.Distance(zipTransform.position, targetZip.transform.position);
         float playerPosition = Vector3.Distance(zipTransform.position, player.transform.position);
         float ratio = playerPosition / distanceBetweenPoints;
@@ -161,6 +165,7 @@ public class Zipline : MonoBehaviour
         if (!zipping) 
             return;
 
+        
         GameObject player = localZip.transform.GetChild(0).gameObject;
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().isKinematic = false;
