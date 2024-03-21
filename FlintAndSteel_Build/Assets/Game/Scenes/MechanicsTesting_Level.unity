@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 9926.026, g: 9225.099, b: 9057.579, a: 1}
+  m_IndirectSpecularColor: {r: 9926.472, g: 9225.595, b: 9058.298, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2451,6 +2451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flying Bomber
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233061334347742360, guid: ecc44133400dfea4696432ba527b47a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7083400769191372358, guid: ecc44133400dfea4696432ba527b47a3,
         type: 3}
