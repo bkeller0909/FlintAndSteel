@@ -21,6 +21,8 @@ public class PlayerAttackScript : MonoBehaviour
     [SerializeField] Sprite[] steelIcons;
     [SerializeField] Image steelIconUI;
 
+    private Animator animator;
+
     public LayerMask raycastLayerMask;
 
     private float fadeOutValue = 0f; // Initial fade out value
@@ -28,6 +30,8 @@ public class PlayerAttackScript : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+
         if (steelFound)
         {
             if (steelIconUI)
@@ -71,6 +75,7 @@ public class PlayerAttackScript : MonoBehaviour
                 else
                 {
                     AimAndThrow();
+                    
 
                 }
             }
@@ -117,6 +122,7 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
+
         Vector3 mousePosition = Input.mousePosition;
         Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
 
@@ -128,11 +134,13 @@ public class PlayerAttackScript : MonoBehaviour
 
             if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
             {
+                animator.SetTrigger("ThrowSword");
                 Vector3 direction = hitInfo.point - transform.position;
                 direction.Normalize();
                 direction.z = 0;
 
                 ThrowSword(direction);
+                
             }
             else
             {
