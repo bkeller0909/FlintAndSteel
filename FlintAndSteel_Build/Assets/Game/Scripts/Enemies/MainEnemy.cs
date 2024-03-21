@@ -27,10 +27,14 @@ public class BasicEnemy : MonoBehaviour
 
     private int enemyMaxHealth = 1; //Maximum possible health
     private int enemyCurrentHealth;
+
+    private Animator animator;
     #endregion
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+
         startPosition = transform.position;     //Enemy starting coords
         enemyCurrentHealth = enemyMaxHealth;
 
@@ -168,6 +172,11 @@ public class BasicEnemy : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             Damaged(1); // take 1 damage
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            animator.SetTrigger("ThrowSword");
         }
     }
 
