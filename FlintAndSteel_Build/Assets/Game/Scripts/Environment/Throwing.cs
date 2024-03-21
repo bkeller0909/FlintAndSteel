@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 //this allows the player to pick up/throw, and also pull certain objects
@@ -46,8 +47,11 @@ public class Throwing : MonoBehaviour
 
 	[SerializeField] private Collider climbingCollider;
 
-	//setup
-	void Awake()
+    [SerializeField] Sprite[] flintIcons;
+    [SerializeField] Image flintIconUI;
+
+    //setup
+    void Awake()
 	{
 		aSource = GetComponent<AudioSource>();
 		//create grabBox is none has been assigned
@@ -132,7 +136,18 @@ public class Throwing : MonoBehaviour
 			}
 		}
 
-		ClimbingCollider();
+        if (canClimb)
+        {
+            if (flintIconUI)
+                flintIconUI.sprite = flintIcons[0];
+        }
+        else
+        {
+            if (flintIconUI)
+				flintIconUI.sprite = flintIcons[1];
+        }
+
+        ClimbingCollider();
 	}
 	
 	//pickup/grab

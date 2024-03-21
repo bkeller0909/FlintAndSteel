@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11065.165, g: 10786.185, b: 9666.868, a: 1}
+  m_IndirectSpecularColor: {r: 11073.175, g: 10791.915, b: 9668.735, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3986,6 +3986,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 687255409092097889, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f13996e3e609d214baa274e20b5c2144,
+        type: 3}
     - target: {fileID: 1584219265677957276, guid: 37a1aa305649e9147931665a2fcd7ab5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4025,6 +4031,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250879098244243240, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250879098244243240, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250879098244243240, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250879098244243240, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250879098244243240, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 746.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250879098244243240, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -372.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760520397794732396, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7103355301895881565, guid: 37a1aa305649e9147931665a2fcd7ab5,
         type: 3}
@@ -14111,6 +14152,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 304038156}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &873573316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687255409092097889, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 197863533}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &875611572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17250,6 +17303,10 @@ PrefabInstance:
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
+      propertyPath: flintIconUI
+      value: 
+      objectReference: {fileID: 873573316}
     - target: {fileID: 11400004, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
