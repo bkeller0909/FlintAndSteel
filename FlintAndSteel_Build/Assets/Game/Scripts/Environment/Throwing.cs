@@ -42,6 +42,9 @@ public class Throwing : MonoBehaviour
 
 	private bool canClimb;
 	private GameObject rope;
+	private float climbTimer;
+
+	[SerializeField] private Collider climbingCollider;
 
 	//setup
 	void Awake()
@@ -92,11 +95,12 @@ public class Throwing : MonoBehaviour
 			else
 				animator.SetBool ("HoldingPushable", false);
 
-		if (Input.GetButtonDown("Grab") && canClimb && rope && !climbing)
+		if (Input.GetButtonDown("Grab") && canClimb && rope != null && !climbing)
 		{
-            // adds velocity to Y axis and gets rid of velocity in other directions
+			// adds velocity to Y axis and gets rid of velocity in other directions
+			climbTimer = 1.1f;
             climbing = true;
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 15, 0);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 15.5f, 0);
             ropeHeight = rope.gameObject.transform.position;
 			animator.SetTrigger("HookClimb");
         }
@@ -164,9 +168,14 @@ public class Throwing : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (rope && other.gameObject == rope.gameObject)
+		
+        if (canClimb && other.gameObject == rope.gameObject)
         {
-			rope = null;
+			if (rope != null)
+			{
+                rope = null;
+            }
+				
             canClimb = false;
         }
     }
@@ -276,12 +285,25 @@ public class Throwing : MonoBehaviour
 	{
 		if (climbing)
 		{
-			gameObject.GetComponent<Collider>().enabled = false;
+			//gameObject.GetComponent<Collider>().enabled = false;
+			climbingCollider.enabled = false;
 		}
 		else
 		{
-			gameObject.GetComponent<Collider>().enabled = true;
+			//gameObject.GetComponent<Collider>().enabled = true;
+            climbingCollider.enabled = true;
+        }
+
+		if (climbing)
+		{
+			climbTimer -= Time.deltaTime;
+
+			if (climbTimer <= 0)
+			{
+				climbing = false;
+			}
 		}
+
 
 		// check if the player is at least 0.2 units above the rope
 		if (gameObject.transform.position.y > ropeHeight.y + 0.2f) 
@@ -289,7 +311,7 @@ public class Throwing : MonoBehaviour
             climbing = false;
 		}
 		// if the player doesnt make it above the rope, check how far below the player is
-		else if (gameObject.transform.position.y < ropeHeight.y - 3.8f)
+		else if (gameObject.transform.position.y < ropeHeight.y - 3.7f)
 		{
 			climbing = false;
 		}
