@@ -50,11 +50,13 @@ public class CrumblingPlatform : MonoBehaviour
     {
         // Start timer for crumbling
         crumbleTimer -= Time.deltaTime;
+        animator.SetBool("Shaking", true);
 
         if (crumbleTimer <= 0)
         {
             animator.SetBool("Respawn", false);
             animator.SetBool("Falling", true);
+            animator.SetBool("Shaking", false);
 
             // Disable collider
             gameObject.GetComponent<BoxCollider>().enabled = false;
