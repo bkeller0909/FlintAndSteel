@@ -7,7 +7,7 @@ public class Seagull : MonoBehaviour
 {
     bool flewAway;                  // destroys the seagull after a certain amount of time
     bool isFlying;
-    private float startDelay;       // idle animation start delay to prevent the birds from having synced up animations
+    [SerializeField] private float startDelay = -1;       // idle animation start delay to prevent the birds from having synced up animations
     private float delayTimer;
     private Animator animator;
 
@@ -18,7 +18,12 @@ public class Seagull : MonoBehaviour
     {
         flewAway = false;
         animator = GetComponent<Animator>();
-        startDelay = UnityEngine.Random.Range(0.01f, 2.50f);
+
+        // If startDelay is set to -1, it will be assigned a random value instead.
+        if (startDelay == -1)
+        {
+            startDelay = UnityEngine.Random.Range(0.01f, 2.50f);
+        }
         delayTimer = startDelay;
     }
     private void Update()
