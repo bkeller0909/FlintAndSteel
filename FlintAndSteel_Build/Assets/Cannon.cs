@@ -13,7 +13,7 @@ public class Cannon : MonoBehaviour
 
     [SerializeField] GameObject cannonBall;
 
-    bool activated;
+    [SerializeField] bool activated = false;
 
     [Header("Cannon Stats")]
     [SerializeField] float shootSpeed;
@@ -31,8 +31,6 @@ public class Cannon : MonoBehaviour
 
         delayTimer = startDelay;
         shotTimer = shootSpeed;
-
-        activated = false;
     }
 
     private void Start()
