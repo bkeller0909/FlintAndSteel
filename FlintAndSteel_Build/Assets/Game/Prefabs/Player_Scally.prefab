@@ -399,8 +399,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.09, y: 0.36586833, z: 0.55107296}
-  m_Center: {x: 7.1054274e-15, y: 0.51206577, z: 0.8355364}
+  m_Size: {x: 1.09, y: 0.50091195, z: 0.6907238}
+  m_Center: {x: -7.81597e-14, y: 0.44454396, z: 0.765711}
 --- !u!114 &11441376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +462,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7e38be0c0139cc9498fb3e0e023785b1, type: 3}
   - {fileID: 21300000, guid: a0724e55b401bd04fac0e2631f4c275f, type: 3}
   steelIconUI: {fileID: 0}
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &9153319621337311271
 MonoBehaviour:
   m_ObjectHideFlags: 0

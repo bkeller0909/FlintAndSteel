@@ -40,6 +40,9 @@ public class Throwing : MonoBehaviour
 	private Vector3 originalJumpForce;
 	public bool pulling;
 
+	private bool canClimb;
+	private GameObject rope;
+
 	//setup
 	void Awake()
 	{
@@ -88,7 +91,17 @@ public class Throwing : MonoBehaviour
 				animator.SetBool ("HoldingPushable", true);
 			else
 				animator.SetBool ("HoldingPushable", false);
-		
+
+		if (Input.GetButtonDown("Grab") && canClimb && rope && !climbing)
+		{
+            // adds velocity to Y axis and gets rid of velocity in other directions
+            climbing = true;
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 15, 0);
+            ropeHeight = rope.gameObject.transform.position;
+			animator.SetTrigger("HookClimb");
+        }
+
+
 		//if we're holding a pushable, rotate to face it
 		if (heldObj && heldObj.tag == "Pushable")
 		{
@@ -130,19 +143,35 @@ public class Throwing : MonoBehaviour
 			//grab
 			if(other.tag == "Pushable" && heldObj == null && timeOfThrow + 0.2f < Time.time)
 				GrabPushable(other);
-
-            // if grab is pressed when colliding with a hookable object
-            if (other.tag == "Hook Climb" && !climbing || other.tag == "Sword" && !climbing)
-            {
-                // adds velocity to Y axis and gets rid of velocity in other directions
-                gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 15, 0);
-                climbing = true;
-				ropeHeight = other.gameObject.transform.position;
-            }
         }
-	}
-			
-	private void GrabPushable(Collider other)
+
+		if (other.tag == "Hook Climb" && !climbing || other.tag == "Sword" && !climbing)
+        {
+			rope = other.gameObject;
+			canClimb = true;
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Hook Climb" || other.tag == "Sword")
+        {
+            rope = other.gameObject;
+            canClimb = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (rope && other.gameObject == rope.gameObject)
+        {
+			rope = null;
+            canClimb = false;
+        }
+    }
+
+    private void GrabPushable(Collider other)
 	{
 		heldObj = other.gameObject;
 		objectDefInterpolation = heldObj.GetComponent<Rigidbody>().interpolation;
@@ -257,10 +286,10 @@ public class Throwing : MonoBehaviour
 		// check if the player is at least 0.2 units above the rope
 		if (gameObject.transform.position.y > ropeHeight.y + 0.2f) 
 		{
-			climbing = false;
+            climbing = false;
 		}
 		// if the player doesnt make it above the rope, check how far below the player is
-		else if (gameObject.transform.position.y < ropeHeight.y - 2.8f)
+		else if (gameObject.transform.position.y < ropeHeight.y - 3.8f)
 		{
 			climbing = false;
 		}
