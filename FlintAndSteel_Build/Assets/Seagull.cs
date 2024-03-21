@@ -12,6 +12,7 @@ public class Seagull : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private bool isBGSeagull;          // if the seagull is going to be in the background, it will play different animations.
 
     private void Awake()
     {
@@ -26,7 +27,15 @@ public class Seagull : MonoBehaviour
         delayTimer -= Time.deltaTime;
         if (delayTimer <= 0) 
         {
-            animator.SetBool("Begin", true);
+            if (isBGSeagull == false)
+            {
+                animator.SetBool("Begin", true);
+            }
+            else
+            {
+                animator.SetBool("BeginBG", true);
+            }
+            
         }
 
         // destroys the seagull after a certain amount of time
