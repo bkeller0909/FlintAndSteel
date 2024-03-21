@@ -53,6 +53,7 @@ public class FlyingEnemy : MonoBehaviour
         // Add attack logic here, such as dealing damage to the player
 
         yield return new WaitForSeconds(5f); //maybe a varaible, this is the cooldown it takes teh boss to be able to attack again after hitting the player
+         
         isAttacking = false;
     }
 
