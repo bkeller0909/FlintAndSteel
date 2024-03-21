@@ -2,30 +2,25 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    // Optional explosion effect prefab
-    public GameObject explosionEffectPrefab;
+    public float explosionTime = 3f; // Time before the bomb explodes
 
-    // Boolean to check if the bomb has exploded
-    private bool hasExploded = false;
-
-    // OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider
-    private void OnCollisionEnter(Collision collision)
+    void Start()
     {
-        // Check if the bomb hasn't already exploded and if it collided with something
-        if (!hasExploded)
-        {
-            // Set the flag to prevent multiple explosions
-            hasExploded = true;
+        // Start a countdown before the bomb explodes
+        Invoke("Explode", explosionTime);
+    }
 
-            // Optionally spawn an explosion effect
-            if (explosionEffectPrefab != null)
-            {
-                Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
-            }
+    void Explode()
+    {
+        // Add explosion effects or any other logic here
+        Debug.Log("Boom! The bomb exploded!");
+        Destroy(gameObject); // Destroy the bomb object after exploding
+    }
 
-            Debug.Log("Bomb Destroyed");
-            // Destroy the bomb object
-            Destroy(gameObject);
-        }
+    void OnCollisionEnter(Collision collision)
+    {
+        // Check if the bomb collided with something
+        // If it did, destroy the bomb after 2.0 seconds
+        Destroy(gameObject, 2.0f);
     }
 }
