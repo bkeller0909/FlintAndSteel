@@ -41,6 +41,9 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private float shootDuration = 5.0f;
 
+    [SerializeField]
+    private GameObject characterModel;
+
     #endregion
 
     //Intializes the boss variable to idle in the beggining of the game
@@ -59,10 +62,15 @@ public class EnemyBoss : MonoBehaviour
 
     private Animator animator;
 
-    private int dashCount = 0; 
+    private int dashCount = 0;
+
+    int flipDirection = 1;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        
+        
     }
 
     private void Update()
@@ -185,14 +193,7 @@ public class EnemyBoss : MonoBehaviour
         float distancePerPoint = distance / distanceCovered;
         direction = new Vector3(direction.x, 0, 0).normalized;
 
-        if (dashCount > 0)
-        {
-            direction *= -1;
-        }
-
-        Quaternion startRotation = transform.rotation;
-        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 180, 0);
-
+       
         for (int i = 0; i < distanceCovered; i++)
         {
             Vector3 nextPoint = transform.position + direction * distancePerPoint * (i + 1);
@@ -210,7 +211,10 @@ public class EnemyBoss : MonoBehaviour
             }
         }
 
-        transform.rotation = targetRotation;
+        flipDirection *= -1;
+        characterModel.transform.localScale = new Vector3(1, 1, flipDirection);
+        
+        //transform.rotation = targetRotation;
         dashCount++;
         isAttacking = false;
         eCurState = BossActionType.Idle;

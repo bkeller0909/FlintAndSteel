@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6322.212, g: 6162.4893, b: 5905.4224, a: 1}
+  m_IndirectSpecularColor: {r: 6321.7705, g: 6161.6885, b: 5904.4067, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6226,6 +6226,11 @@ PrefabInstance:
       propertyPath: shootDuration
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1805417552566190499, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: characterModel
+      value: 
+      objectReference: {fileID: 1850042682}
     - target: {fileID: 2763480393568257338, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
       propertyPath: m_Enabled
@@ -6235,6 +6240,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670214321122992342, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670214321122992342, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5364748749382473312, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
@@ -6321,6 +6336,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 285061185}
   m_SourcePrefab: {fileID: 100100000, guid: af9dd9a9ace2df347be1072abfcb6bf9, type: 3}
+--- !u!1 &1850042682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4670214321123228854, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1817223787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1863853687
 PrefabInstance:
   m_ObjectHideFlags: 0
