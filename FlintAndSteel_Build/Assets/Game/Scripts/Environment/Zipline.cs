@@ -8,6 +8,7 @@ public class Zipline : MonoBehaviour
 {
 
     [SerializeField] private GameObject zipEffect; // zipline effect
+    private GameObject zipEffectClone; 
 
     [Tooltip("Place the Zipline you want to go to if you use this Zipline")]
     [SerializeField] protected Zipline targetZip;
@@ -74,11 +75,12 @@ public class Zipline : MonoBehaviour
 
         if (Vector3.Distance(localZip.transform.position, targetZip.zipTransform.position) <= arrivalThreshold || Input.GetButtonUp("Grab"))
         {
-         
+            
             if (targetZip.GetComponent<Rigidbody>().position.x < localZip.GetComponent<Rigidbody>().position.x) // If end position is left do this
             {
                 ModifiedZipSpeed = -ModifiedZipSpeed;
             }
+            
             ResetZipline();
         }
     }
@@ -88,6 +90,7 @@ public class Zipline : MonoBehaviour
         ModifiedZipSpeed = Mathf.Lerp(ModifiedZipSpeed, MaxZipSpeed, zipStepSpeed * Time.deltaTime);
         float step = ModifiedZipSpeed * Time.deltaTime;
         localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step);
+        zipEffectClone.transform.position = localZip.GetComponent<Rigidbody>().position;
         //Debug.Log("The current ModifiedZipSpeed is " + ModifiedZipSpeed);
         //localZip.GetComponent<Rigidbody>().AddForce((targetZip.zipTransform.position - zipTransform.position).normalized * zipSpeed * Time.deltaTime, ForceMode.Acceleration);
         player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step);
@@ -133,7 +136,6 @@ public class Zipline : MonoBehaviour
         // zipTransform
         // targetZip
 
-        Instantiate(zipEffect, transform.position, Quaternion.identity);
 
         float distanceBetweenPoints = Vector3.Distance(zipTransform.position, targetZip.transform.position);
         float playerPosition = Vector3.Distance(zipTransform.position, player.transform.position);
@@ -142,8 +144,11 @@ public class Zipline : MonoBehaviour
         Vector3 newPosition = Vector3.Lerp(zipTransform.position, targetZip.transform.position, ratio);
 
         StartingPos = new Vector3(player.transform.position.x, newPosition.y, player.transform.position.z);
+
         localZip.transform.position = StartingPos;
 
+
+        zipEffectClone = Instantiate(zipEffect, StartingPos, Quaternion.identity); // Create zipEffect copy at startingPos of player childed to local zip
         localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
         localZip.AddComponent<Rigidbody>().useGravity = false;
         localZip.GetComponent<Collider>().isTrigger = true;
@@ -154,10 +159,23 @@ public class Zipline : MonoBehaviour
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         player.GetComponent<PlayerMove>().enabled = false;
         player.GetComponent<CharacterMotor>().enabled = false;
+        SetPlayerRotation(player); // Sets the player rotation to the correct one given the trajectory
         player.transform.parent = localZip.transform;
         beginingOfZip = true;
         attachToZip = true;
         zipping = true;
+    }
+
+    private void SetPlayerRotation(GameObject player)
+    {
+        if (targetZip.transform.position.x > player.transform.position.x)
+        {
+            player.GetComponent<Rigidbody>().transform.eulerAngles = new Vector3(player.GetComponent<Rigidbody>().transform.eulerAngles.x, 90, player.GetComponent<Rigidbody>().transform.eulerAngles.z);
+        }
+        else
+        {
+            player.GetComponent<Rigidbody>().transform.eulerAngles = new Vector3(player.GetComponent<Rigidbody>().transform.eulerAngles.x, 270, player.GetComponent<Rigidbody>().transform.eulerAngles.z);
+        }
     }
 
     protected void ResetZipline()
@@ -167,6 +185,7 @@ public class Zipline : MonoBehaviour
 
         
         GameObject player = localZip.transform.GetChild(0).gameObject;
+        Destroy(zipEffectClone); // Destroys zipEffectClone ... 
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().velocity = new Vector3(ModifiedZipSpeed, 0, 0);
