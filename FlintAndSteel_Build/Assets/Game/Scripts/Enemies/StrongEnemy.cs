@@ -25,6 +25,10 @@ public class StrongEnemy : MonoBehaviour
     [SerializeField] private bool detectionEnabled = true;
     [SerializeField] private Transform player;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip[] deathSounds;
+    [SerializeField] private AudioClip[] hurtSounds;
+
     private Vector3 startPosition;
     private float travelledDistance = 0f;
     private float extraTravelledDistance = 0f;
@@ -33,10 +37,16 @@ public class StrongEnemy : MonoBehaviour
 
     private int enemyMaxHealth = 3; //Maximum possible health
     private int enemyCurrentHealth;
+
+    private Animator animator;
+
+
     #endregion
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+
         startPosition = transform.position;     //Enemy starting coords
         enemyCurrentHealth = enemyMaxHealth;
         dashTimer = timeBetweenDashes;
@@ -201,11 +211,20 @@ public class StrongEnemy : MonoBehaviour
         {
             Damaged(1); // take 1 damage
         }
+
+        if (other.CompareTag("Player"))
+        {
+            animator.SetTrigger("ThrowSword");
+        }
     }
 
     private void Damaged(int damage)
     {
+        int randomDeath = UnityEngine.Random.Range(0, deathSounds.Length);
+        int randomHurt = UnityEngine.Random.Range(0, hurtSounds.Length);
+
         enemyCurrentHealth -= damage; // lower Health with whatever damage was recieved
+        AudioSource.PlayClipAtPoint(hurtSounds[randomHurt], transform.position);
 
         if (showDebug == true) Debug.Log("StrongEnemy Health: " + enemyCurrentHealth);
 
@@ -213,6 +232,7 @@ public class StrongEnemy : MonoBehaviour
         {
             if (showDebug == true) Debug.Log("StrongEnemy Killed");
             gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(deathSounds[randomDeath], transform.position, 5f);
         }
     }
 

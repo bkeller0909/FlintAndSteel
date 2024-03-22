@@ -24,6 +24,10 @@ public class ShootEnemy : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootInterval = 2f;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip[] deathSounds;
+    [SerializeField] private AudioClip[] hurtSounds;
+
     private Vector3 startPosition;
     private float travelledDistance = 0f;
     private float extraTravelledDistance = 0f;
@@ -197,7 +201,11 @@ public class ShootEnemy : MonoBehaviour
 
     private void Damaged(int damage)
     {
+        int randomDeath = UnityEngine.Random.Range(0, deathSounds.Length);
+        int randomHurt = UnityEngine.Random.Range(0, hurtSounds.Length);
+
         enemyCurrentHealth -= damage; // lower Health with whatever damage was recieved
+        AudioSource.PlayClipAtPoint(hurtSounds[randomHurt], transform.position);
 
         if (showDebug == true) Debug.Log("Enemy Health: " + enemyCurrentHealth);
 
@@ -205,6 +213,7 @@ public class ShootEnemy : MonoBehaviour
         {
             if (showDebug == true) Debug.Log("MainEnemy Killed");
             gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(deathSounds[randomDeath], transform.position, 5f);
         }
     }
 }

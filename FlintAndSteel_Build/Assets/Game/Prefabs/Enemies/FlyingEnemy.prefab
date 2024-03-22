@@ -98,14 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5c6548836f2364f9af1aff4294d0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebug: 0
   moveSpeed: 3
-  moveDistance: 5
+  waypoints: []
+  attackSpeed: 10
   detectionRange: 5
-  detectionEnabled: 1
   player: {fileID: 0}
-  start: {fileID: 0}
-  end: {fileID: 0}
 --- !u!135 &3724400140764722719
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -152,5 +149,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0

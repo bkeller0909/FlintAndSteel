@@ -57,6 +57,13 @@ public class EnemyBoss : MonoBehaviour
     private float health = 100;
     private Vector3 intitalPosition;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         //Updates the boss's state    
@@ -125,6 +132,12 @@ public class EnemyBoss : MonoBehaviour
             TakeDamage(10.0f);
             Debug.LogWarning("The boss has taken 10 damage");
             Debug.LogWarning("Health left: " + health);
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            //attack anim
+            animator.SetTrigger("ThrowSword");
         }
     }
 
