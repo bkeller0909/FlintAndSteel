@@ -144,6 +144,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 72920156468337771, guid: 73ca937cc0312c24992ee0b092b0d4d8,
     type: 3}
   shootInterval: 2
+  deathSounds:
+  - {fileID: 8300000, guid: 2d3a79a3349d6114db5a974b4bfd2844, type: 3}
+  hurtSounds:
+  - {fileID: 8300000, guid: 78280a852fa108a49b82e9f086011e0e, type: 3}
+  - {fileID: 8300000, guid: 0e5a6bb2f2688404ab9bb70351e37047, type: 3}
+  - {fileID: 8300000, guid: 93226f6cbe1e35e45b71cb49ea1dd8b2, type: 3}
 --- !u!136 &2935472160860559196
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -212,7 +218,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 52
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
