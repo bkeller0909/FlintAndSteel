@@ -33,10 +33,16 @@ public class StrongEnemy : MonoBehaviour
 
     private int enemyMaxHealth = 3; //Maximum possible health
     private int enemyCurrentHealth;
+
+    private Animator animator;
+
+
     #endregion
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+
         startPosition = transform.position;     //Enemy starting coords
         enemyCurrentHealth = enemyMaxHealth;
         dashTimer = timeBetweenDashes;
@@ -200,6 +206,11 @@ public class StrongEnemy : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             Damaged(1); // take 1 damage
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            animator.SetTrigger("ThrowSword");
         }
     }
 
