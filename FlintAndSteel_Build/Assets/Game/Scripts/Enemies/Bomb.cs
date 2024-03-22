@@ -4,6 +4,9 @@ public class Bomb : MonoBehaviour
 {
     public float explosionTime = 3f; // Time before the bomb explodes
 
+    [SerializeField]
+    private ParticleSystem[] explosion;
+
     void Start()
     {
         // Start a countdown before the bomb explodes
@@ -12,6 +15,10 @@ public class Bomb : MonoBehaviour
 
     void Explode()
     {
+        foreach (ParticleSystem particle in explosion)
+        {
+            particle.Play();
+        }
         // Add explosion effects or any other logic here
         Debug.Log("Boom! The bomb exploded!");
         Destroy(gameObject); // Destroy the bomb object after exploding
