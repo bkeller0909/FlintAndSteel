@@ -166,6 +166,7 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator IdleState()
     {
         yield return new WaitForSeconds(idleDuration);
+        animator.SetBool("Cooldown", false);
         eCurState = BossActionType.Attacking;
     }
 
@@ -233,6 +234,7 @@ public class EnemyBoss : MonoBehaviour
         transform.localScale = startScale;
         isAttacking = false;
         idleDuration = idleStartDuration;
+        animator.SetBool("Cooldown", true);
         eCurState = BossActionType.Idle;
         
     }
