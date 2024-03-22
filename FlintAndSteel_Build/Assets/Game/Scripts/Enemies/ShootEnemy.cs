@@ -204,8 +204,16 @@ public class ShootEnemy : MonoBehaviour
         int randomDeath = UnityEngine.Random.Range(0, deathSounds.Length);
         int randomHurt = UnityEngine.Random.Range(0, hurtSounds.Length);
 
-        enemyCurrentHealth -= damage; // lower Health with whatever damage was recieved
-        AudioSource.PlayClipAtPoint(hurtSounds[randomHurt], transform.position);
+        enemyCurrentHealth -= damage; // Lower Health with whatever damage was received
+
+        try
+        {
+            AudioSource.PlayClipAtPoint(hurtSounds[randomHurt], transform.position);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Failed to play hurt sound: {e.Message}");
+        }
 
         if (showDebug == true) Debug.Log("Enemy Health: " + enemyCurrentHealth);
 

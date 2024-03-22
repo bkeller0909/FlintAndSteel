@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,15 +6,16 @@ public class BasicEnemy : MonoBehaviour
 {
     #region PrivateFields
     [Header("Debug")]
-    [SerializeField] bool showDebug = false;
+    [SerializeField] private bool showDebug = false;
 
     [Header("Movement Options")]
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float moveDistance = 5f;
+    [SerializeField] private LayerMask groundLayer = (1 << 0) | (1 << 20);
+    [SerializeField] private float groundCheckDistance = 5f;
 
     [Header("Targeting Options")]
     [SerializeField] private float detectionRange = 5f;
-    [SerializeField] private float returnRange = 5f;
     [SerializeField] private bool detectionEnabled = true;
     [SerializeField] private Transform player;
 
@@ -25,149 +25,171 @@ public class BasicEnemy : MonoBehaviour
 
     private Vector3 startPosition;
     private float travelledDistance = 0f;
-    private float extraTravelledDistance = 0f;
     private bool movingForward = true;
-    private bool isReturningToStart = false;
 
-    private int enemyMaxHealth = 1; //Maximum possible health
+    private int enemyMaxHealth = 1;
     private int enemyCurrentHealth;
 
     private Animator animator;
+
+    private enum State
+    {
+        Patrolling,
+        Chasing,
+        Returning
+    }
+
+    private State currentState;
     #endregion
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-
-        startPosition = transform.position;     //Enemy starting coords
+        startPosition = transform.position;
         enemyCurrentHealth = enemyMaxHealth;
-
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if (playerObject != null)
-        {
-            player = playerObject.transform;
-        }
-        else
-        {
-            if (showDebug == true) Debug.LogError("Player not found!");
-        }
-
+        FindPlayer();
+        currentState = State.Patrolling;
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (detectionEnabled) CheckForPlayer();
 
-        // Check for returning to start position
-        if (isReturningToStart)
+        switch (currentState)
         {
-            ReturnToStartPosition();
-        }
-        else if (distanceToPlayer <= detectionRange && detectionEnabled)
-        {
-            MoveTowardsPlayer();
-        }
-        else
-        {
-            Patrol();
+            case State.Patrolling:
+                Patrol();
+                break;
+            case State.Chasing:
+                MoveTowardsPlayer();
+                break;
+            case State.Returning:
+                ReturnToStartPosition();
+                break;
         }
     }
 
+    /// <summary>
+    /// Locates the player GameObject by tag and assigns it to the 'player' variable.
+    /// </summary>
+    private void FindPlayer()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+        else if (showDebug)
+        {
+            Debug.LogError("Player not found!");
+        }
+    }
+
+    /// <summary>
+    /// Handles patrolling behavior of the enemy, moving it back and forth.
+    /// </summary>
     private void Patrol()
     {
-        // flip direction
-        if (movingForward)
-        {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else
-        {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        Vector3 direction = movingForward ? Vector3.left : Vector3.right;
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
+        transform.localScale = movingForward ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
 
-        // Updates the travelled distance
         travelledDistance += moveSpeed * Time.deltaTime;
-
-        // Check if the Enemy moved required distance
         if (travelledDistance >= moveDistance)
         {
-            // Reset travelled distance
             travelledDistance = 0f;
-
-            // Reverse the movement direction
             movingForward = !movingForward;
         }
     }
 
-    private void MoveTowardsPlayer()
+    /// <summary>
+    /// Checks the distance to the player and changes the state to chasing or returning based on proximity.
+    /// </summary>
+    private void CheckForPlayer()
     {
-        if (player != null)
+        if (player && Vector3.Distance(transform.position, player.position) <= detectionRange)
         {
-            if (detectionEnabled == true)
-            {
-                // Move towards the player
-                Vector3 directionToPlayer = (player.position - transform.position).normalized;
-                directionToPlayer.y = 0; // Keep Y-axis unchanged
-                directionToPlayer.z = 0; // Keep Z-axis unchanged
-
-                transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
-
-                // flip direction
-                if (directionToPlayer.x < 0)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-                else
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-
-                extraTravelledDistance += moveSpeed * Time.deltaTime;
-
-                if (extraTravelledDistance >= returnRange)
-                {
-                    isReturningToStart = true;
-                }
-            }
-            else
-            {
-                detectionRange = 0;
-            }
-
+            currentState = State.Chasing;
+        }
+        else if (currentState == State.Chasing)
+        {
+            currentState = State.Returning;
         }
     }
 
-    private void ReturnToStartPosition()
+    /// <summary>
+    /// Directs the enemy towards the player when the enemy is in chasing state.
+    /// </summary>
+    private void MoveTowardsPlayer()
     {
-        // Debug log to check if this function is called
-        if (showDebug == true) Debug.Log("Attempting to return to start position.");
-
-        float distanceToStart = Vector3.Distance(transform.position, startPosition);
-
-        // Log the distance to start
-        if (showDebug == true) Debug.Log($"Distance to Start: {distanceToStart}");
-
-        if (distanceToStart > 0.1f)
+        if (!detectionEnabled || player == null)
         {
-            Vector3 directionToStart = (startPosition - transform.position).normalized;
-            directionToStart.y = 0;
-            directionToStart.z = 0;
+            currentState = State.Returning;
+            return;
+        }
 
-            transform.Translate(directionToStart * moveSpeed * Time.deltaTime, Space.World);
+        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        directionToPlayer.z = 0; // Keep Z-axis unchanged, since movement is along the X-axis
 
-            // Debug log to confirm direction and movement
-            if (showDebug == true) Debug.Log($"Moving towards start. Direction: {directionToStart}, Speed: {moveSpeed}");
+        // Determine the direction to angle the raycast based on enemy orientation
+        float angleDirection = transform.localScale.x > 0 ? 1f : -1f; // Assumes scale.x > 0 is facing right, < 0 is facing left
+        Vector3 angledDirection = Quaternion.Euler(0, 0, -15 * angleDirection) * Vector3.down; // Angles the raycast slightly outward in front of the enemy
+
+        // Edge Detection for Chasing
+        Vector3 groundCheckStartPoint = transform.position + directionToPlayer * (moveSpeed * Time.deltaTime + 0.1f);
+        groundCheckStartPoint.y += 0.5f; // Adjust this offset as necessary to start the raycast from above the ground
+        bool isGroundAhead = Physics.Raycast(groundCheckStartPoint, angledDirection, groundCheckDistance, groundLayer);
+
+        if (!isGroundAhead)
+        {
+            if (showDebug) Debug.Log("No ground ahead while chasing. Stopping chase.");
+            currentState = State.Returning;
+            return;
+        }
+
+        transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime, Space.World);
+
+        // Flip enemy to face player
+        if (directionToPlayer.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // Adjusted to correctly flip based on direction
         }
         else
         {
-            // Reached or very close to start position
-            if (showDebug == true) Debug.Log("Reached start position.");
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
-            isReturningToStart = false;
-            movingForward = true;
-            extraTravelledDistance = 0f;
+        if (Vector3.Distance(transform.position, player.position) > detectionRange)
+        {
+            currentState = State.Returning;
+        }
+    }
+
+    /// <summary>
+    /// Returns the enemy to its starting position when the player is no longer in chase range.
+    /// </summary>
+    private void ReturnToStartPosition()
+    {
+        if (showDebug) Debug.Log("Attempting to return to start position.");
+
+        Vector3 directionToStart = (startPosition - transform.position).normalized;
+        directionToStart.z = 0; // Keep Z-axis unchanged
+
+        if (directionToStart.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // Facing left
+        }
+        else if (directionToStart.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // Facing right
+        }
+
+        transform.Translate(directionToStart * moveSpeed * Time.deltaTime, Space.World);
+
+        if (Vector3.Distance(transform.position, startPosition) <= 0.1f)
+        {
+            if (showDebug) Debug.Log("Reached start position.");
+            currentState = State.Patrolling;
         }
     }
 
@@ -175,7 +197,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (other.CompareTag("Sword"))
         {
-            Damaged(1); // take 1 damage
+            Damaged(1); // Take 1 damage
         }
 
         if (other.CompareTag("Player"))
@@ -183,22 +205,49 @@ public class BasicEnemy : MonoBehaviour
             animator.SetTrigger("ThrowSword");
         }
     }
-
+    /// <summary>
+    /// Applies damage to the enemy.
+    /// </summary>
+    /// <param name="damage">The amount of damage to apply to the enemy.</param>
     private void Damaged(int damage)
     {
-        int randomDeath = UnityEngine.Random.Range(0, deathSounds.Length);
-        int randomHurt = UnityEngine.Random.Range(0, hurtSounds.Length);
-
-        enemyCurrentHealth -= damage; // lower Health with whatever damage was recieved
-        AudioSource.PlayClipAtPoint(hurtSounds[randomHurt], transform.position);
-
-        if (showDebug == true) Debug.Log("Enemy Health: " + enemyCurrentHealth);
-
-        if (enemyCurrentHealth <= 0)  // if health is or less than 0 enemy is dead
+        try
         {
-            if (showDebug == true) Debug.Log("MainEnemy Killed");
-            gameObject.SetActive(false);
-            AudioSource.PlayClipAtPoint(deathSounds[randomDeath], transform.position, 5f);
+            int randomDeath = UnityEngine.Random.Range(0, deathSounds.Length);
+            int randomHurt = UnityEngine.Random.Range(0, hurtSounds.Length);
+
+            enemyCurrentHealth -= damage; // Lower Health with whatever damage was received
+
+            try
+            {
+                AudioSource.PlayClipAtPoint(hurtSounds[randomHurt], transform.position);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Failed to play hurt sound: {e.Message}");
+            }
+
+            if (showDebug) Debug.Log("Enemy Health: " + enemyCurrentHealth);
+
+            if (enemyCurrentHealth <= 0) // If health is or less than 0 enemy is dead
+            {
+                if (showDebug) Debug.Log("MainEnemy Killed");
+                gameObject.SetActive(false);
+
+                try
+                {
+                    AudioSource.PlayClipAtPoint(deathSounds[randomDeath], transform.position);
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError($"Failed to play death sound: {e.Message}");
+                }
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error in Damaged function: {e.Message}");
         }
     }
+
 }
