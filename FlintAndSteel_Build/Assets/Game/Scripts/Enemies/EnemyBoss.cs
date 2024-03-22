@@ -10,6 +10,8 @@ public class EnemyBoss : MonoBehaviour
 
     [SerializeField]
     private float idleDuration = 5f;
+
+    private float idleStartDuration;
     public enum BossActionType
     {
         Idle,
@@ -80,6 +82,8 @@ public class EnemyBoss : MonoBehaviour
         characterStartScale = characterModel.transform.localScale;
 
         chargeUpParticles.Stop();
+
+        idleStartDuration = idleDuration;
     }
 
     private void Update()
@@ -105,7 +109,6 @@ public class EnemyBoss : MonoBehaviour
     {
         StartCoroutine(IdleState());
         isVulnerable = true;
-
     }
 
     private void HandleMovingState()
@@ -139,8 +142,9 @@ public class EnemyBoss : MonoBehaviour
                 //Boss is defeated
                 gameObject.SetActive(false);
             }
-        }
 
+            idleDuration = 0.1f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -228,6 +232,7 @@ public class EnemyBoss : MonoBehaviour
         dashCount++;
         transform.localScale = startScale;
         isAttacking = false;
+        idleDuration = idleStartDuration;
         eCurState = BossActionType.Idle;
         
     }
