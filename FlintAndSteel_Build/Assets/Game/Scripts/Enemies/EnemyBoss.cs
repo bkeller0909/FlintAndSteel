@@ -59,6 +59,7 @@ public class EnemyBoss : MonoBehaviour
 
     private Animator animator;
 
+    private int dashCount = 0; 
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -184,6 +185,14 @@ public class EnemyBoss : MonoBehaviour
         float distancePerPoint = distance / distanceCovered;
         direction = new Vector3(direction.x, 0, 0).normalized;
 
+        if (dashCount > 0)
+        {
+            direction *= -1;
+        }
+
+        Quaternion startRotation = transform.rotation;
+        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 180, 0);
+
         for (int i = 0; i < distanceCovered; i++)
         {
             Vector3 nextPoint = transform.position + direction * distancePerPoint * (i + 1);
@@ -201,9 +210,13 @@ public class EnemyBoss : MonoBehaviour
             }
         }
 
+        transform.rotation = targetRotation;
+        dashCount++;
         isAttacking = false;
         eCurState = BossActionType.Idle;
+        
     }
+
 
 
     private void Shoot()
@@ -265,5 +278,6 @@ public class EnemyBoss : MonoBehaviour
         // Call DashAttack after shooting for 10 seconds
         Vector3 direction = (player.position - transform.position).normalized;
         StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
+        
     }
 }
