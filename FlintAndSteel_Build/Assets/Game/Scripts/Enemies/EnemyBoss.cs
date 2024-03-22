@@ -44,6 +44,9 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private GameObject characterModel;
 
+    [SerializeField]
+    private ParticleSystem chargeUpParticles;
+
     #endregion
 
     //Intializes the boss variable to idle in the beggining of the game
@@ -66,11 +69,17 @@ public class EnemyBoss : MonoBehaviour
 
     int flipDirection = 1;
 
+    Vector3 startScale;
+    Vector3 characterStartScale;
+
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         
-        
+        startScale = transform.localScale;
+        characterStartScale = characterModel.transform.localScale;
+
+        chargeUpParticles.Stop();
     }
 
     private void Update()
@@ -189,6 +198,7 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator DashAttack(Vector3 direction, float distance, float speed)
     {
         isAttacking = true;
+        transform.localScale = startScale - new Vector3(0, startScale.y * 0.2f, 0);
         float distanceCovered = 19.0f;
         float distancePerPoint = distance / distanceCovered;
         direction = new Vector3(direction.x, 0, 0).normalized;
@@ -212,10 +222,11 @@ public class EnemyBoss : MonoBehaviour
         }
 
         flipDirection *= -1;
-        characterModel.transform.localScale = new Vector3(1, 1, flipDirection);
+        characterModel.transform.localScale = new Vector3(characterStartScale.x, characterStartScale.y, characterStartScale.z * flipDirection);
         
         //transform.rotation = targetRotation;
         dashCount++;
+        transform.localScale = startScale;
         isAttacking = false;
         eCurState = BossActionType.Idle;
         
@@ -278,9 +289,11 @@ public class EnemyBoss : MonoBehaviour
 
     private IEnumerator DashAfterShootingTimer(float duration)
     {
+        chargeUpParticles.Play();
         yield return new WaitForSeconds(duration);
         // Call DashAttack after shooting for 10 seconds
         Vector3 direction = (player.position - transform.position).normalized;
+        chargeUpParticles.Stop();
         StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
         
     }
