@@ -324,12 +324,14 @@ public class Throwing : MonoBehaviour
 		if (gameObject.transform.position.y > ropeHeight.y + 0.2f) 
 		{
             climbing = false;
+			canClimb = false;
 		}
 		// if the player doesnt make it above the rope, check how far below the player is
-		else if (gameObject.transform.position.y < ropeHeight.y - 3.7f)
+		else if (gameObject.transform.position.y < ropeHeight.y - 3.8f)
 		{
 			climbing = false;
-		}
+            canClimb = false;
+        }
 	}
 }
 
