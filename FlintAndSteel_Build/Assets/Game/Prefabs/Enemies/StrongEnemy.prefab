@@ -107,11 +107,14 @@ MonoBehaviour:
   showDebug: 0
   moveSpeed: 3
   moveDistance: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1048577
+  groundCheckDistance: 5
   dashStrength: 12
-  timeBetweenDashes: 1
+  timeBetweenDashes: 3
   dashLength: 0.25
   detectionRange: 5
-  returnRange: 5
   detectionEnabled: 1
   player: {fileID: 0}
   deathSounds:
