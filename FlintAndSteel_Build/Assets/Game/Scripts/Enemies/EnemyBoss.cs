@@ -48,6 +48,11 @@ public class EnemyBoss : MonoBehaviour
 
     [SerializeField]
     private ParticleSystem chargeUpParticles;
+    [SerializeField]
+    private ParticleSystem shootParticles;
+
+    [SerializeField]
+    private AudioClip shotSound;
 
     #endregion
 
@@ -74,10 +79,13 @@ public class EnemyBoss : MonoBehaviour
     Vector3 startScale;
     Vector3 characterStartScale;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        
+        audioSource = GetComponentInChildren<AudioSource>();
+
         startScale = transform.localScale;
         characterStartScale = characterModel.transform.localScale;
 
@@ -248,6 +256,10 @@ public class EnemyBoss : MonoBehaviour
         dir.y = 0;
         dir.z = 0;
 
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
+        audioSource.clip = shotSound;
+        audioSource.Play();
+
         GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
         EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
         bulletScript.SetSpeed(10.0f);
@@ -281,6 +293,7 @@ public class EnemyBoss : MonoBehaviour
         Vector3[] directions = new Vector3[3];
         Vector3 playerDirection = (player.position - Barrel.position).normalized;
 
+        StartCoroutine(ScatterShotSound(shotSound));
         directions[0] = playerDirection;
         directions[1] = Quaternion.Euler(0, 0, 30) * playerDirection;
         directions[2] = Quaternion.Euler(0, 0, -30) * playerDirection;
@@ -303,5 +316,17 @@ public class EnemyBoss : MonoBehaviour
         chargeUpParticles.Stop();
         StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
         
+    }
+
+    private IEnumerator ScatterShotSound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
+     
+        audioSource.Play();
+        yield return new WaitForSeconds(0.075f);
+        audioSource.Play();
+        yield return new WaitForSeconds(0.075f);
+        audioSource.Play();
     }
 }

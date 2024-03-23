@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 6320.618, g: 6159.954, b: 5903.9614, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1054,8 +1054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6499d02d4c3a54b9e3b48047be73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 25
-  pushHeight: 6
+  pushForce: 5
+  pushHeight: 0
   damage: 1
   triggerEnter: 0
   collisionEnter: 1
@@ -1075,8 +1075,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2089,8 +2089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6499d02d4c3a54b9e3b48047be73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 25
-  pushHeight: 6
+  pushForce: 5
+  pushHeight: 0
   damage: 1
   triggerEnter: 0
   collisionEnter: 1
@@ -6238,6 +6238,21 @@ PrefabInstance:
       propertyPath: shootDuration
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2560510539356484678, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560510539356484678, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560510539356484678, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 2763480393568257338, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
       propertyPath: m_Enabled
@@ -6277,11 +6292,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DashCharge
-      objectReference: {fileID: 0}
-    - target: {fileID: 5364748749382473312, guid: af9dd9a9ace2df347be1072abfcb6bf9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6019821681485561763, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
@@ -6332,6 +6342,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655751052030133377, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.565
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655751052030133377, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.442
       objectReference: {fileID: 0}
     - target: {fileID: 8180139217129122410, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
