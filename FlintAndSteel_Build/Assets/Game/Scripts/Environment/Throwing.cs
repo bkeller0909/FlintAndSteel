@@ -319,19 +319,22 @@ public class Throwing : MonoBehaviour
 			}
 		}
 
-
-		// check if the player is at least 0.2 units above the rope
-		if (gameObject.transform.position.y > ropeHeight.y + 0.2f) 
+		if (climbing)
 		{
-            climbing = false;
-			canClimb = false;
-		}
-		// if the player doesnt make it above the rope, check how far below the player is
-		else if (gameObject.transform.position.y < ropeHeight.y - 3.8f)
-		{
-			climbing = false;
-            canClimb = false;
+            // check if the player is at least 0.2 units above the rope
+            if (gameObject.transform.position.y > ropeHeight.y + 0.2f)
+            {
+                climbing = false;
+                canClimb = false;
+            }
+            // if the player doesnt make it above the rope, check how far below the player is
+            else if (gameObject.transform.position.y < ropeHeight.y - 3.8f)
+            {
+                climbing = false;
+                canClimb = false;
+            }
         }
+		
 	}
 }
 
