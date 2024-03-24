@@ -27,10 +27,11 @@ public class BasicEnemy : MonoBehaviour
     private float travelledDistance = 0f;
     private bool movingForward = true;
 
-    private int enemyMaxHealth = 1;
+    private int enemyMaxHealth = 2;
     private int enemyCurrentHealth;
 
     private Animator animator;
+    private PlayerAttackScript playerAtkScript;
 
     private enum State
     {
@@ -78,6 +79,7 @@ public class BasicEnemy : MonoBehaviour
         if (playerObject != null)
         {
             player = playerObject.transform;
+            playerAtkScript = playerObject.GetComponent<PlayerAttackScript>();
         }
         else if (showDebug)
         {
@@ -198,6 +200,11 @@ public class BasicEnemy : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             Damaged(1); // Take 1 damage
+            if (enemyCurrentHealth > 0)
+            {
+                animator.SetTrigger("Hit");
+                playerAtkScript.SwordRecall(); 
+            }
         }
 
         if (other.CompareTag("Player"))

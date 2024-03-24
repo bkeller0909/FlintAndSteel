@@ -40,6 +40,7 @@ public class StrongEnemy : MonoBehaviour
     private int enemyCurrentHealth;
 
     private Animator animator;
+    private PlayerAttackScript playerAtkScript;
 
     private enum State
     {
@@ -91,6 +92,7 @@ public class StrongEnemy : MonoBehaviour
         if (playerObject != null)
         {
             player = playerObject.transform;
+            playerAtkScript = playerObject.GetComponent<PlayerAttackScript>();
         }
         else if (showDebug)
         {
@@ -241,6 +243,11 @@ public class StrongEnemy : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             Damaged(1); // Take 1 damage
+            if (enemyCurrentHealth > 0) 
+            {
+                animator.SetTrigger("Hit");
+                playerAtkScript.SwordRecall();
+            }
         }
 
         if (other.CompareTag("Player"))
