@@ -211,7 +211,7 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator DashAttack(Vector3 direction, float distance, float speed)
     {
         isAttacking = true;
-        transform.localScale = startScale - new Vector3(0, startScale.y * 0.2f, 0);
+        transform.localScale = startScale - new Vector3(0, startScale.y * 0.1f, 0);
         float distanceCovered = 19.0f;
         float distancePerPoint = distance / distanceCovered;
         direction = new Vector3(direction.x, 0, 0).normalized;
@@ -265,7 +265,7 @@ public class EnemyBoss : MonoBehaviour
         bulletScript.SetSpeed(10.0f);
         bulletScript.Fire(dir);
 
-        StartCoroutine(DashAfterShootingTimer(3.0f)); // Dash after shooting for 10 seconds
+        StartCoroutine(DashAfterShootingTimer(2.0f)); // Dash after shooting for 10 seconds
     }
 
     private void ShootTimer()
@@ -273,18 +273,31 @@ public class EnemyBoss : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if (shootTimer < 0.0f && bulletPrefab != null)
         {
-            float randomNumber = Random.value;
-            if (randomNumber < 0.5f)
+            float randomNumber = Random.Range(0.0f, 1.0f);
+            if (randomNumber < 0.13f)
             {
                 Shoot();
                 Debug.Log("NormalShot");
+            }
+            else if (randomNumber >= 0.13 && randomNumber < 0.55f)
+            {
+                DoubleShot();
+                Debug.Log("DoubleShot");
             }
             else
             {
                 ScatterShot();
                 Debug.Log("ScatterShot");
             }
-            shootTimer = shootInterval;
+
+            if (health <= 40f)
+            {
+                shootTimer = shootInterval - (shootInterval * 0.3f);
+            }
+            else
+            {
+                shootTimer = shootInterval;
+            }
         }
     }
 
@@ -307,6 +320,26 @@ public class EnemyBoss : MonoBehaviour
         }
     }
 
+    private void DoubleShot()
+    {
+        Vector3[] directions = new Vector3[2];
+        Vector3 playerDirection = (player.position - Barrel.position).normalized;
+
+        StartCoroutine(DoubleShotSound(shotSound));
+        directions[0] = playerDirection;
+        directions[1] = playerDirection;
+
+        float heightOffset = -0.75f;
+        foreach (Vector3 dir in directions)
+        {
+            GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, heightOffset, 0), Quaternion.identity);
+            EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
+            bulletScript.SetSpeed(10);
+            bulletScript.Fire(dir);
+            heightOffset = 0.75f;
+        }
+    }
+
     private IEnumerator DashAfterShootingTimer(float duration)
     {
         chargeUpParticles.Play();
@@ -325,6 +358,16 @@ public class EnemyBoss : MonoBehaviour
      
         audioSource.Play();
         yield return new WaitForSeconds(0.075f);
+        audioSource.Play();
+        yield return new WaitForSeconds(0.075f);
+        audioSource.Play();
+    }
+
+    private IEnumerator DoubleShotSound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
+
         audioSource.Play();
         yield return new WaitForSeconds(0.075f);
         audioSource.Play();
