@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6320.1963, g: 6159.075, b: 5901.391, a: 1}
+  m_IndirectSpecularColor: {r: 6320.1514, g: 6158.995, b: 5901.7427, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10709,6 +10709,85 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6183ab734f5219f4aaaa92fcdd69bee1, type: 3}
+--- !u!1001 &880622286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1273898365}
+    m_Modifications:
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.008000374
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000014007092
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389696169709627137, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 232853917}
+    - target: {fileID: 9210305810757450094, guid: 69d2467bac071084d8237781f4f6f573,
+        type: 3}
+      propertyPath: m_Name
+      value: CheeringEnemy (16)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 69d2467bac071084d8237781f4f6f573, type: 3}
+--- !u!4 &880622287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 322450951850153175, guid: 69d2467bac071084d8237781f4f6f573,
+    type: 3}
+  m_PrefabInstance: {fileID: 880622286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &893912522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1828141167129098373, guid: 57da720f443889a4d950b5b0b5c9d9e1,
@@ -16185,6 +16264,7 @@ Transform:
   - {fileID: 1474501386}
   - {fileID: 1784802095}
   - {fileID: 666171284}
+  - {fileID: 880622287}
   - {fileID: 1122217397}
   - {fileID: 638387939}
   - {fileID: 660005689}
@@ -25516,7 +25596,7 @@ PrefabInstance:
     - target: {fileID: 7806686159755812448, guid: ecd23075afc07bc47b681f20bb15f8f4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.143482
+      value: -6.03
       objectReference: {fileID: 0}
     - target: {fileID: 7806686159755812448, guid: ecd23075afc07bc47b681f20bb15f8f4,
         type: 3}
@@ -25526,7 +25606,7 @@ PrefabInstance:
     - target: {fileID: 7806686159755812448, guid: ecd23075afc07bc47b681f20bb15f8f4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0052700043
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7806686159755812448, guid: ecd23075afc07bc47b681f20bb15f8f4,
         type: 3}

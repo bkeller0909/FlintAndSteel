@@ -106,8 +106,11 @@ MonoBehaviour:
   showDebug: 0
   moveSpeed: 3
   moveDistance: 4
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1048577
+  groundCheckDistance: 5
   detectionRange: 1
-  returnRange: 5
   detectionEnabled: 1
   player: {fileID: 0}
   deathSounds:
@@ -115,7 +118,6 @@ MonoBehaviour:
   hurtSounds:
   - {fileID: 8300000, guid: 78280a852fa108a49b82e9f086011e0e, type: 3}
   - {fileID: 8300000, guid: 0e5a6bb2f2688404ab9bb70351e37047, type: 3}
-  - {fileID: 8300000, guid: 93226f6cbe1e35e45b71cb49ea1dd8b2, type: 3}
 --- !u!114 &3703738075102650019
 MonoBehaviour:
   m_ObjectHideFlags: 0

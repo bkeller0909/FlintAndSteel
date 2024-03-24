@@ -83,9 +83,6 @@ public class Coin : MonoBehaviour
 	
 	void CoinGet()
 	{
-		if (collectSound)
-			AudioSource.PlayClipAtPoint(collectSound, transform.position);
-
 		if(coinCount !=null && !collected && !isFruit)
 		{
 			collected = true;
