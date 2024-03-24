@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11085.819, g: 11070.665, b: 11154.142, a: 1}
+  m_IndirectSpecularColor: {r: 11085.595, g: 11070.263, b: 11152.345, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7797,6 +7797,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.522
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409762419476517249, guid: f3fd5389058c7994698043ec76225da8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.6078528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409762419476517249, guid: f3fd5389058c7994698043ec76225da8,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.45849067
       objectReference: {fileID: 0}
     - target: {fileID: 8128199199925249808, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
@@ -17524,10 +17534,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2e9de9fcb7638ff498442e0025fd5dbe, type: 3}
       propertyPath: m_Name
       value: Fruit
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2e9de9fcb7638ff498442e0025fd5dbe, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.45000005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2e9de9fcb7638ff498442e0025fd5dbe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27778,6 +27784,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973953075}
     m_Modifications:
+    - target: {fileID: 497472968921291937, guid: 6d99e469bd247bf428f57548607b77a9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.8400004
+      objectReference: {fileID: 0}
+    - target: {fileID: 497472968921291937, guid: 6d99e469bd247bf428f57548607b77a9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.888908
+      objectReference: {fileID: 0}
+    - target: {fileID: 497472968921291937, guid: 6d99e469bd247bf428f57548607b77a9,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.5731318
+      objectReference: {fileID: 0}
+    - target: {fileID: 497472968921291937, guid: 6d99e469bd247bf428f57548607b77a9,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.00003258381
+      objectReference: {fileID: 0}
+    - target: {fileID: 497472968921291937, guid: 6d99e469bd247bf428f57548607b77a9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -3.7958307
+      objectReference: {fileID: 0}
+    - target: {fileID: 497472968921291937, guid: 6d99e469bd247bf428f57548607b77a9,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.30049232
+      objectReference: {fileID: 0}
     - target: {fileID: 4854503242790335982, guid: 6d99e469bd247bf428f57548607b77a9,
         type: 3}
       propertyPath: m_Name
@@ -36386,6 +36422,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 963974115}
     m_Modifications:
+    - target: {fileID: 423271307607471689, guid: 417e0f395add80147b51fbdfbeb7916f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.70027715
+      objectReference: {fileID: 0}
+    - target: {fileID: 423271307607471689, guid: 417e0f395add80147b51fbdfbeb7916f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.1019828
+      objectReference: {fileID: 0}
+    - target: {fileID: 423271307607471689, guid: 417e0f395add80147b51fbdfbeb7916f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.036584534
+      objectReference: {fileID: 0}
+    - target: {fileID: 423271307607471689, guid: 417e0f395add80147b51fbdfbeb7916f,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.006099458
+      objectReference: {fileID: 0}
+    - target: {fileID: 423271307607471689, guid: 417e0f395add80147b51fbdfbeb7916f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.947976e-10
+      objectReference: {fileID: 0}
     - target: {fileID: 3483705410024766636, guid: 417e0f395add80147b51fbdfbeb7916f,
         type: 3}
       propertyPath: m_LocalScale.x
