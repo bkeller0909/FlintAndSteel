@@ -5118,19 +5118,20 @@ MonoBehaviour:
   player: {fileID: 400002, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
   idleDuration: 4
   movementSpeed: 10
-  dashDistance: 3
+  dashDistance: 2.8
   dashSpeed: 28
   chaseDuration: 5
   Barrel: {fileID: 7655751052030133377}
   bulletPrefab: {fileID: 72920156468337771, guid: a975cb4dec712bf458448cf11e7bfa9f,
     type: 3}
-  shootInterval: 1.15
+  shootInterval: 1.2
   shootDuration: 10
   characterModel: {fileID: 4670214321123228854}
   chargeUpParticles: {fileID: 3936901909884319289}
   shootParticles: {fileID: 632162466478891854}
   sheildParticles: {fileID: 1676054825494982176}
   shotSound: {fileID: 8300000, guid: 5880b15856f50564ca494b0fb07a31f7, type: 3}
+  health: 80
 --- !u!65 &2983097786458544973
 BoxCollider:
   m_ObjectHideFlags: 0

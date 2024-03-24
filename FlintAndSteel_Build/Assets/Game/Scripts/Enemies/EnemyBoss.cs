@@ -69,7 +69,7 @@ public class EnemyBoss : MonoBehaviour
 
     bool isAttacking = false;
 
-    private float health = 100;
+    public float health = 80;
     private Vector3 intitalPosition;
 
     private Animator animator;
@@ -318,7 +318,7 @@ public class EnemyBoss : MonoBehaviour
                 Debug.Log("ScatterShot");
             }
 
-            if (health <= 40f)
+            if (health <= 30f)
             {
                 shootTimer = shootInterval - (shootInterval * 0.3f);
             }
