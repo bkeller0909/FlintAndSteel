@@ -211,7 +211,7 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator DashAttack(Vector3 direction, float distance, float speed)
     {
         isAttacking = true;
-        transform.localScale = startScale - new Vector3(0, startScale.y * 0.1f, 0);
+        transform.localScale = startScale - new Vector3(0, startScale.y * 0.075f, 0);
         float distanceCovered = 19.0f;
         float distancePerPoint = distance / distanceCovered;
         direction = new Vector3(direction.x, 0, 0).normalized;
@@ -256,6 +256,8 @@ public class EnemyBoss : MonoBehaviour
         dir.y = 0;
         dir.z = 0;
 
+        shootParticles.Play();
+
         audioSource.pitch = Random.Range(1.15f, 1.35f);
         audioSource.clip = shotSound;
         audioSource.Play();
@@ -265,26 +267,45 @@ public class EnemyBoss : MonoBehaviour
         bulletScript.SetSpeed(10.0f);
         bulletScript.Fire(dir);
 
-        StartCoroutine(DashAfterShootingTimer(2.0f)); // Dash after shooting for 10 seconds
+        shootingDuration = 5f;
+        StartCoroutine(DashAfterShootingTimer(2.25f)); // Dash after shooting for 10 seconds
     }
+
+    float shootingDuration = 5f;
 
     private void ShootTimer()
     {
         shootTimer -= Time.deltaTime;
+        shootingDuration -= Time.deltaTime;
+
         if (shootTimer < 0.0f && bulletPrefab != null)
         {
             float randomNumber = Random.Range(0.0f, 1.0f);
-            if (randomNumber < 0.13f)
+
+            if (shootingDuration <= 0)
             {
-                Shoot();
-                Debug.Log("NormalShot");
+                if (randomNumber <= 0.35f)
+                {
+                    Shoot();
+                    Debug.Log("NormalShot");
+                }
+                else if (randomNumber > 0.35 && randomNumber <= 0.65f)
+                {
+                    DoubleShot();
+                    Debug.Log("DoubleShot");
+                }
+                else if (randomNumber > 0.65f)
+                {
+                    ThreeShot();
+                    Debug.Log("ThreeShot");
+                }
             }
-            else if (randomNumber >= 0.13 && randomNumber < 0.55f)
+            else if (randomNumber >= 0.38f && shootingDuration > 0)
             {
                 DoubleShot();
                 Debug.Log("DoubleShot");
             }
-            else
+            else if (shootingDuration > 0)
             {
                 ScatterShot();
                 Debug.Log("ScatterShot");
@@ -317,6 +338,7 @@ public class EnemyBoss : MonoBehaviour
             EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
             bulletScript.SetSpeed(10);
             bulletScript.Fire(dir);
+            shootParticles.Play();
         }
     }
 
@@ -337,6 +359,7 @@ public class EnemyBoss : MonoBehaviour
             bulletScript.SetSpeed(10);
             bulletScript.Fire(dir);
             heightOffset = 0.75f;
+            shootParticles.Play();
         }
     }
 
@@ -371,5 +394,54 @@ public class EnemyBoss : MonoBehaviour
         audioSource.Play();
         yield return new WaitForSeconds(0.075f);
         audioSource.Play();
+    }
+
+    void ThreeShot()
+    {
+        StartCoroutine(ThreeShotEnum());
+    }
+
+    private IEnumerator ThreeShotEnum()
+    {
+        Vector3 dir = (player.position - Barrel.position).normalized;
+        dir.y = 0;
+        dir.z = 0;
+
+        shootParticles.Play();
+
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
+        audioSource.clip = shotSound;
+        audioSource.Play();
+
+        GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
+        EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
+        bulletScript.SetSpeed(10.0f);
+        bulletScript.Fire(dir);
+        yield return new WaitForSeconds(0.25f);
+
+        shootParticles.Play();
+
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
+        audioSource.clip = shotSound;
+        audioSource.Play();
+
+        GameObject bulletGo2 = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
+        EnemyBullet bulletScript2 = bulletGo2.GetComponent<EnemyBullet>();
+        bulletScript2.SetSpeed(10.0f);
+        bulletScript2.Fire(dir);
+        yield return new WaitForSeconds(0.25f);
+
+        shootParticles.Play();
+
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
+        audioSource.clip = shotSound;
+        audioSource.Play();
+
+        GameObject bulletGo3 = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
+        EnemyBullet bulletScript3 = bulletGo3.GetComponent<EnemyBullet>();
+        bulletScript3.SetSpeed(10.0f);
+        bulletScript3.Fire(dir);
+
+        shootTimer = shootInterval;
     }
 }
