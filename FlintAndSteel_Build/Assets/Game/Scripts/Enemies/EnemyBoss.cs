@@ -50,6 +50,8 @@ public class EnemyBoss : MonoBehaviour
     private ParticleSystem chargeUpParticles;
     [SerializeField]
     private ParticleSystem shootParticles;
+    [SerializeField]
+    private ParticleSystem sheildParticles;
 
     [SerializeField]
     private AudioClip shotSound;
@@ -101,14 +103,17 @@ public class EnemyBoss : MonoBehaviour
         {
             case BossActionType.Idle:
                 HandleIdleState();
+                
                 break;
 
             case BossActionType.Moving:
                 HandleMovingState();
+                
                 break;
 
             case BossActionType.Attacking:
                 HandleAttackingState();
+                
                 break;
         }
     }
@@ -175,6 +180,7 @@ public class EnemyBoss : MonoBehaviour
     {
         yield return new WaitForSeconds(idleDuration);
         animator.SetBool("Cooldown", false);
+        sheildParticles.gameObject.SetActive(true);
         eCurState = BossActionType.Attacking;
     }
 
@@ -242,6 +248,7 @@ public class EnemyBoss : MonoBehaviour
         transform.localScale = startScale;
         isAttacking = false;
         idleDuration = idleStartDuration;
+        sheildParticles.gameObject.SetActive(false);
         animator.SetBool("Cooldown", true);
         eCurState = BossActionType.Idle;
         
