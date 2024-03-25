@@ -93,6 +93,7 @@ public class Zipline : MonoBehaviour
         float step = ModifiedZipSpeed * Time.deltaTime;
         localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step);
         zipEffectClone.transform.position = zipEffectCloneSmoke.transform.position = localZip.GetComponent<Rigidbody>().position;
+        SetPlayerRotation(player); // keeps player rotation 
         player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step);
     }
 
