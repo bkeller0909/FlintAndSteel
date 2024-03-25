@@ -19,9 +19,9 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private bool detectionEnabled = true;
     [SerializeField] private Transform player;
 
-    [Header("Sounds")]
-    [SerializeField] private AudioClip[] deathSounds;
-    [SerializeField] private AudioClip[] hurtSounds;
+    [Header("Hit Effects")]
+    [SerializeField] private GameObject bloodEffect;
+    [SerializeField] private GameObject deathEffect;
 
     private Vector3 startPosition;
     private float travelledDistance = 0f;
@@ -202,6 +202,7 @@ public class BasicEnemy : MonoBehaviour
             Damaged(1); // Take 1 damage
             if (enemyCurrentHealth > 0)
             {
+                Instantiate(bloodEffect, transform.position, Quaternion.identity);
                 animator.SetTrigger("Hit");
                 playerAtkScript.SwordRecall(); 
             }
@@ -220,35 +221,15 @@ public class BasicEnemy : MonoBehaviour
     {
         try
         {
-            int randomDeath = UnityEngine.Random.Range(0, deathSounds.Length);
-            int randomHurt = UnityEngine.Random.Range(0, hurtSounds.Length);
-
             enemyCurrentHealth -= damage; // Lower Health with whatever damage was received
-
-            try
-            {
-                AudioSource.PlayClipAtPoint(hurtSounds[randomHurt], transform.position);
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError($"Failed to play hurt sound: {e.Message}");
-            }
 
             if (showDebug) Debug.Log("Enemy Health: " + enemyCurrentHealth);
 
             if (enemyCurrentHealth <= 0) // If health is or less than 0 enemy is dead
             {
                 if (showDebug) Debug.Log("MainEnemy Killed");
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
                 gameObject.SetActive(false);
-
-                try
-                {
-                    AudioSource.PlayClipAtPoint(deathSounds[randomDeath], transform.position);
-                }
-                catch (System.Exception e)
-                {
-                    Debug.LogError($"Failed to play death sound: {e.Message}");
-                }
             }
         }
         catch (System.Exception e)

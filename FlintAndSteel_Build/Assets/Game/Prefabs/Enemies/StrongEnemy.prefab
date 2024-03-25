@@ -116,12 +116,10 @@ MonoBehaviour:
   detectionRange: 5
   detectionEnabled: 1
   player: {fileID: 0}
-  deathSounds:
-  - {fileID: 8300000, guid: 2d3a79a3349d6114db5a974b4bfd2844, type: 3}
-  hurtSounds:
-  - {fileID: 8300000, guid: 78280a852fa108a49b82e9f086011e0e, type: 3}
-  - {fileID: 8300000, guid: 0e5a6bb2f2688404ab9bb70351e37047, type: 3}
-  - {fileID: 8300000, guid: 93226f6cbe1e35e45b71cb49ea1dd8b2, type: 3}
+  bloodEffect: {fileID: 7886164264096526582, guid: 852690d766abd4e46baaec28b37bd886,
+    type: 3}
+  deathEffect: {fileID: 7886164264096526582, guid: 18a45f0ff9527f642a0753acfb0bc1b5,
+    type: 3}
 --- !u!114 &3086661390573955871
 MonoBehaviour:
   m_ObjectHideFlags: 0

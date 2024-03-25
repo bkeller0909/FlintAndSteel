@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6150752381620253786}
   - component: {fileID: 6387013705127691338}
   m_Layer: 0
-  m_Name: Blood
+  m_Name: DeathEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 0.35
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -288,9 +288,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.02
-      minScalar: 0.015
+      minMaxState: 0
+      scalar: 0.05
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -341,9 +341,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.04
-      minScalar: 0.03
+      minMaxState: 0
+      scalar: 0.06
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -394,9 +394,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.02
-      minScalar: 0.015
+      minMaxState: 0
+      scalar: 0.05
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -613,7 +613,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1047,13 +1047,13 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          value: 0.4189186
+          inSlope: 4.5499277
+          outSlope: 4.5499277
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.23348662
         - serializedVersion: 3
           time: 0.39433354
           value: 1
@@ -1064,7 +1064,7 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.42780107
+          time: 0.64519316
           value: 0
           inSlope: 0.0000005316457
           outSlope: 0.0000005316457
@@ -4846,7 +4846,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15536f906f9b2b94f8c5a9a107503e77, type: 2}
+  - {fileID: 2100000, guid: 482b15d83ee1f88419b6e8276d8052c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
