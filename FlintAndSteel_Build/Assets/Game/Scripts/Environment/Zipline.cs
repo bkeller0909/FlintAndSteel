@@ -185,8 +185,13 @@ public class Zipline : MonoBehaviour
 
         
         GameObject player = localZip.transform.GetChild(0).gameObject;
-        Destroy(zipEffectClone); // Destroys zipEffectClone ...
-        Destroy(zipEffectCloneSmoke);
+
+        zipEffectClone.GetComponent<ParticleSystem>().Stop();
+        zipEffectCloneSmoke.GetComponent<ParticleSystem>().Stop();
+
+        Destroy(zipEffectClone, 6f); // Destroys zipEffectClone ...
+        Destroy(zipEffectCloneSmoke, 6f);
+        
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().velocity = new Vector3(ModifiedZipSpeed, 0, 0);
