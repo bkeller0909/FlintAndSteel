@@ -8,7 +8,9 @@ public class Zipline : MonoBehaviour
 {
 
     [SerializeField] private GameObject zipEffect; // zipline effect
-    private GameObject zipEffectClone; 
+    [SerializeField] private GameObject zipEffectSmoke; // Smoke
+    private GameObject zipEffectClone;
+    private GameObject zipEffectCloneSmoke;
 
     [Tooltip("Place the Zipline you want to go to if you use this Zipline")]
     [SerializeField] protected Zipline targetZip;
@@ -90,11 +92,8 @@ public class Zipline : MonoBehaviour
         ModifiedZipSpeed = Mathf.Lerp(ModifiedZipSpeed, MaxZipSpeed, zipStepSpeed * Time.deltaTime);
         float step = ModifiedZipSpeed * Time.deltaTime;
         localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step);
-        zipEffectClone.transform.position = localZip.GetComponent<Rigidbody>().position;
-        //Debug.Log("The current ModifiedZipSpeed is " + ModifiedZipSpeed);
-        //localZip.GetComponent<Rigidbody>().AddForce((targetZip.zipTransform.position - zipTransform.position).normalized * zipSpeed * Time.deltaTime, ForceMode.Acceleration);
+        zipEffectClone.transform.position = zipEffectCloneSmoke.transform.position = localZip.GetComponent<Rigidbody>().position;
         player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step);
-        //player.GetComponent<Rigidbody>().position = new Vector3(localZip.transform.position.x, localZip.transform.position.y + offsetZip, playerZOffset);
     }
 
     private void InitializeInitialMomentum()
@@ -149,6 +148,7 @@ public class Zipline : MonoBehaviour
 
 
         zipEffectClone = Instantiate(zipEffect, StartingPos, Quaternion.identity); // Create zipEffect copy at startingPos of player childed to local zip
+        zipEffectCloneSmoke = Instantiate(zipEffectSmoke, StartingPos, Quaternion.identity);
         localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
         localZip.AddComponent<Rigidbody>().useGravity = false;
         localZip.GetComponent<Collider>().isTrigger = true;
@@ -185,7 +185,8 @@ public class Zipline : MonoBehaviour
 
         
         GameObject player = localZip.transform.GetChild(0).gameObject;
-        Destroy(zipEffectClone); // Destroys zipEffectClone ... 
+        Destroy(zipEffectClone); // Destroys zipEffectClone ...
+        Destroy(zipEffectCloneSmoke);
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().velocity = new Vector3(ModifiedZipSpeed, 0, 0);
