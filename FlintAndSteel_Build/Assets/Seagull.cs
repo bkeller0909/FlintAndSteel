@@ -64,6 +64,7 @@ public class Seagull : MonoBehaviour
     private void FlyAway()
     {
         animator.SetBool("Startled", true);
+        audioSource.pitch = UnityEngine.Random.Range(0.65f, 1.35f);
         audioSource.Play();
         flewAway = true;
     }
