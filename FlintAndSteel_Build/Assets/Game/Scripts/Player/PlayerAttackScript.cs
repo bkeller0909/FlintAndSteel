@@ -127,7 +127,7 @@ public class PlayerAttackScript : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
 
-        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity, raycastLayerMask))
+        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity))
         {
             float minThrowDistance = 1f;
 
@@ -152,7 +152,7 @@ public class PlayerAttackScript : MonoBehaviour
         /*// For the controller aiming
         Vector3 cursorPosition = cursor.rectTransform.position;
         Ray controllerRay = mainCamera.ScreenPointToRay(cursorPosition);
-        if (Physics.Raycast(controllerRay, out RaycastHit hit, Mathf.Infinity*//*, raycastLayerMask*//*))
+        if (Physics.Raycast(controllerRay, out RaycastHit hit, Mathf.Infinity))
         {
             float minThrowDistance = 1f;
 
