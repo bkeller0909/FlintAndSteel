@@ -56,6 +56,9 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private AudioClip shotSound;
 
+    [SerializeField] private GameObject bloodEffect;
+    [SerializeField] private GameObject deathEffect;
+
     #endregion
 
     //Intializes the boss variable to idle in the beggining of the game
@@ -153,7 +156,12 @@ public class EnemyBoss : MonoBehaviour
             if (health <= 0)
             {
                 //Boss is defeated
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
                 gameObject.SetActive(false);
+            }
+            else
+            {
+                Instantiate(bloodEffect, transform.position, Quaternion.identity);
             }
 
             idleDuration = 0.1f;
@@ -259,20 +267,19 @@ public class EnemyBoss : MonoBehaviour
     private void Shoot()
     {
         isAttacking = true;
-        Vector3 dir = (player.position - Barrel.position).normalized;
-        dir.y = 0;
-        dir.z = 0;
+        Vector3 playerDirection = (player.position - Barrel.position).normalized;
 
         shootParticles.Play();
 
-        audioSource.pitch = Random.Range(1.15f, 1.35f);
+        audioSource.pitch = Random.Range(0.80f, 0.90f);
         audioSource.clip = shotSound;
         audioSource.Play();
 
         GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
+        bulletGo.transform.localScale = new Vector3(bulletGo.transform.localScale.x * 3f, bulletGo.transform.localScale.y * 3f, bulletGo.transform.localScale.z * 3f);
         EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
         bulletScript.SetSpeed(10.0f);
-        bulletScript.Fire(dir);
+        bulletScript.Fire(playerDirection);
 
         shootingDuration = 5f;
         StartCoroutine(DashAfterShootingTimer(2.25f)); // Dash after shooting for 10 seconds
@@ -291,17 +298,17 @@ public class EnemyBoss : MonoBehaviour
 
             if (shootingDuration <= 0)
             {
-                if (randomNumber <= 0.35f)
+                if (randomNumber <= 0.40f)
                 {
                     Shoot();
                     Debug.Log("NormalShot");
                 }
-                else if (randomNumber > 0.35 && randomNumber <= 0.65f)
+                else if (randomNumber > 0.40 && randomNumber <= 0.70f)
                 {
                     DoubleShot();
                     Debug.Log("DoubleShot");
                 }
-                else if (randomNumber > 0.65f)
+                else if (randomNumber > 0.70f)
                 {
                     ThreeShot();
                     Debug.Log("ThreeShot");
@@ -318,7 +325,11 @@ public class EnemyBoss : MonoBehaviour
                 Debug.Log("ScatterShot");
             }
 
-            if (health <= 30f)
+            if (health <= 50f)
+            {
+                shootTimer = shootInterval - (shootInterval * 0.1f);
+            }
+            else if (health <= 20f)
             {
                 shootTimer = shootInterval - (shootInterval * 0.3f);
             }
@@ -336,8 +347,8 @@ public class EnemyBoss : MonoBehaviour
 
         StartCoroutine(ScatterShotSound(shotSound));
         directions[0] = playerDirection;
-        directions[1] = Quaternion.Euler(0, 0, 30) * playerDirection;
-        directions[2] = Quaternion.Euler(0, 0, -30) * playerDirection;
+        directions[1] = Quaternion.Euler(0, 0, 25) * playerDirection;
+        directions[2] = Quaternion.Euler(0, 0, -25) * playerDirection;
 
         foreach (Vector3 dir in directions)
         {
@@ -351,23 +362,39 @@ public class EnemyBoss : MonoBehaviour
 
     private void DoubleShot()
     {
-        Vector3[] directions = new Vector3[2];
-        Vector3 playerDirection = (player.position - Barrel.position).normalized;
+        Vector3 dir = (player.position - Barrel.position).normalized;
+        dir.y = 0;
+        dir.z = 0;
+
+        float yOffset;
+
+        shootParticles.Play();
 
         StartCoroutine(DoubleShotSound(shotSound));
-        directions[0] = playerDirection;
-        directions[1] = playerDirection;
 
-        float heightOffset = -0.75f;
-        foreach (Vector3 dir in directions)
+        if (Random.Range(0.0f, 1.0f) > 0.5f)
         {
-            GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, heightOffset, 0), Quaternion.identity);
-            EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
-            bulletScript.SetSpeed(10);
-            bulletScript.Fire(dir);
-            heightOffset = 0.75f;
-            shootParticles.Play();
+            yOffset = 0;
         }
+        else
+        {
+            yOffset = 2.5f;
+        }
+
+        GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, -1f + yOffset, 0), Quaternion.identity);
+        EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
+        bulletScript.SetSpeed(10.0f);
+        bulletScript.Fire(dir);
+
+        GameObject bulletGo2 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 0f + yOffset, 0), Quaternion.identity);
+        EnemyBullet bulletScript2 = bulletGo2.GetComponent<EnemyBullet>();
+        bulletScript2.SetSpeed(10.0f);
+        bulletScript2.Fire(dir);
+
+        GameObject bulletGo3 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 1f + yOffset, 0), Quaternion.identity);
+        EnemyBullet bulletScript3 = bulletGo3.GetComponent<EnemyBullet>();
+        bulletScript3.SetSpeed(10.0f);
+        bulletScript3.Fire(dir);
     }
 
     private IEnumerator DashAfterShootingTimer(float duration)
@@ -387,9 +414,9 @@ public class EnemyBoss : MonoBehaviour
         audioSource.pitch = Random.Range(1.15f, 1.35f);
      
         audioSource.Play();
-        yield return new WaitForSeconds(0.075f);
+        yield return new WaitForSeconds(0.085f);
         audioSource.Play();
-        yield return new WaitForSeconds(0.075f);
+        yield return new WaitForSeconds(0.085f);
         audioSource.Play();
     }
 
@@ -397,10 +424,16 @@ public class EnemyBoss : MonoBehaviour
     {
         audioSource.clip = clip;
         audioSource.pitch = Random.Range(1.15f, 1.35f);
+        audioSource.Play();
+        yield return new WaitForSeconds(0.1f);
 
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
         audioSource.Play();
-        yield return new WaitForSeconds(0.075f);
+        yield return new WaitForSeconds(0.1f);
+
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
         audioSource.Play();
+        yield return new WaitForSeconds(0.1f);
     }
 
     void ThreeShot()
@@ -448,6 +481,16 @@ public class EnemyBoss : MonoBehaviour
         EnemyBullet bulletScript3 = bulletGo3.GetComponent<EnemyBullet>();
         bulletScript3.SetSpeed(10.0f);
         bulletScript3.Fire(dir);
+        yield return new WaitForSeconds(0.25f);
+
+        audioSource.pitch = Random.Range(1.15f, 1.35f);
+        audioSource.clip = shotSound;
+        audioSource.Play();
+
+        GameObject bulletGo4 = Instantiate(bulletPrefab, Barrel.position, Quaternion.identity);
+        EnemyBullet bulletScript4 = bulletGo4.GetComponent<EnemyBullet>();
+        bulletScript4.SetSpeed(10.0f);
+        bulletScript4.Fire(dir);
 
         shootTimer = shootInterval;
     }
