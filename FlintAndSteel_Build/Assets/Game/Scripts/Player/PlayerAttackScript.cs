@@ -122,6 +122,9 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
+        Vector3 aimDirection;
+        float controllerXAxis = Input.GetAxisRaw("Controller Aim Horizontal");
+        float controllerYAxis = Input.GetAxisRaw("Controller Aim Vertical");
 
         Vector3 mousePosition = Input.mousePosition;
         Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);

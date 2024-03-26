@@ -101,8 +101,8 @@ public class PlayerMove : MonoBehaviour
 		screenMovementRight = screenMovementSpace * Vector3.right;
 		
 		//get movement input, set direction to move in
-		float h = Input.GetAxisRaw ("Horizontal");
-		float v = Input.GetAxisRaw ("Vertical");
+		float h = Input.GetAxisRaw ("Controller Move Horizontal");
+		float v = Input.GetAxisRaw ("Controller Move Vertical");
 		
 		//only apply vertical input to movemement, if player is not sidescroller
 		if(!sidescroller)
