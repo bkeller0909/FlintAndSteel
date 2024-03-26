@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlyingBomber : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private Transform[] waypoints;
+    //[SerializeField] private Transform[] waypoints;
     private int currentWaypointIndex = 0;
 
     [SerializeField] private GameObject bombPrefab;
@@ -15,43 +15,95 @@ public class FlyingBomber : MonoBehaviour
     private int enemyMaxHealth = 2;
     private int enemyCurrentHealth;
 
-    private bool isDead = false;
+    public bool isDead = false;
     private int hitCount = 0;
+    private GameObject[] birdWalls;
+    private int currentBirdWall = 0;
+    private Transform targetBirdWall;
+    private float initialYposition;
+
+    private bool movingRight = true;
+    private Vector3 initialPosition;
+   //[SerializeField] private float moveDistance = 15.0f;
+
+
 
     private void Start()
     {
-        if (waypoints.Length == 0)
-        {
-            Debug.LogError("No waypoints defined for the Flying Enemy!");
-            enabled = false;
-        }
-
+        birdWalls = GameObject.FindGameObjectsWithTag("BirdWall");
+        //initialPosition = transform.position;   
         enemyCurrentHealth = enemyMaxHealth;
         StartCoroutine(DropBombRoutine());
+        FindNextBirdWall();
     }
 
     private void Update()
     {
         if (!isDead)
         {
-            MoveBetweenWaypoints();
+            MoveTowardsWall();
+            //MoveEnemy();
+            //MoveBetweenWaypoints();
         }
     }
-
-    private void MoveBetweenWaypoints()
+    private void MoveTowardsWall()
     {
-        if (waypoints.Length == 0)
+        if (birdWalls.Length == 0)
             return;
 
-        Transform currentWaypoint = waypoints[currentWaypointIndex];
+        transform.position = Vector3.MoveTowards(transform.position, targetBirdWall.position, moveSpeed * Time.deltaTime);
 
-        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, currentWaypoint.position) < 0.1f)
+        if (Vector3.Distance(transform.position, targetBirdWall.position) < 0.1f)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            FindNextBirdWall();
         }
     }
+    private void FindNextBirdWall()
+    {
+        if (birdWalls.Length == 0)
+            return;
+
+        currentBirdWall = (currentBirdWall + 1) % birdWalls.Length;
+        targetBirdWall = birdWalls[currentBirdWall].transform;
+    }
+    //private void MoveEnemy()
+    //{
+    //    if (movingRight)
+    //    {
+    //        transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+
+    //        if (transform.position.x >= initialPosition.x + moveDistance)
+    //        {
+    //            movingRight = false;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+
+    //        if (transform.position.x <= initialPosition.x - moveDistance)
+    //        {
+    //            movingRight = true;
+    //        }
+    //    }
+
+    //    Debug.Log("Enemy position: " + transform.position);
+    //}
+
+    //private void MoveBetweenWaypoints()
+    //{
+    //    if (waypoints.Length == 0)
+    //        return;
+
+    //    Transform currentWaypoint = waypoints[currentWaypointIndex];
+
+    //    transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
+
+    //    if (Vector3.Distance(transform.position, currentWaypoint.position) < 0.1f)
+    //    {
+    //        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+    //    }
+    //}
 
     private IEnumerator DropBombRoutine()
     {
@@ -111,7 +163,7 @@ public class FlyingBomber : MonoBehaviour
         float randomFloat = Random.value;//generates a random number between 0 and 1
 
        //if the random number is less than or equal to 0.5 it spawns the fruit
-        if (randomFloat <= 0.5f) ;
+        if (randomFloat <= 0.5f)
         {
         Instantiate(fruitPrefab, transform.position, Quaternion.identity);  
             
