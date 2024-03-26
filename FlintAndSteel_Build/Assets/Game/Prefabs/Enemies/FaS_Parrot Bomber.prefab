@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f30a785a2dbcac4cbeb4262ee2a4010, type: 2}
+  - {fileID: 2100000, guid: da0f8e1070d70dd4e927f13b173d3dfc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671678233301903162}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.51551473, y: -0, z: -0, w: 0.8568807}
+  m_LocalRotation: {x: -0.6427876, y: 0, z: 0, w: 0.7660445}
   m_LocalPosition: {x: 0.070102, y: 0.26502, z: -0.39282}
   m_LocalScale: {x: 686.01, y: 686.01, z: 686.01}
   m_ConstrainProportionsScale: 0
@@ -119,7 +119,7 @@ Transform:
   - {fileID: 4823603874826246000}
   - {fileID: 1256009674591650260}
   m_Father: {fileID: 7425790900463089108}
-  m_LocalEulerAnglesHint: {x: -62.064, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -80, y: 0, z: 0}
 --- !u!33 &2183266828436331224
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f30a785a2dbcac4cbeb4262ee2a4010, type: 2}
+  - {fileID: 2100000, guid: 9d1790cad037ae0429cbf7150bdc78de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -314,7 +314,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f30a785a2dbcac4cbeb4262ee2a4010, type: 2}
+  - {fileID: 2100000, guid: da0f8e1070d70dd4e927f13b173d3dfc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -397,7 +397,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f30a785a2dbcac4cbeb4262ee2a4010, type: 2}
+  - {fileID: 2100000, guid: da0f8e1070d70dd4e927f13b173d3dfc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -480,7 +480,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f30a785a2dbcac4cbeb4262ee2a4010, type: 2}
+  - {fileID: 2100000, guid: da0f8e1070d70dd4e927f13b173d3dfc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -657,7 +657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8642147012731854398}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -73.276, y: 5.8991, z: 0}
   m_LocalScale: {x: 0.0608048, y: 0.0608048, z: 0.0608048}
   m_ConstrainProportionsScale: 0
@@ -666,7 +666,7 @@ Transform:
   - {fileID: 2598552935555680137}
   - {fileID: 7136727524673388323}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &-6213860172139280192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,6 +684,7 @@ MonoBehaviour:
     type: 3}
   bombDropInterval: 5
   fruitPrefab: {fileID: 100000, guid: 2e9de9fcb7638ff498442e0025fd5dbe, type: 3}
+  BirdModel: {fileID: 671678233301903162}
   isDead: 0
 --- !u!54 &-3103936817383118558
 Rigidbody:

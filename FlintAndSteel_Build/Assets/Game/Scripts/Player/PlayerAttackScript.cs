@@ -122,9 +122,35 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
-        Vector3 aimDirection;
-        float controllerXAxis = Input.GetAxisRaw("Controller Aim Horizontal");
-        float controllerYAxis = Input.GetAxisRaw("Controller Aim Vertical");
+        
+        //float controllerXAxis = Input.GetAxisRaw("Horizontal");
+        //float controllerYAxis = Input.GetAxisRaw("Vertical");
+        //Vector3 aimDirection = new Vector3(controllerXAxis, controllerYAxis, 0);
+        //Ray conrollerRayCast = mainCamera.ScreenPointToRay(aimDirection);
+
+        //if (Physics.Raycast(conrollerRayCast, out RaycastHit hit, Mathf.Infinity/*, raycastLayerMask*/))
+        //{
+        //    float minThrowDistance = 1f;
+
+        //    hit.point = new Vector3(hit.point.x, hit.point.y, 0);
+
+        //    if (Vector3.Distance(hit.point, transform.position) > minThrowDistance)
+        //    {
+        //        animator.SetTrigger("ThrowSword");
+        //        Vector3 direction = hit.point - transform.position;
+        //        direction.Normalize();
+        //        direction.z = 0;
+
+        //        ThrowSword(direction);
+
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("Mouse click too close to the character. Sword not thrown");
+        //    }
+        //}
+
+
 
         Vector3 mousePosition = Input.mousePosition;
         Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);

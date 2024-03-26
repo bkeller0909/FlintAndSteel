@@ -12,6 +12,8 @@ public class FlyingBomber : MonoBehaviour
     [SerializeField] private float bombDropInterval = 5f;
     [SerializeField] private GameObject fruitPrefab;
 
+    [SerializeField]
+    private GameObject BirdModel;
     private int enemyMaxHealth = 2;
     private int enemyCurrentHealth;
 
@@ -24,9 +26,7 @@ public class FlyingBomber : MonoBehaviour
 
     private bool movingRight = true;
     private Vector3 initialPosition;
-   //[SerializeField] private float moveDistance = 15.0f;
-
-
+    //[SerializeField] private float moveDistance = 15.0f;
 
     private void Start()
     {
@@ -51,13 +51,27 @@ public class FlyingBomber : MonoBehaviour
         if (birdWalls.Length == 0)
             return;
 
+        // Calculate the direction to the next bird wall
+        Vector3 direction = (targetBirdWall.position - transform.position).normalized;
+
+        // Move the enemy towards the wall
         transform.position = Vector3.MoveTowards(transform.position, targetBirdWall.position, moveSpeed * Time.deltaTime);
 
+        BirdModel.transform.rotation = Quaternion.Euler(-80f, BirdModel.transform.rotation.eulerAngles.y, 0f);
         if (Vector3.Distance(transform.position, targetBirdWall.position) < 0.1f)
         {
+            // Find the next bird wall
             FindNextBirdWall();
         }
+
+        // Rotate the model to face the opposite direction of movement
+        Quaternion targetRotation = Quaternion.LookRotation(-direction);
+        BirdModel.transform.rotation = Quaternion.RotateTowards(BirdModel.transform.rotation, targetRotation, 180 * Time.deltaTime);
     }
+
+
+
+
     private void FindNextBirdWall()
     {
         if (birdWalls.Length == 0)
