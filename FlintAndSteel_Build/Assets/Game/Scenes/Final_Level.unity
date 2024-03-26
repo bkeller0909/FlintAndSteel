@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4174.392, g: 2681.473, b: 1244.6622, a: 1}
+  m_IndirectSpecularColor: {r: 4239.0513, g: 2743.884, b: 1299.6505, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1502,6 +1502,10 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
+      propertyPath: flintIconUI
+      value: 
+      objectReference: {fileID: 690270290}
     - target: {fileID: 11400004, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
@@ -2544,6 +2548,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
+--- !u!1 &265289389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: dec7cd42960366243b5ad41d2112c616,
+    type: 3}
+  m_PrefabInstance: {fileID: 265289388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &310278197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4401,6 +4411,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 678655884}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &690270290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687255409092097889, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 354281763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701203465
 GameObject:
   m_ObjectHideFlags: 0
@@ -7458,9 +7480,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 733084391228196195, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
         type: 3}
+      propertyPath: playerGO
+      value: 
+      objectReference: {fileID: 265289389}
+    - target: {fileID: 733084391228196195, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
+        type: 3}
       propertyPath: gameCanvas
       value: 
       objectReference: {fileID: 354281767}
+    - target: {fileID: 2140334296550774532, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3247996666167735389, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
         type: 3}
       propertyPath: m_LocalPosition.x
