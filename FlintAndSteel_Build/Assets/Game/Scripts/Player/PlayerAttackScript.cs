@@ -125,6 +125,7 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
+        // For mouse aiming
         /*Vector3 mousePosition = Input.mousePosition;
         Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
 
