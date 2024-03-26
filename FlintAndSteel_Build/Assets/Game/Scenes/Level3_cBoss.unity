@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6319.784, g: 6158.3643, b: 5900.516, a: 1}
+  m_IndirectSpecularColor: {r: 6301.8984, g: 6161.677, b: 5988.278, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8424,6 +8424,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57da720f443889a4d950b5b0b5c9d9e1, type: 3}
+--- !u!1 &505185735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7103355301895881565, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 354281763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &512824676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1828141167129098373, guid: 57da720f443889a4d950b5b0b5c9d9e1,
@@ -25254,6 +25260,11 @@ PrefabInstance:
       propertyPath: playerGO
       value: 
       objectReference: {fileID: 2000213826}
+    - target: {fileID: 733084391228196195, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
+        type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 505185735}
     - target: {fileID: 2140334296550774532, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
         type: 3}
       propertyPath: m_IsActive

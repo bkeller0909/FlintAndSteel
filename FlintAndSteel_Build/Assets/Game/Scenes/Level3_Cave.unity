@@ -39763,6 +39763,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09f39897c70826468a6b785f7fede75, type: 3}
+--- !u!1 &1258900353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7103355301895881565, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 354281763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1259027474
 GameObject:
   m_ObjectHideFlags: 0
@@ -56916,6 +56922,11 @@ PrefabInstance:
       propertyPath: playerGO
       value: 
       objectReference: {fileID: 2000213826}
+    - target: {fileID: 733084391228196195, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
+        type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 1258900353}
     - target: {fileID: 2140334296550774532, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
         type: 3}
       propertyPath: m_IsActive

@@ -23506,6 +23506,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7103355301895881565, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29832,6 +29837,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 23.9, y: 1.2700001, z: 57.00733}
   m_Center: {x: 0.00000030614316, y: 2.8399994, z: 10.708692}
+--- !u!1 &1624437440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7103355301895881565, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1318196920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1625074442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31568,6 +31579,11 @@ PrefabInstance:
       propertyPath: playerGO
       value: 
       objectReference: {fileID: 1722473199}
+    - target: {fileID: 733084391228196195, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
+        type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 1624437440}
     - target: {fileID: 2140334296550774532, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
         type: 3}
       propertyPath: m_IsActive
