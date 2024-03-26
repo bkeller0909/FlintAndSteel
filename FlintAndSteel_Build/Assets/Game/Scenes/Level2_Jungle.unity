@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10947.968, g: 10653.376, b: 9567.399, a: 1}
+  m_IndirectSpecularColor: {r: 11085.431, g: 10801.942, b: 9665.228, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4645,6 +4645,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f13996e3e609d214baa274e20b5c2144,
         type: 3}
+    - target: {fileID: 860621961215636391, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_StickAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 860621961215636391, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_StickAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: fb7dde9d-4fd3-4d6b-a157-cd928dfc54ac
+      objectReference: {fileID: 0}
+    - target: {fileID: 860621961215636391, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_StickAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/rightStick
+      objectReference: {fileID: 0}
+    - target: {fileID: 860621961215636391, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_StickAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Mouse>/position
+      objectReference: {fileID: 0}
+    - target: {fileID: 860621961215636391, guid: 37a1aa305649e9147931665a2fcd7ab5,
+        type: 3}
+      propertyPath: m_StickAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Stick
+      objectReference: {fileID: 0}
     - target: {fileID: 1584219265677957276, guid: 37a1aa305649e9147931665a2fcd7ab5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -16657,6 +16682,11 @@ PrefabInstance:
       propertyPath: playerGO
       value: 
       objectReference: {fileID: 169514115}
+    - target: {fileID: 733084391228196195, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
+        type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 2021603663}
     - target: {fileID: 2140334296550774532, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
         type: 3}
       propertyPath: m_IsActive
@@ -37088,6 +37118,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3698589233453744826, guid: d15634997dd9ca14c8eb2505892ace10,
     type: 3}
   m_PrefabInstance: {fileID: 1183312835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2021603663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7103355301895881565, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 197863533}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2024540571
 PrefabInstance:

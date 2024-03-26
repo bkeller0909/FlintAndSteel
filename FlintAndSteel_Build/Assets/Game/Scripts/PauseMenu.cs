@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseCanvas;
+    [SerializeField] GameObject gameCanvas;
     bool isPaused = false;
     public AudioMixer audioMixer;
 
@@ -29,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = paused;
         pauseCanvas.SetActive(paused);
+        gameCanvas.SetActive(!paused);
 
         if (isPaused)
         {
