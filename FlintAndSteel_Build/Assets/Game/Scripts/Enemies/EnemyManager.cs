@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour
     private GameObject currentParrot; // Reference to the currently spawned parrot
 
 
-    [SerializeField] private Renderer[] parrotRenderer;
+    [SerializeField] private Material ParrotSpawn;
 
     private float fadeOutValue = 0f; // Initial fade out value
     private float fadeOutSpeed = 1.0f; // Speed of fade out
@@ -33,6 +33,8 @@ public class EnemyManager : MonoBehaviour
                 int spawnIndex = Random.Range(0, enemySpawnPoints.Length);
                 currentParrot = Instantiate(flyingBomber, enemySpawnPoints[spawnIndex].position, Quaternion.identity);
             }
+
+          var parrotRenderers = currentParrot.GetComponentsInChildren<MeshRenderer>();
         }
     }
 
@@ -42,9 +44,9 @@ public class EnemyManager : MonoBehaviour
         currentParrot = null; // Reset the current parrot reference
     }
 
-    public void SetFadeOutValue(float value)
+    public void SetFadeOutValue(float value, MeshRenderer[] parrots)
     {
-        foreach (Renderer renderer in parrotRenderer)
+        foreach (MeshRenderer renderer in parrots)
         {
             renderer.material.SetFloat("_FadeOut", value);
         }
