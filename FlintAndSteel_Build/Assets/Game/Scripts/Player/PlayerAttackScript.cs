@@ -124,9 +124,33 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
+        Vector3 mousePosition = Input.mousePosition;
+        Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
 
-        // For the controller aiming
-        /*Vector3 cursorPosition = cursor.rectTransform.position;
+        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity, raycastLayerMask))
+        {
+            float minThrowDistance = 1f;
+
+            hitInfo.point = new Vector3(hitInfo.point.x, hitInfo.point.y, 0);
+
+            if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
+            {
+                animator.SetTrigger("ThrowSword");
+                Vector3 direction = hitInfo.point - transform.position;
+                direction.Normalize();
+                direction.z = 0;
+
+                ThrowSword(direction);
+
+            }
+            else
+            {
+                Debug.Log("Mouse click too close to the character. Sword not thrown");
+            }
+        }
+
+        /*// For the controller aiming
+        Vector3 cursorPosition = cursor.rectTransform.position;
         Ray controllerRay = mainCamera.ScreenPointToRay(cursorPosition);
         if (Physics.Raycast(controllerRay, out RaycastHit hit, Mathf.Infinity*//*, raycastLayerMask*//*))
         {
@@ -149,33 +173,6 @@ public class PlayerAttackScript : MonoBehaviour
                 Debug.Log("Mouse click too close to the character. Sword not thrown");
             }
         }*/
-
-
-
-        Vector3 mousePosition = Input.mousePosition;
-        Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
-
-        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity/*, raycastLayerMask*/))
-        {
-            float minThrowDistance = 1f;
-
-            hitInfo.point = new Vector3(hitInfo.point.x, hitInfo.point.y, 0);
-
-            if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
-            {
-                animator.SetTrigger("ThrowSword");
-                Vector3 direction = hitInfo.point - transform.position;
-                direction.Normalize();
-                direction.z = 0;
-
-                ThrowSword(direction);
-                
-            }
-            else
-            {
-                Debug.Log("Mouse click too close to the character. Sword not thrown");
-            }
-        }
     }
 
     void ThrowSword(Vector3 direction)
