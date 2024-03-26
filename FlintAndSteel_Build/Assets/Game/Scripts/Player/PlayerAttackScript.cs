@@ -28,6 +28,8 @@ public class PlayerAttackScript : MonoBehaviour
     private float fadeOutValue = 0f; // Initial fade out value
     private float fadeOutSpeed = 1.0f; // Speed of fade out
 
+    [SerializeField] public Image cursor;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -122,33 +124,31 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
-        
-        //float controllerXAxis = Input.GetAxisRaw("Horizontal");
-        //float controllerYAxis = Input.GetAxisRaw("Vertical");
-        //Vector3 aimDirection = new Vector3(controllerXAxis, controllerYAxis, 0);
-        //Ray conrollerRayCast = mainCamera.ScreenPointToRay(aimDirection);
 
-        //if (Physics.Raycast(conrollerRayCast, out RaycastHit hit, Mathf.Infinity/*, raycastLayerMask*/))
-        //{
-        //    float minThrowDistance = 1f;
+        // For the controller aiming
+        /*Vector3 cursorPosition = cursor.rectTransform.position;
+        Ray controllerRay = mainCamera.ScreenPointToRay(cursorPosition);
+        if (Physics.Raycast(controllerRay, out RaycastHit hit, Mathf.Infinity*//*, raycastLayerMask*//*))
+        {
+            float minThrowDistance = 1f;
 
-        //    hit.point = new Vector3(hit.point.x, hit.point.y, 0);
+            hit.point = new Vector3(hit.point.x, hit.point.y, 0);
 
-        //    if (Vector3.Distance(hit.point, transform.position) > minThrowDistance)
-        //    {
-        //        animator.SetTrigger("ThrowSword");
-        //        Vector3 direction = hit.point - transform.position;
-        //        direction.Normalize();
-        //        direction.z = 0;
+            if (Vector3.Distance(hit.point, transform.position) > minThrowDistance)
+            {
+                animator.SetTrigger("ThrowSword");
+                Vector3 direction = hit.point - transform.position;
+                direction.Normalize();
+                direction.z = 0;
 
-        //        ThrowSword(direction);
+                ThrowSword(direction);
 
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Mouse click too close to the character. Sword not thrown");
-        //    }
-        //}
+            }
+            else
+            {
+                Debug.Log("Mouse click too close to the character. Sword not thrown");
+            }
+        }*/
 
 
 
