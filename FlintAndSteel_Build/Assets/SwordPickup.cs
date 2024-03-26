@@ -13,7 +13,7 @@ public class SwordPickup : MonoBehaviour
     private void Update()
     {
         // If the player is in range and right clicks, he picked up Steel!
-        if (Input.GetMouseButtonDown(1) && inRange)
+        if (Input.GetMouseButtonDown(1) && inRange || Input.GetButtonDown("Grab") && inRange)
         {
             playerGO.gameObject.GetComponent<PlayerAttackScript>().steelFound = true;
             gameObject.SetActive(false);

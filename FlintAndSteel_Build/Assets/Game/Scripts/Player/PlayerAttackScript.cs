@@ -29,7 +29,6 @@ public class PlayerAttackScript : MonoBehaviour
     private float fadeOutSpeed = 1.0f; // Speed of fade out
 
     [SerializeField] Image cursor;
-    [SerializeField] GameObject player;
 
     void Start()
     {
@@ -94,7 +93,8 @@ public class PlayerAttackScript : MonoBehaviour
                     steelIconUI.sprite = steelIcons[1];
             }
         }
-        MoveCrosshair();
+
+        // MoveCrosshair();
         UpdateSteelRenderer();
     }
 
@@ -125,7 +125,7 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
-        Vector3 mousePosition = Input.mousePosition;
+        /*Vector3 mousePosition = Input.mousePosition;
         Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
 
         if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity))
@@ -148,7 +148,7 @@ public class PlayerAttackScript : MonoBehaviour
             {
                 Debug.Log("Mouse click too close to the character. Sword not thrown");
             }
-        }
+        }*/
 
         // For the controller aiming
         Vector3 cursorPosition = cursor.rectTransform.position;
@@ -176,10 +176,10 @@ public class PlayerAttackScript : MonoBehaviour
         }
     }
 
-    public void MoveCrosshair()
+    /*public void MoveCrosshair()
     {
         
-    }
+    }*/
 
     void ThrowSword(Vector3 direction)
     {

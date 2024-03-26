@@ -36,7 +36,7 @@ public class TextEvent : MonoBehaviour
         messageGO.SetActive(messageActive);
 
         // If the player presses any key, exit the message
-        if (messageActive && Input.GetKeyDown(KeyCode.E))
+        if (messageActive && Input.GetKeyDown(KeyCode.E) || messageActive && Input.GetButtonDown("Jump"))
         {
             NextMessage();
         }

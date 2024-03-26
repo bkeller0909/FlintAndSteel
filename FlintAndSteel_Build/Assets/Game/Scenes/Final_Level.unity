@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4238.685, g: 2743.5647, b: 1299.2726, a: 1}
+  m_IndirectSpecularColor: {r: 4174.392, g: 2681.473, b: 1244.6622, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1564,6 +1564,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.06419713
       objectReference: {fileID: 0}
+    - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 354281768}
     - target: {fileID: 1204996340662705327, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
       propertyPath: steelFound
@@ -3208,6 +3213,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 354281763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &354281768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5146344207205334564, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 354281763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &355725287
 PrefabInstance:
   m_ObjectHideFlags: 0
