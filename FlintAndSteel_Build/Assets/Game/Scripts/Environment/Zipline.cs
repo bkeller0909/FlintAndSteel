@@ -190,7 +190,7 @@ public class Zipline : MonoBehaviour
         zipEffectClone.GetComponent<ParticleSystem>().Stop();
         zipEffectCloneSmoke.GetComponent<ParticleSystem>().Stop();
 
-        Destroy(zipEffectClone, 6f); // Destroys zipEffectClone ...
+        Destroy(zipEffectClone); // Destroys zipEffectClone ...
         Destroy(zipEffectCloneSmoke, 6f);
         
         player.GetComponent<Rigidbody>().useGravity = true;
