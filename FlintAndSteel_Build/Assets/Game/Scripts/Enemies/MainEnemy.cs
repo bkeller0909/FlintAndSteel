@@ -204,11 +204,14 @@ public class BasicEnemy : MonoBehaviour
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.identity);
                 animator.SetTrigger("Hit");
-                playerAtkScript.SwordRecall(); 
+                playerAtkScript.SwordRecall();
             }
         }
+    }
 
-        if (other.CompareTag("Player"))
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
             animator.SetTrigger("ThrowSword");
         }

@@ -251,14 +251,16 @@ public class StrongEnemy : MonoBehaviour
                 playerAtkScript.SwordRecall();
             }
         }
+    }
 
-        if (other.CompareTag("Player"))
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("atk anim");
             animator.SetTrigger("ThrowSword");
-            
         }
     }
+
     /// <summary>
     /// Applies damage to the enemy.
     /// </summary>

@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        crosshair = GameObject.FindGameObjectWithTag("Cursor");
-
         if (instance == null)
         {
             instance = this;
@@ -36,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(crosshair != null) 
+        crosshair = GameObject.FindGameObjectWithTag("Cursor");
+        if (crosshair != null) 
         {
             if (!usingController)
             {

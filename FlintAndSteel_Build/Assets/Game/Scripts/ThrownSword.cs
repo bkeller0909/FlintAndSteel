@@ -35,7 +35,20 @@ public class ThrownSword : MonoBehaviour
         {
             triggerEntered = true;
             hitWoodWall = true;
+
+            if (other.GetComponent<WoodWall>().swordOnLeft)
+            {
+                platformSpawnDirection = -90;
+                platformSpawnOffset = -0.68f;
+            }
+            else
+            {
+                platformSpawnDirection = 90;
+                platformSpawnOffset = 0.68f;
+            }
+
             Instantiate(swordPlatform, other.transform.position + new Vector3(platformSpawnOffset, 0, 0), Quaternion.Euler(-90, platformSpawnDirection, 0));
+
             Destroy(gameObject);
             return;
         }
@@ -97,23 +110,6 @@ public class ThrownSword : MonoBehaviour
 
     private void Update()
     {
-        // checks if it can find our player
-        if (GameObject.FindGameObjectWithTag("Player") != null) 
-        {
-            //references player's position and using that to determine which way the platform should spawn
-            Transform playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-            if (transform.position.x < playerTransform.position.x)
-            {
-                platformSpawnDirection = 90;
-                platformSpawnOffset = 0.68f;
-            }
-            else
-            {
-                platformSpawnDirection = -90;
-                platformSpawnOffset = -0.68f;
-            }
-        }
-
         if (playerAttackScript.isSwordThrown)
         {
             trail.gameObject.SetActive(true);

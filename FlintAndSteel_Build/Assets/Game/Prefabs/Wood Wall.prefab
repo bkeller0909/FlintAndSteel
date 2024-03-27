@@ -48,6 +48,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3483705410024766636}
   - component: {fileID: 423271307607471689}
+  - component: {fileID: 3393251008688908138}
   m_Layer: 9
   m_Name: Wood Wall
   m_TagString: WoodWall
@@ -92,6 +93,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.60118514, y: 1.9500083, z: 1.25}
   m_Center: {x: 0.012961328, y: 8.114672e-12, z: -1.1374724e-11}
+--- !u!114 &3393251008688908138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577263981007257980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbba102fc13d9a4d87bbf7d6248f64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordOnLeft: 1
 --- !u!1001 &767769977819489588
 PrefabInstance:
   m_ObjectHideFlags: 0
