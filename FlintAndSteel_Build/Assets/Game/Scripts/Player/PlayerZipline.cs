@@ -9,11 +9,26 @@ public class PlayerZipline : MonoBehaviour
     [SerializeField] private float checkOffset = 1.0f;
     [SerializeField] private float checkRadius = 2.0f;
     [SerializeField] private float hookRangeZip = 2.0f;
-   
+    public bool isZipping;
+    public Animator mAnimator;
 
+    private void Awake()
+    {
+        isZipping = false;
+    }
+
+    
     // Update is called once per frame
     void Update()
     {
+        if(isZipping)
+        {
+            mAnimator.SetTrigger("ZipHold");
+        }
+        else
+        {
+            mAnimator.SetTrigger("ZipRelease");
+        }
         if (Input.GetButtonDown("Grab"))
         {
             RaycastHit[] hits = Physics.SphereCastAll(transform.position + new Vector3(0, checkOffset, 0), checkRadius, Vector3.up);

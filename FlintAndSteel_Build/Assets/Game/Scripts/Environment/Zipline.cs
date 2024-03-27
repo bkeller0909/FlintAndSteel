@@ -50,10 +50,10 @@ public class Zipline : MonoBehaviour
     private float savedZPosition = 0;
 
 
-
     // Update is called once per frame
     void Update()
     {
+        
         if (!zipping || localZip == null)
             return;
         if (attachToZip)
@@ -62,6 +62,7 @@ public class Zipline : MonoBehaviour
         }
         else if (!attachToZip)
         {
+            
             CheckIfNotZip();
             InitializeInitialMomentum();
             MoveThroughZip();
@@ -136,7 +137,7 @@ public class Zipline : MonoBehaviour
         // zipTransform
         // targetZip
 
-
+        player.GetComponent<PlayerZipline>().isZipping = true;
         float distanceBetweenPoints = Vector3.Distance(zipTransform.position, targetZip.transform.position);
         float playerPosition = Vector3.Distance(zipTransform.position, player.transform.position);
         float ratio = playerPosition / distanceBetweenPoints;
@@ -183,10 +184,9 @@ public class Zipline : MonoBehaviour
     {
         if (!zipping) 
             return;
-
         
         GameObject player = localZip.transform.GetChild(0).gameObject;
-
+        player.GetComponent<PlayerZipline>().isZipping = false;
         zipEffectClone.GetComponent<ParticleSystem>().Stop();
         zipEffectCloneSmoke.GetComponent<ParticleSystem>().Stop();
 
