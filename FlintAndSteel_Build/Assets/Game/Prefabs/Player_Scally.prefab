@@ -302,7 +302,7 @@ MonoBehaviour:
   hitFlashColor: {r: 0.9485294, g: 0.15343855, b: 0.15343855, a: 1}
   flashObject: {fileID: 2632163183206202990}
   spawnOnDeath:
-  - {fileID: 100000, guid: de22137421d24f049b9b87e224ae7a0b, type: 3}
+  - {fileID: 7886164264096526582, guid: 18a45f0ff9527f642a0753acfb0bc1b5, type: 3}
   numOfHearts: 3
   hearts:
   - {fileID: 0}
@@ -457,7 +457,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 983044
+    m_Bits: 1015812
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -494,6 +494,7 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  cursor: {fileID: 0}
 --- !u!114 &9153319621337311271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,7 +1231,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 516096
+    m_Bits: 2088960
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

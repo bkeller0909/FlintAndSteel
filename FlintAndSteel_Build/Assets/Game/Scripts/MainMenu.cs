@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public void LoadLevel()
     {
         GameManager.Instance.coinAmount = 0;
+        GameManager.Instance.coinsAtLevelStart = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

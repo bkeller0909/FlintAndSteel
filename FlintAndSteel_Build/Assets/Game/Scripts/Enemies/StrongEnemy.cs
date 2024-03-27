@@ -254,7 +254,9 @@ public class StrongEnemy : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            Debug.Log("atk anim");
             animator.SetTrigger("ThrowSword");
+            
         }
     }
     /// <summary>

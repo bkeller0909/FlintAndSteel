@@ -77,8 +77,6 @@ public class PlayerAttackScript : MonoBehaviour
                 else
                 {
                     AimAndThrow();
-                    
-
                 }
             }
 
@@ -125,58 +123,65 @@ public class PlayerAttackScript : MonoBehaviour
 
     void AimAndThrow()
     {
-        // For mouse aiming
-        /*Vector3 mousePosition = Input.mousePosition;
-        Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
+        
 
-        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity))
+        if (!GameManager.Instance.usingController)
         {
-            float minThrowDistance = 1f;
+            // For mouse aiming
+            Vector3 mousePosition = Input.mousePosition;
+            Ray rayCast = mainCamera.ScreenPointToRay(mousePosition);
 
-            hitInfo.point = new Vector3(hitInfo.point.x, hitInfo.point.y, 0);
-
-            if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
+            if (Physics.Raycast(rayCast, out RaycastHit hitInfo, Mathf.Infinity))
             {
-                animator.SetTrigger("ThrowSword");
-                Vector3 direction = hitInfo.point - transform.position;
-                direction.Normalize();
-                direction.z = 0;
+                float minThrowDistance = 1f;
 
-                ThrowSword(direction);
+                hitInfo.point = new Vector3(hitInfo.point.x, hitInfo.point.y, 0);
 
+                if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
+                {
+                    animator.SetTrigger("ThrowSword");
+                    Vector3 direction = hitInfo.point - transform.position;
+                    direction.Normalize();
+                    direction.z = 0;
+
+                    ThrowSword(direction);
+
+                }
+                else
+                {
+                    Debug.Log("Mouse click too close to the character. Sword not thrown");
+                }
             }
-            else
-            {
-                Debug.Log("Mouse click too close to the character. Sword not thrown");
-            }
-        }*/
-
-        // For the controller aiming
-        Vector3 cursorPosition = cursor.rectTransform.position;
-        Ray controllerRay = mainCamera.ScreenPointToRay(cursorPosition);
-        if (Physics.Raycast(controllerRay, out RaycastHit hit, Mathf.Infinity))
+        }
+        else
         {
-            float minThrowDistance = 1f;
-
-            hit.point = new Vector3(hit.point.x, hit.point.y, 0);
-
-            if (Vector3.Distance(hit.point, transform.position) > minThrowDistance)
+            // For the controller aiming
+            Vector3 cursorPosition = cursor.rectTransform.position;
+            Ray controllerRay = mainCamera.ScreenPointToRay(cursorPosition);
+            if (Physics.Raycast(controllerRay, out RaycastHit hit, Mathf.Infinity))
             {
-                animator.SetTrigger("ThrowSword");
-                Vector3 direction = hit.point - transform.position;
-                direction.Normalize();
-                direction.z = 0;
+                float minThrowDistance = 1f;
 
-                ThrowSword(direction);
+                hit.point = new Vector3(hit.point.x, hit.point.y, 0);
 
-            }
-            else
-            {
-                Debug.Log("Mouse click too close to the character. Sword not thrown");
+                if (Vector3.Distance(hit.point, transform.position) > minThrowDistance)
+                {
+                    animator.SetTrigger("ThrowSword");
+                    Vector3 direction = hit.point - transform.position;
+                    direction.Normalize();
+                    direction.z = 0;
+
+                    ThrowSword(direction);
+
+                }
+                else
+                {
+                    Debug.Log("Mouse click too close to the character. Sword not thrown");
+                }
             }
         }
     }
-
+        
     /*public void MoveCrosshair()
     {
         

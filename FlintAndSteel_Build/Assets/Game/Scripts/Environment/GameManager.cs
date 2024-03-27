@@ -7,11 +7,18 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
+    [Header("Coins")]
     public int coinAmount = 0;
     public int coinsAtLevelStart = 0;
 
+    [Header("Controller")]
+    public bool usingController;
+    GameObject crosshair;
+
     private void Awake()
     {
+        crosshair = GameObject.FindGameObjectWithTag("Cursor");
+
         if (instance == null)
         {
             instance = this;
@@ -25,6 +32,21 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         registeredForReset = new List<ResetBehaviour>();
+    }
+
+    private void Update()
+    {
+        if(crosshair != null) 
+        {
+            if (!usingController)
+            {
+                crosshair.SetActive(false);
+            }
+            else
+            {
+                crosshair.SetActive(true);
+            }
+        }
     }
 
     public void IncrementCoinCount()
