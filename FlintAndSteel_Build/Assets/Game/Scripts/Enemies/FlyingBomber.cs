@@ -26,6 +26,7 @@ public class FlyingBomber : MonoBehaviour
 
     private bool movingRight = true;
     private Vector3 initialPosition;
+
     //[SerializeField] private float moveDistance = 15.0f;
 
     private void Start()
@@ -80,44 +81,6 @@ public class FlyingBomber : MonoBehaviour
         currentBirdWall = (currentBirdWall + 1) % birdWalls.Length;
         targetBirdWall = birdWalls[currentBirdWall].transform;
     }
-    //private void MoveEnemy()
-    //{
-    //    if (movingRight)
-    //    {
-    //        transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-
-    //        if (transform.position.x >= initialPosition.x + moveDistance)
-    //        {
-    //            movingRight = false;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-
-    //        if (transform.position.x <= initialPosition.x - moveDistance)
-    //        {
-    //            movingRight = true;
-    //        }
-    //    }
-
-    //    Debug.Log("Enemy position: " + transform.position);
-    //}
-
-    //private void MoveBetweenWaypoints()
-    //{
-    //    if (waypoints.Length == 0)
-    //        return;
-
-    //    Transform currentWaypoint = waypoints[currentWaypointIndex];
-
-    //    transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
-
-    //    if (Vector3.Distance(transform.position, currentWaypoint.position) < 0.1f)
-    //    {
-    //        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
-    //    }
-    //}
 
     private IEnumerator DropBombRoutine()
     {

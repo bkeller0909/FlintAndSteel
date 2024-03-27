@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private Material ParrotSpawn;
 
-    private float fadeOutValue = 0f; // Initial fade out value
-    private float fadeOutSpeed = 1.0f; // Speed of fade out
+    [SerializeField] private float fadeInDuration = 1.0f; // Duration of fade-in effect
+
 
     private void Start()
     {
@@ -34,7 +35,31 @@ public class EnemyManager : MonoBehaviour
                 currentParrot = Instantiate(flyingBomber, enemySpawnPoints[spawnIndex].position, Quaternion.identity);
             }
 
-          var parrotRenderers = currentParrot.GetComponentsInChildren<MeshRenderer>();
+            StartCoroutine(FadeInParrot(currentParrot));
+          
+        }
+    }
+
+    private IEnumerator FadeInParrot(GameObject parrot)
+    {
+        MeshRenderer[] parrotRenderers = parrot.GetComponentsInChildren<MeshRenderer>();
+
+        float elapsedTime = 0.0f;
+        while (elapsedTime < fadeInDuration)
+        {
+            float fadeInValue = elapsedTime / fadeInDuration;
+            foreach (MeshRenderer renderer in parrotRenderers)
+            {
+                renderer.material.SetFloat("_FadeOut", fadeInValue);
+            }
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+        // Ensure the final fade-in value is 1
+        foreach (MeshRenderer renderer in parrotRenderers)
+        {
+            renderer.material.SetFloat("_FadeOut", 1f);
         }
     }
 
@@ -42,13 +67,5 @@ public class EnemyManager : MonoBehaviour
     public void ParrotDied()
     {
         currentParrot = null; // Reset the current parrot reference
-    }
-
-    public void SetFadeOutValue(float value, MeshRenderer[] parrots)
-    {
-        foreach (MeshRenderer renderer in parrots)
-        {
-            renderer.material.SetFloat("_FadeOut", value);
-        }
     }
 }
