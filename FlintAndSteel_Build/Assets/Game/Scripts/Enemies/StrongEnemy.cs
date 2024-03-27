@@ -31,6 +31,7 @@ public class StrongEnemy : MonoBehaviour
     [Header("Hit Effects")]
     [SerializeField] private GameObject bloodEffect;
     [SerializeField] private GameObject deathEffect;
+    [SerializeField] private GameObject smallDeathEffect;
 
 
     private Vector3 startPosition;
@@ -277,6 +278,7 @@ public class StrongEnemy : MonoBehaviour
             {
                 if (showDebug) Debug.Log("MainEnemy Killed");
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
+                Instantiate(smallDeathEffect, transform.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }
         }

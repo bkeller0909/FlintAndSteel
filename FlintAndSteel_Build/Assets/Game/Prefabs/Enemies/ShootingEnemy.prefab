@@ -141,12 +141,14 @@ MonoBehaviour:
   detectionEnabled: 1
   player: {fileID: 0}
   fireLocation: {fileID: 2444739140403636444}
-  bulletPrefab: {fileID: 72920156468337771, guid: a975cb4dec712bf458448cf11e7bfa9f,
+  bulletPrefab: {fileID: 72920156468337771, guid: 73ca937cc0312c24992ee0b092b0d4d8,
     type: 3}
   shootInterval: 2
   bloodEffect: {fileID: 7886164264096526582, guid: 852690d766abd4e46baaec28b37bd886,
     type: 3}
   deathEffect: {fileID: 7886164264096526582, guid: 18a45f0ff9527f642a0753acfb0bc1b5,
+    type: 3}
+  smallDeathEffect: {fileID: 7886164264096526582, guid: cf52010a256fab044b8d0392f4c27fc5,
     type: 3}
 --- !u!136 &2935472160860559196
 CapsuleCollider:
