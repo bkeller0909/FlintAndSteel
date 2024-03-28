@@ -40,10 +40,13 @@ public class ShootEnemy : MonoBehaviour
     private int enemyCurrentHealth;
 
     private float shootTimer;
+    private Animator animator;
     #endregion
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+
         startPosition = transform.position;     //Enemy starting coords
         enemyCurrentHealth = enemyMaxHealth;
 
@@ -120,8 +123,14 @@ public class ShootEnemy : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0f && bulletPrefab != null)
         {
-            Shoot();
-            shootTimer = shootInterval;
+            animator.SetTrigger("ThrowSword");
+            if (animator.gameObject.GetComponent<ExplosionSpot>().explosion == true)
+            {
+                Shoot();
+                shootTimer = shootInterval;
+                animator.gameObject.GetComponent<ExplosionSpot>().explosion = false;
+            }
+
         }
     }
     /// <summary>
