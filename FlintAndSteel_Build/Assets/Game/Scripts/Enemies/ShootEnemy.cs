@@ -41,6 +41,8 @@ public class ShootEnemy : MonoBehaviour
 
     private float shootTimer;
     private Animator animator;
+
+    private bool shot = false;
     #endregion
 
     void Start()
@@ -74,7 +76,7 @@ public class ShootEnemy : MonoBehaviour
         else if (distanceToPlayer <= detectionRange && detectionEnabled)
         {
             DelayShoot();
-            MoveAwayNShoot();
+            //MoveAwayNShoot();
         }
         else
         {
@@ -88,9 +90,6 @@ public class ShootEnemy : MonoBehaviour
 
         if (player != null)
         {
-
-            
-
             if (detectionEnabled == true)
             {
                 // Move towards the player
@@ -123,20 +122,18 @@ public class ShootEnemy : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0f && bulletPrefab != null)
         {
-            animator.SetTrigger("ThrowSword");
-            if (animator.gameObject.GetComponent<ExplosionSpot>().explosion == true)
+            if (!shot)
             {
-                Shoot();
+                shot = true;
+                animator.SetTrigger("ThrowSword");
                 shootTimer = shootInterval;
-                animator.gameObject.GetComponent<ExplosionSpot>().explosion = false;
             }
-
         }
     }
     /// <summary>
     /// shoots enemy bullet prefab out of FireLocation
     /// </summary>
-    private void Shoot()
+    public void Shoot()
     {
         Vector3 dir = player.position - fireLocation.position;
         dir.y = 0;
@@ -145,6 +142,8 @@ public class ShootEnemy : MonoBehaviour
         GameObject bulletGO = Instantiate(bulletPrefab, fireLocation.position, Quaternion.identity);
         EnemyBullet bulletScript = bulletGO.GetComponent<EnemyBullet>();
         bulletScript.Fire(dir);
+
+        shot = false;
     }
 
     private void Patrol()
