@@ -107,6 +107,12 @@ public class Throwing : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 15.5f, 0);
             ropeHeight = rope.gameObject.transform.position;
 			animator.SetTrigger("HookClimb");
+			
+			// Aniimate the ropes the player hooks onto
+			if (rope.tag != "Sword")
+			{
+				rope.GetComponent<RopeGroup>().AnimateRopes();
+			}
         }
 
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8205134668755635629}
   - component: {fileID: 6378185248192484912}
+  - component: {fileID: 9046334088398589792}
   m_Layer: 13
   m_Name: Rope climb ledge
   m_TagString: Hook Climb
@@ -53,3 +54,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20, y: 12, z: 0.8}
   m_Center: {x: 9, y: -6, z: 0}
+--- !u!114 &9046334088398589792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661931472577321948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b33b82d8a2fd149b5975029685403a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
