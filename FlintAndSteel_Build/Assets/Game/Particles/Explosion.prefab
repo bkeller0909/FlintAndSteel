@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4076035630848163148}
   - component: {fileID: 4716948650323489217}
   - component: {fileID: -2687665718842824221}
+  - component: {fileID: 3879838613300143308}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -5019,3 +5020,24 @@ MonoBehaviour:
   - Footsteps
   - Enemy
   hitSound: {fileID: 0}
+--- !u!135 &3879838613300143308
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835898723408524110}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
