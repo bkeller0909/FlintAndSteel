@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6321.1953, g: 6161.1514, b: 5908.1646, a: 1}
+  m_IndirectSpecularColor: {r: 6320.4824, g: 6159.794, b: 5905.2114, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10322,8 +10322,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8873
+      objectReference: {fileID: 0}
+    - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.63
+      value: 61.25
       objectReference: {fileID: 0}
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
@@ -48146,7 +48151,7 @@ Transform:
   m_GameObject: {fileID: 1473955516}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7281376, y: 0.00015252734, z: -0.00015252846, w: 0.685431}
-  m_LocalPosition: {x: 0.148, y: -9.753, z: -2.018}
+  m_LocalPosition: {x: -0.649, y: -11.631, z: -1.601}
   m_LocalScale: {x: -9.638005, y: -9.638005, z: -9.638005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65449,7 +65454,7 @@ PrefabInstance:
     - target: {fileID: 6022645826208742471, guid: b09f39897c70826468a6b785f7fede75,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 46.323853
+      value: 58.835926
       objectReference: {fileID: 0}
     - target: {fileID: 6022645826208742471, guid: b09f39897c70826468a6b785f7fede75,
         type: 3}
@@ -65464,7 +65469,7 @@ PrefabInstance:
     - target: {fileID: 6022645826208742471, guid: b09f39897c70826468a6b785f7fede75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.08
+      value: -12.094
       objectReference: {fileID: 0}
     - target: {fileID: 6022645826208742471, guid: b09f39897c70826468a6b785f7fede75,
         type: 3}
@@ -65474,7 +65479,7 @@ PrefabInstance:
     - target: {fileID: 6022645826208742471, guid: b09f39897c70826468a6b785f7fede75,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.63
+      value: -8.6254
       objectReference: {fileID: 0}
     - target: {fileID: 6022645826208742471, guid: b09f39897c70826468a6b785f7fede75,
         type: 3}
