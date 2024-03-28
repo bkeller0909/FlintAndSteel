@@ -12,6 +12,7 @@ public class Checkpoint : MonoBehaviour
 
 	[SerializeField] private GameObject pirateFlag;
 	[SerializeField] private GameObject scallyFlag;
+	[SerializeField] private GameObject checkpointParticles;
 
 	public bool checkpointActive;
 
@@ -59,7 +60,6 @@ public class Checkpoint : MonoBehaviour
 		{
 			//set respawn position in players health script
 			health.respawnPos = transform.position;
-			health.currentHealth = 3;
 
 			//toggle checkpoints
 			if(!checkpointActive)
@@ -68,6 +68,9 @@ public class Checkpoint : MonoBehaviour
 					checkpoint.GetComponent<Checkpoint>().checkpointActive = false;
 
 				aSource.Play();
+
+                health.currentHealth = 3;
+                Instantiate(checkpointParticles, transform.position + new Vector3(0, 0.8f, -0.1f), Quaternion.Euler(new Vector3(-90,0,0)));
 
                 checkpointActive = true;
             }
