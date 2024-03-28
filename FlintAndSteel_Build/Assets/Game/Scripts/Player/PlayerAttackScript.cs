@@ -72,9 +72,8 @@ public class PlayerAttackScript : MonoBehaviour
                 if (isSwordThrown)
                 {
                     SwordRecall();
-
                 }
-                else
+                else if(this.GetComponent<PlayerZipline>().isZipping == false) // This stops Scally from throwing his sword on the zipline.
                 {
                     AimAndThrow();
                 }
@@ -138,8 +137,9 @@ public class PlayerAttackScript : MonoBehaviour
                 hitInfo.point = new Vector3(hitInfo.point.x, hitInfo.point.y, 0);
 
                 if (Vector3.Distance(hitInfo.point, transform.position) > minThrowDistance)
-                {
+                { 
                     animator.SetTrigger("ThrowSword");
+
                     Vector3 direction = hitInfo.point - transform.position;
                     direction.Normalize();
                     direction.z = 0;
