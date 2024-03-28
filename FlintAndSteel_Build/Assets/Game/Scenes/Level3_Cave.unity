@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6320.8506, g: 6160.9795, b: 5906.641, a: 1}
+  m_IndirectSpecularColor: {r: 6325.748, g: 6169.001, b: 5923.3364, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17115,6 +17115,16 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: 37
       objectReference: {fileID: 0}
+    - target: {fileID: 6465847506227697990, guid: b34791fdb50e97a47859931db5a199b0,
+        type: 3}
+      propertyPath: cannonRender.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465847506227697990, guid: b34791fdb50e97a47859931db5a199b0,
+        type: 3}
+      propertyPath: cannonRender.Array.data[0]
+      value: 
+      objectReference: {fileID: 498151144}
     - target: {fileID: 6681489941251216693, guid: b34791fdb50e97a47859931db5a199b0,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -17251,6 +17261,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34791fdb50e97a47859931db5a199b0, type: 3}
+--- !u!23 &498151144 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5276471343314019328, guid: b34791fdb50e97a47859931db5a199b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 498151143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &499074552
 PrefabInstance:
   m_ObjectHideFlags: 0

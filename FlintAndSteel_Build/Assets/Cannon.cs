@@ -25,6 +25,11 @@ public class Cannon : MonoBehaviour
 
     bool shot;
 
+    //Stuff for the shader
+    [SerializeField] Renderer[] cannonRender;
+    private float fadeOutValue = 1.0f; // Initial fade out value
+    private float fadeOutSpeed = 1.0f; // Speed of fade out
+
     private void Awake()
     {
         aSource = GetComponent<AudioSource>();
@@ -49,11 +54,18 @@ public class Cannon : MonoBehaviour
             if (delayTimer <= 0)
             {
                 shotTimer -= Time.deltaTime;
-            }
 
-            if (shotTimer <= 0)
-            {
-                Shoot();
+                // Update fade out value based on shoot timer
+
+                fadeOutValue = Mathf.Lerp(1.0f, 0.0f, 0.7f - (shotTimer / shootSpeed));
+
+                // Update shader
+                SetFadeOutValue(fadeOutValue);
+
+                if (shotTimer <= 0)
+                {
+                    Shoot();
+                }
             }
 
             Explosion();
@@ -70,9 +82,14 @@ public class Cannon : MonoBehaviour
 
             Instantiate(cannonBall, cannonBarrel.position, Quaternion.identity);
 
+            fadeOutValue = 1.0f;
+            SetFadeOutValue(fadeOutValue);
+
             aSource.pitch = Random.Range(0.75f, 0.95f);
             aSource.Play();
-        }  
+
+        }
+
     }
 
     private void Explosion()
@@ -93,6 +110,14 @@ public class Cannon : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             activated = true;
+        }
+    }
+
+    public void SetFadeOutValue(float value)
+    {
+        foreach (Renderer renderer in cannonRender)
+        {
+            renderer.material.SetFloat("_glowTime", value);
         }
     }
 }
