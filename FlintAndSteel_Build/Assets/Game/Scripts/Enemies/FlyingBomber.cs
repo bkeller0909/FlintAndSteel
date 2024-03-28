@@ -114,15 +114,7 @@ public class FlyingBomber : MonoBehaviour
             enemyCurrentHealth -= damage;
             if (enemyCurrentHealth <= 0)
             {
-                hitCount++;
-                if (hitCount >= 2) // Check if hit count is 2 or more
-                {
-                    Die();
-                }
-                else
-                {
-                    enemyCurrentHealth = enemyMaxHealth; // Reset health for the next hit
-                }
+                Die();
             }
         }
     }

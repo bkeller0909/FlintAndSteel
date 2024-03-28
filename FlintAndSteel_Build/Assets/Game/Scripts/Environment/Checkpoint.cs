@@ -59,6 +59,7 @@ public class Checkpoint : MonoBehaviour
 		{
 			//set respawn position in players health script
 			health.respawnPos = transform.position;
+			health.currentHealth = 3;
 
 			//toggle checkpoints
 			if(!checkpointActive)

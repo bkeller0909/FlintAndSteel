@@ -115,7 +115,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!135 &-6170582860446937518
 SphereCollider:
@@ -150,7 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5689ffb9599bdd54590a7b77feb17cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 8405669264763043760, guid: efe64803f49d6494b83ae15a3b3f2954,
+  explosionPrefab: {fileID: 7886164264096526582, guid: a3b0a40f5c1db1048a038c25d6c972e0,
+    type: 3}
+  explosionSound: {fileID: 5603385937521726896, guid: c8f4b3035b549bf47a737b1f52d12856,
     type: 3}
 --- !u!4 &7930906045844555732 stripped
 Transform:
