@@ -82,9 +82,6 @@ public class Cannon : MonoBehaviour
 
             Instantiate(cannonBall, cannonBarrel.position, Quaternion.identity);
 
-            fadeOutValue = 1.0f;
-            SetFadeOutValue(fadeOutValue);
-
             aSource.pitch = Random.Range(0.75f, 0.95f);
             aSource.Play();
 
