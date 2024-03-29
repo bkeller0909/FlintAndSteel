@@ -14,6 +14,10 @@ public class CameraFollow : MonoBehaviour
 	
 	private Transform followTarget;
 	private bool camColliding;
+
+	private Zipline zipline;
+
+	
 	
 	//setup objects
 	void Awake()
@@ -28,23 +32,53 @@ public class CameraFollow : MonoBehaviour
 		//don't smooth rotate if were using mouselook
 		if(mouseFreelook)
 			rotateDamping = 0f;
-	}
-	
-	//run our camera functions each frame
-	void LateUpdate()
-	{
-		if (!target)
-			return;
 		
-		SmoothFollow ();
-		if(rotateDamping > 0)
-			SmoothLookAt();
-		else
-			transform.LookAt(target.position);
 	}
 
-	//toggle waterfilter, is camera clipping walls?
-	void OnTriggerEnter(Collider other)
+    //run our camera functions each frame
+
+
+
+    void LateUpdate()
+    {
+        if (!target)
+            return;
+
+        SmoothFollow();
+        if (rotateDamping > 0)
+            SmoothLookAt();
+        else
+            transform.LookAt(target.position);
+    }
+
+    private void CameraFollowOnZipline()
+    {
+        // Determine the position and rotation of the camera on the zipline
+        Vector3 ziplineCameraPosition = CalculateZiplineCameraPosition();
+        Quaternion ziplineCameraRotation = CalculateZiplineCameraRotation();
+
+        // Smoothly transition the camera to the zipline position and rotation
+        transform.position = Vector3.Lerp(transform.position, ziplineCameraPosition, followSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, ziplineCameraRotation, rotateDamping * Time.deltaTime);
+    }
+
+    private Vector3 CalculateZiplineCameraPosition()
+    {
+        // Calculate the position of the camera while on the zipline
+        // For example, you might want to offset it from the player's position along the zipline direction
+        // Here's a basic example assuming a fixed offset from the player's position:
+        return target.position + targetOffset;
+    }
+
+    private Quaternion CalculateZiplineCameraRotation()
+    {
+        // Calculate the rotation of the camera while on the zipline
+        // For example, you might want to rotate it to look along the zipline direction
+        // Here's a basic example assuming the camera should look towards the target:
+        return Quaternion.LookRotation(target.position - transform.position);
+    }
+    //toggle waterfilter, is camera clipping walls?
+    void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Water" && waterFilter)
 			waterFilter.GetComponent<Renderer>().enabled = true;
@@ -67,6 +101,10 @@ public class CameraFollow : MonoBehaviour
 	//move camera smoothly toward its target
 	void SmoothFollow()
 	{
+		//if (zipline.zipping == false)
+		//{
+		//	CameraFollowOnZipline();
+		//}
 		//move the followTarget (empty gameobject created in awake) to correct position each frame
 		followTarget.position = target.position;
 		followTarget.Translate(targetOffset, Space.Self);

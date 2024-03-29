@@ -42,8 +42,9 @@ public class Zipline : MonoBehaviour
 
     [SerializeField] private float playerZOffset;
 
-    protected bool zipping = false;
-    private bool beginingOfZip = false;
+    public bool zipping = false;
+
+    private bool beginingOfZip = false; 
     private bool attachToZip = true;
     protected GameObject localZip;
     private float playerVelocityX = 0;
