@@ -17,6 +17,8 @@ public class FlyingBomber : MonoBehaviour
     private int enemyMaxHealth = 2;
     private int enemyCurrentHealth;
 
+    [SerializeField] GameObject bloodEffect;
+
     public bool isDead = false;
     private int hitCount = 0;
     private GameObject[] birdWalls;
@@ -28,6 +30,14 @@ public class FlyingBomber : MonoBehaviour
     private Vector3 initialPosition;
 
     //[SerializeField] private float moveDistance = 15.0f;
+
+    private void Awake()
+    {
+        if (GameObject.FindGameObjectWithTag("Boss") == null)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -45,6 +55,11 @@ public class FlyingBomber : MonoBehaviour
             MoveTowardsWall();
             //MoveEnemy();
             //MoveBetweenWaypoints();
+        }
+
+        if (GameObject.FindGameObjectWithTag("Boss") == null)
+        {
+            Destroy(gameObject);
         }
     }
     private void MoveTowardsWall()
@@ -112,6 +127,7 @@ public class FlyingBomber : MonoBehaviour
         if (!isDead)
         {
             enemyCurrentHealth -= damage;
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
             if (enemyCurrentHealth <= 0)
             {
                 Die();

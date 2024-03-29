@@ -684,9 +684,11 @@ MonoBehaviour:
   moveSpeed: 5
   bombPrefab: {fileID: 3668896371757324674, guid: b21a59c06f873a141be9701a640441b9,
     type: 3}
-  bombDropInterval: 4
+  bombDropInterval: 3.5
   fruitPrefab: {fileID: 100000, guid: 2e9de9fcb7638ff498442e0025fd5dbe, type: 3}
   BirdModel: {fileID: 671678233301903162}
+  bloodEffect: {fileID: 7886164264096526582, guid: 4812bd12d4b56e443a7b93f470e911f5,
+    type: 3}
   isDead: 0
 --- !u!54 &-3103936817383118558
 Rigidbody:
