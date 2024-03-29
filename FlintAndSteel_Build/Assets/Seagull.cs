@@ -54,7 +54,7 @@ public class Seagull : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // fly away when the player gets close
-        if (other.tag == "Player" && flewAway == false)
+        if (other.tag == "Player" && flewAway == false || other.tag == "Sword" && flewAway == false)
         {
             FlyAway();
         }

@@ -83,15 +83,16 @@ public class Coin : MonoBehaviour
 	
 	void CoinGet()
 	{
-		if(coinCount !=null && !collected && !isFruit)
+		if(coinCount != null && !collected && !isFruit)
 		{
 			collected = true;
 			GameManager.Instance.IncrementCoinCount();
 			Instantiate(coinCollectEffect, transform.position - new Vector3(0, 0.25f, 0), Quaternion.Euler(-105, 0, 0));
 		}
 
-		if (isFruit)
-		{
+		if (isFruit && !collected)
+		{	
+			collected = false;
 			if (player.GetComponent<Health>().currentHealth < 3)
 			{
                 player.GetComponent<Health>().currentHealth++;
