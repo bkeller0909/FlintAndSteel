@@ -136,7 +136,7 @@ public class ShootEnemy : MonoBehaviour
     /// </summary>
     public void Shoot()
     {
-        Vector3 dir = player.position - fireLocation.position;
+        Vector3 dir = (player.position - fireLocation.position).normalized;
         dir.y = 0;
         dir.z = 0;
 
