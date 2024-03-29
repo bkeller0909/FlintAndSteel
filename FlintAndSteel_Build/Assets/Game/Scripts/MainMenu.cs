@@ -9,7 +9,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        FadeOut.SetActive(true);   
+        if (FadeOut != null)
+            FadeOut.SetActive(true);   
     }
 
     public void QuitGame()
