@@ -21,9 +21,10 @@ public class Coin : MonoBehaviour
 
 	[SerializeField] bool isFruit;
 	[SerializeField] GameObject coinCollectEffect;
+    [SerializeField] GameObject fruitCollectEffect;
 
-	//setup
-	void Awake()
+    //setup
+    void Awake()
 	{
 		gui = FindObjectOfType(typeof(GUIManager)) as GUIManager ;
 		if(tag != "Coin")
@@ -97,7 +98,8 @@ public class Coin : MonoBehaviour
 			{
                 player.GetComponent<Health>().currentHealth++;
             }
-		}
+            Instantiate(fruitCollectEffect, transform.position, Quaternion.identity);
+        }
 		Destroy(gameObject);
 	}
 }

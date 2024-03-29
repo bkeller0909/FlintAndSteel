@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11080.015, g: 11069.329, b: 11156.329, a: 1}
+  m_IndirectSpecularColor: {r: 11084.157, g: 11071.013, b: 11154.298, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3128,240 +3128,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09f39897c70826468a6b785f7fede75, type: 3}
---- !u!1001 &208407235
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2074944753}
-    m_Modifications:
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText
-      value: Flint
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText
-      value: insert message here !!!!!
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: numOfMessages
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText.Array.data[0]
-      value: Steel
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText.Array.data[1]
-      value: Flint
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText.Array.data[2]
-      value: Steel
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText.Array.data[3]
-      value: Scally
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText.Array.data[4]
-      value: Steel
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: nameText.Array.data[5]
-      value: Steel
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: speakerImage.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText.Array.data[0]
-      value: Sword guy?!
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText.Array.data[1]
-      value: You can talk?!
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText.Array.data[2]
-      value: Of course I can, didn't you see the glowing green light? That means
-        I'm possessed! AHAHAHA!
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText.Array.data[3]
-      value: ...What does that mean?
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText.Array.data[4]
-      value: I'm a cursed object, only a fool would pick me up. Just like your hook
-        there, you're stuck with me forever now.
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: messageText.Array.data[5]
-      value: Use the LEFT MOUSE BUTTON to throw me, and use LEFT MOUSE BUTTON again
-        to call me back. Try throwing me at that landlubber over there.
-      objectReference: {fileID: 0}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: speakerImage.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
-        type: 3}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: speakerImage.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
-        type: 3}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: speakerImage.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
-        type: 3}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: speakerImage.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: fbcd34e1aa1f9d94289b2348366f144b,
-        type: 3}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: speakerImage.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
-        type: 3}
-    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: speakerImage.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
-        type: 3}
-    - target: {fileID: 905634188919814519, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1772789975689002354, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_Name
-      value: TextEventPrefab (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395303088022222395, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.12773
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 12.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a1c123b23fa093646a93015aa00ecc2d, type: 3}
---- !u!4 &208407236 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
-    type: 3}
-  m_PrefabInstance: {fileID: 208407235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &212929086
 GameObject:
   m_ObjectHideFlags: 0
@@ -34289,17 +34055,17 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: numOfMessages
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: nameText.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: messageText.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -34309,7 +34075,7 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: nameText.Array.data[1]
-      value: Flint
+      value: Steel
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -34334,7 +34100,7 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: speakerImage.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -34344,7 +34110,7 @@ PrefabInstance:
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
       propertyPath: messageText.Array.data[1]
-      value: You can talk?!
+      value: Who ye callin' sword guy?!
       objectReference: {fileID: 0}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -34379,7 +34145,7 @@ PrefabInstance:
         type: 3}
       propertyPath: speakerImage.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+      objectReference: {fileID: 21300000, guid: 95fb0e9651feff143a1f5173c457e10a,
         type: 3}
     - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
         type: 3}
@@ -38872,7 +38638,6 @@ Transform:
   - {fileID: 516571691}
   - {fileID: 2033631910}
   - {fileID: 279530142}
-  - {fileID: 208407236}
   - {fileID: 1770398253}
   - {fileID: 1105738281}
   m_Father: {fileID: 0}
