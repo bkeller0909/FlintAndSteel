@@ -23,6 +23,7 @@ public class ShootEnemy : MonoBehaviour
     [SerializeField] private Transform fireLocation;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootInterval = 2f;
+    [SerializeField] GameObject shotParticles;
 
     [Header("Hit Effects")]
     [SerializeField] private GameObject bloodEffect;
@@ -142,6 +143,8 @@ public class ShootEnemy : MonoBehaviour
         GameObject bulletGO = Instantiate(bulletPrefab, fireLocation.position, Quaternion.identity);
         EnemyBullet bulletScript = bulletGO.GetComponent<EnemyBullet>();
         bulletScript.Fire(dir);
+
+        Instantiate(shotParticles, fireLocation.position, Quaternion.identity);
 
         shot = false;
     }

@@ -50,6 +50,8 @@ public class Throwing : MonoBehaviour
     [SerializeField] Sprite[] flintIcons;
     [SerializeField] Image flintIconUI;
 
+	[SerializeField] GameObject ropeAudio;
+
     //setup
     void Awake()
 	{
@@ -108,10 +110,11 @@ public class Throwing : MonoBehaviour
             ropeHeight = rope.gameObject.transform.position;
 			animator.SetTrigger("HookClimb");
 			
-			// Aniimate the ropes the player hooks onto
+			// Animate the ropes the player hooks onto
 			if (rope.tag != "Sword")
 			{
 				rope.GetComponent<RopeGroup>().AnimateRopes();
+				Instantiate(ropeAudio, rope.gameObject.transform.position, Quaternion.identity);
 			}
         }
 
