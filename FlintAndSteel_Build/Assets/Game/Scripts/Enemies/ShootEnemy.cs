@@ -137,11 +137,12 @@ public class ShootEnemy : MonoBehaviour
     public void Shoot()
     {
         Vector3 dir = (player.position - fireLocation.position).normalized;
-        dir.y = 0;
+        
         dir.z = 0;
 
         GameObject bulletGO = Instantiate(bulletPrefab, fireLocation.position, Quaternion.identity);
         EnemyBullet bulletScript = bulletGO.GetComponent<EnemyBullet>();
+        bulletScript.SetSpeed(10);
         bulletScript.Fire(dir);
 
         Instantiate(shotParticles, fireLocation.position, Quaternion.identity);
