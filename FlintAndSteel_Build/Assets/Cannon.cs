@@ -30,6 +30,8 @@ public class Cannon : MonoBehaviour
     private float fadeOutValue = 1.0f; // Initial fade out value
     private float fadeOutSpeed = 1.0f; // Speed of fade out
 
+    bool coolingDown = false;
+
     private void Awake()
     {
         aSource = GetComponent<AudioSource>();
@@ -56,8 +58,20 @@ public class Cannon : MonoBehaviour
                 shotTimer -= Time.deltaTime;
 
                 // Update fade out value based on shoot timer
+                if (coolingDown == true)
+                {
+                    fadeOutValue = Mathf.Lerp(0.0f, 1.0f, 0.7f - shotTimer / shootSpeed);
+                    if (fadeOutValue <= 0)
+                    {
+                        coolingDown = false;
+                    }
+                }
+                else
+                {
+                    fadeOutValue = Mathf.Lerp(1.0f, 0.0f, 0.7f - shotTimer / shootSpeed);
+                }
 
-                fadeOutValue = Mathf.Lerp(1.0f, 0.0f, 0.7f - (shotTimer / shootSpeed));
+                Debug.Log(fadeOutValue);
 
                 // Update shader
                 SetFadeOutValue(fadeOutValue);
@@ -65,6 +79,7 @@ public class Cannon : MonoBehaviour
                 if (shotTimer <= 0)
                 {
                     Shoot();
+                    coolingDown = true;
                 }
             }
 
@@ -98,6 +113,8 @@ public class Cannon : MonoBehaviour
 
             shotTimer = shootSpeed;
             shot = false;
+            coolingDown = false;
+            fadeOutValue = 1.0f;
             fireLocation.GetComponent<ExplosionSpot>().explosion = false;
         }
     }
