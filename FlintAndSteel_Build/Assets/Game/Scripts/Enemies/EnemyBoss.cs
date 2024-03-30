@@ -86,6 +86,7 @@ public class EnemyBoss : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private int idleCount = 0;
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -97,6 +98,7 @@ public class EnemyBoss : MonoBehaviour
         chargeUpParticles.Stop();
 
         idleStartDuration = idleDuration;
+
     }
 
     private void Update()
@@ -124,7 +126,17 @@ public class EnemyBoss : MonoBehaviour
     private void HandleIdleState()
     {
         StartCoroutine(IdleState());
-        isVulnerable = true;
+
+        if (idleCount == 0)
+        {
+            isVulnerable = false;
+        }
+        else
+        {
+            isVulnerable = true;
+        }
+            
+
     }
 
     private void HandleMovingState()
@@ -140,9 +152,10 @@ public class EnemyBoss : MonoBehaviour
     {
         float distanceToPlayer = MoveTowardsPlayer();
 
-        if (!isAttacking)
+       if (!isAttacking)
         {
             ShootTimer();
+            idleCount++;
         }
 
         isVulnerable = false;
