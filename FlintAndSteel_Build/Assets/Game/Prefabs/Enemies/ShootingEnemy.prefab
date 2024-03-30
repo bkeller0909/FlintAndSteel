@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 7323744902038460704}
   - component: {fileID: 9032941529321059695}
   - component: {fileID: 2716041319495070692}
+  - component: {fileID: -8714517995381372689}
+  - component: {fileID: -4358990592982443793}
   m_Layer: 19
   m_Name: ShootingEnemy
   m_TagString: Enemy
@@ -330,6 +332,40 @@ MonoBehaviour:
   dead: 0
   flashing: 0
   respawnPos: {x: 0, y: 0, z: 0}
+--- !u!114 &-8714517995381372689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5233061334347742360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bd7b9387439034e9a96a7f83f5c304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4358990592982443793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5233061334347742360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6499d02d4c3a54b9e3b48047be73dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 0
+  pushHeight: 0
+  damage: 1
+  triggerEnter: 0
+  collisionEnter: 1
+  effectedTags:
+  - Player
+  - Footsteps
+  - Enemy
+  hitSound: {fileID: 0}
 --- !u!1001 &508079312303658843
 PrefabInstance:
   m_ObjectHideFlags: 0
