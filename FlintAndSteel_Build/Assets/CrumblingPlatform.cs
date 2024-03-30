@@ -10,6 +10,9 @@ public class CrumblingPlatform : MonoBehaviour
     [SerializeField] float timeToRevert;
     private bool playerCollided;
 
+    [SerializeField] AudioClip crumble;
+    [SerializeField] AudioClip bounce;
+
     private AudioSource audioSource;
     private Animator animator;
 
@@ -42,7 +45,15 @@ public class CrumblingPlatform : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerCollided = true;
+            if (!playerCollided)
+            {
+                audioSource.clip = bounce;
+                audioSource.volume = 0.6f;
+                audioSource.pitch = Random.Range(1.05f, 1.40f);
+                audioSource.Play();
+
+                playerCollided = true;
+            }
         }
     }
 
@@ -62,7 +73,9 @@ public class CrumblingPlatform : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = false;
 
             // Change pitch and play sound
-            audioSource.pitch = Random.Range(0.88f, 1.12f);
+            audioSource.clip = crumble;
+            audioSource.volume = 0.4f;
+            audioSource.pitch = Random.Range(0.75f, 0.9f);
             audioSource.Play();
 
             crumbled = true;
