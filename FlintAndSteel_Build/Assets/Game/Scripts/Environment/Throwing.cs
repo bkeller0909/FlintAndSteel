@@ -289,6 +289,7 @@ public class Throwing : MonoBehaviour
 			if(pickUpSound)
 			{
 				aSource.volume = 1;
+				aSource.pitch = Random.Range (0.9f, 1.1f);
 				aSource.clip = pickUpSound;
 				aSource.Play ();
 			}

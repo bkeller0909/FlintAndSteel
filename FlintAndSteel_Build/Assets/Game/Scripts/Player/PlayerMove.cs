@@ -268,7 +268,7 @@ public class PlayerMove : MonoBehaviour
 	{
 		if(jumpSound)
 		{
-			aSource.volume = 0.22f;
+			aSource.volume = 0.10f;
 			aSource.pitch = Random.Range(0.90f, 1.1f);
 			aSource.clip = jumpSound;
 			aSource.Play ();
