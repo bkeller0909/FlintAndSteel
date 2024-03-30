@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] protected float speed = 5f;
-    [SerializeField] float lifeTime = 5f;
+    [SerializeField] float lifeTime = 2f;
     protected Vector3 direction;
 
     private void Start()
