@@ -44,6 +44,9 @@ public class StrongEnemy : MonoBehaviour
     private Animator animator;
     private PlayerAttackScript playerAtkScript;
 
+    [SerializeField]
+    GameObject Armor;
+
     private enum State
     {
         Patrolling,
@@ -280,6 +283,11 @@ public class StrongEnemy : MonoBehaviour
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 Instantiate(smallDeathEffect, transform.position, Quaternion.identity);
                 gameObject.SetActive(false);
+            }
+            else if (enemyCurrentHealth <= 2 && Armor != null) // Check if health is 2 or less and armor exists
+            {
+                Destroy(Armor); // Destroy the armor
+                Armor = null; // Set armor reference to null
             }
         }
         catch (System.Exception e)
