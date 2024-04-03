@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
+    private Toggle controllerToggle;
+
     [Header("Coins")]
     public int coinAmount = 0;
     public int coinsAtLevelStart = 0;
 
     [Header("Controller")]
-    public bool usingController;
+    public bool usingController = false;
     GameObject crosshair;
 
     private void Awake()
@@ -34,17 +37,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        crosshair = GameObject.FindGameObjectWithTag("Cursor");
-        if (crosshair != null) 
+        if(controllerToggle.isOn)
         {
-            if (!usingController)
-            {
-                crosshair.SetActive(false);
-            }
-            else
-            {
-                crosshair.SetActive(true);
-            }
+            Controller(usingController);
         }
     }
 
@@ -65,6 +60,24 @@ public class GameManager : MonoBehaviour
         for(int i =0; i < instance.registeredForReset.Count; i ++)
         {
             Instance.registeredForReset[i].Reset();
+        }
+    }
+
+    public void Controller(bool isController)
+    {
+        usingController = isController;
+
+        crosshair = GameObject.FindGameObjectWithTag("Cursor");
+        if (crosshair != null)
+        {
+            if (usingController)
+            {
+                crosshair.SetActive(true);
+            }
+            else
+            {
+                crosshair.SetActive(false);
+            }
         }
     }
 }
