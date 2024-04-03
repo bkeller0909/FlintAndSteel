@@ -9,8 +9,17 @@ public class PlatformSword : MonoBehaviour
 
     [SerializeField] private AudioClip woodWall;
 
+    private static PlatformSword instance;
+    public static PlatformSword Instance { get { return instance; } }
+
+    public bool isHighJumping = false;
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         audioSource = GetComponent<AudioSource>();
 
         audioSource.clip = woodWall;
@@ -24,16 +33,18 @@ public class PlatformSword : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerMove = collision.gameObject.GetComponent<PlayerMove>();
-            playerMove.jumpForce.y = playerMove.jumpForce.y + 2;
+            //playerMove = collision.gameObject.GetComponent<PlayerMove>();
+            //playerMove.jumpForce.y = playerMove.jumpForce.y + 2;
+            isHighJumping = true;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerMove = collision.gameObject.GetComponent<PlayerMove>();
-            playerMove.jumpForce.y = playerMove.jumpForce.y - 2;
+            //playerMove = collision.gameObject.GetComponent<PlayerMove>();
+            //playerMove.jumpForce.y = playerMove.jumpForce.y - 2;
+            isHighJumping = false;
         }
     }
 

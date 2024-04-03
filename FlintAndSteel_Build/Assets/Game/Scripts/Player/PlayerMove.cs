@@ -27,8 +27,9 @@ public class PlayerMove : MonoBehaviour
 	public float movingPlatformFriction = 7.7f;				//you'll need to tweak this to get the player to stay on moving platforms properly
 	
 	//jumping
-	public Vector3 jumpForce =  new Vector3(0, 13, 0);		//normal jump force
-	public Vector3 secondJumpForce = new Vector3(0, 13, 0); //the force of a 2nd consecutive jump
+	public Vector3 jumpForce =  new Vector3(0, 13, 0);      //normal jump force
+    public Vector3 highJumpForce = new Vector3(0, 15, 0);       //High jump force
+    public Vector3 secondJumpForce = new Vector3(0, 13, 0); //the force of a 2nd consecutive jump
 	public Vector3 thirdJumpForce = new Vector3(0, 13, 0);	//the force of a 3rd consecutive jump
 	public float jumpDelay = 0.1f;							//how fast you need to jump after hitting the ground, to do the next type of jump
 	public float jumpLeniancy = 0.17f;						//how early before hitting the ground you can press jump, and still have it work
@@ -220,6 +221,7 @@ public class PlayerMove : MonoBehaviour
 	private void JumpCalculations()
 	{
 		//keep how long we have been on the ground
+		 
 		groundedCount = (grounded) ? groundedCount += Time.deltaTime : 0f;
 
 		ignoreBounceTime -= Time.deltaTime;
@@ -248,8 +250,24 @@ public class PlayerMove : MonoBehaviour
 				//execute the correct jump (like in mario64, jumping 3 times quickly will do higher jumps)
 				if (onJump == 0)
 				{
-					Jump(jumpForce);
-				}
+					if (PlatformSword.Instance != null)
+					{
+						if (PlatformSword.Instance.isHighJumping == true)
+						{
+							Jump(highJumpForce);
+						}
+						else
+						{
+							Jump(jumpForce);
+						}
+
+					}
+                    else
+                    {
+						Jump(jumpForce);
+                    }
+
+                }
 				else if (onJump == 1)
 				{
 					Jump(secondJumpForce);
