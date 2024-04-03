@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class EnemyBoss : MonoBehaviour
 {
@@ -59,6 +61,9 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField] private GameObject bloodEffect;
     [SerializeField] private GameObject deathEffect;
 
+    [SerializeField] private GameObject bossHealthBarGO;
+    [SerializeField] private GameObject bossHealthBar;
+
     #endregion
 
     //Intializes the boss variable to idle in the beggining of the game
@@ -72,7 +77,9 @@ public class EnemyBoss : MonoBehaviour
 
     bool isAttacking = false;
 
-    public float health = 80;
+    public float health;
+    float maxHealth;
+
     private Vector3 intitalPosition;
 
     private Animator animator;
@@ -89,6 +96,8 @@ public class EnemyBoss : MonoBehaviour
     private int idleCount = 0;
     private void Awake()
     {
+        maxHealth = health;
+
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponentInChildren<AudioSource>();
 
@@ -121,6 +130,8 @@ public class EnemyBoss : MonoBehaviour
                 
                 break;
         }
+
+        bossHealthBar.transform.localScale = new Vector3(health / maxHealth, 1, 1);
     }
 
     private void HandleIdleState()
@@ -170,6 +181,7 @@ public class EnemyBoss : MonoBehaviour
             {
                 //Boss is defeated
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
+                bossHealthBarGO.SetActive(false);
                 gameObject.SetActive(false);
             }
             else
