@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
-    private Toggle controllerToggle;
+    [SerializeField] private Toggle controllerToggle;
 
     [Header("Coins")]
     public int coinAmount = 0;

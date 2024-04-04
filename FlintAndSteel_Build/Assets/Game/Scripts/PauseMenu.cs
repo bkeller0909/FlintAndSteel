@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseCanvas;
     [SerializeField] GameObject gameCanvas;
+    [SerializeField] private GameObject pauseFirstButton;
+
     bool isPaused = false;
     public AudioMixer audioMixer;
 
@@ -36,6 +39,12 @@ public class PauseMenu : MonoBehaviour
         {
             Debug.Log("The game is paused");
             Time.timeScale = 0;
+
+            // clear selected button objects
+            EventSystem.current.SetSelectedGameObject(null);
+
+            // set new selected button
+            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
         }
         else
         {
