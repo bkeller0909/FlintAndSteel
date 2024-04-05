@@ -140,7 +140,7 @@ public class Zipline : MonoBehaviour
 
         Vector3 newPosition = Vector3.Lerp(zipTransform.position, targetZip.transform.position, ratio);
 
-        StartingPos = new Vector3(player.transform.position.x, newPosition.y, player.transform.position.z);
+        StartingPos = new Vector3(player.transform.position.x, newPosition.y, player.transform.position.z); // + 0.5f to y. This might be different for each zipline.
 
         localZip.transform.position = StartingPos;
 
