@@ -71,8 +71,6 @@ public class Cannon : MonoBehaviour
                     fadeOutValue = Mathf.Lerp(1.0f, 0.0f, 0.7f - shotTimer / shootSpeed);
                 }
 
-                Debug.Log(fadeOutValue);
-
                 // Update shader
                 SetFadeOutValue(fadeOutValue);
 

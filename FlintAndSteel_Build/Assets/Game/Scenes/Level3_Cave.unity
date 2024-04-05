@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6301.157, g: 6161.6143, b: 5990.3755, a: 1}
+  m_IndirectSpecularColor: {r: 6321.076, g: 6160.882, b: 5907.8286, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20549,6 +20549,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4228277519920687640, guid: 5366f3cf82c02084bb38dd312c23fe2d,
+        type: 3}
+      propertyPath: controllerToggle
+      value: 
+      objectReference: {fileID: 2016991321}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28316,10 +28321,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1660952033}
-    - targetCorrespondingSourceObject: {fileID: 8680618797029659934, guid: 489d0bbbfd22785439fd343dcc3d2d68,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1660952032}
   m_SourcePrefab: {fileID: 100100000, guid: 489d0bbbfd22785439fd343dcc3d2d68, type: 3}
 --- !u!4 &773059400 stripped
 Transform:
@@ -58652,38 +58653,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1660952032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660952028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b30fea94f9bbcc47a3debf39fb2672e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactSound: {fileID: 0}
-  hurtSound: {fileID: 0}
-  deadSound: {fileID: 0}
-  currentHealth: 1
-  takeImpactDmg: 0
-  onlyRigidbodyImpact: 0
-  respawn: 1
-  impactFilterTag: []
-  hitFlashDelay: 0.1
-  flashDuration: 0.9
-  hitFlashColor: {r: 1, g: 0, b: 0, a: 1}
-  flashObject: {fileID: 0}
-  spawnOnDeath: []
-  numOfHearts: 0
-  hearts: []
-  fullHeart: {fileID: 0}
-  emptyHeart: {fileID: 0}
-  dead: 0
-  flashing: 0
-  respawnPos: {x: 0, y: 0, z: 0}
 --- !u!82 &1660952033
 AudioSource:
   m_ObjectHideFlags: 0
@@ -65741,7 +65710,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1863853688}
+      objectReference: {fileID: 0}
     - target: {fileID: 2922246871561756436, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -65882,12 +65851,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe03fff0de78514eb1ce903c5ee4d1b, type: 3}
---- !u!1 &1863853688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7306285575923486064, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1863853687}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1863867746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70341,6 +70304,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20541c47c18b76b4e877cc7c14f12fd5, type: 3}
+--- !u!114 &2016991321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2922246871561756436, guid: bbe03fff0de78514eb1ce903c5ee4d1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863853687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2017722077
 PrefabInstance:
   m_ObjectHideFlags: 0

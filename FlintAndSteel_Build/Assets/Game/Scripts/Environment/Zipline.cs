@@ -72,11 +72,6 @@ public class Zipline : MonoBehaviour
 
     private void CheckIfNotZip()
     {
-        if (Vector3.Distance(localZip.transform.position, targetZip.zipTransform.position) <= arrivalThreshold)
-        {
-            Debug.Log("Zipline Point Reached");
-        }
-
         if (Vector3.Distance(localZip.transform.position, targetZip.zipTransform.position) <= arrivalThreshold || Input.GetButtonUp("Grab"))
         {
             
@@ -209,6 +204,5 @@ public class Zipline : MonoBehaviour
         beginingOfZip = true;
         attachToZip = true;
         zipping = false;
-        Debug.Log("ZipLine has been reset");
     }
 }

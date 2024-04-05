@@ -20,7 +20,6 @@ public class FlyingBomber : MonoBehaviour
     [SerializeField] GameObject bloodEffect;
 
     public bool isDead = false;
-    private int hitCount = 0;
     private GameObject[] birdWalls;
     private int currentBirdWall = 0;
     private Transform targetBirdWall;

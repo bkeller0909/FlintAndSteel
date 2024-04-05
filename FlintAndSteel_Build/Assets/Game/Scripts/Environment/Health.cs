@@ -127,7 +127,11 @@ public class Health : MonoBehaviour
 	{
 		//player drop item
 		if(tag == "Player")
-			throwing = GetComponent<Throwing>();
+		{
+            throwing = GetComponent<Throwing>();
+
+        }
+			
 		if(throwing && throwing.heldObj && throwing.heldObj.tag == "Pickup")
 			throwing.ThrowPickup();
 		

@@ -326,28 +326,23 @@ public class EnemyBoss : MonoBehaviour
                 if (randomNumber <= 0.40f)
                 {
                     Shoot();
-                    Debug.Log("NormalShot");
                 }
                 else if (randomNumber > 0.40 && randomNumber <= 0.70f)
                 {
                     DoubleShot();
-                    Debug.Log("DoubleShot");
                 }
                 else if (randomNumber > 0.70f)
                 {
                     ThreeShot();
-                    Debug.Log("ThreeShot");
                 }
             }
             else if (randomNumber >= 0.38f && shootingDuration > 0)
             {
                 DoubleShot();
-                Debug.Log("DoubleShot");
             }
             else if (shootingDuration > 0)
             {
                 ScatterShot();
-                Debug.Log("ScatterShot");
             }
 
             if (health <= 50f)
