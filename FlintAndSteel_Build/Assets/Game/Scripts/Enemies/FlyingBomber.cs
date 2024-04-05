@@ -14,7 +14,7 @@ public class FlyingBomber : MonoBehaviour
 
     [SerializeField]
     private GameObject BirdModel;
-    private int enemyMaxHealth = 2;
+    private int enemyMaxHealth = 1;
     private int enemyCurrentHealth;
 
     [SerializeField] GameObject bloodEffect;

@@ -28,7 +28,7 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private float dashDistance = 5.0f;
     [SerializeField]
-    private float dashSpeed = 30.0f;
+    private float dashSpeed = 20.0f;
 
     [SerializeField]
     private float chaseDuration = 5.0f;
@@ -202,6 +202,7 @@ public class EnemyBoss : MonoBehaviour
             TakeDamage(10.0f);
             //Debug.LogWarning("The boss has taken 10 damage");
             //Debug.LogWarning("Health left: " + health);
+            dashSpeed = dashSpeed + 3.0f;
         }
 
         if (other.CompareTag("Player"))
