@@ -5128,6 +5128,8 @@ MonoBehaviour:
   shootDuration: 10
   characterModel: {fileID: 4670214321123228854}
   chargeUpParticles: {fileID: 3936901909884319289}
+  tinyChargeUpParticles: {fileID: 5713754263497132851, guid: b15c310a5c428b04d92347d869477bd1,
+    type: 3}
   shootParticles: {fileID: 632162466478891854}
   sheildParticles: {fileID: 1676054825494982176}
   shotSound: {fileID: 8300000, guid: 5880b15856f50564ca494b0fb07a31f7, type: 3}
@@ -5135,6 +5137,8 @@ MonoBehaviour:
     type: 3}
   deathEffect: {fileID: 7886164264096526582, guid: 37aa1833857039641ad45fcb83dfb8db,
     type: 3}
+  bossHealthBarGO: {fileID: 0}
+  bossHealthBar: {fileID: 0}
   health: 60
 --- !u!65 &2983097786458544973
 BoxCollider:

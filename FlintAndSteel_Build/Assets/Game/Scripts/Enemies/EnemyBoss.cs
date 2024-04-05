@@ -51,6 +51,8 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private ParticleSystem chargeUpParticles;
     [SerializeField]
+    private ParticleSystem tinyChargeUpParticles;
+    [SerializeField]
     private ParticleSystem shootParticles;
     [SerializeField]
     private ParticleSystem sheildParticles;
@@ -198,8 +200,8 @@ public class EnemyBoss : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             TakeDamage(10.0f);
-            Debug.LogWarning("The boss has taken 10 damage");
-            Debug.LogWarning("Health left: " + health);
+            //Debug.LogWarning("The boss has taken 10 damage");
+            //Debug.LogWarning("Health left: " + health);
         }
 
         if (other.CompareTag("Player"))
@@ -420,9 +422,11 @@ public class EnemyBoss : MonoBehaviour
     private IEnumerator DashAfterShootingTimer(float duration)
     {
         chargeUpParticles.Play();
+        tinyChargeUpParticles.Play();
         yield return new WaitForSeconds(duration);
         // Call DashAttack after shooting for 10 seconds
         Vector3 direction = (player.position - transform.position).normalized;
+        tinyChargeUpParticles.Stop();
         chargeUpParticles.Stop();
         StartCoroutine(DashAttack(direction, dashDistance, dashSpeed));
         
