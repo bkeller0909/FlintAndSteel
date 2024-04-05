@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+        if(usingController == true)
+        {
+            controllerToggle.enabled = true;
+        }
 
         registeredForReset = new List<ResetBehaviour>();
     }
@@ -73,10 +77,12 @@ public class GameManager : MonoBehaviour
             if (usingController)
             {
                 crosshair.SetActive(true);
+                PlayerPrefs.Save();
             }
             else
             {
                 crosshair.SetActive(false);
+                PlayerPrefs.Save();
             }
         }
     }
