@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 //attach to any object in the game which takes damage (player, enemies, breakable crates, smashable windows..)
 [RequireComponent(typeof(AudioSource))]
@@ -28,7 +29,7 @@ public class Health : MonoBehaviour
 	public Sprite emptyHeart;						// sprite for the empty heart icon
 	
 	[HideInInspector]
-	public bool dead, flashing;
+	public bool dead, flashing, died;
 	[HideInInspector]
 	public Vector3 respawnPos;
 	
@@ -39,10 +40,13 @@ public class Health : MonoBehaviour
 	private Throwing throwing;
 	private Renderer flashRender;
 	private AudioSource aSource;
-	
+
+	GameObject playerModel;
+
 	//setup
 	void Awake()
 	{
+		playerModel = GameObject.FindGameObjectWithTag("Feet");
 		aSource = GetComponent<AudioSource>();
 		if(currentHealth <= 0)
 			Debug.LogWarning(transform.name + " has 'currentHealth' set to 0 or less in 'Health' script: it has died upon scene start");
@@ -53,6 +57,7 @@ public class Health : MonoBehaviour
 		originalColor = flashRender.material.color;
 		defHealth = currentHealth;
 		respawnPos = transform.position;
+		died = false;
 	}
 	
 	//detecting damage and dying
@@ -130,38 +135,79 @@ public class Health : MonoBehaviour
 		{
             throwing = GetComponent<Throwing>();
 
+            GetComponent<Throwing>().enabled = false;
+            GetComponent<PlayerMove>().enabled = false;
+            GetComponent<PlayerAttackScript>().enabled = false;
+            GetComponent<PlayerZipline>().enabled = false;
         }
 			
-		if(throwing && throwing.heldObj && throwing.heldObj.tag == "Pickup")
-			throwing.ThrowPickup();
-		
-		if (deadSound)
-			AudioSource.PlayClipAtPoint(deadSound, transform.position);
-		flashing = false;
-		flashObject.GetComponent<Renderer>().material.color = originalColor;
-		if(respawn)
+		if (!died)
 		{
-			Rigidbody rigid = GetComponent<Rigidbody>();
-			if (rigid)
-			{
-				rigid.velocity *= 0;
-				rigid.angularVelocity *= 0;
-				rigid.Sleep();
-			}
-			transform.position = respawnPos;
-			dead = false;
-			currentHealth = defHealth;
-		}
-		else
-			Destroy (gameObject);
-		
-		if (spawnOnDeath.Length != 0)
-			foreach(GameObject obj in spawnOnDeath)
-				Instantiate(obj, transform.position, Quaternion.Euler(Vector3.zero));
+            if (throwing && throwing.heldObj && throwing.heldObj.tag == "Pickup")
+                throwing.ThrowPickup();
+
+            if (spawnOnDeath.Length != 0)
+                foreach (GameObject obj in spawnOnDeath)
+                    Instantiate(obj, transform.position, Quaternion.Euler(Vector3.zero));
+
+			playerModel.SetActive(false);
+
+            died = true;
+        }
+
+        if (respawn && tag == "Player")
+        {
+			StartCoroutine(DelayPlayerRespawn(0.45f));
+        }
+        else if(respawn && tag != "Player")
+        {
+            Rigidbody rigid = GetComponent<Rigidbody>();
+            if (rigid)
+            {
+                rigid.velocity *= 0;
+                rigid.angularVelocity *= 0;
+                rigid.Sleep();
+            }
+            transform.position = respawnPos;
+            dead = false;
+            currentHealth = defHealth;
+        }
+        else
+		{
+            if (deadSound)
+                AudioSource.PlayClipAtPoint(deadSound, transform.position);
+            flashing = false;
+            flashObject.GetComponent<Renderer>().material.color = originalColor;
+
+            Destroy(gameObject);
+        }
 	}
-	
-	//calculate impact damage on collision
-	void OnCollisionEnter(Collision col)
+
+    private void PlayerRespawn()
+    {
+        Rigidbody rigid = GetComponent<Rigidbody>();
+        if (rigid)
+        {
+            rigid.velocity *= 0;
+            rigid.angularVelocity *= 0;
+            rigid.Sleep();
+        }
+
+        GetComponent<Throwing>().enabled = true;
+        GetComponent<PlayerMove>().enabled = true;
+        GetComponent<PlayerAttackScript>().enabled = true;
+        GetComponent<PlayerZipline>().enabled = true;
+
+        playerModel.SetActive(true);
+
+        transform.position = respawnPos;
+        died = false;
+        dead = false;
+        currentHealth = defHealth;
+    }
+
+    //calculate impact damage on collision
+    void OnCollisionEnter(Collision col)
 	{
 		if(!aSource.isPlaying && impactSound)
 		{
@@ -186,6 +232,13 @@ public class Health : MonoBehaviour
 			hitForce = (int)col.relativeVelocity.magnitude/6;
 		currentHealth -= hitForce;
 		//print (transform.name + " took: " + hitForce + " dmg in collision with " + col.transform.name);
+	}
+
+	IEnumerator DelayPlayerRespawn(float delay)
+	{
+        yield return new WaitForSeconds(delay);
+		
+		PlayerRespawn();
 	}
 }
 
