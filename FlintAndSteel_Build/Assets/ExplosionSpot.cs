@@ -22,7 +22,7 @@ public class ExplosionSpot : MonoBehaviour
     {
         shootingEnemy.GetComponent<ShootEnemy>().Shoot();
 
-        audioSource.volume = 0.6f;
+        audioSource.volume = 0.65f;
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.clip = gunShot;
         audioSource.Play();
@@ -30,7 +30,7 @@ public class ExplosionSpot : MonoBehaviour
 
     public void PlayGunClick()
     {
-        audioSource.volume = 0.85f;
+        audioSource.volume = 1.0f;
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.clip = gunClick;
         audioSource.Play();

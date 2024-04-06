@@ -121,7 +121,7 @@ public class PlayerMove : MonoBehaviour
 		//move, rotate, manage speed
 		characterMotor.MoveTo (moveDirection, curAccel, 0.7f, true);
 		if (rotateSpeed != 0 && direction.magnitude != 0)
-			characterMotor.RotateToDirection (moveDirection , curRotateSpeed * 5, true);
+			characterMotor.RotateToDirection (moveDirection , curRotateSpeed * 10, true);
 		characterMotor.ManageSpeed (curDecel, maxSpeed + movingObjSpeed.magnitude, true);
 		//set animation values
 		if(animator)

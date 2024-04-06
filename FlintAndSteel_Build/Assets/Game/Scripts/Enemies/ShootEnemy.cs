@@ -132,10 +132,6 @@ public class ShootEnemy : MonoBehaviour
             {
                 shot = true;
 
-                if(PistolCocking != null && audioSource != null)
-                {
-                    audioSource.PlayOneShot(PistolCocking);
-                }
                 animator.SetTrigger("ThrowSword");
                 shootTimer = shootInterval;
             }
