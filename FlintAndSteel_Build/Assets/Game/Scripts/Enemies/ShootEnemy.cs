@@ -30,6 +30,9 @@ public class ShootEnemy : MonoBehaviour
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private GameObject smallDeathEffect;
 
+    //Sound effects
+    [SerializeField] private AudioClip PistolCocking;
+    [SerializeField] private AudioSource audioSource;
 
     private Vector3 startPosition;
     private float travelledDistance = 0f;
@@ -62,6 +65,8 @@ public class ShootEnemy : MonoBehaviour
         {
             if (showDebug == true) Debug.LogError("Player not found!");
         }
+
+   
 
     }
 
@@ -126,6 +131,11 @@ public class ShootEnemy : MonoBehaviour
             if (!shot)
             {
                 shot = true;
+
+                if(PistolCocking != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(PistolCocking);
+                }
                 animator.SetTrigger("ThrowSword");
                 shootTimer = shootInterval;
             }

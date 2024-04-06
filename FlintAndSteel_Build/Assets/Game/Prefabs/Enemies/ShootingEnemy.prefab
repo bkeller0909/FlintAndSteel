@@ -154,6 +154,8 @@ MonoBehaviour:
     type: 3}
   smallDeathEffect: {fileID: 7886164264096526582, guid: cf52010a256fab044b8d0392f4c27fc5,
     type: 3}
+  PistolCocking: {fileID: 8300000, guid: 120d3fdb543c3914ca1844d8d457053d, type: 3}
+  audioSource: {fileID: 9032941529321059695}
 --- !u!136 &2935472160860559196
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -331,6 +333,7 @@ MonoBehaviour:
   emptyHeart: {fileID: 0}
   dead: 0
   flashing: 0
+  died: 0
   respawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &-8714517995381372689
 MonoBehaviour:
@@ -614,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingEnemy: {fileID: 5233061334347742360}
-  gunClick: {fileID: 8300000, guid: 99a163f7225fe5642a9dad6a12cd50c1, type: 3}
+  gunClick: {fileID: 8300000, guid: 120d3fdb543c3914ca1844d8d457053d, type: 3}
   gunShot: {fileID: 8300000, guid: aa83396e683c5a046b4d6e076b32abec, type: 3}
   explosion: 0
 --- !u!82 &564480202723350015
