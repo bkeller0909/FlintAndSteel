@@ -150,7 +150,8 @@ public class Health : MonoBehaviour
                 foreach (GameObject obj in spawnOnDeath)
                     Instantiate(obj, transform.position, Quaternion.Euler(Vector3.zero));
 
-			playerModel.SetActive(false);
+			if (tag == "Player")
+				playerModel.SetActive(false);
 
             died = true;
         }
