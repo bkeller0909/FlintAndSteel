@@ -128,12 +128,14 @@ public class Zipline : MonoBehaviour
     {
         if (zipping)
             return;
+        player.GetComponent<PlayerZipline>().isZipping = true;
+
         localZip = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         localZip.GetComponentInChildren<Renderer>().enabled = false;
         // zipTransform
         // targetZip
 
-        player.GetComponent<PlayerZipline>().isZipping = true;
+        
         float distanceBetweenPoints = Vector3.Distance(zipTransform.position, targetZip.transform.position);
         float playerPosition = Vector3.Distance(zipTransform.position, player.transform.position);
         float ratio = playerPosition / distanceBetweenPoints;
