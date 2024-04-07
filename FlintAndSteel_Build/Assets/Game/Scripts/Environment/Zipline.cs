@@ -126,44 +126,47 @@ public class Zipline : MonoBehaviour
 
     public void StartZippingRope(GameObject player)
     {
-        if (zipping)
-            return;
-        player.GetComponent<PlayerZipline>().isZipping = true;
+        if (!zipping)
+        {
+            player.GetComponent<PlayerZipline>().isZipping = true;
 
-        localZip = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        localZip.GetComponentInChildren<Renderer>().enabled = false;
-        // zipTransform
-        // targetZip
 
+            localZip = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            localZip.GetComponentInChildren<Renderer>().enabled = false;
+            // zipTransform
+            // targetZip
+
+
+            float distanceBetweenPoints = Vector3.Distance(zipTransform.position, targetZip.transform.position); // Get distance between the zipline points
+            float playerPosition = Vector3.Distance(zipTransform.position, player.transform.position); // Get the distance from the first position to the player
+            float ratio = playerPosition / distanceBetweenPoints; // Normalize the players position between the two points.
+
+            Vector3 newPosition = Vector3.Lerp(zipTransform.position, targetZip.transform.position, ratio); // Starting position value of the ball.
+
+            StartingPos = new Vector3(newPosition.x, newPosition.y, newPosition.z); // ball spawn location.
+
+            localZip.transform.position = StartingPos;
+
+
+            zipEffectClone = Instantiate(zipEffect, StartingPos, Quaternion.identity); // Create zipEffect copy at startingPos of player childed to local zip
+            zipEffectCloneSmoke = Instantiate(zipEffectSmoke, StartingPos, Quaternion.identity);
+            localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
+            localZip.AddComponent<Rigidbody>().useGravity = false;
+            localZip.GetComponent<Collider>().isTrigger = true;
+            savedZPosition = player.GetComponent<Rigidbody>().position.z;
+            playerVelocityX = player.GetComponent<Rigidbody>().velocity.x;
+            player.GetComponent<Rigidbody>().useGravity = false;
+            player.GetComponent<Rigidbody>().isKinematic = true;
+            player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            player.GetComponent<PlayerMove>().enabled = false;
+            player.GetComponent<CharacterMotor>().enabled = false;
+            SetPlayerRotation(player); // Sets the player rotation to the correct one given the trajectory
+            player.transform.parent = localZip.transform;
+            beginingOfZip = true;
+            attachToZip = true;
+            zipping = true;
+        }
         
-        float distanceBetweenPoints = Vector3.Distance(zipTransform.position, targetZip.transform.position);
-        float playerPosition = Vector3.Distance(zipTransform.position, player.transform.position);
-        float ratio = playerPosition / distanceBetweenPoints;
-
-        Vector3 newPosition = Vector3.Lerp(zipTransform.position, targetZip.transform.position, ratio);
-
-        StartingPos = new Vector3(player.transform.position.x, newPosition.y, player.transform.position.z); // + 0.5f to y. This might be different for each zipline.
-
-        localZip.transform.position = StartingPos;
-
-
-        zipEffectClone = Instantiate(zipEffect, StartingPos, Quaternion.identity); // Create zipEffect copy at startingPos of player childed to local zip
-        zipEffectCloneSmoke = Instantiate(zipEffectSmoke, StartingPos, Quaternion.identity);
-        localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
-        localZip.AddComponent<Rigidbody>().useGravity = false;
-        localZip.GetComponent<Collider>().isTrigger = true;
-        savedZPosition = player.GetComponent<Rigidbody>().position.z;
-        playerVelocityX = player.GetComponent<Rigidbody>().velocity.x;
-        player.GetComponent<Rigidbody>().useGravity = false;
-        player.GetComponent<Rigidbody>().isKinematic = true;
-        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        player.GetComponent<PlayerMove>().enabled = false;
-        player.GetComponent<CharacterMotor>().enabled = false;
-        SetPlayerRotation(player); // Sets the player rotation to the correct one given the trajectory
-        player.transform.parent = localZip.transform;
-        beginingOfZip = true;
-        attachToZip = true;
-        zipping = true;
     }
 
     private void SetPlayerRotation(GameObject player)
