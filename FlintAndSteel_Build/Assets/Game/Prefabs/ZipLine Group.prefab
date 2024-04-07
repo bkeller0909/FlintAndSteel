@@ -166,6 +166,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2914911531267022254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259324404662186535}
+  - component: {fileID: 3318434036990936252}
+  m_Layer: 0
+  m_Name: ZipTriggerGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259324404662186535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914911531267022254}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.1599593, y: -14.145193, z: 7.869757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6583102150964587115}
+  m_Father: {fileID: 5733154275898917987}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3318434036990936252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914911531267022254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bba206bd85d3354791df039b3f2178a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zipEffect: {fileID: 3781533915663123056, guid: 13ddb4048b6aa3f428221d31b5258a56,
+    type: 3}
+  zipEffectSmoke: {fileID: 3781533915663123056, guid: 1ec8da52fbbe6c141ba471e29d7d2f5c,
+    type: 3}
+  targetZip: {fileID: 3824453903853579610}
+  zipSpeed: 5
+  MaxZipSpeed: 15
+  zipStepSpeed: 1
+  zipScale: 0.5
+  arrivalThreshold: 1.2
+  zipTransform: {fileID: 7210776051747908361}
+  offsetZip: -2
+  player: {fileID: 100002, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
+  playerZOffset: 0
+  zipping: 0
+  zipTriggerList:
+  - {fileID: 4684646455090056651}
 --- !u!1 &4684646455090056651
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +240,6 @@ GameObject:
   - component: {fileID: 6064163954600997479}
   - component: {fileID: 4747899631020740138}
   - component: {fileID: 966336634272640652}
-  - component: {fileID: 4251580841391469455}
   m_Layer: 0
   m_Name: zipTrigger
   m_TagString: ZipRope
@@ -194,12 +255,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4684646455090056651}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.1599593, y: 14.145193, z: -7.869757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5733154275898917987}
+  m_Father: {fileID: 259324404662186535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6064163954600997479
 MeshFilter:
@@ -272,32 +333,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4251580841391469455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4684646455090056651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bba206bd85d3354791df039b3f2178a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zipEffect: {fileID: 3781533915663123056, guid: 13ddb4048b6aa3f428221d31b5258a56,
-    type: 3}
-  zipEffectSmoke: {fileID: 3781533915663123056, guid: 1ec8da52fbbe6c141ba471e29d7d2f5c,
-    type: 3}
-  targetZip: {fileID: 3824453903853579610}
-  zipSpeed: 5
-  MaxZipSpeed: 15
-  zipStepSpeed: 1
-  zipScale: 0.5
-  arrivalThreshold: 1.2
-  zipTransform: {fileID: 7210776051747908361}
-  offsetZip: -2
-  player: {fileID: 100002, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
-  playerZOffset: 0
 --- !u!1 &5338309223721650087
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +364,7 @@ Transform:
   m_Children:
   - {fileID: 7210776051747908361}
   - {fileID: 6305948779410587702}
-  - {fileID: 6583102150964587115}
+  - {fileID: 259324404662186535}
   - {fileID: 2720238843178822495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

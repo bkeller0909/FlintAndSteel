@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11072.837, g: 10791.958, b: 9668.962, a: 1}
+  m_IndirectSpecularColor: {r: 11079.583, g: 10796.173, b: 9668.86, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24579,6 +24579,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1329318038}
     m_Modifications:
+    - target: {fileID: 259324404662186535, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259324404662186535, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259324404662186535, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 259324404662186535, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259324404662186535, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259324404662186535, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 468894483812714085, guid: 362ba99d2588fbe40a8d8e3285bef0db,
         type: 3}
       propertyPath: player
@@ -24613,6 +24643,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 85.752
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318434036990936252, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 169514115}
+    - target: {fileID: 3318434036990936252, guid: 362ba99d2588fbe40a8d8e3285bef0db,
+        type: 3}
+      propertyPath: offsetZip
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3824453903853579610, guid: 362ba99d2588fbe40a8d8e3285bef0db,
         type: 3}

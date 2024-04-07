@@ -40,7 +40,7 @@ public class PlayerZipline : MonoBehaviour
                 float distance = Mathf.Abs(this.transform.position.y - hit.collider.transform.position.y);
                 if (hit.collider.tag == "ZipRope" && distance <= hookRangeZip)
                 {
-                    hit.collider.GetComponent<Zipline>().StartZippingRope(gameObject);
+                    hit.collider.GetComponentInParent<Zipline>().StartZippingRope(gameObject);
                 }
 
 

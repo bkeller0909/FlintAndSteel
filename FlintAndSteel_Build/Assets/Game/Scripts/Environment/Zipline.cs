@@ -50,6 +50,8 @@ public class Zipline : MonoBehaviour
     private float playerVelocityX = 0;
     private float savedZPosition = 0;
 
+    [SerializeField]
+    public List<GameObject> zipTriggerList = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
@@ -91,7 +93,7 @@ public class Zipline : MonoBehaviour
         localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step); // Move parent sphere
         zipEffectClone.transform.position = zipEffectCloneSmoke.transform.position = localZip.GetComponent<Rigidbody>().position; // Move particle effects
         SetPlayerRotation(player); // keeps player rotation 
-        player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step * 3); // Gradually move player towards sphere so it doesn't look like they are teleporting
+        player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step * 2); // Gradually move player towards sphere so it doesn't look like they are teleporting
     }
 
     private void InitializeInitialMomentum()
