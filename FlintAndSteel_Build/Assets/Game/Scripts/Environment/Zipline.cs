@@ -88,10 +88,10 @@ public class Zipline : MonoBehaviour
     {
         ModifiedZipSpeed = Mathf.Lerp(ModifiedZipSpeed, MaxZipSpeed, zipStepSpeed * Time.deltaTime);
         float step = ModifiedZipSpeed * Time.deltaTime;
-        localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step);
-        zipEffectClone.transform.position = zipEffectCloneSmoke.transform.position = localZip.GetComponent<Rigidbody>().position;
+        localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step); // Move parent sphere
+        zipEffectClone.transform.position = zipEffectCloneSmoke.transform.position = localZip.GetComponent<Rigidbody>().position; // Move particle effects
         SetPlayerRotation(player); // keeps player rotation 
-        player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step);
+        player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step * 3); // Gradually move player towards sphere so it doesn't look like they are teleporting
     }
 
     private void InitializeInitialMomentum()
@@ -138,12 +138,24 @@ public class Zipline : MonoBehaviour
 
 
             float distanceBetweenPoints = Vector3.Distance(zipTransform.position, targetZip.transform.position); // Get distance between the zipline points
+            
             float playerPosition = Vector3.Distance(zipTransform.position, player.transform.position); // Get the distance from the first position to the player
             float ratio = playerPosition / distanceBetweenPoints; // Normalize the players position between the two points.
 
             Vector3 newPosition = Vector3.Lerp(zipTransform.position, targetZip.transform.position, ratio); // Starting position value of the ball.
 
-            StartingPos = new Vector3(newPosition.x, newPosition.y, newPosition.z); // ball spawn location.
+            if(player.transform.position.x < zipTransform.position.x && zipTransform.position.x < targetZip.transform.position.x) // Is the player outside the normal zip length? For left to right ziplines.
+            {
+                StartingPos = zipTransform.position;
+            }
+            else if(player.transform.position.x > zipTransform.position.x && zipTransform.position.x > targetZip.transform.position.x) // Right to left zipline check
+            {
+                StartingPos = zipTransform.position;
+            }
+            else // they are between zipTransform and targetZip
+            {
+                StartingPos = new Vector3(newPosition.x, newPosition.y, newPosition.z); // ball spawn location between two points based off players position.
+            }
 
             localZip.transform.position = StartingPos;
 
