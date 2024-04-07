@@ -32,7 +32,7 @@ public class PlayerZipline : MonoBehaviour
             mAnimator.SetBool("Zipping", false); 
         }
         
-        if (Input.GetButton("Grab"))
+        if (Input.GetButtonDown("Grab") || Input.GetButton("Grab") && !isZipping)
         {
             RaycastHit[] hits = Physics.SphereCastAll(transform.position + new Vector3(0, checkOffset, 0), checkRadius, Vector3.up);
             foreach (RaycastHit hit in hits)
