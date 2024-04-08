@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11082.503, g: 11071.083, b: 11155.931, a: 1}
+  m_IndirectSpecularColor: {r: 12686.969, g: 12952.791, b: 13639.26, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7842,24 +7842,12 @@ PrefabInstance:
         type: 3}
       propertyPath: controllerToggle
       value: 
-      objectReference: {fileID: 875663823}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5366f3cf82c02084bb38dd312c23fe2d, type: 3}
---- !u!114 &833517818 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4228277519920687640, guid: 5366f3cf82c02084bb38dd312c23fe2d,
-    type: 3}
-  m_PrefabInstance: {fileID: 833517817}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a5b10dab3cc0f47badc17452bd3f63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &833602910
 GameObject:
   m_ObjectHideFlags: 0
@@ -8714,7 +8702,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 833517818}
+      objectReference: {fileID: 1200943441}
     - target: {fileID: 1792989460315253759, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -8728,7 +8716,7 @@ PrefabInstance:
     - target: {fileID: 1792989460315253759, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1792989460315253759, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
@@ -8808,7 +8796,7 @@ PrefabInstance:
     - target: {fileID: 7481030743249140642, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7923858636127562201, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
@@ -8819,6 +8807,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802314882543187400, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1200943441}
+    - target: {fileID: 8802314882543187400, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802314882543187400, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8847909598159646864, guid: 2b591b00844a8a3449f55a9cb1d1024a,
         type: 3}
@@ -8891,18 +8894,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b591b00844a8a3449f55a9cb1d1024a, type: 3}
---- !u!114 &875663823 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1792989460315253759, guid: 2b591b00844a8a3449f55a9cb1d1024a,
-    type: 3}
-  m_PrefabInstance: {fileID: 875663822}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &897261402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9789,6 +9780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOut: {fileID: 944150318}
+  controllerToggle: {fileID: 0}
+  controllerON: 0
 --- !u!1 &950302014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2140334296550774532, guid: 2b591b00844a8a3449f55a9cb1d1024a,
@@ -12201,6 +12194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOut: {fileID: 944150318}
+  controllerToggle: {fileID: 0}
+  controllerON: 0
 --- !u!1001 &1202432627
 PrefabInstance:
   m_ObjectHideFlags: 0
