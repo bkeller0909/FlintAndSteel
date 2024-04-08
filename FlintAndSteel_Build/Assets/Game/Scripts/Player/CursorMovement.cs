@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CursorMovement : MonoBehaviour
 {
     [SerializeField] private Image crosshair;
-    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform UICenter;
 
     [SerializeField] private float crosshairSpeed = 5f; // Adjust the speed as needed
     [SerializeField] private float maxDistanceFromPlayer = 5f; // Adjust the maximum distance
@@ -33,7 +33,7 @@ public class CursorMovement : MonoBehaviour
         Vector3 newPosition = crosshair.transform.position + moveDirection * crosshairSpeed * Time.deltaTime;
 
         // Calculate distance from player
-        float distanceFromPlayer = Vector3.Distance(newPosition, playerTransform.position);
+        float distanceFromPlayer = Vector3.Distance(newPosition, UICenter.position);
 
         // Limit the crosshair movement within a maximum distance from the player
         if (distanceFromPlayer <= maxDistanceFromPlayer)
@@ -43,8 +43,8 @@ public class CursorMovement : MonoBehaviour
         else
         {
             // If the crosshair exceeds the maximum distance, clamp it back to the maximum distance
-            Vector3 directionToPlayer = (playerTransform.position - newPosition).normalized;
-            crosshair.transform.position = playerTransform.position + directionToPlayer * maxDistanceFromPlayer;
+            Vector3 directionToPlayer = (UICenter.position - newPosition).normalized;
+            crosshair.transform.position = UICenter.position + directionToPlayer * maxDistanceFromPlayer;
         }
     }
 }
