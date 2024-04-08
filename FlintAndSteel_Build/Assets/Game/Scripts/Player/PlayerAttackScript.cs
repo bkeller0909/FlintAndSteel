@@ -90,7 +90,7 @@ public class PlayerAttackScript : MonoBehaviour
                     steelIconUI.sprite = steelIcons[1];
             }
         }
-
+ 
         // MoveCrosshair();
         UpdateSteelRenderer();
     }
