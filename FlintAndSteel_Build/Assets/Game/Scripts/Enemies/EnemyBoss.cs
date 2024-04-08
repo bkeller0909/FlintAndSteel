@@ -95,6 +95,9 @@ public class EnemyBoss : MonoBehaviour
 
     private AudioSource audioSource;
 
+    [SerializeField] GameObject cursedCannon;
+    [SerializeField] Material cursedCannonBallMat;
+
     private int idleCount = 0;
     private void Awake()
     {
@@ -109,7 +112,6 @@ public class EnemyBoss : MonoBehaviour
         chargeUpParticles.Stop();
 
         idleStartDuration = idleDuration;
-
     }
 
     private void Update()
@@ -398,26 +400,49 @@ public class EnemyBoss : MonoBehaviour
         if (Random.Range(0.0f, 1.0f) > 0.5f)
         {
             yOffset = 0;
+
+            GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, -1f + yOffset, 0), Quaternion.identity);
+            EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
+            bulletScript.SetSpeed(10.0f);
+            bulletScript.Fire(dir);
+
+            GameObject bulletGo2 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 0f + yOffset, 0), Quaternion.identity);
+            EnemyBullet bulletScript2 = bulletGo2.GetComponent<EnemyBullet>();
+            bulletScript2.SetSpeed(10.0f);
+            bulletScript2.Fire(dir);
+
+            GameObject bulletGo3 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 1f + yOffset, 0), Quaternion.identity);
+            EnemyBullet bulletScript3 = bulletGo3.GetComponent<EnemyBullet>();
+            bulletScript3.SetSpeed(10.0f);
+            bulletScript3.Fire(dir);
         }
         else
         {
             yOffset = 2.5f;
+
+            GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, -1f + yOffset, 0), Quaternion.identity);
+            bulletGo.GetComponent<MeshRenderer>().material = cursedCannonBallMat;
+            Instantiate(cursedCannon, Barrel.position + new Vector3(0, -1f + yOffset, 0), Quaternion.Euler(new Vector3(0, 0, -90 * flipDirection)));
+            EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
+            bulletScript.SetSpeed(10.0f);
+            bulletScript.Fire(dir);
+
+            GameObject bulletGo2 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 0f + yOffset, 0), Quaternion.identity);
+            bulletGo2.GetComponent<MeshRenderer>().material = cursedCannonBallMat;
+            Instantiate(cursedCannon, Barrel.position + new Vector3(0, 0f + yOffset, 0), Quaternion.Euler(new Vector3(0, 0, -90 * flipDirection)));
+            EnemyBullet bulletScript2 = bulletGo2.GetComponent<EnemyBullet>();
+            bulletScript2.SetSpeed(10.0f);
+            bulletScript2.Fire(dir);
+
+            GameObject bulletGo3 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 1f + yOffset, 0), Quaternion.identity);
+            bulletGo3.GetComponent<MeshRenderer>().material = cursedCannonBallMat;
+            Instantiate(cursedCannon, Barrel.position + new Vector3(0, 1f + yOffset, 0), Quaternion.Euler(new Vector3(0,0, -90 * flipDirection)));
+            EnemyBullet bulletScript3 = bulletGo3.GetComponent<EnemyBullet>();
+            bulletScript3.SetSpeed(10.0f);
+            bulletScript3.Fire(dir);
         }
 
-        GameObject bulletGo = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, -1f + yOffset, 0), Quaternion.identity);
-        EnemyBullet bulletScript = bulletGo.GetComponent<EnemyBullet>();
-        bulletScript.SetSpeed(10.0f);
-        bulletScript.Fire(dir);
 
-        GameObject bulletGo2 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 0f + yOffset, 0), Quaternion.identity);
-        EnemyBullet bulletScript2 = bulletGo2.GetComponent<EnemyBullet>();
-        bulletScript2.SetSpeed(10.0f);
-        bulletScript2.Fire(dir);
-
-        GameObject bulletGo3 = Instantiate(bulletPrefab, Barrel.position + new Vector3(0, 1f + yOffset, 0), Quaternion.identity);
-        EnemyBullet bulletScript3 = bulletGo3.GetComponent<EnemyBullet>();
-        bulletScript3.SetSpeed(10.0f);
-        bulletScript3.Fire(dir);
     }
 
     private IEnumerator DashAfterShootingTimer(float duration)
