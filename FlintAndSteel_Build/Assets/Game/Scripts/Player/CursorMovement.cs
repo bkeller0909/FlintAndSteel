@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CursorMovement : MonoBehaviour
 {
     [SerializeField] private Image crosshair;
-    [SerializeField] private int numPoints = 20;
-    [SerializeField] private int radius = 2; //Radius of the circle
+    [SerializeField] private Transform playerTransform;
+
+    [SerializeField] private float crosshairSpeed = 5f; // Adjust the speed as needed
+    [SerializeField] private float maxDistanceFromPlayer = 5f; // Adjust the maximum distance
 
     // Update is called once per frame
     void Update()
@@ -21,27 +22,29 @@ public class CursorMovement : MonoBehaviour
 
     public void MoveCrosshair()
     {
-        //Claculate the angle increment for each point
-        float angleIncrement = 360f / numPoints;
+        // Get input from the controller
+        float horizontalInput = Input.GetAxis("Horizontal"); // Adjust axis names as needed
+        float verticalInput = Input.GetAxis("Vertical");
 
-        //Get the current angle based on time or any other factor
-        Vector3 playerPosition = transform.position;
+        // Calculate the movement direction based on input
+        Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f).normalized;
 
-        //Get the direction from the player to the cursor
-        Vector3 direction = crosshair.rectTransform.position - playerPosition;
+        // Move the crosshair
+        Vector3 newPosition = crosshair.transform.position + moveDirection * crosshairSpeed * Time.deltaTime;
 
-        // Calculate the angle of the direction vector
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        // Calculate distance from player
+        float distanceFromPlayer = Vector3.Distance(newPosition, playerTransform.position);
 
-        // Snap the angle to the nearest angle increment
-        float snappedAngle = Mathf.Round(angle / angleIncrement) * angleIncrement;
-
-        // Calculate the position of the cursor based on the snapped angle
-        float x = playerPosition.x + radius * Mathf.Cos(snappedAngle * Mathf.Deg2Rad);
-        float y = playerPosition.y + radius * Mathf.Sin(snappedAngle * Mathf.Deg2Rad);
-
-        Vector3 crosshairPosition = new Vector3(x, y, 0f);
-
-        crosshair.rectTransform.position = crosshairPosition;
+        // Limit the crosshair movement within a maximum distance from the player
+        if (distanceFromPlayer <= maxDistanceFromPlayer)
+        {
+            crosshair.transform.position = newPosition;
+        }
+        else
+        {
+            // If the crosshair exceeds the maximum distance, clamp it back to the maximum distance
+            Vector3 directionToPlayer = (playerTransform.position - newPosition).normalized;
+            crosshair.transform.position = playerTransform.position + directionToPlayer * maxDistanceFromPlayer;
+        }
     }
 }
