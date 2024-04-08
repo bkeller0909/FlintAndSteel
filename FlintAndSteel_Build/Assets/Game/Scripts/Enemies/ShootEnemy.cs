@@ -182,12 +182,12 @@ public class ShootEnemy : MonoBehaviour
         // instead of returning needs to try to maintain distance and go back towards player if player goes backwards (left)
 
         // Debug log to check if this function is called
-        if (showDebug == true) Debug.Log("Attempting to return to start position.");
+      
 
         float distanceToStart = Vector3.Distance(transform.position, startPosition);
 
         // Log the distance to start
-        if (showDebug == true) Debug.Log($"Distance to Start: {distanceToStart}");
+     
 
         if (distanceToStart > 0.1f)
         {
@@ -198,12 +198,12 @@ public class ShootEnemy : MonoBehaviour
             transform.Translate(directionToStart * moveSpeed * Time.deltaTime, Space.World);
 
             // Debug log to confirm direction and movement
-            if (showDebug == true) Debug.Log($"Moving towards start. Direction: {directionToStart}, Speed: {moveSpeed}");
+        
         }
         else
         {
             // Reached or very close to start position
-            if (showDebug == true) Debug.Log("Reached start position.");
+         
 
             isReturningToStart = false;
             movingForward = true;
@@ -230,11 +230,9 @@ public class ShootEnemy : MonoBehaviour
         {
             enemyCurrentHealth -= damage; // Lower Health with whatever damage was received
 
-            if (showDebug) Debug.Log("Enemy Health: " + enemyCurrentHealth);
-
+          
             if (enemyCurrentHealth <= 0) // If health is or less than 0 enemy is dead
             {
-                if (showDebug) Debug.Log("MainEnemy Killed");
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 Instantiate(smallDeathEffect, transform.position, Quaternion.identity);
                 gameObject.SetActive(false);
