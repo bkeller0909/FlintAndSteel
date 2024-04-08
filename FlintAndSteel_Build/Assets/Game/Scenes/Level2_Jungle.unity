@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 12747.777, g: 12719.322, b: 11909.415, a: 1}
+  m_IndirectSpecularColor: {r: 12838.953, g: 12800.385, b: 11964.681, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14000,6 +14000,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10025677b42dfbe4eba0484affec6637, type: 3}
+--- !u!4 &690977704 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1734885668923461208, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 197863533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &695595034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1832578c6ab76cf47bf356e3589f7c2f,
@@ -21218,6 +21224,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.053676806
       objectReference: {fileID: 0}
+    - target: {fileID: 6766906075004513749, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: UICenter
+      value: 
+      objectReference: {fileID: 690977704}
+    - target: {fileID: 6766906075004513749, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 197863538}
     - target: {fileID: 6879977428459504402, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
       propertyPath: m_LocalPosition.x

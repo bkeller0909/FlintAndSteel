@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4543.6587, g: 3005.3782, b: 1500.7775, a: 1}
+  m_IndirectSpecularColor: {r: 4260.972, g: 2855.9006, b: 1463.8829, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2221,6 +2221,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6766906075004513749, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: UICenter
+      value: 
+      objectReference: {fileID: 851647929}
+    - target: {fileID: 6766906075004513749, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 354281768}
     - target: {fileID: 6879977428459504402, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5041,6 +5051,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &851647929 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1734885668923461208, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 354281763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &867456652
 PrefabInstance:
   m_ObjectHideFlags: 0
