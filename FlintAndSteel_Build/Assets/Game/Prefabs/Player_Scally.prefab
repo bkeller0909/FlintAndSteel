@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 2270852940725324818}
   - component: {fileID: 1204996340662705327}
   - component: {fileID: 9153319621337311271}
+  - component: {fileID: 6766906075004513749}
   m_Layer: 10
   m_Name: Player_Scally
   m_TagString: Player
@@ -516,6 +517,22 @@ MonoBehaviour:
   hookRangeZip: 2
   isZipping: 0
   mAnimator: {fileID: 2632163183196574144}
+--- !u!114 &6766906075004513749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8e5b62a878f324ca3064910578f597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
+  UICenter: {fileID: 0}
+  crosshairSpeed: 5
+  maxDistanceFromPlayer: -400
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
