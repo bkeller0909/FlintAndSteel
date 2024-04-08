@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,6 +16,21 @@ public class PauseMenu : MonoBehaviour
     public AudioMixer audioMixer;
 
     [SerializeField] GameObject playerGO;
+
+
+    [Header("Controller")]
+    [SerializeField] Toggle controllerToggle;
+    public bool controllerON = false;
+    /*GameObject crosshair;*/
+
+    private void Awake()
+    {
+        if (GameManager.Instance.usingController == true)
+        {
+            controllerToggle.isOn = true;
+            controllerON = true;
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,7 +53,7 @@ public class PauseMenu : MonoBehaviour
 
         if (isPaused)
         {
-            Debug.Log("The game is paused");
+            //Debug.Log("The game is paused");
             Time.timeScale = 0;
 
             // clear selected button objects
@@ -48,7 +64,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("The game is no longer paused");
+            //Debug.Log("The game is no longer paused");
             Time.timeScale = 1;
         }
     }
@@ -76,5 +92,22 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GameManager.Instance.coinAmount = GameManager.Instance.coinsAtLevelStart;
+    }
+
+    public void Controller(bool isController)
+    {
+        controllerON = isController;
+
+        /*crosshair = GameObject.FindGameObjectWithTag("Cursor");*/
+        if (controllerON)
+        {
+            /*crosshair.SetActive(true);*/
+            GameManager.Instance.usingController = true;
+        }
+        else
+        {
+            /*crosshair.SetActive(false);*/
+            GameManager.Instance.usingController = false;
+        }
     }
 }

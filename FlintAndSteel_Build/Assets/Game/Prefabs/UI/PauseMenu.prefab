@@ -2084,6 +2084,8 @@ MonoBehaviour:
   pauseFirstButton: {fileID: 5022618353290248619}
   audioMixer: {fileID: 24100000, guid: 2069ffd2d8e3f2b4e8a6bff23244e2f3, type: 2}
   playerGO: {fileID: 0}
+  controllerToggle: {fileID: 0}
+  controllerON: 0
 --- !u!1 &7955644673633344884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2170,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 733084391228196195}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Controller
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &8860863798739826050
 GameObject:

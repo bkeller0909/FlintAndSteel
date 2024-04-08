@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
-    [SerializeField] private Toggle controllerToggle;
+    /*[SerializeField] public Toggle controllerToggle;*/
 
     [Header("Coins")]
     public int coinAmount = 0;
@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Controller")]
     public bool usingController = false;
-    GameObject crosshair;
 
     private void Awake()
     {
@@ -26,25 +25,17 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Anopther copy of the coin counter exists. Destroying this copy");
+            Debug.LogWarning("Another copy of the coin counter exists. Destroying this copy");
             Destroy(gameObject);
         }
 
         DontDestroyOnLoad(gameObject);
-        if(usingController == true)
+        /*if(usingController == true)
         {
             controllerToggle.enabled = true;
-        }
+        }*/
 
         registeredForReset = new List<ResetBehaviour>();
-    }
-
-    private void Update()
-    {
-        if(controllerToggle.isOn)
-        {
-            Controller(usingController);
-        }
     }
 
     public void IncrementCoinCount()
@@ -67,7 +58,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Controller(bool isController)
+    /*public void Controller(bool isController)
     {
         usingController = isController;
 
@@ -85,5 +76,5 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.Save();
             }
         }
-    }
+    }*/
 }
