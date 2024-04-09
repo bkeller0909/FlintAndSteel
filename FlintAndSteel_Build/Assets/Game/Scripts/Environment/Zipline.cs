@@ -42,6 +42,8 @@ public class Zipline : MonoBehaviour
 
     [SerializeField] private float playerZOffset;
 
+    [SerializeField] private float StepMultiplier = 1.0f;
+
     public bool zipping = false;
 
     private bool beginingOfZip = false; 
@@ -90,10 +92,11 @@ public class Zipline : MonoBehaviour
     {
         ModifiedZipSpeed = Mathf.Lerp(ModifiedZipSpeed, MaxZipSpeed, zipStepSpeed * Time.deltaTime);
         float step = ModifiedZipSpeed * Time.deltaTime;
-        localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step); // Move parent sphere
+        if(player.GetComponent<Rigidbody>().position == localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0))
+            localZip.GetComponent<Rigidbody>().position = Vector3.MoveTowards(localZip.GetComponent<Rigidbody>().position, targetZip.GetComponent<Rigidbody>().position, step); // Move parent sphere
         zipEffectClone.transform.position = zipEffectCloneSmoke.transform.position = localZip.GetComponent<Rigidbody>().position; // Move particle effects
         SetPlayerRotation(player); // keeps player rotation 
-        player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step * 2); // Gradually move player towards sphere so it doesn't look like they are teleporting
+        player.GetComponent<Rigidbody>().position = Vector3.MoveTowards(player.GetComponent<Rigidbody>().position, localZip.GetComponent<Rigidbody>().position + new Vector3(0, offsetZip, 0), step * StepMultiplier); // Gradually move player towards sphere so it doesn't look like they are teleporting
     }
 
     private void InitializeInitialMomentum()
