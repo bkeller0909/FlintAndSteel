@@ -98,16 +98,13 @@ public class PauseMenu : MonoBehaviour
     {
         controllerON = isController;
 
-        /*crosshair = GameObject.FindGameObjectWithTag("Cursor");*/
         if (controllerON)
         {
-            /*crosshair.SetActive(true);*/
             GameManager.Instance.usingController = true;
             Cursor.visible = false;
         }
         else
         {
-            /*crosshair.SetActive(false);*/
             GameManager.Instance.usingController = false;
             Cursor.visible = true;
         }
