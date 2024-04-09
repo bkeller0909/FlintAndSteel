@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7637.0615, g: 7597.962, b: 7555.509, a: 1}
+  m_IndirectSpecularColor: {r: 7638.333, g: 7598.907, b: 7556.1885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23890,7 +23890,7 @@ PrefabInstance:
     - target: {fileID: 1805417552566190499, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
       propertyPath: shootInterval
-      value: 1.45
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1805417552566190499, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
@@ -26388,7 +26388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8e5b62a878f324ca3064910578f597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshair: {fileID: 690738257}
+  crosshair: {fileID: 0}
   UICenter: {fileID: 1084779674}
   crosshairSpeed: 5
   maxDistanceFromPlayer: -400
