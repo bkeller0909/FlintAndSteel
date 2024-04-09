@@ -50,10 +50,15 @@ public class Zipline : MonoBehaviour
     private bool attachToZip = true;
     protected GameObject localZip;
     private float playerVelocityX = 0;
-    private float savedZPosition = 0;
+    private float savedZPosition;
 
     [SerializeField]
     public List<GameObject> zipTriggerList = new List<GameObject>();
+
+    private void Awake()
+    {
+        savedZPosition = player.GetComponent<Rigidbody>().position.z;
+    }
 
     // Update is called once per frame
     void Update()
@@ -170,7 +175,7 @@ public class Zipline : MonoBehaviour
             localZip.transform.localScale = new Vector3(zipScale, zipScale, zipScale);
             localZip.AddComponent<Rigidbody>().useGravity = false;
             localZip.GetComponent<Collider>().isTrigger = true;
-            savedZPosition = player.GetComponent<Rigidbody>().position.z;
+            
             playerVelocityX = player.GetComponent<Rigidbody>().velocity.x;
             player.GetComponent<Rigidbody>().useGravity = false;
             player.GetComponent<Rigidbody>().isKinematic = true;
@@ -219,7 +224,6 @@ public class Zipline : MonoBehaviour
 
         player.transform.parent = null;
         player.GetComponent<Rigidbody>().position = new Vector3(player.GetComponent<Rigidbody>().position.x, player.GetComponent<Rigidbody>().position.y, savedZPosition);
-        savedZPosition = 0;
         Destroy(localZip);
         StartingPos = Vector3.zero;
         localZip = null;
