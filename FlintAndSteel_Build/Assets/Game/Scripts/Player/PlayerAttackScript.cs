@@ -149,7 +149,7 @@ public class PlayerAttackScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Mouse click too close to the character. Sword not thrown");
+                    //Debug.Log("Mouse click too close to the character. Sword not thrown");
                 }
             }
         }
