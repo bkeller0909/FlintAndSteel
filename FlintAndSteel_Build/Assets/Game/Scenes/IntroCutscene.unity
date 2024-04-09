@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 12686.969, g: 12952.791, b: 13639.26, a: 1}
+  m_IndirectSpecularColor: {r: 12280.7295, g: 12513.365, b: 13191.549, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8894,6 +8894,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b591b00844a8a3449f55a9cb1d1024a, type: 3}
+--- !u!114 &875663823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8802314882543187400, guid: 2b591b00844a8a3449f55a9cb1d1024a,
+    type: 3}
+  m_PrefabInstance: {fileID: 875663822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &897261402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12194,7 +12206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOut: {fileID: 944150318}
-  controllerToggle: {fileID: 0}
+  controllerToggle: {fileID: 875663823}
   controllerON: 0
 --- !u!1001 &1202432627
 PrefabInstance:
@@ -19090,6 +19102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 42.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766906075004513749, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6883599622707659352, guid: dec7cd42960366243b5ad41d2112c616,
         type: 3}
