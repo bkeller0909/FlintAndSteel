@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
@@ -16,6 +16,7 @@ public class TextEvent : MonoBehaviour
     [SerializeField] GameObject nameTextGO;
     [SerializeField] GameObject messageTextGO;
     [SerializeField] GameObject speakerImageGO;
+    [SerializeField] GameObject controlsTextGO;
 
     bool messageActive;
     GameObject playerGO;
@@ -29,6 +30,15 @@ public class TextEvent : MonoBehaviour
 
         messageActive = false;
         playerGO = GameObject.FindGameObjectWithTag("Player");
+
+        if(GameManager.Instance.usingController == true)
+        {
+            controlsTextGO.GetComponent<TextMeshProUGUI>().text = "Next: SQR";
+        }
+        else
+        {
+            controlsTextGO.GetComponent<TextMeshProUGUI>().text = "Next: E";
+        }
     }
 
     private void Update()
@@ -48,6 +58,15 @@ public class TextEvent : MonoBehaviour
         if (messageActive)
         {
             Time.timeScale = 0.0f;
+        }
+
+        if (GameManager.Instance.usingController == true)
+        {
+            controlsTextGO.GetComponent<TextMeshProUGUI>().text = "Next: SQR";
+        }
+        else
+        {
+            controlsTextGO.GetComponent<TextMeshProUGUI>().text = "Next: E";
         }
     }
 
