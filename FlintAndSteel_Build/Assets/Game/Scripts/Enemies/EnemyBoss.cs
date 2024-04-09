@@ -28,7 +28,7 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private float dashDistance = 5.0f;
     [SerializeField]
-    private float dashSpeed = 20.0f;
+    private float dashSpeed = 15.0f;
 
     [SerializeField]
     private float chaseDuration = 5.0f;
