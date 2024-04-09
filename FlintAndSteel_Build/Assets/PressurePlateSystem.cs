@@ -16,10 +16,16 @@ public class PressurePlateSystem : MonoBehaviour
     [SerializeField] bool moveUp;
     [SerializeField] float moveSpeed;
 
+    [SerializeField] GameObject wispTrail;
+
     // Start is called before the first frame update
     void Start()
     {
         pressurePlate = pressurePlateGO.GetComponent<PressurePlate>();
+        if (wispTrail != null)
+        {
+            Debug.LogError("Wisp not found");
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +49,13 @@ public class PressurePlateSystem : MonoBehaviour
                 {
                     movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, -moveSpeed, 0);
                 }
+
+                //enable the wisp trail
+                if(wispTrail != null)
+                {
+                    wispTrail.SetActive(true);
+                }
+                
             }
             // if the pressure plate is deactivated, move object back to original position
             else
@@ -54,6 +67,12 @@ public class PressurePlateSystem : MonoBehaviour
                 else
                 {
                     movingObjectGO.GetComponent<Rigidbody>().velocity = new Vector3(0, moveSpeed, 0);
+                }
+
+                //Disable the wisp trail if the plate is not set
+                if (wispTrail != null)
+                {
+                    wispTrail.SetActive(false);
                 }
             }
         }

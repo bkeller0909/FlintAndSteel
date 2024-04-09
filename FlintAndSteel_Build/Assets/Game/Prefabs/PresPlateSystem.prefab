@@ -294,10 +294,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4def95f346aca4f86ddb03f9ace1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 0}
+  isBossDoor: 0
   pressurePlateGO: {fileID: 5016243242994518802}
   movingObjectGO: {fileID: 117702258654817475}
   moveUp: 1
   moveSpeed: 7
+  wispTrail: {fileID: 0}
 --- !u!1 &8221617931461046470
 GameObject:
   m_ObjectHideFlags: 0
