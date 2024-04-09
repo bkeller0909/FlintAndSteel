@@ -181,6 +181,8 @@ public class EnemyBoss : MonoBehaviour
         if (isVulnerable)
         {
             health -= damage;
+            dashSpeed = dashSpeed + 3.0f;
+
             if (health <= 0)
             {
                 //Boss is defeated
@@ -202,9 +204,8 @@ public class EnemyBoss : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             TakeDamage(10.0f);
-            //Debug.LogWarning("The boss has taken 10 damage");
-            //Debug.LogWarning("Health left: " + health);
-            dashSpeed = dashSpeed + 3.0f;
+            player.GetComponent<PlayerAttackScript>().SwordRecall();
+
         }
 
         if (other.CompareTag("Player"))

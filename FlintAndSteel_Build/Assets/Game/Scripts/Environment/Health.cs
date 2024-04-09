@@ -112,7 +112,34 @@ public class Health : MonoBehaviour
         }
 		else if (dead && SceneManager.GetActiveScene().name == "Level3_cBoss")
 		{
-            SceneManager.LoadScene("Level3_cBoss");
+            //player drop item
+            if (tag == "Player")
+            {
+                throwing = GetComponent<Throwing>();
+
+                GetComponent<Throwing>().enabled = false;
+                GetComponent<PlayerMove>().enabled = false;
+                GetComponent<PlayerAttackScript>().enabled = false;
+                GetComponent<PlayerZipline>().enabled = false;
+				GetComponent<Rigidbody>().isKinematic = true;
+            }
+
+            if (!died)
+            {
+                if (throwing && throwing.heldObj && throwing.heldObj.tag == "Pickup")
+                    throwing.ThrowPickup();
+
+                if (spawnOnDeath.Length != 0)
+                    foreach (GameObject obj in spawnOnDeath)
+                        Instantiate(obj, transform.position, Quaternion.Euler(Vector3.zero));
+
+                if (tag == "Player")
+                    playerModel.SetActive(false);
+
+                died = true;
+            }
+
+			StartCoroutine(DelayPlayerRespawnBoss(0.75f));
         }
 	}
 	
@@ -241,6 +268,13 @@ public class Health : MonoBehaviour
 		
 		PlayerRespawn();
 	}
+
+    IEnumerator DelayPlayerRespawnBoss(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        SceneManager.LoadScene("Level3_cBoss");
+    }
 }
 
 // NOTE: if you just want an object to play impact sounds, give it this script, but uncheck for impact damage

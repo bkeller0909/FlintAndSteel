@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7638.302, g: 7598.9424, b: 7556.0947, a: 1}
+  m_IndirectSpecularColor: {r: 7637.0615, g: 7597.962, b: 7555.509, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.86
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
@@ -3443,7 +3443,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: dec7cd42960366243b5ad41d2112c616,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2000213842}
   m_SourcePrefab: {fileID: 100100000, guid: dec7cd42960366243b5ad41d2112c616, type: 3}
 --- !u!1 &285061180 stripped
 GameObject:
@@ -14599,6 +14603,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1129775921}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1084779674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1734885668923461208, guid: 37a1aa305649e9147931665a2fcd7ab5,
+    type: 3}
+  m_PrefabInstance: {fileID: 354281763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1090372796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22163,7 +22173,7 @@ PrefabInstance:
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.86
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
@@ -25906,7 +25916,7 @@ PrefabInstance:
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.86
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 986566925162718447, guid: f3fd5389058c7994698043ec76225da8,
         type: 3}
@@ -26366,6 +26376,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 265289388}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2000213842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000213826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8e5b62a878f324ca3064910578f597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 690738257}
+  UICenter: {fileID: 1084779674}
+  crosshairSpeed: 5
+  maxDistanceFromPlayer: -400
 --- !u!1001 &2001354840
 PrefabInstance:
   m_ObjectHideFlags: 0
