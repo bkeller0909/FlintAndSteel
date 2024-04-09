@@ -146,11 +146,7 @@ public class FlyingBomber : MonoBehaviour
     {
         float randomFloat = Random.value;//generates a random number between 0 and 1
 
-       //if the random number is less than or equal to 0.5 it spawns the fruit
-        if (randomFloat <= 0.5f)
-        {
+        //if the random number is less than or equal to 0.5 it spawns the fruit
         Instantiate(fruitPrefab, transform.position, Quaternion.identity);  
-            
-        }
     }
 }
