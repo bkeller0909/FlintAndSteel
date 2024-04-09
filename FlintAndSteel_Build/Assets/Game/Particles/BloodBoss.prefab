@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1431065373651507534}
   - component: {fileID: 6801721588676636019}
   - component: {fileID: 4015691803030509965}
-  - component: {fileID: -6150752381620253786}
   - component: {fileID: 6387013705127691338}
+  - component: {fileID: -7964245615915933179}
   m_Layer: 0
   m_Name: BloodBoss
   m_TagString: Untagged
@@ -4897,19 +4897,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-6150752381620253786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7886164264096526582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2066eb0716594943bef7ae0056c3c6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clangSounds: []
 --- !u!82 &6387013705127691338
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4920,10 +4907,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2d3a79a3349d6114db5a974b4bfd2844, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
-  m_Pitch: 1
+  m_Volume: 0.4
+  m_Pitch: 0.63
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -5006,3 +4993,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7964245615915933179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7886164264096526582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1dc6f39204081d47a22b1c27708dc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 78280a852fa108a49b82e9f086011e0e, type: 3}
