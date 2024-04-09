@@ -23,7 +23,10 @@ public class ThrownSword : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackScript = player.GetComponent<PlayerAttackScript>();
 
-        trail = trailGO.GetComponent<TrailRenderer>();
+        if (trailGO != null ) 
+        {
+            trail = trailGO.GetComponent<TrailRenderer>();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -110,16 +113,19 @@ public class ThrownSword : MonoBehaviour
 
     private void Update()
     {
-        if (playerAttackScript.isSwordThrown)
+        if (trailGO != null) 
         {
-            trail.gameObject.SetActive(true);
-            trail.emitting = true;
-            trail.time = 0.05f;
-        }
-        else
-        {
-            trail.emitting = false;
-            trail.gameObject.SetActive(false);
+            if (playerAttackScript.isSwordThrown)
+            {
+                trail.gameObject.SetActive(true);
+                trail.emitting = true;
+                trail.time = 0.05f;
+            }
+            else
+            {
+                trail.emitting = false;
+                trail.gameObject.SetActive(false);
+            }
         }
     }
 }
