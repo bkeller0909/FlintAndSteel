@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 12941.631, g: 12902.025, b: 12050.071, a: 1}
+  m_IndirectSpecularColor: {r: 12891.49, g: 12839.389, b: 11980.767, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13486,6 +13486,136 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1443269266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &648589699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: numOfMessages
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[0]
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: nameText.Array.data[1]
+      value: Flint
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[0]
+      value: I know we be in a jungle, but yer getting lost already!?
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: messageText.Array.data[1]
+      value: We have to go the other way.
+      objectReference: {fileID: 0}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
+    - target: {fileID: 320530506433659665, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: speakerImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea01257c46d0234e96a8b2f22ce7415,
+        type: 3}
+    - target: {fileID: 905634188919814519, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274729628526701638, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_Name
+      value: TextEventPrefab (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2928375949824598041, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -79.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424464355808542174, guid: a1c123b23fa093646a93015aa00ecc2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a1c123b23fa093646a93015aa00ecc2d, type: 3}
 --- !u!1001 &653908222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45441,6 +45571,7 @@ SceneRoots:
   - {fileID: 1153154636}
   - {fileID: 1983237439}
   - {fileID: 115654504}
+  - {fileID: 648589699}
   - {fileID: 179324022}
   - {fileID: 1669255731}
   - {fileID: 2089421220}
