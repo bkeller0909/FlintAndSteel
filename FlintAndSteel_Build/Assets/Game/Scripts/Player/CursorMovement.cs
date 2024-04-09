@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CursorMovement : MonoBehaviour
 {
-    [SerializeField] private Image crosshair;
+    [SerializeField] private GameObject crosshair;
     [SerializeField] private Transform UICenter;
 
     [SerializeField] private float crosshairSpeed = 5f; // Adjust the speed as needed
