@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7638.333, g: 7598.907, b: 7556.1885, a: 1}
+  m_IndirectSpecularColor: {r: 7640.0137, g: 7600.591, b: 7558.5635, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23871,6 +23871,11 @@ PrefabInstance:
       propertyPath: cannonGO
       value: 
       objectReference: {fileID: 552909801}
+    - target: {fileID: 1805417552566190499, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1805417552566190499, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
       propertyPath: bossMaterial
