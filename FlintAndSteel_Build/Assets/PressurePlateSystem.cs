@@ -22,10 +22,6 @@ public class PressurePlateSystem : MonoBehaviour
     void Start()
     {
         pressurePlate = pressurePlateGO.GetComponent<PressurePlate>();
-        if (wispTrail != null)
-        {
-            Debug.LogError("Wisp not found");
-        }
     }
 
     // Update is called once per frame
