@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -30,12 +31,13 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        /*if(usingController == true)
-        {
-            controllerToggle.enabled = true;
-        }*/
-
         registeredForReset = new List<ResetBehaviour>();
+    }
+
+    private void Update()
+    {
+        KillRestartLevel();
+        KillToMenu();
     }
 
     public void IncrementCoinCount()
@@ -58,23 +60,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*public void Controller(bool isController)
+    // kills game to the main menu
+    public void KillToMenu()
     {
-        usingController = isController;
-
-        crosshair = GameObject.FindGameObjectWithTag("Cursor");
-        if (crosshair != null)
+        if (Input.GetKeyDown(KeyCode.Minus))
         {
-            if (usingController)
-            {
-                crosshair.SetActive(true);
-                PlayerPrefs.Save();
-            }
-            else
-            {
-                crosshair.SetActive(false);
-                PlayerPrefs.Save();
-            }
+            Time.timeScale = 1;
+            SceneManager.LoadScene("IntroCutscene");
         }
-    }*/
+    }
+
+    // kills level and sets coins to the amount the player had at the start of the level
+    public void KillRestartLevel()
+    {
+        if (Input.GetKeyDown(KeyCode.Equals))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            coinAmount = coinsAtLevelStart;
+        }
+    }
 }
