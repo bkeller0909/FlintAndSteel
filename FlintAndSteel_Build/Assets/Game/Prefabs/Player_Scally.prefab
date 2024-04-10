@@ -1437,11 +1437,6 @@ PrefabInstance:
       propertyPath: m_MinVertexDistance
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2346411797490626939, guid: 4d864e05331feb546b71d58412e74d73,
-        type: 3}
-      propertyPath: trailGO
-      value: 
-      objectReference: {fileID: 4065937724166654835}
     - target: {fileID: 2425186855525397664, guid: 4d864e05331feb546b71d58412e74d73,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1512,6 +1507,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Steel
       objectReference: {fileID: 0}
+    - target: {fileID: 8248110035082137355, guid: 4d864e05331feb546b71d58412e74d73,
+        type: 3}
+      propertyPath: m_Time
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248110035082137355, guid: 4d864e05331feb546b71d58412e74d73,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8929846589228709028, guid: 4d864e05331feb546b71d58412e74d73,
         type: 3}
       propertyPath: m_Size.z
@@ -1557,12 +1562,6 @@ MeshRenderer:
 --- !u!23 &3715860345570323234 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7403274960204930020, guid: 4d864e05331feb546b71d58412e74d73,
-    type: 3}
-  m_PrefabInstance: {fileID: 6137513565388730566}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4065937724166654835 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7872794352776559541, guid: 4d864e05331feb546b71d58412e74d73,
     type: 3}
   m_PrefabInstance: {fileID: 6137513565388730566}
   m_PrefabAsset: {fileID: 0}

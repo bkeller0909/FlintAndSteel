@@ -119,7 +119,6 @@ public class ThrownSword : MonoBehaviour
             {
                 trail.gameObject.SetActive(true);
                 trail.emitting = true;
-                trail.time = 0.05f;
             }
             else
             {
