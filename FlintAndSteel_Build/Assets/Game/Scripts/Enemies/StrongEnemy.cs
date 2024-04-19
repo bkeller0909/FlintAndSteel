@@ -234,23 +234,31 @@ public class StrongEnemy : MonoBehaviour
         if (showDebug) Debug.Log("Attempting to return to start position.");
 
         Vector3 directionToStart = (startPosition - transform.position).normalized;
-        directionToStart.z = 0; // Keep Z-axis unchanged
+        float step = moveSpeed * Time.deltaTime;
 
+        // Set the correct facing based on the direction to start position
         if (directionToStart.x < 0)
         {
-            transform.localScale = new Vector3(1, 1, 1); // Facing left
+            transform.localScale = new Vector3(1, 1, 1); // Face left (assuming scale.x = 1 is facing left)
         }
         else if (directionToStart.x > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Facing right
+            transform.localScale = new Vector3(-1, 1, 1); // Face right (assuming scale.x = -1 is facing right)
         }
 
-        transform.Translate(directionToStart * moveSpeed * Time.deltaTime, Space.World);
+        // Move towards the start position
+        transform.position = Vector3.MoveTowards(transform.position, startPosition, step);
 
-        if (Vector3.Distance(transform.position, startPosition) <= 0.1f)
+        // Check if the enemy has reached the start position and switch to patrolling state
+        if (Vector3.Distance(transform.position, startPosition) < 0.1f)
         {
             if (showDebug) Debug.Log("Reached start position.");
-            currentState = State.Patrolling;
+            {
+                travelledDistance = 0;
+                movingForward = true;  // Always start patrolling moving forward
+                transform.localScale = movingForward ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
+                currentState = State.Patrolling;
+            }
         }
     }
 
