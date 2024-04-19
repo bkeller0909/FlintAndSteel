@@ -9,6 +9,10 @@ public class ThrownSword : MonoBehaviour
     private float platformSpawnOffset;
     private float platformSpawnDirection;
 
+    [SerializeField] private GameObject woodImpact;
+    [SerializeField] private GameObject sandImpact;
+    [SerializeField] private GameObject dirtImpact;
+
     [SerializeField] private GameObject trailGO;
     private TrailRenderer trail;
 
@@ -60,6 +64,33 @@ public class ThrownSword : MonoBehaviour
         {
             triggerEntered = true;
             Instantiate(sparks, transform.position, Quaternion.Euler(0, Vector3.Angle(other.transform.position, transform.position), 0));
+            playerAttackScript.SwordRecall();
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Wood"))
+        {
+            triggerEntered = true;
+            Instantiate(woodImpact, transform.position, Quaternion.Euler(0, Vector3.Angle(other.transform.position, transform.position), 0));
+            playerAttackScript.SwordRecall();
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Grass"))
+        {
+            triggerEntered = true;
+            Instantiate(dirtImpact, transform.position, Quaternion.Euler(0, Vector3.Angle(other.transform.position, transform.position), 0));
+            playerAttackScript.SwordRecall();
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Sand"))
+        {
+            triggerEntered = true;
+            Instantiate(sandImpact, transform.position, Quaternion.Euler(0, Vector3.Angle(other.transform.position, transform.position), 0));
             playerAttackScript.SwordRecall();
             Destroy(gameObject);
             return;
