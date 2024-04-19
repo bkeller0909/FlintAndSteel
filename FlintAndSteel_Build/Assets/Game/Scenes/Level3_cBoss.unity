@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7640.0137, g: 7600.591, b: 7558.5635, a: 1}
+  m_IndirectSpecularColor: {r: 7636.4785, g: 7597.0303, b: 7554.4385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23856,6 +23856,26 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.16176778
       objectReference: {fileID: 0}
+    - target: {fileID: 1676054825494982176, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676054825494982176, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676054825494982176, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676054825494982176, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1805417552566190499, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
       propertyPath: health
@@ -24681,6 +24701,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DashCharge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683641953981115844, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.173
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683641953981115844, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683641953981115844, guid: af9dd9a9ace2df347be1072abfcb6bf9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5724397193373563512, guid: af9dd9a9ace2df347be1072abfcb6bf9,
         type: 3}
