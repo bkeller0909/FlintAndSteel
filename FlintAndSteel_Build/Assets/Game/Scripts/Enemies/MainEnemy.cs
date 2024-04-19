@@ -17,6 +17,7 @@ public class BasicEnemy : MonoBehaviour
     [Header("Targeting Options")]
     [SerializeField] private float detectionRange = 5f;
     [SerializeField] private bool detectionEnabled = true;
+    [SerializeField] private LayerMask playerLayer = 1 << 10;
     [SerializeField] private Transform player;
 
     [Header("Hit Effects")]
@@ -110,11 +111,21 @@ public class BasicEnemy : MonoBehaviour
     /// </summary>
     private void CheckForPlayer()
     {
-        if (player && Vector3.Distance(transform.position, player.position) <= detectionRange)
+        if (player)
         {
-            currentState = State.Chasing;
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, directionToPlayer, out hit, detectionRange, playerLayer))
+            {
+                if (hit.transform == player)
+                {
+                    currentState = State.Chasing;
+                    return;
+                }
+            }
         }
-        else if (currentState == State.Chasing)
+
+        if (currentState == State.Chasing)
         {
             currentState = State.Returning;
         }

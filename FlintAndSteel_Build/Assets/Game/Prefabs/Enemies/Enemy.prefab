@@ -109,6 +109,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1048577
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   groundCheckDistance: 5
   detectionRange: 1
   detectionEnabled: 1
@@ -328,6 +331,7 @@ MonoBehaviour:
   emptyHeart: {fileID: 0}
   dead: 0
   flashing: 0
+  died: 0
   respawnPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &3105486157919254348
 PrefabInstance:
