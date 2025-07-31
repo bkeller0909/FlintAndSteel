@@ -1,6 +1,6 @@
 # Flint and Steel
 
-**Flint and Steel** is a fast-paced, 2D adventure/action platformer. Players must platform, slash, and strategize their way through dangerous enemy-filled levels — culminating in a challenging boss fight.
+**Flint and Steel** is a fast-paced, 2D adventure/action platformer. Players must platform, slash, and strategize their way through dangerous enemy filled levels, culminating in a challenging boss fight.
 
 **Made in 4 months** by a student game development team as part of an academic project.  
 Designed mainly for keyboard and mouse input with experimental controller support.
